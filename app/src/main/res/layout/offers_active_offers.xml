@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+
+        <ImageView
+            android:id="@+id/back_myorder"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/ic_notification_home" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Offers"
+            android:textColor="@color/blackcolor1"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:id="@+id/back_myorder1"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@drawable/ic_market" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/tab_myorder"
+        android:background="@drawable/tab_back"
+        app:tabSelectedTextColor="@color/blackcolor1"
+        app:tabIndicatorColor="@android:color/background_dark"
+        android:layout_marginEnd="20dp"
+        app:tabTextColor="@color/color_store_page"
+        android:layout_height="45dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/complete_tab"
+            android:text="@string/Active_Offers" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pending_order_tab"
+            android:text="@string/Add_New_Offer" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_pager_myorder"
+        android:layout_margin="10dp" />
+</LinearLayout>

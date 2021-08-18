@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/n_ssetting"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+        <ImageView
+            android:id="@+id/ic_backk"
+            android:layout_width="25dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left"
+            app:srcCompat="@drawable/backk" />
+        <TextView
+            android:id="@+id/txt_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:textColor="@color/filter_by"
+            android:textSize="20dp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/General_Settings" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@string/General_Settings1"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:thumbTint="@drawable/switch_thum_light"
+            app:trackTint="@drawable/switch_tracker_light" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view11"
+        android:layout_width="350dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="0.5dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@string/General_Settings2"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:thumbTint="@drawable/switch_thum_light"
+            app:trackTint="@drawable/switch_tracker_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_width="350dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="0.5dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textView145"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@string/Events"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:thumbTint="@drawable/switch_thum_light"
+            app:trackTint="@drawable/switch_tracker_light" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view31"
+        android:layout_width="350dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="0.5dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@string/New_Ads"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:thumbTint="@drawable/switch_thum_light"
+            app:trackTint="@drawable/switch_tracker_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view51"
+        android:layout_width="350dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="0.5dp" />
+
+</LinearLayout>

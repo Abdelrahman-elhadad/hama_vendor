@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/twenz_store_page"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/khate" />
+
+        <ImageView
+            android:id="@+id/love_img"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            android:layout_marginStart="170dp"
+            app:layout_constraintStart_toStartOf="@+id/twenz_store_page"
+            app:layout_constraintTop_toTopOf="@+id/twenz_store_page"
+            app:layout_constraintEnd_toEndOf="@+id/twenz_store_page"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:srcCompat="@drawable/set" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="500 KWD"
+            android:id="@+id/ttt"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/twenz_store_page"
+            android:textColor="@color/textviewhome">
+
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingEnd="8dp"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/twenz_store_page">
+
+            <TextView
+                android:id="@+id/storepage_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairosemibold"
+                android:gravity="center"
+                android:text="@string/gold_ring"
+                android:textColor="@color/blackcolor1"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.3"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/store_page_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textColor="@color/black" />
+
+
+                <TextView
+                    android:id="@+id/store_page_number1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:text="1000 Kwd"
+                    android:textColor="@color/blackcolor" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

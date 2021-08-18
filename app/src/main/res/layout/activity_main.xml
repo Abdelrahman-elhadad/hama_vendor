@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/constrain_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+   >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/hama_logo"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/cairobold"
+        android:textSize="20dp"
+        android:layout_marginBottom="180dp"
+        android:textColor="@color/dgdg"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_height="wrap_content"
+        android:text="@string/vendor_portal" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="347dp"
+        android:layout_height="8dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:maxWidth="347dp"
+        android:maxHeight="8dp"
+        android:minWidth="15dp"
+        android:minHeight="15dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:progress="@android:integer/config_shortAnimTime"
+        android:progressDrawable="@drawable/back_seekbar"
+        android:thumb="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.67" />
+</androidx.constraintlayout.widget.ConstraintLayout>

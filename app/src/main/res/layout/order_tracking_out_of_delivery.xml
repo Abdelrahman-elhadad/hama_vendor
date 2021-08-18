@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/liner_order_traking"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+
+        <ImageView
+            android:id="@+id/imageback"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@drawable/ic_icon_ionic_ios_arrow_back" />
+
+        <TextView
+            android:id="@+id/txt_order_tracking_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Language_Settings19"
+            android:textColor="@color/blackcolor1"
+            android:textSize="25dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <fragment
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:id="@+id/googleMap"
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass" />
+
+</LinearLayout>

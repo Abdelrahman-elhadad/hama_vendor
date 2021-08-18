@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/back_item_order"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:orientation="horizontal"
+        android:padding="1dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@color/my_cart2"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="97dp"
+                android:layout_height="115dp"
+                android:padding="1dp"
+                app:srcCompat="@drawable/t_ring" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/gold_ring"
+                android:textColor="@color/blackcolor1"
+                android:textSize="17dp" />
+
+            <TextView
+                android:id="@+id/text111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="150KWD"
+                android:textColor="@color/my_cart1"></TextView>
+
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="28 - Aug - 2020" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView138"
+                android:layout_width="match_parent"
+                android:textSize="13dp"
+                android:gravity="end"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/blackcolor"
+                android:fontFamily="@font/cairobold"
+                android:layout_height="wrap_content"
+                android:text="K21" />
+
+            <TextView
+                android:id="@+id/textView139"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/cairobold"
+                android:textColor="@color/blackcolor"
+                android:textSize="13dp"
+                android:gravity="end"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:text="@string/gram" />
+
+            <TextView
+                android:id="@+id/textView140"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/cairobold"
+                android:textColor="@color/blackcolor"
+                android:textSize="13dp"
+                android:gravity="end"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:text="17.5" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView14440"
+        android:layout_width="match_parent"
+        android:fontFamily="@font/cairoregular"
+        android:textColor="@color/blackcolor"
+        android:textSize="14dp"
+        android:gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/tracking" />
+
+</LinearLayout>

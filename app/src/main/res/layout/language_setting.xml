@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent_setting_lan"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left"
+            android:src="@drawable/backk" />
+        <TextView
+            android:id="@+id/txt_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:textColor="@color/filter_by"
+            android:textSize="20sp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Language_Settings" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_ar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView82"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/cairosemibold"
+            android:gravity="start"
+            android:text="العربية"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/color_navigation"
+            android:checked="true"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view11"
+        android:layout_width="310dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="0.5dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_en"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/cairosemibold"
+            android:gravity="start"
+            android:text="English"
+            android:textColor="@color/my_profile"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/color_navigation"
+            android:checked="false"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/view12"
+        android:layout_width="310dp"
+        android:background="@drawable/back_my_profile"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_height="0.5dp" />
+</LinearLayout>

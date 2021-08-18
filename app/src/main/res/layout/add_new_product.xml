@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+
+        <ImageView
+            android:id="@+id/toolbar_img"
+            android:layout_width="22dp"
+            android:layout_height="23dp"
+            android:layout_gravity="start"
+            app:srcCompat="@drawable/backk" />
+
+        <TextView
+            android:id="@+id/home1"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/addd"
+            android:textColor="@color/blackcolor1"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/notification_img"
+            android:layout_width="20dp"
+            android:layout_height="23dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ic_market" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:fontFamily="@font/cairobold"
+        android:textSize="18dp"
+        android:layout_height="wrap_content"
+      android:layout_marginStart="10dp"
+        android:text="@string/hlhlh" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="14dp"
+        android:fontFamily="@font/cairolight"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ghhg"
+        android:text="@string/klkkl" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairolight"
+            android:textSize="14dp"
+            android:text="@string/yiyi"
+            android:textColor="@color/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="150dp"
+            android:text="@string/opopo"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back_spinner"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"  />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:elevation="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            app:layout_constraintTop_toTopOf="@+id/spinner"
+            app:srcCompat="@drawable/ic_icon_ionic_ios_arrow_back" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/back_spinner"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"  />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:elevation="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner2"
+            app:layout_constraintTop_toTopOf="@+id/spinner2"
+            app:srcCompat="@drawable/ic_icon_ionic_ios_arrow_back" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/spinner"
+            android:text="@string/Product_Name"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:paddingStart="10dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/back_spinner"
+            android:hint="@string/silver"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            android:text="@string/Product_Name"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView99"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/Product_Name"
+            android:textColor="@color/text"
+            android:textSize="14dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        <Spinner
+            android:id="@+id/spinnerb"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back_spinner"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"  />
+        <ImageView
+            android:id="@+id/imageView55"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:elevation="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerb"
+            app:layout_constraintTop_toTopOf="@+id/spinnerb"
+            app:srcCompat="@drawable/ic_group_4083" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="@string/Gram"
+            android:gravity="center"
+            android:fontFamily="@font/cairolight"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back_spinner2"
+            app:layout_constraintStart_toEndOf="@+id/spinnerb"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <Spinner
+            android:id="@+id/spinner9"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/back_spinner"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView99"  />
+
+        <ImageView
+            android:id="@+id/imageView66"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:elevation="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/spinner9"
+            app:layout_constraintTop_toTopOf="@+id/spinner9"
+            app:srcCompat="@drawable/ic_group_4083" />
+
+        <TextView
+            android:id="@+id/textView98"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerb"
+            android:text="@string/Price_Type"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView98"
+                android:buttonTint="@color/color_navigation"
+                android:text="@string/find" />
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_marginStart="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/color_navigation"
+                android:checked="true"
+                android:layout_marginEnd="60dp"
+                android:layout_marginTop="45dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner9"
+                android:text="@string/save" />
+
+
+
+        <TextView
+            android:id="@+id/textView988"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+            android:text="@string/Product_Price"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName12"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="80dp"
+            android:ems="10"
+            android:paddingStart="10dp"
+            android:inputType="textPersonName"
+            android:background="@drawable/back_spinner"
+            android:hint="1000"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/textView988"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="KWD"
+            android:gravity="center"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/cairolight"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/back_spinner2"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName12"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+
+        <TextView
+            android:id="@+id/textView986"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12"
+            android:text="@string/Caliber"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal"
+            android:id="@+id/ggg"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginEnd="20dp"
+            tools:listitem="@layout/item_rv1_add_product"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView986"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textVie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ggg"
+            android:text="@string/Available_sizes"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal"
+            android:id="@+id/rv"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginEnd="20dp"
+            tools:listitem="@layout/item_rv1_add_product"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textVie"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rv"
+            android:text="@string/Available_sizes"
+            android:fontFamily="@font/cairolight"
+            android:textColor="@color/text"
+            android:layout_marginTop="10dp"
+            android:textSize="14dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/kkkkk"
+            tools:listitem="@layout/item_rv1_add_product"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kkkkk"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="172dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@color/dgdg"
+                android:gravity="center"
+                android:text="@string/Next"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

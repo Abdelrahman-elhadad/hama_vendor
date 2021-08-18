@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/jkjkjk"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="25dp"
+            android:layout_height="23dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/backk" />
+
+        <TextView
+            android:id="@+id/txt_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Contact_Usss"
+            android:textColor="@color/filter_by"
+            android:textSize="20dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/blackcolor1"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/rate_hama3" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:textSize="13dp"
+                android:fontFamily="@font/cairoregular"
+                android:textColor="@color/blackcolor1"
+                android:layout_height="wrap_content"
+                android:text="@string/rate_hama4" />
+
+
+
+            <View
+                android:id="@+id/view18"
+                android:layout_width="match_parent"
+                android:background="@drawable/back_view_appointment"
+                android:layout_marginTop="80dp"
+                android:layout_height="0.5dp" />
+            <ImageView
+                android:id="@+id/phone_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@drawable/ic_icon_feather_phone_call" />
+
+            <TextView
+                android:id="@+id/phone_unmber"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:textColor="@color/blackcolor1"
+                android:textSize="15dp"
+                android:fontFamily="@font/cairobold"
+                android:layout_height="wrap_content"
+                android:text="+972 595 782 386" />
+
+            <TextView
+                android:id="@+id/textView110"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairoregular"
+                android:textColor="@color/blackcolor1"
+                android:gravity="center"
+                android:text="Sun - Thu | 09am - 9pm" />
+
+
+            <View
+                android:id="@+id/view1118"
+                android:layout_width="match_parent"
+                android:background="@drawable/back_view_appointment2"
+                android:layout_marginTop="20dp"
+                android:layout_height="0.5dp" />
+
+
+            <ImageView
+                android:id="@+id/icon_email"
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_height="30dp"
+                app:srcCompat="@drawable/ic_icon_material_email" />
+
+            <TextView
+                android:id="@+id/info_txt"
+                android:layout_width="match_parent"
+                android:fontFamily="@font/cairobold"
+                android:textColor="@color/blackcolor1"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:text="info@info.com" />
+
+            <TextView
+                android:id="@+id/textView113"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairoregular"
+                android:textSize="13dp"
+                android:gravity="center"
+                android:textColor="@color/blackcolor1"
+                android:text="@string/boking" />
+            <View
+                android:id="@+id/view118"
+                android:layout_width="match_parent"
+                android:background="@drawable/back_view_appointment"
+                android:layout_marginTop="20dp"
+                android:layout_height="0.5dp" />
+
+            <TextView
+                android:id="@+id/textView114"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13dp"
+                android:fontFamily="@font/cairoregular"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/blackcolor1"
+                android:text="@string/boking2" />
+            <View
+                android:id="@+id/view1148"
+                android:layout_width="match_parent"
+                android:background="@drawable/back_view_appointment2"
+                android:layout_marginTop="20dp"
+                android:layout_height="0.5dp" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="265dp"
+                android:layout_marginTop="140dp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/back_ground_shadow"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/boking_button" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

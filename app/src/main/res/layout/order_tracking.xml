@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/liner_order_traking"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/transparent_color">
+
+        <ImageView
+            android:id="@+id/imageback"
+            android:layout_width="25dp"
+            android:layout_height="23dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/backk" />
+
+        <TextView
+            android:id="@+id/txt_order_tracking_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Order_Tracking44"
+            android:textColor="@color/blackcolor1"
+            android:textSize="25dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_order_tracking_collapse"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_margin="10dp"
+        tools:listitem="@layout/item_rv_order_tracking"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:id="@+id/con_tracking"
+        android:background="@color/white"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/textView137"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/Order_Tracking4"
+            android:textSize="15dp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/blackcolor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView36"
+            android:layout_width="9dp"
+            android:layout_height="14dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_top_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
