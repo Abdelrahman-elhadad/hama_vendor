@@ -20,6 +20,7 @@
         <activity android:name=".activity.Register" />
         <activity android:name=".activity.Mobile_verification" />
         <activity android:name=".activity.EnterNewPassword" />
+        <activity android:name=".activity.ButtomNavigation" />
 
 
 

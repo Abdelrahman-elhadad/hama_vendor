@@ -59,4 +59,10 @@ public class Login extends BaseActivity {
                 Intent i = new Intent(getApplicationContext(), Register.class);
         startActivity(i);
     }
+
+    public void login(View view) {
+        Intent intent = new Intent(getApplicationContext(), ButtomNavigation.class);
+        startActivity(intent);
+        finish();
+    }
 }

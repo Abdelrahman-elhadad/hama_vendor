@@ -165,6 +165,7 @@
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/cairobold"
                     android:gravity="center"
+                    android:textSize="14dp"
                     android:onClick="login"
                     android:textColor="@color/color_navigation"
                     android:text="@string/log_now" />
@@ -181,7 +182,7 @@
                 android:onClick="nextRegister"
                 android:text="@string/REGISTER"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="13sp" />
 
             <ProgressBar
                 android:id="@+id/pb_sign"

@@ -35,10 +35,10 @@ public class ActiveOffers extends BaseFragment {
         active_offer_rv=(RecyclerView)view.findViewById(R.id.active_offer);
 
         activeOffers = new ArrayList<>();
-        activeOffers bs = new activeOffers(R.drawable.activeOffers_img, "Gold Ring");
-        activeOffers bs2 = new activeOffers(R.drawable.activeOffers_img, "Gold Ring");
-        activeOffers bs3 = new activeOffers(R.drawable.activeOffers_img, "Gold Ring");
-        activeOffers bs4 = new activeOffers(R.drawable.activeOffers_img, "Gold Ring");
+        activeOffers bs = new activeOffers(R.drawable.khatema, "Gold Ring");
+        activeOffers bs2 = new activeOffers(R.drawable.khatema, "Gold Ring");
+        activeOffers bs3 = new activeOffers(R.drawable.khatema, "Gold Ring");
+        activeOffers bs4 = new activeOffers(R.drawable.khatema, "Gold Ring");
         activeOffers.add(bs);
         activeOffers.add(bs2);
         activeOffers.add(bs3);

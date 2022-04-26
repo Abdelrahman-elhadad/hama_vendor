@@ -129,7 +129,7 @@
                 android:layout_marginTop="23dp"
                 android:background="@drawable/back_ground_shadow"
                 android:fontFamily="@font/cairobold"
-                android:onClick="signin"
+                android:onClick="login"
                 android:text="@string/login"
                 android:gravity="center"
                 android:textAllCaps="false"
@@ -159,7 +159,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cairoregular"
-                    android:gravity="center"
                     android:textColor="@color/text"
                     android:text="@string/confirm2"
                     android:textSize="14dp" />
@@ -169,9 +168,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
+                    android:textSize="14dp"
                     android:textColor="@color/color_navigation"
                     android:fontFamily="@font/cairobold"
                     android:gravity="center"
+                    android:layout_gravity="end"
                     android:onClick="SignUpNow"
                     android:text="@string/sign_up" />
             </LinearLayout>

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hamavendor.R;
 import com.example.hamavendor.fragment.Home;
 import com.example.hamavendor.fragment.MyProductsFragment;
+import com.example.hamavendor.fragment.OffersActiveOffers;
 import com.example.hamavendor.fragment.Orders;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -25,8 +26,12 @@ public class ButtomNavigation extends BaseActivity implements NavigationView.OnN
     DrawerLayout drawerLayout;
     RecyclerView recyclerView;
     private Orders order;
-    private Home home;
-    private MyProductsFragment myProductsFragment;
+  //  private Home home ;
+    public final int Home = 0;
+
+    public final int  MyProductsFragment =1;
+    public final int Orders = 2;
+    public final int OffersActiveOffers =2;
 
     FragmentTransaction fragmentTransaction;
     static FragmentManager fragmentManager;
@@ -47,13 +52,11 @@ public class ButtomNavigation extends BaseActivity implements NavigationView.OnN
     }
 
     private void commitFragment(Fragment fragment, int position) {
-       // HomeActivity.position = position;
+        // HomeActivity.position = position;
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.liner1, fragment);
         fragmentTransaction.commit();
     }
-
-
 
 
     @Override
@@ -61,41 +64,41 @@ public class ButtomNavigation extends BaseActivity implements NavigationView.OnN
 
 
         if (item.getItemId() == R.id.page_1) {
-            commitFragment(new Home(), home);
+            commitFragment(new Home(), Home);
             Log.e(TAG, "order" + item.getItemId());
 
             return true;
         }
         if (item.getItemId() == R.id.page_3) {
-            commitFragment(new MyProductsFragment(), myProductsFragment);
+            commitFragment(new MyProductsFragment(), MyProductsFragment);
             Log.e(TAG, "cart" + item.getItemId());
             return true;
         }
         if (item.getItemId() == R.id.page_4) {
-            commitFragment(new Orders(), order);
+            commitFragment(new Orders(), Orders);
             Log.e(TAG, "stores" + item.getItemId());
 
             return true;
         }
         if (item.getItemId() == R.id.page_5) {
-            commitFragment(new Saerch(), Search);
+            commitFragment(new OffersActiveOffers(),OffersActiveOffers );
             Log.e(TAG, "search" + item.getItemId());
 
             return true;
         }
-        if (item.getItemId() == R.id.page_6) {
-
-            if (position == Setting) {
-                commitFragment(new Setting(), Setting);
-            } else if (position == SettingLanguage) {
-                commitFragment(new SettingLanguage(), SettingLanguage);
-            } else
-                commitFragment(new MyProfile(), MyProfile);
-            Log.e(TAG, "myprofile" + item.getItemId());
-
-            return true;
-        }
+//        if (item.getItemId() == R.id.page_6) {
+//
+//            if (position == Setting) {
+//                commitFragment(new Setting(), Setting);
+//            } else if (position == SettingLanguage) {
+//                commitFragment(new SettingLanguage(), SettingLanguage);
+//            } else
+//                commitFragment(new MyProfile(), MyProfile);
+//            Log.e(TAG, "myprofile" + item.getItemId());
+//
+//            return true;
+//        }
         return false;
 
+        }
     }
-}

@@ -1,5 +1,6 @@
 package com.example.hamavendor.activity;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -32,12 +33,20 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-    private void setLightStatusBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int flags = getWindow().getDecorView().getSystemUiVisibility(); // get current flag
-            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;   // add LIGHT_STATUS_BAR to flag
-            getWindow().getDecorView().setSystemUiVisibility(flags);
-//            getWindow().setStatusBarColor(Color.TRANSPARENT); // optional
-        }
+//    private void setLightStatusBar() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            int flags = getWindow().getDecorView().getSystemUiVisibility(); // get current flag
+//            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;   // add LIGHT_STATUS_BAR to flag
+//            getWindow().getDecorView().setSystemUiVisibility(flags);
+//            getWindow().setStatusBarColor(R.c); // optional
+//        }
+//    }
+private void setLightStatusBar() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        int flags = getWindow().getDecorView().getSystemUiVisibility(); // get current flag
+        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;   // add LIGHT_STATUS_BAR to flag
+        getWindow().getDecorView().setSystemUiVisibility(flags);
+        getWindow().setStatusBarColor(Color.TRANSPARENT); // optional
     }
+}
 }
