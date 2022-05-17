@@ -17,6 +17,7 @@ public class EnterNewPasswordActivity extends BaseActivity implements LoginListe
     EnterNewPasswordBinding binding;
     EnterNewPasswordViewModel model;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
