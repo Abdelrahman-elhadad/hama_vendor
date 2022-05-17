@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.auth.login.LoginActivityViewModel" />
+
+    </data>
+<LinearLayout
     android:id="@+id/liner1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -48,7 +57,7 @@
                 android:gravity="center"
                 android:text="@string/add21"
                 android:textColor="@color/dgdg"
-                android:textSize="22dp" />
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/sign_in"
@@ -59,7 +68,7 @@
                 android:gravity="center"
                 android:text="@string/Language_Settings4"
                 android:textColor="@color/blackcolor"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/editText"
@@ -74,7 +83,9 @@
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:textSize="15dp" />
+                android:paddingEnd="20dp"
+                android:textSize="15sp"
+                app:addTextChangedListener="@{model.userNameTextWatcher}" />
 
 
 
@@ -96,13 +107,15 @@
                     android:background="@drawable/back_ground_edit_text"
                     android:drawablePadding="30dp"
                     android:ems="10"
-                    android:textColorHint="@color/text"
                     android:hint="@string/pass"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
                     android:textAlignment="viewStart"
-                    android:textSize="15sp" />
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.passwordTextWatcher}" />
 
                 <TextView
                     android:id="@+id/forget"
@@ -115,13 +128,13 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="13dp"
                     android:fontFamily="@font/cairoregular"
-                    android:onClick="forgetPassword"
+                    android:onClick="@{model::onForgetPasswordClick}"
                     android:text="@string/Language_Settings5"
                     android:textColor="@color/dgdg"
                     android:textSize="13sp" />
             </RelativeLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"
                 android:layout_width="172dp"
                 android:layout_height="45dp"
@@ -129,12 +142,14 @@
                 android:layout_marginTop="23dp"
                 android:background="@drawable/back_ground_shadow"
                 android:fontFamily="@font/cairobold"
-                android:onClick="login"
                 android:text="@string/login"
                 android:gravity="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:onClick="@{model::onLoginClick}"
+                android:visibility="@{model.loginVisibility}"
+                />
 
             <ProgressBar
                 android:id="@+id/pb_login"
@@ -144,7 +159,7 @@
                 android:layout_marginTop="23dp"
                 android:background="@drawable/back_ground_shadow"
                 android:padding="5dp"
-                android:visibility="gone"/>
+                android:visibility="@{model.pbLoginVisibility}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -152,6 +167,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
+                android:onClick="@{model::signUpNow}"
                 android:orientation="horizontal">
 
                 <TextView
@@ -161,19 +177,18 @@
                     android:fontFamily="@font/cairoregular"
                     android:textColor="@color/text"
                     android:text="@string/confirm2"
-                    android:textSize="14dp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/signup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="7dp"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textColor="@color/color_navigation"
                     android:fontFamily="@font/cairobold"
                     android:gravity="center"
                     android:layout_gravity="end"
-                    android:onClick="SignUpNow"
                     android:text="@string/sign_up" />
             </LinearLayout>
         </LinearLayout>
@@ -181,3 +196,4 @@
     </ScrollView>
 
 </LinearLayout>
+</layout>

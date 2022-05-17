@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "487739468904",
+    "project_id": "hamakw-e3c08",
+    "storage_bucket": "hamakw-e3c08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487739468904:android:112cc83ff4c5fca8805fdd",
+        "android_client_info": {
+          "package_name": "hama.alsaygh.kw"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuwDS0crlygzjwCxLRGAvdw-YBvo-V-Ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "487739468904-36jv71oj5a6na5pkeb069p4urk4od7ib.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iMech.HamaDelivery"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487739468904:android:85a42daef0551842805fdd",
+        "android_client_info": {
+          "package_name": "hama.alsaygh.kw.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuwDS0crlygzjwCxLRGAvdw-YBvo-V-Ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "487739468904-36jv71oj5a6na5pkeb069p4urk4od7ib.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iMech.HamaDelivery"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487739468904:android:b6ad3ebaad27b34f805fdd",
+        "android_client_info": {
+          "package_name": "hama.alsaygh.kw.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuwDS0crlygzjwCxLRGAvdw-YBvo-V-Ao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487739468904-sm26ok99p85e43mr3l08cmpfv5eht1d5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "487739468904-36jv71oj5a6na5pkeb069p4urk4od7ib.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.iMech.HamaDelivery"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

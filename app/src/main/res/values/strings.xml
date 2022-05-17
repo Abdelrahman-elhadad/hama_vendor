@@ -5,7 +5,7 @@
     <string name="homeee">Create Account</string>
     <string name="wellcome">Welcome to Hama Vendor Portal!</string>
     <string name="splash">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</string>
-    <string name="add21">Welcome Back, Sami!</string>
+    <string name="add21">Welcome Back</string>
     <string name="Language_Settings4">Sign in to your store now!</string>
     <string name="Language_Settings5">Forgot?</string>
     <string name="email">Email</string>
@@ -22,7 +22,7 @@
     <string name="log_now"><u>LOGIN NOW</u>.</string>
     <string name="REGISTER">REGISTER</string>
     <string name="reset">We have already e-mailed the 6 digits code to you, please enter to be able to recover your password</string>
-<string name="RESET">RESET</string>
+    <string name="RESET">RESET</string>
     <string name="all_done">Congrats! All Done</string>
     <string name="enter">Create a strong password for your account</string>
     <string name="New_Password">New Password</string>
@@ -30,7 +30,7 @@
     <string name="CONFIRM">CONFIRM</string>
     <string name="fhfhf">Do not have an account?</string>
     <string name="home">Home</string>
-<string name="Products">Products</string>
+    <string name="Products">Products</string>
     <string name="Orders">Orders</string>
     <string name="Offers">Offers</string>
     <string name="More">More</string>
@@ -218,4 +218,27 @@ correctly</string>
     <string name="tracking">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</string>
     <string name="Language_Settings19">TRACK OF MAP</string>
     <string name="rest1">Resend Code</string>
+    <string name="default_notification_channel_id">Hama_vendor</string>
+
+    <string name="gps_setting_title"> GPS is settings</string>
+    <string name="gps_setting_msg"> GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="setting">settings</string>
+
+
+    <string name="not_login">Your not Login , to continue please Login...</string>
+    <string name="change_your_password">Change Your Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="no_orders">No orders</string>
+    <string name="user_name">User Name</string>
+    <string name="packaging_store">Packaging Store</string>
+    <string name="no_packaging_stores">No Packaging Stores</string>
+
+
+    <string name="forget">Forgot Password?</string>
+    <string name="forget1">did not worry! enter your email to reset your password using your email</string>
+    <string name="forget2">Use phone number instead</string>
+    <string name="forget3">Remember Password?</string>
+
 </resources>

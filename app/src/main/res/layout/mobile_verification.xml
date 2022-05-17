@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.auth.mobileVerification.VerificationActivityViewModel" />
+
+    </data>
+<LinearLayout
     android:id="@+id/parent_enter_reset_pass"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -63,16 +72,17 @@
         app:pinLineColors="@color/order_tracking1"
         app:pinLineStroke="2dp"
         app:pinLineStrokeSelected="4dp"
-        app:pinTextBottomPadding="10dp" />
+        app:pinTextBottomPadding="10dp"
+        app:addTextChangedListener="@{model.userNameTextWatcher}"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
         android:layout_width="172dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginTop="23dp"
         android:background="@drawable/back_ground_shadow"
-        android:onClick="reset"
+        android:onClick="@{model::onResetClick}"
         android:text="@string/RESET"
         android:textColor="@color/white"
         android:textSize="16sp" />
@@ -119,10 +129,12 @@
             android:layout_gravity="center"
             android:layout_marginStart="5dp"
             android:gravity="center"
-            android:onClick="ResetCode"
+            android:onClick="@{model::onResendClick}"
             android:text="@string/rest1"
             android:textColor="@color/active_code"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            />
     </LinearLayout>
 
 </LinearLayout>
+</layout>

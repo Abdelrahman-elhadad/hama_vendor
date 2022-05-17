@@ -2,8 +2,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item>
         <shape>
-            <solid
-                android:color="#6E571D"/>
+            <gradient
+                android:endColor="#E8E8E8"
+                android:startColor="#6E571D"
+                android:useLevel="true" />
             <corners
                 android:bottomRightRadius="5dp"
                 android:bottomLeftRadius="5dp"

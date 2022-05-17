@@ -78,6 +78,11 @@
     <color name="hkhkhkh">#F1F2F6</color>
     <color name="ikik">#7C828A</color>
     <color name="lklkl">#C1C6D8</color>
-<color name="lklk">#E5E5E5</color>
+    <color name="lklk">#E5E5E5</color>
     <color name="jkjkjk">#FFF0E6</color>
+    <color name="whiteColor">#fff</color>
+    <color name="col3">#E53700</color>
+
+    <color name="color_light_shimmer">#1098BDAB</color>
+    <color name="color_light_mask">#3598BDAB</color>
 </resources>

@@ -1,51 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:attrs="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/splash"
-    android:id="@+id/container_of_home"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.onBoading.OnBoardingViewModel" />
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lineranim"
+        android:id="@+id/container_of_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:background="@drawable/splash"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lineranim"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.hamavendor.circleindicator.CustomCircleIndicator
-            android:id="@+id/pageIndicatorView"
-            android:layout_width="50dp"
-            android:layout_height="18dp"
-            android:layout_marginTop="270dp"
-            android:elevation="10dp"
-            app:ci_drawable="@drawable/ic_group_3082"
-            app:ci_drawable_unselected="@drawable/ic_ellipse_4"
-            app:ci_gravity="center"
-            app:ci_height="8dp"
-            app:ci_margin="5dp"
-            app:ci_orientation="horizontal"
-            app:ci_width="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view_pager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/view_pager"
-            app:layout_constraintTop_toTopOf="@+id/view_pager" />
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <hama.alsaygh.kw.vendor.circleindicator.CustomCircleIndicator
+                android:id="@+id/pageIndicatorView"
+                android:layout_width="50dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="270dp"
+                android:elevation="10dp"
+                app:ci_drawable="@drawable/ic_group_3082"
+                app:ci_drawable_unselected="@drawable/ic_ellipse_4"
+                app:ci_gravity="center"
+                app:ci_height="8dp"
+                app:ci_margin="5dp"
+                app:ci_orientation="horizontal"
+                app:ci_width="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view_pager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/view_pager"
+                app:layout_constraintTop_toTopOf="@+id/view_pager" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

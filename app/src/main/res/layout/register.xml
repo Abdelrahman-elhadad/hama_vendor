@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.auth.register.RegisterActivityViewModel" />
+
+    </data>
+<LinearLayout
     android:id="@+id/parent_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,6 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/cairobold"
                 android:gravity="center"
                 android:text="@string/new11"
@@ -58,12 +69,14 @@
                 android:gravity="center"
                 android:text="@string/add22"
                 android:textColor="@color/blackcolor"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"/>
 
 
 
             <EditText
-                android:id="@+id/edt_email"
+                android:id="@+id/edt_name"
                 android:layout_width="360dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
@@ -74,10 +87,12 @@
                 android:inputType="textPersonName"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:textSize="15sp" />
+                android:paddingEnd="20dp"
+                android:textSize="15sp"
+                app:addTextChangedListener="@{model.userNameTextWatcher}"/>
 
             <EditText
-                android:id="@+id/edt_email11"
+                android:id="@+id/edt_email"
                 android:layout_width="360dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
@@ -85,13 +100,15 @@
                 android:background="@drawable/back_ground_edit_text"
                 android:ems="10"
                 android:hint="@string/email"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:textSize="15sp" />
+                android:paddingEnd="20dp"
+                android:textSize="15sp"
+                app:addTextChangedListener="@{model.emailTextWatcher}"/>
 
             <EditText
-                android:id="@+id/edt_email111"
+                android:id="@+id/edt_phone"
                 android:layout_width="360dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
@@ -99,10 +116,12 @@
                 android:background="@drawable/back_ground_edit_text"
                 android:ems="10"
                 android:hint="@string/Phone_Number"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:textSize="15sp" />
+                android:paddingEnd="20dp"
+                android:textSize="15sp"
+                app:addTextChangedListener="@{model.phoneTextWatcher}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -113,20 +132,22 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/edt_first_name"
+                    android:id="@+id/edt_password"
                     android:layout_width="175dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@drawable/back_ground_edit_text"
                     android:ems="10"
                     android:hint="@string/Password"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingStart="20dp"
-                    android:textSize="15sp" />
+                    android:paddingEnd="20dp"
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.passwordTextWatcher}"/>
 
                 <EditText
-                    android:id="@+id/edt_last_name"
+                    android:id="@+id/edt_confirm_password"
                     android:layout_width="175dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -134,11 +155,12 @@
                     android:background="@drawable/back_ground_edit_text"
                     android:ems="10"
                     android:hint="@string/C_Password"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     android:padding="10dp"
                     android:paddingEnd="0dp"
                     android:paddingStart="20dp"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.confirmPasswordTextWatcher}"/>
             </LinearLayout>
 
 
@@ -148,6 +170,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:onClick="@{model::onLoginClick}"
                 android:orientation="horizontal">
 
                 <TextView
@@ -166,24 +189,24 @@
                     android:layout_marginStart="7dp"
                     android:fontFamily="@font/cairobold"
                     android:gravity="center"
-                    android:textSize="14dp"
-                    android:onClick="login"
+                    android:textSize="14sp"
                     android:textColor="@color/color_navigation"
                     android:text="@string/log_now" />
             </LinearLayout>
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_sign"
                 android:layout_width="172dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
                 android:background="@color/dgdg"
-                android:onClick="nextRegister"
                 android:text="@string/REGISTER"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                android:visibility="@{model.loginVisibility}"
+                android:onClick="@{model::onRegisterClick}"/>
 
             <ProgressBar
                 android:id="@+id/pb_sign"
@@ -192,7 +215,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
                 android:padding="5dp"
-                android:visibility="gone"
+                android:visibility="@{model.pbLoginVisibility}"
                 android:background="@drawable/back_ground_shadow" />
 
 
@@ -204,3 +227,4 @@
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
+</layout>
