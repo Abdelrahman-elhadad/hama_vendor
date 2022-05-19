@@ -31,6 +31,7 @@ public class SharedPreferenceConstant {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(KEY_USER_ACCOUNT_LOGIN_USER, token);
                 editor.apply();
+                LocalUtils.getInstance().setLanguage(context, user.getLanguage());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -92,7 +93,8 @@ public class SharedPreferenceConstant {
             SharedPreferences preferences = context.getSharedPreferences(SharedPreferenceConstant
                     .SHARED_PREFERENCE_GENERAL, MODE_PRIVATE);
 
-            return RequestWrapper.getInstance().getGson().fromJson(preferences.getString(KEY_USER_ACCOUNT_ON_BOARDING, ""), new TypeToken<List<OnBoard>>(){}.getType());
+            return RequestWrapper.getInstance().getGson().fromJson(preferences.getString(KEY_USER_ACCOUNT_ON_BOARDING, ""), new TypeToken<List<OnBoard>>() {
+            }.getType());
         }
         return null;
     }

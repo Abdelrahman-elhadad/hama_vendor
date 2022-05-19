@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.more.MoreViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/img_toolbar"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                android:gravity="start"
+                app:srcCompat="@drawable/ic_logout"
+                android:onClick="@{model::onLogoutClick}"/>
+
+            <TextView
+                android:id="@+id/txt_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/Profile"
+                android:textColor="@color/blackcolor1"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/edit_icon"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                android:layout_gravity="end"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                android:onClick="@{model::onEditProfileClick}"
+                app:srcCompat="@drawable/ic_edit_profile" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:id="@+id/view969"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/blackcolor" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView26"
+                        android:layout_width="77dp"
+                        android:layout_height="77dp"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="16dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/imageee" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView38"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cairobold"
+                            android:text="@{model.name}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/blackcolor1"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/textView39"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="@font/cairoregular"
+                            android:gravity="start"
+                            android:text="@{model.email}"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/my_order"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/fixed12"
+                        android:onClick="@{model::onMySalesClick}"
+                        android:textColor="@color/my_profile"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_sell_your_product" />
+
+                    <View
+                        android:id="@+id/view9"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/order_tracking_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile"
+                        android:onClick="@{model::onOrderTrackingClick}"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_order_tracking" />
+
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile"
+                        android:scaleType="fitXY" />
+
+
+                    <TextView
+                        android:id="@+id/pakckeging_stores"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile1"
+                        android:onClick="@{model::onOrderRateClick}"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_online_store" />
+
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/tv_general"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile2"
+                        android:onClick="@{model::onGeneralSettingsClick}"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_settings" />
+
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@color/my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/advertising_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile3"
+                        android:textSize="14sp"
+                        android:onClick="@{model::onHamaRateClick}"
+                        app:drawableStartCompat="@drawable/ic_path_13401" />
+
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/tv_terms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile4"
+                        android:onClick="@{model::onTermsClick}"
+                        android:textSize="14sp"
+                        app:drawableStartCompat="@drawable/ic_terms___conditions" />
+
+
+                    <View
+                        android:id="@+id/view6"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/tv_contact_hama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile5"
+                        android:textSize="14sp"
+                        android:onClick="@{model::onContactHamaClick}"
+                        app:drawableStartCompat="@drawable/ic_contact_us" />
+
+
+                    <View
+                        android:id="@+id/view7"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/tv_recommendation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile6"
+                        android:textSize="14sp"
+                        android:onClick="@{model::onRecommendationHamaClick}"
+                        app:drawableStartCompat="@drawable/ic_recommendation__1_" />
+
+
+                    <View
+                        android:id="@+id/view8"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+
+                    <TextView
+                        android:id="@+id/tv_appointment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:text="@string/profile7"
+                        android:textSize="14sp"
+                        android:onClick="@{model::onAppointmentHamaClick}"
+                        app:drawableStartCompat="@drawable/ic_appointment_booking" />
+
+
+                    <View
+                        android:id="@+id/view99"
+                        android:layout_width="350dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginStart="45dp"
+                        android:background="@drawable/back_my_profile" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

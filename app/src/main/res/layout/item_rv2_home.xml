@@ -57,7 +57,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_height="30dp"
                 android:textColor="@color/color"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:text="@string/hkhk" />
         </LinearLayout>
 

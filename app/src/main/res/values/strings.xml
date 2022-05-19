@@ -241,4 +241,6 @@ correctly</string>
     <string name="forget2">Use phone number instead</string>
     <string name="forget3">Remember Password?</string>
 
+    <string name="store_name">xxx store</string>
+
 </resources>

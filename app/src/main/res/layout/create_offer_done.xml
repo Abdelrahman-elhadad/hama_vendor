@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:fontFamily="@font/cairoregular"
-        android:textSize="14dp"
+        android:textSize="14sp"
         android:textColor="@color/blackcolor"
         android:layout_margin="10dp"
         android:text="@string/gold_rio" />
@@ -46,13 +46,13 @@
         android:layout_marginTop="20dp"
         android:text="@string/acceptt"
         android:textColor="@color/white"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:fontFamily="@font/cairobold"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"

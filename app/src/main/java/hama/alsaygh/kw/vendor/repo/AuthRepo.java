@@ -42,6 +42,7 @@ public class AuthRepo {
 
                 Log.i(TAG, "Response:auth/login " + responseString);
 
+                responseString=responseString.replace("\"data\":[]","\"data\":{}");
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
 

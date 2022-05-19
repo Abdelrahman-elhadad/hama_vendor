@@ -27,7 +27,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/Contact_Uss"
             android:textColor="@color/filter_by"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -60,7 +60,7 @@
                 android:fontFamily="@font/cairoregular"
                 android:text="@string/contact10"
                 android:textColor="@color/term_and_condtion"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/editText18"
@@ -89,7 +89,7 @@
                 android:fontFamily="@font/cairobold"
                 android:text="@string/send"
                 android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

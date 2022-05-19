@@ -28,7 +28,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/home"
             android:textColor="@color/blackcolor1"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/notification_img"
@@ -108,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/order"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/cairobold"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="10dp"
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/hghghg"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:fontFamily="@font/cairoregular"
                         android:layout_marginTop="10dp"
                         android:layout_marginStart="10dp"
@@ -273,7 +273,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginTop="70dp"
                             android:fontFamily="@font/cairoregular"
-                            android:textSize="14dp"
+                            android:textSize="14sp"
                             android:layout_marginStart="15dp"
                             android:id="@+id/txt"
                             app:layout_constraintTop_toBottomOf="@+id/best_seling"  />
@@ -295,7 +295,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/cairobold"
-                            android:textSize="14dp"
+                            android:textSize="14sp"
                             android:textColor="@color/filter_by"
                             android:layout_marginStart="15dp"
                             android:id="@+id/txt18"
@@ -309,7 +309,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/cairoregular"
-                            android:textSize="14dp"
+                            android:textSize="14sp"
                             android:layout_marginStart="15dp"
                             android:id="@+id/txt20"
                             app:layout_constraintTop_toBottomOf="@+id/txt18"  />
@@ -421,7 +421,7 @@
                             android:gravity="end"
                             android:text="@string/SEE_ALL"
                             android:textColor="@color/textviewhome"
-                            android:textSize="13dp"
+                            android:textSize="13sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
@@ -484,7 +484,7 @@
                             android:gravity="end"
                             android:text="@string/SEE_ALL"
                             android:textColor="@color/textviewhome"
-                            android:textSize="13dp"
+                            android:textSize="13sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 

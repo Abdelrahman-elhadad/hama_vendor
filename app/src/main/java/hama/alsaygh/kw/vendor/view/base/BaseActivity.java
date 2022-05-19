@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.utils.LocalUtils;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -21,6 +22,13 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
             setLightStatusBar();
         getSupportActionBar().hide(); //<< this
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LocalUtils.getInstance().updateResources(this, LocalUtils.getInstance().getLanguageShort(this));
 
     }
 

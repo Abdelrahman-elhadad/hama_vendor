@@ -26,7 +26,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/addd"
             android:textColor="@color/blackcolor1"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@+id/notification_img"
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/cairolight"
                 android:layout_height="wrap_content"
                 android:textColor="@color/ghhg"
@@ -235,7 +235,7 @@
                         android:gravity="center"
                         android:text="@string/Next"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

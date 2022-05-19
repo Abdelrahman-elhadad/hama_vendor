@@ -2,7 +2,8 @@
     android:width="20dp"
     android:height="9.181dp"
     android:viewportWidth="20"
-    android:viewportHeight="9.181">
+    android:viewportHeight="9.181"
+    android:autoMirrored="true">
   <path
       android:pathData="M5.854,0.206A0.733,0.733 0,0 1,5.861 1.239l-3.407,2.62L19.276,3.848a0.73,0.73 0,0 1,0 1.459L2.453,5.318 5.861,7.939A0.739,0.739 0,0 1,5.861 8.971a0.727,0.727 0,0 1,-1.027 -0.006L0.208,5.105h0a0.819,0.819 0,0 1,-0.152 -0.23,0.7 0.7,0 0,1 -0.056,-0.281 0.732,0.732 0,0 1,0.208 -0.511l4.625,-3.861A0.715,0.715 0,0 1,5.854 0.206Z"
       android:fillColor="#141414"/>

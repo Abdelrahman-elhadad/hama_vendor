@@ -26,7 +26,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/yuyuu"
             android:textColor="@color/blackcolor1"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -51,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:fontFamily="@font/cairobold"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:text="@string/yuyuyuy"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -97,7 +97,7 @@
             android:layout_marginTop="15dp"
             android:textColor="@color/black"
             android:fontFamily="@font/cairobold"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:text="@string/details"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -127,7 +127,7 @@
             android:layout_marginTop="15dp"
             android:textColor="@color/black"
             android:fontFamily="@font/cairobold"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:text="@string/hlhl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -158,7 +158,7 @@
             android:layout_marginTop="15dp"
             android:textColor="@color/black"
             android:fontFamily="@font/cairobold"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:text="@string/vvvvv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view4" />
@@ -192,7 +192,7 @@
                 android:gravity="center"
                 android:text="@string/accept"
                 android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
             <Button
                 android:id="@+id/button"
                 android:layout_width="142dp"
@@ -203,7 +203,7 @@
                 android:layout_marginStart="10dp"
                 android:text="@string/Next"
                 android:textColor="@color/dgdg"
-                android:textSize="16dp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

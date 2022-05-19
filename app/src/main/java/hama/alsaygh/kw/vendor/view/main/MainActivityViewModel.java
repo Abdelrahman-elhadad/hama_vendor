@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.model.onBoarding.OnBoardResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
+import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
+import hama.alsaygh.kw.vendor.view.home.HomeActivity;
 import hama.alsaygh.kw.vendor.view.onBoading.OnBoardingActivity;
 
 public class MainActivityViewModel extends ViewModel {
@@ -18,6 +20,7 @@ public class MainActivityViewModel extends ViewModel {
     private final String TAG = "LoginActivityViewModel";
     private MutableLiveData<OnBoardResponse> onBoardingResponseMutableLiveData;
     private final ObservableInt progress = new ObservableInt();
+
     public MainActivityViewModel() {
     }
 
@@ -27,16 +30,24 @@ public class MainActivityViewModel extends ViewModel {
 
         return onBoardingResponseMutableLiveData;
     }
-    public void getOnBoarding(Context context)
-    {
-        new GeneralRepo().getOnBoarding(context,onBoardingResponseMutableLiveData);
+
+    public void getOnBoarding(Context context) {
+        new GeneralRepo().getOnBoarding(context, onBoardingResponseMutableLiveData);
     }
 
     public void onSeekBarChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (progress == 100) {
-            Intent intent = new Intent(seekBar.getContext(), OnBoardingActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            seekBar.getContext().startActivity(intent);
+
+            if (SharedPreferenceConstant.getSharedPreferenceUserToken(seekBar.getContext()).isEmpty()) {
+                Intent intent = new Intent(seekBar.getContext(), OnBoardingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                seekBar.getContext().startActivity(intent);
+            } else {
+                Intent intent = new Intent(seekBar.getContext(), HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                seekBar.getContext().startActivity(intent);
+            }
+
         }
     }
 

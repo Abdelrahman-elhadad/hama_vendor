@@ -11,12 +11,13 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.utils.LocalUtils;
 
 public class BaseFragment  extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // LocalUtils.getInstance().updateResources(getContext(), LocalUtils.getInstance().getLanguageShort(getContext()));
+         LocalUtils.getInstance().updateResources(requireContext(), LocalUtils.getInstance().getLanguageShort(requireContext()));
 //        if (SharedPreferenceConstant.getSharedPreferenceDarkMode(getContext())) {
 //            this.getActivity().setTheme(R.style.darktheme);
 //            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -30,6 +31,11 @@ public class BaseFragment  extends Fragment {
 //
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        LocalUtils.getInstance().updateResources(requireContext(), LocalUtils.getInstance().getLanguageShort(requireContext()));
+    }
 
     private void setStatusBarColorDark() {
         Window window = getActivity().getWindow();

@@ -120,6 +120,8 @@ public class User implements Serializable {
     public User() {
     }
 
+
+
     public String getPassword() {
         if (password == null)
             password = "";
@@ -183,7 +185,6 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-
 
 
     public String getName() {
@@ -392,6 +393,8 @@ public class User implements Serializable {
     }
 
     public String getLanguage() {
+        if (language == null)
+            language = "en";
         return language;
     }
 

@@ -18,7 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 
-public class Home extends BaseFragment {
+public class HomeFragment extends BaseFragment {
 
 
     FragmentTransaction fragmentTransaction;
@@ -33,7 +33,7 @@ public class Home extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override

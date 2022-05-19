@@ -26,7 +26,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/Contact_Us"
             android:textColor="@color/filter_by"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -328,7 +328,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/cairosemibold"
                         android:gravity="center"
                         android:text="@string/Clicck"
@@ -379,7 +379,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/cairosemibold"
                         android:gravity="center"
                         android:text="@string/Capture_for_lease"
@@ -430,7 +430,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         android:fontFamily="@font/cairosemibold"
                         android:gravity="center"
                         android:text="@string/Cliccck"
@@ -470,7 +470,7 @@
                     android:fontFamily="@font/cairobold"
                     android:text="@string/send22"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

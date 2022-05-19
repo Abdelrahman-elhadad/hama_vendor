@@ -25,7 +25,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/yuyuu"
             android:textColor="@color/blackcolor1"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -49,7 +49,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/yuyuyuy"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -72,7 +72,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/user"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -93,7 +93,7 @@
                     android:layout_marginTop="15dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/hlhl"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView1" />
@@ -107,7 +107,7 @@
                     android:layout_marginTop="60dp"
                     android:textColor="@color/ghhg"
                     android:fontFamily="@font/cairosemibold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/Customer_Name"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView1" />
@@ -120,7 +120,7 @@
                     android:textColor="@color/ghhg"
                     android:layout_marginEnd="90dp"
                     android:fontFamily="@font/cairosemibold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/Date"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -144,7 +144,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/hama_dilvery"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -157,7 +157,7 @@
                     android:textColor="@color/black"
                     android:layout_marginEnd="40dp"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="10-Oct-2020"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -171,7 +171,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/ghhg"
                     android:fontFamily="@font/cairosemibold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/Time"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView13" />
@@ -187,7 +187,7 @@
                     android:layout_marginTop="20dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="12:00 PM"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -217,7 +217,7 @@
                     android:layout_marginTop="15dp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/cairobold"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:text="@string/User"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -265,7 +265,7 @@
                         android:gravity="center"
                         android:text="@string/accept"
                         android:textColor="@color/white"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                     <Button
                         android:id="@+id/button"
                         android:layout_width="142dp"
@@ -276,7 +276,7 @@
                         android:layout_marginStart="10dp"
                         android:text="@string/DISCARD"
                         android:textColor="@color/dgdg"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

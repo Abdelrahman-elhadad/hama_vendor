@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/item_home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="@string/home"
         />
 
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/item_products"
         android:enabled="true"
         android:icon="@drawable/ic_box__1_"
         android:title="@string/Products"/>
 
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/item_orders"
         android:enabled="true"
         android:icon="@drawable/ic_promotional"
         android:title="@string/Orders"/>
 
     <item
-        android:id="@+id/page_5"
+        android:id="@+id/item_offers"
         android:enabled="true"
-        android:icon="@drawable/ic_group_4127"
+        android:icon="@drawable/ic_offers"
         android:title="@string/Offers"/>
     <item
-        android:id="@+id/page_6"
+        android:id="@+id/item_more"
         android:enabled="true"
-        android:icon="@drawable/ic_ellipsis"
+        android:icon="@drawable/ic_more"
         android:title="@string/More"/>
 </menu>

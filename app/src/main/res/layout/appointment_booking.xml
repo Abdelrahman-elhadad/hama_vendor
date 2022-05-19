@@ -27,7 +27,7 @@
             android:fontFamily="@font/cairobold"
             android:text="@string/Contact_Usss"
             android:textColor="@color/filter_by"
-            android:textSize="20dp" />
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -54,7 +54,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_marginStart="10dp"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 android:fontFamily="@font/cairoregular"
                 android:textColor="@color/blackcolor1"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/cairoregular"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 android:gravity="center"
                 android:textColor="@color/blackcolor1"
                 android:text="@string/boking" />
@@ -143,7 +143,7 @@
                 android:id="@+id/textView114"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 android:fontFamily="@font/cairoregular"
                 android:gravity="center"
                 android:layout_marginTop="30dp"
@@ -162,7 +162,7 @@
                 android:layout_marginTop="140dp"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/back_ground_shadow"
                 android:layout_height="wrap_content"

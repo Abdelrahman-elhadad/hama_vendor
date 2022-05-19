@@ -25,7 +25,7 @@
             android:layout_height="46dp"
             android:layout_gravity="center"
             android:textColor="@color/filter_by"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/cairobold"
             android:text="@string/add17" />
 
@@ -105,7 +105,7 @@
                 android:id="@+id/button3"
                 android:layout_width="265dp"
                 android:layout_height="45dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:layout_gravity="center"
                 android:background="@drawable/back_ground_shadow"
                 android:textColor="@color/white"

@@ -54,7 +54,7 @@ public class LocalUtils {
     private String getLanguage(Context context) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE);
-       // return sharedPreferences.getString("lan", "default");
+        // return sharedPreferences.getString("lan", "default");
         return sharedPreferences.getString("lan", "en");
     }
 
