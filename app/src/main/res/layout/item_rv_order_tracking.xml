@@ -47,7 +47,7 @@
                 android:fontFamily="@font/cairobold"
                 android:text="@string/gold_ring"
                 android:textColor="@color/blackcolor1"
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/text111"

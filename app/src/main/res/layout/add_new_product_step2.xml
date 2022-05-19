@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/black"
                 android:fontFamily="@font/cairobold"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="@string/hlhlh" />
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/text"
                 android:fontFamily="@font/cairoregular"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="@string/Product_Description" />
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/black"
                 android:fontFamily="@font/cairoregular"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:padding="10dp"
                 android:background="@drawable/back_spinner"
                 android:layout_margin="10dp"

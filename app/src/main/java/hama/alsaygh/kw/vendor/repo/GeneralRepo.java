@@ -10,11 +10,13 @@ import androidx.lifecycle.MutableLiveData;
 import java.io.File;
 
 import hama.alsaygh.kw.vendor.model.appointment.AppointmentResponse;
+import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
 import hama.alsaygh.kw.vendor.model.image.ImageResponse;
 import hama.alsaygh.kw.vendor.model.onBoarding.OnBoardResponse;
 import hama.alsaygh.kw.vendor.model.page.PageResponse;
 import hama.alsaygh.kw.vendor.model.socialMedia.SocialMediaResponse;
 import hama.alsaygh.kw.vendor.utils.Utils;
+import okhttp3.FormBody;
 import okhttp3.MultipartBody;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -136,7 +138,7 @@ public class GeneralRepo {
         new Thread(() -> {
             SocialMediaResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPath() + "social-media";
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "social-media";
 
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
@@ -174,7 +176,7 @@ public class GeneralRepo {
         new Thread(() -> {
             AppointmentResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPath() + "appointment";
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "appointment";
 
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
@@ -201,6 +203,53 @@ public class GeneralRepo {
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 
+        }).start();
+
+    }
+
+    public void makeAppointment(Context context, String name, String email, String phone, String subject, String msg, final MutableLiveData<ContactUsResponse> loginResponseMutableLiveData) {
+        new Thread(() -> {
+
+            ContactUsResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "appointment";
+
+                FormBody body = new FormBody.Builder()
+                        .add("name", name + "")
+                        .add("email", email + "")
+                        .add("mobile", phone + "")
+                        .add("title", subject + "")
+                        .add("message", msg + "")
+                        .build();
+
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).post(body).build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = "";
+                if (response.body() != null) {
+                    responseString = response.body().string();
+                }
+                responseString = responseString.replace("\"data\":[]", "\"data\": {}");
+                Log.i(TAG, "Response:appointment " + responseString);
+
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, ContactUsResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new ContactUsResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+//            FirebaseCrashlytics.getInstance().recordException(e);
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final ContactUsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
         }).start();
 
     }

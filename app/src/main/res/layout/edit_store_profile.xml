@@ -49,7 +49,7 @@
                 android:fontFamily="@font/cairobold"
                 android:text="@string/Contact_Us12"
                 android:textColor="@color/blackcolor1"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -161,7 +161,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/editText18"
                     android:text="@string/Contact_Us12"
                     android:textColor="@color/blackcolor1"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
 
                 <EditText
@@ -301,7 +301,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/edt_emai21"
                     android:text="@string/Store_Informations"
                     android:textColor="@color/blackcolor1"
-                    android:textSize="18dp" />
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout"

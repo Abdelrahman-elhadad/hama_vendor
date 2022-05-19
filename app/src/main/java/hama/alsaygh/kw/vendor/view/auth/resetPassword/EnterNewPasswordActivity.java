@@ -62,16 +62,15 @@ public class EnterNewPasswordActivity extends BaseActivity implements LoginListe
         if (binding.editText22.getEditableText().toString().isEmpty()) {
             binding.editText22.setBackgroundResource(R.drawable.back_edit_txt_red);
         } else {
-            binding.editText22.setBackgroundResource(R.drawable.back_ground_edit_text);
-        }
 
-        String password = binding.editText2.getEditableText().toString();
-        String co_password = binding.editText22.getEditableText().toString();
+            String password = binding.editText2.getEditableText().toString();
+            String co_password = binding.editText22.getEditableText().toString();
 
-        if (!password.isEmpty() && !co_password.isEmpty() && !password.equals(co_password)) {
-            binding.editText22.setBackgroundResource(R.drawable.back_edit_txt_red);
-        } else {
-            binding.editText22.setBackgroundResource(R.drawable.back_ground_edit_text);
+            if (!password.isEmpty() && !co_password.isEmpty() && !password.equals(co_password)) {
+                binding.editText22.setBackgroundResource(R.drawable.back_edit_txt_red);
+            } else {
+                binding.editText22.setBackgroundResource(R.drawable.back_ground_edit_text);
+            }
         }
 
     }

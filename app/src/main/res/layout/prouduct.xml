@@ -73,7 +73,7 @@
                 android:paddingEnd="8dp"
                 android:text="@string/filter"
                 android:textColor="@color/color_store_page"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,7 +103,7 @@
                 android:fontFamily="@font/cairosemibold"
                 android:text="@string/Sort"
                 android:textColor="@color/color_store_page"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <Button

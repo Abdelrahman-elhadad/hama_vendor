@@ -27,7 +27,7 @@
         android:id="@+id/textView407"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:fontFamily="@font/cairobold"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"

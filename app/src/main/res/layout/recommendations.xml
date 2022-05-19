@@ -50,7 +50,7 @@
                 android:fontFamily="@font/cairobold"
                 android:text="@string/Contact_Us111"
                 android:textColor="@color/blackcolor1"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/textView116"

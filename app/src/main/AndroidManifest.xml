@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hama.alsaygh.kw.vendor">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,6 +18,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HamaVendor">
+        <activity
+            android:name=".view.contactUs.ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.appointment.AppointmentBookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.terms.TermsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.generalSettings.changePassword.ChangePasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".view.generalSettings.notification.NotificationSettingActivity"
             android:exported="false" />

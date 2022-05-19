@@ -2,6 +2,7 @@ package hama.alsaygh.kw.vendor.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.provider.Settings;
 import android.text.InputFilter;
 import android.util.DisplayMetrics;
@@ -9,9 +10,7 @@ import android.util.DisplayMetrics;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
-import hama.alsaygh.kw.vendor.R;
 import com.faltenreich.skeletonlayout.Skeleton;
 
 import java.net.NetworkInterface;
@@ -22,7 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.repo.AuthRepo;
+import hama.alsaygh.kw.vendor.view.onBoading.OnBoardingActivity;
 
 
 public class Utils {
@@ -116,10 +117,10 @@ public class Utils {
     }
 
 
-    public  String getUUID(Context context) {
+    public String getUUID(Context context) {
         try {
             List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface nif: all) {
+            for (NetworkInterface nif : all) {
                 if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
 
                 byte[] macBytes = nif.getHardwareAddress();
@@ -128,7 +129,7 @@ public class Utils {
                 }
 
                 StringBuilder res1 = new StringBuilder();
-                for (byte b: macBytes) {
+                for (byte b : macBytes) {
                     //res1.append(Integer.toHexString(b & 0xFF) + ":");
                     res1.append(String.format("%02X:", b));
                 }
@@ -201,22 +202,17 @@ public class Utils {
     }
 
 
-    public void logOut(final FragmentActivity context) {
+    public void logOut(final Context context) {
         if (context != null)
             try {
 
-                new AuthRepo().logout(context,null);
+                new AuthRepo().logout(context, null);
                 SharedPreferenceConstant.clearSharedPreference(context);
 
-                context.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-//                        Intent intent = new Intent(context, LoginActivity.class);
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        context.startActivity(intent);
-//                        context.finish();
-                    }
-                });
+                Intent intent = new Intent(context, OnBoardingActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                context.startActivity(intent);
+
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -20,6 +20,8 @@ public class SocialMedia {
     private String linkedin;
 
     public String getFacebook() {
+        if (facebook == null)
+            facebook = "";
         return facebook;
     }
 
@@ -28,6 +30,8 @@ public class SocialMedia {
     }
 
     public String getTwitter() {
+        if (twitter == null)
+            twitter = "";
         return twitter;
     }
 
@@ -36,6 +40,8 @@ public class SocialMedia {
     }
 
     public String getInstagram() {
+        if (instagram == null)
+            instagram = "";
         return instagram;
     }
 
@@ -44,6 +50,8 @@ public class SocialMedia {
     }
 
     public String getYoutube() {
+        if (youtube == null)
+            youtube = "";
         return youtube;
     }
 
@@ -52,6 +60,8 @@ public class SocialMedia {
     }
 
     public String getLinkedin() {
+        if (linkedin == null)
+            linkedin = "";
         return linkedin;
     }
 

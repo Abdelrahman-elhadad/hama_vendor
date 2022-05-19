@@ -8,7 +8,11 @@ import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
+import hama.alsaygh.kw.vendor.utils.Utils;
+import hama.alsaygh.kw.vendor.view.appointment.AppointmentBookingActivity;
+import hama.alsaygh.kw.vendor.view.contactUs.ContactUsActivity;
 import hama.alsaygh.kw.vendor.view.generalSettings.GeneralSettingsActivity;
+import hama.alsaygh.kw.vendor.view.terms.TermsActivity;
 
 public class MoreViewModel extends ViewModel {
 
@@ -53,19 +57,23 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onTermsClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), TermsActivity.class);
+        view.getContext().startActivity(intent);
     }
      public void onContactHamaClick(View view) {
-
+         Intent intent = new Intent(view.getContext(), ContactUsActivity.class);
+         view.getContext().startActivity(intent);
     }
      public void onRecommendationHamaClick(View view) {
 
     }
     public void onAppointmentHamaClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), AppointmentBookingActivity.class);
+        view.getContext().startActivity(intent);
     }
     public void onLogoutClick(View view) {
 
+        Utils.getInstance().logOut(view.getContext());
     }
     public void onEditProfileClick(View view) {
 

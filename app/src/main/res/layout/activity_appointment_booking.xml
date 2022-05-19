@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.appointment.AppointmentViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/transparent_color">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/about_hama3"
+                app:srcCompat="@drawable/backk" />
+
+            <TextView
+                android:id="@+id/txt_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:text="@string/Contact_Usss"
+                android:textColor="@color/filter_by"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@{model.title}"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/cairoregular"
+                    android:text="@{model.desc}"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="13sp" />
+
+
+                <View
+                    android:id="@+id/view18"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="80dp"
+                    android:background="@drawable/back_view_appointment" />
+
+                <ImageView
+                    android:id="@+id/phone_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:contentDescription="@string/enter_old_password"
+                    android:gravity="center"
+                    app:srcCompat="@drawable/ic_icon_feather_phone_call" />
+
+                <TextView
+                    android:id="@+id/phone_unmber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/cairobold"
+                    android:gravity="center"
+                    android:text="@{model.phone}"
+                    android:onClick="@{model::onPhoneClick}"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textView110"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/cairoregular"
+                    android:gravity="center"
+                    android:text="@{model.workingTime}"
+                    android:textColor="@color/blackcolor1" />
+
+
+                <View
+                    android:id="@+id/view1118"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/back_view_appointment2" />
+
+
+                <ImageView
+                    android:id="@+id/icon_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    android:contentDescription="@string/enter_old_password"
+                    app:srcCompat="@drawable/ic_icon_material_email" />
+
+                <TextView
+                    android:id="@+id/info_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/cairobold"
+                    android:gravity="center"
+                    android:text="@{model.email}"
+                    android:onClick="@{model::onEmailClick}"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textView113"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/cairoregular"
+                    android:gravity="center"
+                    android:text="@string/boking"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="13sp" />
+
+                <View
+                    android:id="@+id/view118"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/back_view_appointment" />
+
+                <TextView
+                    android:id="@+id/textView114"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/cairoregular"
+                    android:gravity="center"
+                    android:text="@string/boking2"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="13sp" />
+
+                <View
+                    android:id="@+id/view1148"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/back_view_appointment2" />
+                <EditText
+                    android:id="@+id/edit_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:gravity="start"
+                    android:hint="@string/complint5"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    app:addTextChangedListener="@{model.msgTextWatcher}"
+                    android:textColorHint="@color/textColor" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button10"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/back_ground_shadow"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/boking_button"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:onClick="@{model::onBookingClick}"
+                    android:visibility="@{model.loginVisibility}"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/pb_confirm"
+                    android:layout_width="265dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/back_ground_shadow"
+                    android:padding="5dp"
+                    android:visibility="@{model.pbLoginVisibility}" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

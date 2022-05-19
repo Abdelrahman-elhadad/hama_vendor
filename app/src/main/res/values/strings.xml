@@ -225,7 +225,7 @@ correctly</string>
     <string name="setting">settings</string>
 
 
-    <string name="not_login">Your not Login , to continue please Login...</string>
+    <string name="not_login">Your not Login , to continue please Login…</string>
     <string name="change_your_password">Change Your Password</string>
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
@@ -242,5 +242,7 @@ correctly</string>
     <string name="forget3">Remember Password?</string>
 
     <string name="store_name">xxx store</string>
+
+    <string name="enter_old_password">Old Password</string>
 
 </resources>

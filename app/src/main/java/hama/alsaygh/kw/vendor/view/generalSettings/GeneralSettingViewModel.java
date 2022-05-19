@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
+import hama.alsaygh.kw.vendor.view.generalSettings.changePassword.ChangePasswordActivity;
 import hama.alsaygh.kw.vendor.view.generalSettings.language.LanguageActivity;
 import hama.alsaygh.kw.vendor.view.generalSettings.notification.NotificationSettingActivity;
 
@@ -30,7 +31,8 @@ public class GeneralSettingViewModel extends ViewModel {
     }
 
     public void onChangePasswordClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), ChangePasswordActivity.class);
+        view.getContext().startActivity(intent);
     }
 
 
