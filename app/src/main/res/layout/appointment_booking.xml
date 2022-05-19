@@ -17,7 +17,8 @@
             android:layout_height="23dp"
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
-            app:srcCompat="@drawable/backk" />
+            app:srcCompat="@drawable/backk"
+                android:contentDescription="@string/about_hama3" />
 
         <TextView
             android:id="@+id/txt_toolbar"
