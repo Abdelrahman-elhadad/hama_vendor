@@ -8,6 +8,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
+import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.model.user.UserResponse;
@@ -158,7 +159,7 @@ public class ProfileRepo {
                 String responseString = response.body().string();
 
                 Log.i(TAG, "Response:reset-password" + responseString);
-                responseString=responseString.replace("\"data\":[]","\"data\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, UserResponse.class);
 
 
@@ -180,7 +181,7 @@ public class ProfileRepo {
     }
 
 
-    public void changeLanguage(final Context context,final String language, final MutableLiveData<UserResponse> loginResponseMutableLiveData) {
+    public void changeLanguage(final Context context, final String language, final MutableLiveData<UserResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             UserResponse loginSocialResponse;
@@ -197,7 +198,7 @@ public class ProfileRepo {
                 String responseString = response.body().string();
 
                 Log.i(TAG, "Response:settings/language " + responseString);
-                responseString=responseString.replace("\"data\":[]","\"data\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, UserResponse.class);
 
 
@@ -218,17 +219,18 @@ public class ProfileRepo {
         }).start();
 
     }
-    public void updateNotificationSettings(final Context context,final boolean general_notifications,final boolean order_notification,final boolean event_notification,final boolean adv_notification, final MutableLiveData<UserResponse> loginResponseMutableLiveData) {
+
+    public void updateNotificationSettings(final Context context, final boolean general_notifications, final boolean order_notification, final boolean event_notification, final boolean adv_notification, final MutableLiveData<UserResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             UserResponse loginSocialResponse;
             try {
                 String url = RequestWrapper.getInstance().getFullPath() + "settings/notifications";
                 FormBody body = new FormBody.Builder()
-                        .add("general_notifications", general_notifications?"1":"0")
-                        .add("order_notification", order_notification?"1":"0")
-                        .add("event_notification", event_notification?"1":"0")
-                        .add("adv_notification", adv_notification?"1":"0")
+                        .add("general_notifications", general_notifications ? "1" : "0")
+                        .add("order_notification", order_notification ? "1" : "0")
+                        .add("event_notification", event_notification ? "1" : "0")
+                        .add("adv_notification", adv_notification ? "1" : "0")
                         .build();
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).post(body).build();
@@ -237,7 +239,7 @@ public class ProfileRepo {
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
 
-                responseString=responseString.replace("\"data\":[]","\"data\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
                 Log.i(TAG, "Response:settings/notifications " + responseString);
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, UserResponse.class);
@@ -260,7 +262,8 @@ public class ProfileRepo {
         }).start();
 
     }
-    public void contactUs(final Context context,final String name,final String email,final String message, final MutableLiveData<ContactUsResponse> loginResponseMutableLiveData) {
+
+    public void contactUs(final Context context, final String name, final String email, final String message, final MutableLiveData<ContactUsResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             ContactUsResponse loginSocialResponse;
@@ -279,8 +282,8 @@ public class ProfileRepo {
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
 
-                responseString=responseString.replace("\"data\":[]","\"data\":{}");
-                Log.i(TAG, "Response:ContactUsResponse " + responseString);
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                Log.i(TAG, "Response:contact " + responseString);
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, ContactUsResponse.class);
 
@@ -296,6 +299,47 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final ContactUsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void suggestion(final Context context, final String message, final MutableLiveData<GeneralResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            GeneralResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "suggestion";
+                FormBody body = new FormBody.Builder()
+                        .add("message", message)
+
+                        .build();
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).post(body).build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                Log.i(TAG, "Response:suggestion " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, GeneralResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new GeneralResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+
+            if (loginResponseMutableLiveData != null) {
+                final GeneralResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

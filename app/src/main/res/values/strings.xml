@@ -1,4 +1,5 @@
 <resources>
+    <string name="default_notification_channel_id" translatable="false">Hama_vendor</string>
     <string name="app_name">Hama Vendor</string>
     <string name="vendor_portal">Vendors Portal</string>
     <string name="login">login</string>
@@ -218,7 +219,7 @@ correctly</string>
     <string name="tracking">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</string>
     <string name="Language_Settings19">TRACK OF MAP</string>
     <string name="rest1">Resend Code</string>
-    <string name="default_notification_channel_id">Hama_vendor</string>
+
 
     <string name="gps_setting_title"> GPS is settings</string>
     <string name="gps_setting_msg"> GPS is not enabled. Do you want to go to settings menu?</string>
