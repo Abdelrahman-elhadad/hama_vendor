@@ -48,6 +48,7 @@
         <entry key="app/src/main/res/layout/contact_us.xml" value="0.125" />
         <entry key="app/src/main/res/layout/dialog_gps_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_login.xml" value="0.1546875" />
+        <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.45" />
         <entry key="app/src/main/res/layout/general_settings.xml" value="0.2546875" />

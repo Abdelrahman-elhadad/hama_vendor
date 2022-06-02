@@ -12,6 +12,7 @@ import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.appointment.AppointmentBookingActivity;
 import hama.alsaygh.kw.vendor.view.contactUs.ContactUsActivity;
 import hama.alsaygh.kw.vendor.view.generalSettings.GeneralSettingsActivity;
+import hama.alsaygh.kw.vendor.view.rateHama.RateHamaActivity;
 import hama.alsaygh.kw.vendor.view.recommendation.RecommendationActivity;
 import hama.alsaygh.kw.vendor.view.terms.TermsActivity;
 
@@ -54,7 +55,8 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onHamaRateClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), RateHamaActivity.class);
+        view.getContext().startActivity(intent);
     }
 
     public void onTermsClick(View view) {

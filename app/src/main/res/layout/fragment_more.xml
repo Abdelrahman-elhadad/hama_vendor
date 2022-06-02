@@ -26,8 +26,8 @@
                 android:layout_width="25dp"
                 android:layout_height="23dp"
                 android:gravity="start"
-                app:srcCompat="@drawable/ic_logout"
-                android:onClick="@{model::onLogoutClick}"/>
+                android:onClick="@{model::onLogoutClick}"
+                app:srcCompat="@drawable/ic_logout" />
 
             <TextView
                 android:id="@+id/txt_toolbar"
@@ -73,11 +73,12 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView26"
+                        android:id="@+id/iv_profile"
                         android:layout_width="77dp"
                         android:layout_height="77dp"
                         android:layout_gravity="start"
                         android:layout_marginStart="16dp"
+                        android:contentDescription="@string/enter_old_password"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/imageee" />
 
@@ -127,8 +128,8 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
-                        android:text="@string/fixed12"
                         android:onClick="@{model::onMySalesClick}"
+                        android:text="@string/fixed12"
                         android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_sell_your_product" />
@@ -150,8 +151,8 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
-                        android:text="@string/profile"
                         android:onClick="@{model::onOrderTrackingClick}"
+                        android:text="@string/profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_order_tracking" />
 
@@ -175,8 +176,8 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
-                        android:text="@string/profile1"
                         android:onClick="@{model::onOrderRateClick}"
+                        android:text="@string/profile1"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_online_store" />
 
@@ -198,8 +199,8 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
-                        android:text="@string/profile2"
                         android:onClick="@{model::onGeneralSettingsClick}"
+                        android:text="@string/profile2"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_settings" />
 
@@ -228,9 +229,9 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
+                        android:onClick="@{model::onHamaRateClick}"
                         android:text="@string/profile3"
                         android:textSize="14sp"
-                        android:onClick="@{model::onHamaRateClick}"
                         app:drawableStartCompat="@drawable/ic_path_13401" />
 
 
@@ -251,8 +252,8 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
-                        android:text="@string/profile4"
                         android:onClick="@{model::onTermsClick}"
+                        android:text="@string/profile4"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_terms___conditions" />
 
@@ -274,9 +275,9 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
+                        android:onClick="@{model::onContactHamaClick}"
                         android:text="@string/profile5"
                         android:textSize="14sp"
-                        android:onClick="@{model::onContactHamaClick}"
                         app:drawableStartCompat="@drawable/ic_contact_us" />
 
 
@@ -297,9 +298,9 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
+                        android:onClick="@{model::onRecommendationHamaClick}"
                         android:text="@string/profile6"
                         android:textSize="14sp"
-                        android:onClick="@{model::onRecommendationHamaClick}"
                         app:drawableStartCompat="@drawable/ic_recommendation__1_" />
 
 
@@ -320,9 +321,9 @@
                         android:layout_marginEnd="15dp"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/cairosemibold"
+                        android:onClick="@{model::onAppointmentHamaClick}"
                         android:text="@string/profile7"
                         android:textSize="14sp"
-                        android:onClick="@{model::onAppointmentHamaClick}"
                         app:drawableStartCompat="@drawable/ic_appointment_booking" />
 
 

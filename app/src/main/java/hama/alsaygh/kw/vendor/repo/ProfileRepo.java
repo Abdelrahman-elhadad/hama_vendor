@@ -347,4 +347,45 @@ public class ProfileRepo {
 
     }
 
+    public void rateHama(final Context context, final float message, final MutableLiveData<GeneralResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            GeneralResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "rate";
+                FormBody body = new FormBody.Builder()
+                        .add("rate", message + "")
+
+                        .build();
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).post(body).build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                Log.i(TAG, "Response:rate " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, GeneralResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new GeneralResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+
+            if (loginResponseMutableLiveData != null) {
+                final GeneralResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
 }

@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HamaVendor">
         <activity
+            android:name=".view.rateHama.RateHamaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.recommendation.RecommendationActivity"
             android:exported="false" />
         <activity

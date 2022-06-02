@@ -14,8 +14,9 @@
             android:id="@+id/img_back"
             android:layout_width="25dp"
             android:layout_height="23dp"
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             app:srcCompat="@drawable/backk"
                 android:contentDescription="@string/about_hama3" />
 
@@ -62,7 +63,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/camm" />
+                    app:srcCompat="@drawable/camm"
+                    android:contentDescription="@string/enter_old_password"/>
 
                 <ImageView
                     android:id="@+id/imageView19"
@@ -72,12 +74,13 @@
                     app:layout_constraintStart_toStartOf="@+id/imageView18"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="50dp"
+                    android:contentDescription="@string/enter_old_password"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView18"
                     app:srcCompat="@drawable/ic_icon_awesome_camera" />
 
 
                 <EditText
-                    android:id="@+id/edt_email"
+                    android:id="@+id/edt_full_name"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -92,10 +95,13 @@
                     android:textColorHint="@color/text"
                     android:padding="10dp"
                     android:paddingStart="20dp"
-                    android:textSize="15sp" />
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
+                    android:textSize="15sp"
+                   />
 
                 <EditText
-                    android:id="@+id/edt_email11"
+                    android:id="@+id/edt_email"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -105,15 +111,17 @@
                     android:hint="@string/email"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email"
-                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_full_name"
+                    android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edt_email111"
+                    android:id="@+id/edt_phone"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -122,12 +130,14 @@
                     android:ems="10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email11"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_email"
                     android:hint="@string/Phone_Number"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
                 <EditText
@@ -142,12 +152,12 @@
                     android:ems="10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email111"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_phone"
                     android:gravity="start"
                     android:hint="@string/complint51"
                     android:inputType="text"
                     android:padding="10dp"
-                    android:paddingStart="10dp"
+                    android:importantForAutofill="no"
                     android:textColorHint="@color/text" />
 
                 <TextView
@@ -165,7 +175,7 @@
 
 
                 <EditText
-                    android:id="@+id/edt_email14"
+                    android:id="@+id/edt_id_no"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -180,6 +190,8 @@
                     android:textColorHint="@color/text"
                     android:padding="10dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
@@ -188,21 +200,22 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:id="@+id/up"
+                    android:id="@+id/ll_capture_id"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginStart="30dp"
                     app:layout_constraintStart_toStartOf="parent"
                     android:background="@drawable/ic_rectangle_3294"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email14">
+                    app:layout_constraintTop_toBottomOf="@+id/edt_id_no">
 
 
                     <ImageView
                         android:id="@+id/imageView6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/ic_id" />
+                        app:srcCompat="@drawable/ic_id"
+                        android:contentDescription="@string/enter_old_password"/>
 
                     <TextView
                         android:id="@+id/textView12"
@@ -216,7 +229,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/edt_email889"
+                    android:id="@+id/edt_gender"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -225,12 +238,14 @@
                     android:ems="10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/up"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_capture_id"
                     android:hint="@string/Gender"
                     android:inputType="textPersonName"
                     android:textColorHint="@color/text"
                     android:padding="10dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
@@ -245,17 +260,19 @@
                     android:ems="10"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email889"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_gender"
                     android:hint="@string/Date_of_Birth"
                     android:inputType="textPersonName"
                     android:textColorHint="@color/text"
                     android:padding="10dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
                 <EditText
-                    android:id="@+id/edt_email899"
+                    android:id="@+id/edt_personal_phone_number"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -266,14 +283,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edt_email89"
                     android:hint="@string/Personal_Phone_Number"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:textColorHint="@color/text"
                     android:padding="10dp"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edt_emai21"
+                    android:id="@+id/edt_store_phone_number"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -283,11 +302,13 @@
                     android:hint="@string/Store_Phone_Number"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_email899"
-                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_personal_phone_number"
+                    android:inputType="phone"
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
                 <TextView
@@ -298,13 +319,13 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairobold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_emai21"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_store_phone_number"
                     android:text="@string/Store_Informations"
                     android:textColor="@color/blackcolor1"
                     android:textSize="18sp" />
 
                 <LinearLayout
-                    android:id="@+id/linearLayout"
+                    android:id="@+id/ll_capture_store_license"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="30dp"
@@ -322,7 +343,8 @@
                         android:id="@+id/imageView5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/up_load" />
+                        app:srcCompat="@drawable/up_load"
+                        android:contentDescription="@string/enter_old_password"/>
 
                     <TextView
                         android:id="@+id/textView11"
@@ -336,7 +358,7 @@
                         android:textColor="@color/ghhg" />
                 </LinearLayout>
                 <EditText
-                    android:id="@+id/edt_emai15"
+                    android:id="@+id/edt_expiry_date_license"
                     android:layout_width="360dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -346,11 +368,13 @@
                     android:hint="@string/License_expiry_date"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_capture_store_license"
+                    android:inputType="date"
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
@@ -367,13 +391,14 @@
                     android:orientation="vertical"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_emai15">
+                    app:layout_constraintTop_toBottomOf="@+id/edt_expiry_date_license">
 
                     <ImageView
                         android:id="@+id/imageView55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/up_load" />
+                        app:srcCompat="@drawable/up_load"
+                        android:contentDescription="@string/enter_old_password"/>
 
                     <TextView
                         android:id="@+id/textView111"
@@ -402,6 +427,8 @@
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
@@ -424,7 +451,8 @@
                         android:id="@+id/imageView64"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/up_load" />
+                        app:srcCompat="@drawable/up_load"
+                        android:contentDescription="@string/enter_old_password"/>
 
                     <TextView
                         android:id="@+id/textView112"
@@ -455,10 +483,12 @@
                     android:padding="10dp"
                     android:textColorHint="@color/text"
                     android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:importantForAutofill="no"
                     android:textSize="15sp" />
 
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_send"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"

@@ -8,7 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
+import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.FragmentMoreBinding;
+import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
+import hama.alsaygh.kw.vendor.utils.image.CircleTransform;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 
 public class MoreFragment extends BaseFragment {
@@ -33,6 +39,23 @@ public class MoreFragment extends BaseFragment {
 
         model = new MoreViewModel(requireContext());
         binding.setModel(model);
+
+        String imageUrl = SharedPreferenceConstant.getSharedPreferenceUser(requireContext()).getImage();
+        if (imageUrl != null && !imageUrl.isEmpty())
+            Picasso.get().load(imageUrl).transform(new CircleTransform()).into(binding.ivProfile, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError(Exception e) {
+
+                    Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivProfile);
+                }
+            });
+        else
+            Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivProfile);
 
 
     }
