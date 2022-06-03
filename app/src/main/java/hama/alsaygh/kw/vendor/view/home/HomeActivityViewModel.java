@@ -1,6 +1,8 @@
 package hama.alsaygh.kw.vendor.view.home;
 
+import android.content.Context;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
@@ -16,17 +18,16 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.fragment.HomeFragment;
-import hama.alsaygh.kw.vendor.fragment.MyProductsFragment;
 import hama.alsaygh.kw.vendor.fragment.OffersActiveOffers;
 import hama.alsaygh.kw.vendor.fragment.Orders;
-import hama.alsaygh.kw.vendor.model.onBoarding.OnBoardResponse;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
+import hama.alsaygh.kw.vendor.view.products.ProductsFragment;
 
 public class HomeActivityViewModel extends ViewModel {
 
     private final String TAG = "LoginActivityViewModel";
-    private MutableLiveData<OnBoardResponse> onBoardingResponseMutableLiveData;
-    private final ObservableInt progress = new ObservableInt();
+    private MutableLiveData<String> title = new MutableLiveData<>();
+    private final ObservableInt toolBar = new ObservableInt();
     FragmentManager fragmentManager;
 
     //  private Home home ;
@@ -35,9 +36,17 @@ public class HomeActivityViewModel extends ViewModel {
     private final int Orders = 2;
     private final int Offers = 3;
     private final int more = 4;
+    private Context context;
 
-    public HomeActivityViewModel(FragmentManager fragmentManager) {
+    public HomeActivityViewModel(Context context, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
+        this.context = context;
+        toolBar.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.home));
+    }
+
+    public MutableLiveData<String> getTitleObserver() {
+        return title;
     }
 
     public int getHome() {
@@ -77,27 +86,40 @@ public class HomeActivityViewModel extends ViewModel {
 
     public boolean onNavigationClick(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.item_home) {
+            toolBar.set(View.VISIBLE);
+            title.setValue(context.getString(R.string.home));
             commitFragment(new HomeFragment(), Home);
             return true;
         }
         if (item.getItemId() == R.id.item_products) {
-            commitFragment(new MyProductsFragment(), MyProducts);
+            toolBar.set(View.VISIBLE);
+            title.setValue(context.getString(R.string.my_products));
+            commitFragment(ProductsFragment.newInstance(), MyProducts);
             return true;
         }
         if (item.getItemId() == R.id.item_orders) {
+            toolBar.set(View.VISIBLE);
+            title.setValue(context.getString(R.string.fixed1));
             commitFragment(new Orders(), Orders);
             return true;
         }
         if (item.getItemId() == R.id.item_offers) {
+            toolBar.set(View.VISIBLE);
+            title.setValue(context.getString(R.string.Offers));
             commitFragment(new OffersActiveOffers(), Offers);
             return true;
         }
 
         if (item.getItemId() == R.id.item_more) {
-            commitFragment( MoreFragment.newInstance(), more);
+            toolBar.set(View.GONE);
+            title.setValue("");
+            commitFragment(MoreFragment.newInstance(), more);
             return true;
         }
         return false;
     }
 
+    public ObservableInt getToolBar() {
+        return toolBar;
+    }
 }

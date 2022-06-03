@@ -23,18 +23,21 @@ public class HomeActivity extends BaseActivity {
         LocalUtils.getInstance().updateResources(this, LocalUtils.getInstance().getLanguageShort(this));
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        model = new HomeActivityViewModel(getSupportFragmentManager());
+        model = new HomeActivityViewModel(this, getSupportFragmentManager());
         binding.setModel(model);
         binding.buttomNav.setSelectedItemId(R.id.item_home);
         model.commitFragment(new HomeFragment(), model.getHome());
         lang = LocalUtils.getInstance().getLanguageShort(this);
+        model.getTitleObserver().observe(this, title -> {
+            binding.home1.setText(title);
+        });
     }
 
     @Override
     public void onBackPressed() {
         if (position != model.getHome())
             binding.buttomNav.setSelectedItemId(R.id.item_home);
-          //  model.commitFragment(new HomeFragment(), model.getHome());
+            //  model.commitFragment(new HomeFragment(), model.getHome());
         else
             super.onBackPressed();
     }

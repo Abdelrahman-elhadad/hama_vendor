@@ -85,4 +85,5 @@
 
     <color name="color_light_shimmer">#1098BDAB</color>
     <color name="color_light_mask">#3598BDAB</color>
+    <color name="color_buttons_transparent">#80D5B9A7</color>
 </resources>

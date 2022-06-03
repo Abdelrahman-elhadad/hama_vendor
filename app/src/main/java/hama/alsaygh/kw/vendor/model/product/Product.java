@@ -59,6 +59,9 @@ public class Product implements Serializable {
     @SerializedName("caliber")
     private Caliber caliber;
 
+    @SerializedName("order_count")
+    private int order_count;
+
     @SerializedName("media")
     private List<Media> media;
 
@@ -222,5 +225,13 @@ public class Product implements Serializable {
 
     public void setCaliber(Caliber caliber) {
         this.caliber = caliber;
+    }
+
+    public int getOrder_count() {
+        return order_count;
+    }
+
+    public void setOrder_count(int order_count) {
+        this.order_count = order_count;
     }
 }

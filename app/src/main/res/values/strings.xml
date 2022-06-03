@@ -3,6 +3,7 @@
     <string name="app_name">Hama Vendor</string>
     <string name="vendor_portal">Vendors Portal</string>
     <string name="login">login</string>
+    <string name="login_now">Login Now</string>
     <string name="homeee">Create Account</string>
     <string name="wellcome">Welcome to Hama Vendor Portal!</string>
     <string name="splash">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</string>
@@ -245,5 +246,9 @@ correctly</string>
     <string name="store_name">xxx store</string>
 
     <string name="enter_old_password">Old Password</string>
+    <string name="my_products">My Products</string>
+    <string name="currency">KWD</string>
+    <string name="weight"> weight</string>
+    <string name="orders_num">Orders: xx</string>
 
 </resources>

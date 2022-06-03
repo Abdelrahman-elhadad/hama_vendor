@@ -2,6 +2,7 @@
     <string name="app_name">هامه متاجر </string>
     <string name="vendor_portal">بوابة البائعين</string>
     <string name="login">تسجيل دخول</string>
+    <string name="login_now">تسجيل دخول الآن</string>
     <string name="homeee">تسجيل</string>
     <string name="wellcome">مرحبا بكم في بوابة بائع هامه!</string>
     <string name="splash">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</string>
@@ -246,4 +247,9 @@
 
     <string name="enter_old_password">كلمة مرور قديمة </string>
 
+    <string name="my_products">منتجاتي</string>
+    <string name="currency">د.ك</string>
+    <string name="weight"> وزن</string>
+
+    <string name="orders_num">الطلبات: xx</string>
 </resources>
