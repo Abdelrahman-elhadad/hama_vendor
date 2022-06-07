@@ -16,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.databinding.FragmentAddNewProductStep1Binding;
+import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep1Binding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.category.Category;
@@ -25,7 +25,7 @@ import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 
 public class AddProductStep1Fragment extends BaseFragment implements OnGeneralClickListener {
 
-    FragmentAddNewProductStep1Binding binding;
+    FragmentAddProductStep1Binding binding;
     AddProductViewModel model;
 
     public static AddProductStep1Fragment newInstance(AddProductViewModel model) {
@@ -42,7 +42,7 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentAddNewProductStep1Binding.inflate(inflater, container, false);
+        binding = FragmentAddProductStep1Binding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -51,13 +51,9 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
         super.onViewCreated(view, savedInstanceState);
         binding.setModel(model);
 
-        model.getWeightObserver().observe(requireActivity(), weight -> {
-            binding.editWeight.setText(weight);
-        });
+        model.getWeightObserver().observe(requireActivity(), weight -> binding.editWeight.setText(weight));
 
-        model.getQuantityObserver().observe(requireActivity(), quantity -> {
-            binding.editQuantity.setText(quantity);
-        });
+        model.getQuantityObserver().observe(requireActivity(), quantity -> binding.editQuantity.setText(quantity));
 
         model.getCategoriesObserver().observe(requireActivity(), categoriesResponse -> {
 

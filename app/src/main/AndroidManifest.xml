@@ -17,7 +17,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HamaVendor">
+        android:theme="@style/Theme.HamaVendor"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".view.products.addProduct.AddProductActivity"
             android:exported="false" />
@@ -94,6 +95,16 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/key_api_google" />
+
+        <!--<provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="hama.alsaygh.kw.vendor.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>-->
     </application>
 
 </manifest>

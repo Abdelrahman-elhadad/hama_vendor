@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/shape_shadow.xml" value="0.147" />
         <entry key="app/src/main/res/drawable-v24/tab_color.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_edit_txt.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_edit_txt_red.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_editt.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_button.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_edit_text.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_shadow.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_item.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_item_order.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_item_rv.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_product.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_reset_pass.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_reset_pass_red.xml" value="0.152" />
@@ -16,6 +21,7 @@
         <entry key="app/src/main/res/drawable/back_sort.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_spinner.xml" value="0.1515" />
         <entry key="app/src/main/res/drawable/back_spinner3.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/background_blue_dash.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/backk.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_closee.xml" value="0.152" />
@@ -28,6 +34,7 @@
         <entry key="app/src/main/res/drawable/ic_notification_home.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_offers.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_path_13411.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/ic_rectangle_3294.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_seeall.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_sell_your_product.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_subject.xml" value="0.152" />
@@ -36,7 +43,7 @@
         <entry key="app/src/main/res/drawable/switch_tracker_light.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/text_color_of_menu.xml" value="0.152" />
         <entry key="app/src/main/res/layout/active_offers_fragment.xml" value="0.2546875" />
-        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.2846320346320346" />
         <entry key="app/src/main/res/layout/activity_add_product_step1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_appointment_booking.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.25" />
@@ -52,6 +59,7 @@
         <entry key="app/src/main/res/layout/add_new_product_step2.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/appointment_booking.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/buttom_navigation.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/card_request_image.xml" value="0.5" />
         <entry key="app/src/main/res/layout/card_splash_screen.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/change_password.xml" value="0.11354166666666667" />
         <entry key="app/src/main/res/layout/contact_us.xml" value="0.125" />
@@ -60,6 +68,8 @@
         <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_new_product_step_1.xml" value="0.23777961888980945" />
+        <entry key="app/src/main/res/layout/fragment_add_product_step_1.xml" value="0.24074074074074073" />
+        <entry key="app/src/main/res/layout/fragment_add_product_step_2.xml" value="0.31645304361979176" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_prouducts.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/general_settings.xml" value="0.2546875" />
@@ -85,6 +95,7 @@
         <entry key="app/src/main/res/layout/term_and_conditions.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/well_come_screen.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/menu/buttom_nav.xml" value="0.2546875" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.125" />
       </map>
     </option>
   </component>

@@ -533,11 +533,13 @@ public class AddProductViewModel extends ViewModel {
             if (fragment != null) {
                 if (((AddProductStep1Fragment) fragment).isValid()) {
 
+                    commitFragment(AddProductStep2Fragment.newInstance(this), Step2);
                 }
             }
         } else if (position == Step2) {
 
         }
     }
+
 
 }

@@ -1,47 +1,56 @@
 package hama.alsaygh.kw.vendor.view.products.addProduct;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.ClipData;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.faltenreich.skeletonlayout.Skeleton;
-import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
-import com.google.android.material.snackbar.Snackbar;
+import java.util.ArrayList;
 
-import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.app.MainApplication;
-import hama.alsaygh.kw.vendor.databinding.FragmentProuductsBinding;
-import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep2Binding;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
-import hama.alsaygh.kw.vendor.utils.Utils;
+import hama.alsaygh.kw.vendor.model.image.ImageUpload;
+import hama.alsaygh.kw.vendor.utils.CheckAndRequestPermission;
+import hama.alsaygh.kw.vendor.utils.FileUtils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
-import hama.alsaygh.kw.vendor.view.products.ProductsViewModel;
-import hama.alsaygh.kw.vendor.view.products.adapter.StoreProductRecycleViewAdapter;
+import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.AdapterImageProduct;
 
 public class AddProductStep2Fragment extends BaseFragment implements OnGeneralClickListener {
 
-    FragmentProuductsBinding binding;
-    ProductsViewModel model;
-    Skeleton skeleton;
+    FragmentAddProductStep2Binding binding;
+    AddProductViewModel model;
+    AdapterImageProduct adapter;
+    Uri resultUri;
 
-    int page = 1;
-    boolean isLast = false, isLoading = false;
-    StoreProductRecycleViewAdapter adapter;
+    public static AddProductStep2Fragment newInstance(AddProductViewModel model) {
+        AddProductStep2Fragment fragment = new AddProductStep2Fragment();
+        fragment.setModel(model);
+        return fragment;
+    }
 
-    public static AddProductStep2Fragment newInstance() {
-        return new AddProductStep2Fragment();
+    public void setModel(AddProductViewModel model) {
+        this.model = model;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentProuductsBinding.inflate(inflater, container, false);
+        binding = FragmentAddProductStep2Binding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -49,99 +58,45 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        model = new ProductsViewModel();
         binding.setModel(model);
-        skeleton = SkeletonLayoutUtils.applySkeleton(binding.rvProducts, R.layout.item_rv_my_prouduct, 2);
-        Utils.getInstance().setSkeletonMaskAndShimmer(requireContext(), skeleton);
 
+        adapter = new AdapterImageProduct(getActivity(), new ArrayList<ImageUpload>());
+        binding.rvUploadImages.setAdapter(adapter);
+        binding.rvUploadImages.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        model.getObserver().observe(requireActivity(), productsResponse -> {
-            if (page == 1)
-                skeleton.showOriginal();
+        binding.llGallery.setOnClickListener(v -> permissionGallery());
 
-            isLoading = false;
-            binding.swRefresh.setRefreshing(false);
-            binding.pbLoading.setVisibility(View.GONE);
+        binding.llCamera.setOnClickListener(v -> permissionCamera());
 
-            if (productsResponse.isStatus()) {
-                if (productsResponse.getData().isEmpty()) {
-                    if (page == 1) {
-                        binding.rvProducts.setVisibility(View.GONE);
-                    }
-                    isLast = true;
-                } else {
-                    binding.rvProducts.setVisibility(View.VISIBLE);
-                    if (page == 1) {
-                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), AddProductStep2Fragment.this);
-                        binding.rvProducts.setAdapter(adapter);
+    }
 
-                    } else {
-                        if (adapter != null)
-                            adapter.addItems(productsResponse.getData());
-                        else {
-                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), AddProductStep2Fragment.this);
-                            binding.rvProducts.setAdapter(adapter);
-                        }
-                    }
-                }
-            } else {
+    private void permissionGallery() {
+        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (!CheckAndRequestPermission.hasPermissions(getContext(), permissions)) {
+            mPermissionResult.launch(permissions);
+        } else {
+            openGallery();
+        }
 
-                if (productsResponse.getCode().equalsIgnoreCase("401")) {
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
-                } else {
-                    Snackbar.make(binding.rvProducts, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
+    }
 
-        binding.swRefresh.setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.textviewhome), ContextCompat.getColor(requireContext(), R.color.color_navigation));
+    private void permissionCamera() {
+        String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (!CheckAndRequestPermission.hasPermissions(getContext(), permissions)) {
+            cameraPermissionResult.launch(permissions);
+        } else {
+            takePhotoFromCamera();
+        }
 
-        binding.swRefresh.setOnRefreshListener(() -> {
-            if (MainApplication.isConnected) {
+    }
 
-                isLoading = true;
-                isLast = false;
-                page = 1;
-                model.getProducts(requireContext(), page);
-
-
-            } else
-                binding.swRefresh.setRefreshing(false);
-        });
-
-        binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                View view = (View) binding.nsMain.getChildAt(binding.nsMain.getChildCount() - 1);
-
-                int diff = (view.getBottom() - (binding.nsMain.getHeight() + binding.nsMain
-                        .getScrollY()));
-
-                if (diff == 0) {
-                    if (getActivity() != null) {
-
-                        if (!isLoading && !isLast) {
-                            binding.pbLoading.setVisibility(View.VISIBLE);
-                            isLoading = true;
-                            ++page;
-                            model.getProducts(requireContext(), page);
-                        }
-                    }
-                }
-//                if (binding.nsMain.getScrollY() == 0) {
-//                    binding.rlToTop.setVisibility(View.GONE);
-//                } else
-//                    binding.rlToTop.setVisibility(View.VISIBLE);
-            }
-        });
-
-
-        isLoading = true;
-        isLast = false;
-        page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(requireContext(), page);
-
+    private void openGallery() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Select Picture"), Utils.PICK_IMAGE);
+        pickImageActivityResultLauncher.launch(Intent.createChooser(intent, "Select Picture"));
     }
 
     @Override
@@ -157,5 +112,99 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
     @Override
     public void onDeleteClick(Object object, int position) {
 
+    }
+
+
+    private final ActivityResultLauncher<String[]> mPermissionResult = registerForActivityResult(
+            new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+
+                boolean isAccepted = true;
+                for (String key : result.keySet()) {
+                    if (Boolean.FALSE.equals(result.get(key))) {
+                        isAccepted = false;
+                        break;
+                    }
+                }
+                if (isAccepted)
+                    openGallery();
+            });
+
+
+    private final ActivityResultLauncher<String[]> cameraPermissionResult = registerForActivityResult(
+            new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+
+                boolean isAccepted = true;
+                for (String key : result.keySet()) {
+                    if (Boolean.FALSE.equals(result.get(key))) {
+                        isAccepted = false;
+                        break;
+                    }
+                }
+                if (isAccepted)
+                    takePhotoFromCamera();
+            });
+
+    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
+    ActivityResultLauncher<Intent> pickImageActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        if (data != null && data.getClipData() != null) {
+                            ClipData mClipData = data.getClipData();
+                            for (int i = 0; i < mClipData.getItemCount(); i++) {
+
+                                ClipData.Item item = mClipData.getItemAt(i);
+                                Uri uri = item.getUri();
+                                final String profilePath = FileUtils.getPath(getContext(), uri);
+                                ImageUpload imageUpload = new ImageUpload();
+                                imageUpload.setPath(profilePath);
+                                imageUpload.setUri(uri);
+                                adapter.addItem(imageUpload);
+                            }
+                        } else if (data != null && data.getData() != null) {
+                            final String profilePath = FileUtils.getPath(getContext(), data.getData());
+                            ImageUpload imageUpload = new ImageUpload();
+                            imageUpload.setPath(profilePath);
+                            imageUpload.setUri(data.getData());
+                            adapter.addItem(imageUpload);
+                        }
+                    }
+                }
+            });
+
+    // You can do the assignment inside onAttach or onCreate, i.e, before the activity is displayed
+    ActivityResultLauncher<Intent> cameraImageActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+
+                        final String profilePath = FileUtils.getPath(getContext(), resultUri);
+                        ImageUpload imageUpload = new ImageUpload();
+                        imageUpload.setPath(profilePath);
+                        imageUpload.setUri(resultUri);
+                        adapter.addItem(imageUpload);
+                    }
+                }
+            });
+
+
+    private void takePhotoFromCamera() {
+
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        resultUri = requireActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                new ContentValues());
+        intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, resultUri);
+        //Log.i("getPackageManager",intent.resolveActivity(requireActivity().getPackageManager()).toString());
+//        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+//
+//        }
+        cameraImageActivityResultLauncher.launch(intent);
     }
 }

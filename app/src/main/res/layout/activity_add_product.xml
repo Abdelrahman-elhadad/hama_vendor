@@ -56,7 +56,14 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_above="@+id/ll_next"
+            android:background="@drawable/shape_shadow" />
+
         <LinearLayout
+            android:id="@+id/ll_next"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_alignParentBottom="true"
@@ -71,8 +78,8 @@
                 android:layout_gravity="center"
                 android:background="@color/dgdg"
                 android:gravity="center"
-                android:text="@string/Next"
                 android:onClick="@{model::onNextClick}"
+                android:text="@string/Next"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
