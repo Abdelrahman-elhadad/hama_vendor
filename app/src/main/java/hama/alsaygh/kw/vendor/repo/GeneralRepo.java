@@ -10,6 +10,8 @@ import androidx.lifecycle.MutableLiveData;
 import java.io.File;
 
 import hama.alsaygh.kw.vendor.model.appointment.AppointmentResponse;
+import hama.alsaygh.kw.vendor.model.category.CategoriesResponse;
+import hama.alsaygh.kw.vendor.model.category.MainCategoriesResponse;
 import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
 import hama.alsaygh.kw.vendor.model.image.ImageResponse;
 import hama.alsaygh.kw.vendor.model.onBoarding.OnBoardResponse;
@@ -338,4 +340,77 @@ public class GeneralRepo {
 
     }
 
+
+    ///////////////////// Categories ///////////////////////////////
+    public void getMainCategories(final Context context, final MutableLiveData<MainCategoriesResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            MainCategoriesResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "categories/v1";
+
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                Log.i(TAG, "Response:categories/v1 :  " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, MainCategoriesResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new MainCategoriesResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final MainCategoriesResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void getCategories(final Context context, final MutableLiveData<CategoriesResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            CategoriesResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "categories/v2";
+
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                Log.i(TAG, "Response:categories/v2 :  " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, CategoriesResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new CategoriesResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final CategoriesResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
 }

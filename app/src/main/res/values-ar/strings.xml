@@ -55,7 +55,7 @@
     <string name="Sort">رتب</string>
     <string name="add">+ اضافة منتج جديد</string>
     <string name="kwd">الطلبات: 150</string>
-    <string name="pro">الإيرادات: 15 ألف دينار كويتي</string>
+    <string name="pro">الإيرادات: xx</string>
     <string name="addd">اضافة منتج جديد</string>
     <string name="hlhlh">هذا ما تريده انت!</string>
     <string name="klkkl">أدخل جميع البيانات بوضوح لتتمكن من عرض منتجك
@@ -252,4 +252,26 @@
     <string name="weight"> وزن</string>
 
     <string name="orders_num">الطلبات: xx</string>
+    <string name="edit">تعديل منتج</string>
+    <string name="delete">حذف منتج</string>
+    <string name="child_sub_category">فئة فرعية فرعية</string>
+    <string name="quantity_available">الكمية متاحة</string>
+    <string name="_0">0</string>
+    <string name="available_colors">الألوان المتاحة</string>
+    <string name="category"> فئة</string>
+    <string name="code">كود</string>
+    <string name="product_name_ar">اسم المنتج \"عربي\"</string>
+    <string name="product_name_en">اسم المنتج \"انجليش\"</string>
+    <string name="product_desc_ar">وصف المنتج \"عربي\"</string>
+    <string name="product_desc_en">وصف المنتج \"انجليش\"</string>
+    <string name="manufacturing_price">سعر التصنيع</string>
+    <string name="net_weight">الوزن الصافي للمعدن بالجرام</string>
+    <string name="gm">جرام</string>
+    <string name="stone_type">نوع الحجر</string>
+    <string name="diamond">الماس</string>
+    <string name="diamond_weight">وزن الماس (قيراط)</string>
+    <string name="purity">نقاء</string>
+    <string name="color">اللون</string>
+    <string name="gm_price">سعر الجرام بالدينار الكويتي</string>
+    <string name="total_metal_weight">إجمالي وزن المعدن</string>
 </resources>

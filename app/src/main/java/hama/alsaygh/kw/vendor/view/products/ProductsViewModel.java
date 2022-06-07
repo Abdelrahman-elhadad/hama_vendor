@@ -1,12 +1,15 @@
 package hama.alsaygh.kw.vendor.view.products;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
+import hama.alsaygh.kw.vendor.view.products.addProduct.AddProductActivity;
 
 public class ProductsViewModel extends ViewModel {
 
@@ -31,4 +34,9 @@ public class ProductsViewModel extends ViewModel {
         productRepo.getProducts(context, page, languageResponseMutableLiveData);
     }
 
+
+    public void onAddProductClick(View v) {
+        Intent intent = new Intent(v.getContext(), AddProductActivity.class);
+        v.getContext().startActivity(intent);
+    }
 }

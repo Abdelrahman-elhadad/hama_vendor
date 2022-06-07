@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:minWidth="110dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/cairoregular"
+        android:gravity="start|center"
+        android:text="@string/edit"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:minWidth="110dp"
+        android:fontFamily="@font/cairoregular"
+        android:gravity="start|center"
+        android:text="@string/delete"
+        android:textColor="@color/col_delete"
+        android:textSize="12sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+</LinearLayout>

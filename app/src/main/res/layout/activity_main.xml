@@ -57,7 +57,7 @@
             android:minHeight="15dp"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
-            android:onProgressChanged="@{model.onSeekBarChanged}"
+            android:onProgressChanged="@{model::onSeekBarChanged}"
             android:progress="@{model.progress}"
             android:progressDrawable="@drawable/back_seekbar"
             android:thumb="@android:color/transparent"

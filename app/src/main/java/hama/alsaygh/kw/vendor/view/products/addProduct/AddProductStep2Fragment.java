@@ -1,4 +1,4 @@
-package hama.alsaygh.kw.vendor.view.products;
+package hama.alsaygh.kw.vendor.view.products.addProduct;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,9 +21,10 @@ import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
+import hama.alsaygh.kw.vendor.view.products.ProductsViewModel;
 import hama.alsaygh.kw.vendor.view.products.adapter.StoreProductRecycleViewAdapter;
 
-public class ProductsFragment extends BaseFragment implements OnGeneralClickListener {
+public class AddProductStep2Fragment extends BaseFragment implements OnGeneralClickListener {
 
     FragmentProuductsBinding binding;
     ProductsViewModel model;
@@ -33,8 +34,8 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
     boolean isLast = false, isLoading = false;
     StoreProductRecycleViewAdapter adapter;
 
-    public static ProductsFragment newInstance() {
-        return new ProductsFragment();
+    public static AddProductStep2Fragment newInstance() {
+        return new AddProductStep2Fragment();
     }
 
     @Nullable
@@ -71,14 +72,14 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
                 } else {
                     binding.rvProducts.setVisibility(View.VISIBLE);
                     if (page == 1) {
-                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), ProductsFragment.this);
+                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), AddProductStep2Fragment.this);
                         binding.rvProducts.setAdapter(adapter);
 
                     } else {
                         if (adapter != null)
                             adapter.addItems(productsResponse.getData());
                         else {
-                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), ProductsFragment.this);
+                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), AddProductStep2Fragment.this);
                             binding.rvProducts.setAdapter(adapter);
                         }
                     }

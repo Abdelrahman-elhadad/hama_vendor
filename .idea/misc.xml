@@ -14,6 +14,8 @@
         <entry key="app/src/main/res/drawable/back_reset_pass_red.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_seekbar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_sort.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_spinner.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/back_spinner3.xml" value="0.1515" />
         <entry key="app/src/main/res/drawable/backk.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_closee.xml" value="0.152" />
@@ -34,6 +36,8 @@
         <entry key="app/src/main/res/drawable/switch_tracker_light.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/text_color_of_menu.xml" value="0.152" />
         <entry key="app/src/main/res/layout/active_offers_fragment.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/activity_add_product_step1.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_appointment_booking.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.375" />
@@ -45,6 +49,7 @@
         <entry key="app/src/main/res/layout/activity_notification_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/add_new_product_step2.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/appointment_booking.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/buttom_navigation.xml" value="0.375" />
         <entry key="app/src/main/res/layout/card_splash_screen.xml" value="0.17291666666666666" />
@@ -54,10 +59,15 @@
         <entry key="app/src/main/res/layout/dialog_login.xml" value="0.1546875" />
         <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_add_new_product_step_1.xml" value="0.23777961888980945" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_prouducts.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/general_settings.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/home.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/item_add_new_offer.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/item_rv1_add_product.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/item_rv1_home.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/item_rv2_home.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_rv_my_prouduct.xml" value="0.375" />
         <entry key="app/src/main/res/layout/language_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/login.xml" value="0.17291666666666666" />
@@ -67,6 +77,7 @@
         <entry key="app/src/main/res/layout/offers_active_offers.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/order.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/pending_fragment.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/popup_window.xml" value="0.4270167032877604" />
         <entry key="app/src/main/res/layout/prouduct.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/rate_hama.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/recommendations.xml" value="0.2546875" />

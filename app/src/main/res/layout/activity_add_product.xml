@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.products.addProduct.AddProductViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/transparent_color">
+
+            <ImageView
+                android:id="@+id/toolbar_img"
+                android:layout_width="22dp"
+                android:layout_height="23dp"
+                android:layout_gravity="start"
+                android:contentDescription="@string/about_hama3"
+                app:srcCompat="@drawable/backk" />
+
+            <TextView
+                android:id="@+id/home1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:text="@string/addd"
+                android:textColor="@color/blackcolor1"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/notification_img"
+                android:layout_width="20dp"
+                android:layout_height="23dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/available_colors"
+                app:srcCompat="@drawable/ic_market" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:id="@+id/liner1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:background="#eeffffff"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
+                android:layout_width="172dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@color/dgdg"
+                android:gravity="center"
+                android:text="@string/Next"
+                android:onClick="@{model::onNextClick}"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

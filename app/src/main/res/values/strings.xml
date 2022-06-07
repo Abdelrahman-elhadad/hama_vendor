@@ -56,11 +56,10 @@
     <string name="Sort">Sort</string>
     <string name="add">+ Add New Product</string>
     <string name="kwd">Orders: 150</string>
-    <string name="pro">Revenue: 15K KWD</string>
+    <string name="pro">Revenue: xx</string>
     <string name="addd">Add New Product</string>
     <string name="hlhlh">this is what you want!</string>
-    <string name="klkkl">Enter all data clearly to be able to display your product
-correctly</string>
+    <string name="klkkl">Enter all data clearly to be able to display your product correctly</string>
     <string name="yiyi">Main Category</string>
     <string name="opopo">Sub Category</string>
     <string name="Product_Name">Product Name</string>
@@ -248,7 +247,29 @@ correctly</string>
     <string name="enter_old_password">Old Password</string>
     <string name="my_products">My Products</string>
     <string name="currency">KWD</string>
-    <string name="weight"> weight</string>
+    <string name="weight">Weight</string>
     <string name="orders_num">Orders: xx</string>
+    <string name="edit">Edit Product</string>
+    <string name="delete">Remove Product</string>
 
+    <string name="child_sub_category">Child Sub Category</string>
+    <string name="category">Category</string>
+    <string name="quantity_available">Quantity Available</string>
+    <string name="_0">0</string>
+    <string name="available_colors">Available Colors</string>
+    <string name="code">Code</string>
+    <string name="product_name_ar">Product Name \"Ar\"</string>
+    <string name="product_name_en">Product Name \"En\"</string>
+    <string name="product_desc_ar">Product Description \"Ar\"</string>
+    <string name="product_desc_en">Product Description \"En\"</string>
+    <string name="manufacturing_price">Manufacturing price</string>
+    <string name="net_weight">Net weight of the metal in Grams</string>
+    <string name="gm">Gm</string>
+    <string name="stone_type">Stone Type</string>
+    <string name="diamond">Diamond</string>
+    <string name="diamond_weight">Diamond Weight (Kerat)</string>
+    <string name="purity">Purity</string>
+    <string name="color">Color</string>
+    <string name="gm_price">Gram Price in KWD</string>
+    <string name="total_metal_weight">Total Metal Weight</string>
 </resources>

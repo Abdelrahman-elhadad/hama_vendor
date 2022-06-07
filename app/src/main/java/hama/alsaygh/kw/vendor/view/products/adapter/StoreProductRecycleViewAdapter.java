@@ -39,17 +39,7 @@ public class StoreProductRecycleViewAdapter extends RecyclerView.Adapter<Recycle
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         CategoryViewHolder viewHolder = (CategoryViewHolder) holder;
-        viewHolder.bind(new StoreProductViewModel(viewHolder.binding.loveImg.getContext(), countries.get(position)));
-
-
-        final int index = position;
-        viewHolder.itemView.setOnClickListener(v -> {
-            if (onGeneralClickListener != null) {
-                onGeneralClickListener.onItemClick(countries.get(index), index);
-            }
-        });
-
-
+        viewHolder.bind(new StoreProductViewModel(viewHolder.binding.loveImg.getContext(), countries.get(position), onGeneralClickListener, position));
     }
 
     @Override
@@ -77,7 +67,5 @@ public class StoreProductRecycleViewAdapter extends RecyclerView.Adapter<Recycle
             binding.setModel(viewModel);
             binding.executePendingBindings();
         }
-
-
     }
 }

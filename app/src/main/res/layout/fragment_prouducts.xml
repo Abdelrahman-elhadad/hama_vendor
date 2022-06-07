@@ -111,6 +111,7 @@
                             android:background="@color/dgdg"
                             android:fontFamily="@font/cairobold"
                             android:gravity="center"
+                            android:onClick="@{model::onAddProductClick}"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
                             android:text="@string/add"
