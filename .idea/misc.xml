@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/drawable/back_view_my_card_order.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_view_myorder_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_dash.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/background_blue_tab.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/backk.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/card_canceld_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/card_tab_canceled.xml" value="0.152" />
@@ -49,6 +50,7 @@
         <entry key="app/src/main/res/drawable/shape_round_white.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/switch_thum_light.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/switch_tracker_light.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/tab_back.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/text_color_of_menu.xml" value="0.152" />
         <entry key="app/src/main/res/layout/active_offers_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.2846320346320346" />
@@ -105,6 +107,7 @@
         <entry key="app/src/main/res/layout/rate_hama.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/register.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/tab_title.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/term_and_conditions.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/well_come_screen.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/menu/buttom_nav.xml" value="0.2546875" />

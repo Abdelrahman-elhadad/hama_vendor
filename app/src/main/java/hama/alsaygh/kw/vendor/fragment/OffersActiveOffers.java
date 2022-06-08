@@ -15,11 +15,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
-import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.view.base.BaseFragment;
-
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 
 public class OffersActiveOffers extends BaseFragment {
 
@@ -44,14 +44,14 @@ public class OffersActiveOffers extends BaseFragment {
         tabLayout = (TabLayout) view.findViewById(R.id.tab_myorder);
         complited = (TabItem) view.findViewById(R.id.complete_tab);
         pending = (TabItem) view.findViewById(R.id.pending_order_tab);
-        canceled = (TabItem) view.findViewById(R.id.cancel_tab);
+        //canceled = (TabItem) view.findViewById(R.id.cancel_tab);
         viewPager = (ViewPager) view.findViewById(R.id.view_pager_myorder);
 
         fragmentManager = getChildFragmentManager();
         tabLayout = (TabLayout) view.findViewById(R.id.tab_myorder);
         complited = (TabItem) view.findViewById(R.id.complete_tab);
         pending = (TabItem) view.findViewById(R.id.pending_order_tab);
-        canceled = (TabItem) view.findViewById(R.id.cancel_tab);
+        //canceled = (TabItem) view.findViewById(R.id.cancel_tab);
         viewPager = (ViewPager) view.findViewById(R.id.view_pager_myorder);
 
         tabLayout.setupWithViewPager(viewPager);
