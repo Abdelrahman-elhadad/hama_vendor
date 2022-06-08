@@ -28,7 +28,7 @@ public class CartItem implements Serializable {
     private int quantity;
 
     @SerializedName("total")
-    private double total;
+    private String total;
 
 
     public int getId() {
@@ -82,11 +82,11 @@ public class CartItem implements Serializable {
         this.packaging_product = packaging_product;
     }
 
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 }

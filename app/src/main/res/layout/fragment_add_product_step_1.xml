@@ -589,7 +589,8 @@
                     android:fontFamily="@font/cairolight"
                     android:text="@string/Caliber"
                     android:textColor="@color/text"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="@{model.categoriesVisibility}" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_caliber"
@@ -599,6 +600,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:orientation="vertical"
+                    android:visibility="@{model.categoriesVisibility}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="4"
                     tools:listitem="@layout/item_rv1_add_product" />
@@ -610,7 +612,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginEnd="10dp"
+                    android:visibility="@{model.categoriesVisibility}">
 
                     <TextView
                         android:id="@+id/tv_manufacturing_price"
@@ -705,33 +708,97 @@
                 </RelativeLayout>
 
 
-                <TextView
-                    android:id="@+id/tv_stone_type"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_stone"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/cairolight"
-                    android:text="@string/stone_type"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/edit_stone_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/back_spinner"
-                    android:ems="10"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:labelFor="@+id/tv_stone_type"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textColor="@color/black"
-                    app:addTextChangedListener="@{model.stoneTypeTextWatcher}" />
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_stone_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cairolight"
+                            android:text="@string/stone_type"
+                            android:textColor="@color/text"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/edit_stone_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/back_spinner"
+                            android:ems="10"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:labelFor="@+id/tv_stone_type"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            app:addTextChangedListener="@{model.stoneTypeTextWatcher}" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_stone_weight"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_stone_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cairolight"
+                            android:text="@string/stone_weight"
+                            android:textColor="@color/text"
+                            android:textSize="14sp" />
+
+
+                        <EditText
+                            android:id="@+id/edit_stone_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/tv_stone_weight"
+                            android:layout_marginTop="4dp"
+                            android:layout_toStartOf="@+id/tv_stone_weight_unit"
+                            android:background="@drawable/back_spinner"
+                            android:hint="@string/_0"
+                            android:importantForAutofill="no"
+                            android:inputType="numberDecimal"
+                            android:labelFor="@+id/tv_weight"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            app:addTextChangedListener="@{model.stoneWeightTextWatcher}" />
+
+                        <TextView
+                            android:id="@+id/tv_stone_weight_unit"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/tv_stone_weight"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="-6dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/back_spinner3"
+                            android:fontFamily="@font/cairolight"
+                            android:gravity="center"
+                            android:text="@string/gm"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+                </LinearLayout>
 
 
                 <LinearLayout

@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.model.image.ImageResponse;
@@ -122,7 +123,7 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
         return isValid;
     }
 
-    public JSONArray getImageName() {
+    public JSONArray getImageNameJson() {
 
         JSONArray jsonArray = new JSONArray();
         for (int i = 0; i < imageUploads.size(); i++) {
@@ -131,6 +132,17 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
             }
         }
 
+        return jsonArray;
+    }
+
+    public List<String> getImageName() {
+
+        List<String> jsonArray = new ArrayList<>();
+        for (int i = 0; i < imageUploads.size(); i++) {
+            if (imageUploads.get(i).getImage() != null) {
+                jsonArray.add(imageUploads.get(i).getImage().getFile_name());
+            }
+        }
         return jsonArray;
     }
 

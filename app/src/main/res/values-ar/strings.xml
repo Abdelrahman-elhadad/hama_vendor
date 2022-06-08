@@ -80,10 +80,10 @@
     <string name="Click">انقر لإضافة الصور</string>
     <string name="Capture_images">التقاط الصور</string>
     <string name="fixed1">الطلبات</string>
-    <string name="Completed">قيد الانتظار</string>
-    <string name="Pending">مكتمل</string>
+    <string name="Completed">مكتمل</string>
+    <string name="Pending">قيد الانتظار</string>
     <string name="Canceled">ألغيت</string>
-    <string name="productt">6 منتجات</string>
+    <string name="productt"> منتجات</string>
     <string name="min">قبل دقيقتين</string>
     <string name="yuyuu">تفاصيل الطلبات</string>
     <string name="yuyuyuy">المنتج مطلوب</string>
@@ -274,4 +274,10 @@
     <string name="color">اللون</string>
     <string name="gm_price">سعر الجرام بالدينار الكويتي</string>
     <string name="total_metal_weight">إجمالي وزن المعدن</string>
+    <string name="add_product">أضف منتج</string>
+    <string name="add_option">إضافة خيار \ "اختياري \"</string>
+    <string name="wait_until_all_image_uploaded">انتظر حتى يتم رفع جميع الصور من فضلك. </string>
+    <string name="stone_weight">Stone Weight in Grams</string>
+    <string name="no_product">No Products</string>
+    <string name="no_order">No Order</string>
 </resources>

@@ -68,6 +68,8 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                         Category category = arrayAdapter1.getItem(position);
                         model.setCategories(category);
                         setChildCategories(category.getChilds());
+
+
                     }
 
                     @Override
@@ -95,6 +97,12 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         MainCategory category = arrayAdapter1.getItem(position);
                         model.setMainCategories(category);
+
+                        if (category.getId() == 1 || category.getId() == 2) {
+                            model.categoriesVisibility.set(View.VISIBLE);
+                        } else {
+                            model.categoriesVisibility.set(View.GONE);
+                        }
                     }
 
                     @Override
@@ -247,6 +255,24 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
             binding.editProductPrice.setBackgroundResource(R.drawable.back_spinner);
             binding.editGmPrice.setBackgroundResource(R.drawable.back_spinner);
         }
+
+
+        if (model.getAddProduct().getQuantity() == null || model.getAddProduct().getQuantity().isEmpty()
+                || model.getAddProduct().getQuantity().equalsIgnoreCase("0.0")
+                || model.getAddProduct().getQuantity().equalsIgnoreCase("0")) {
+            isValid = false;
+            binding.editQuantity.setBackgroundResource(R.drawable.back_edit_txt_red);
+        } else
+            binding.editQuantity.setBackgroundResource(R.drawable.back_spinner);
+
+        if (model.getAddProduct().getWeight() == null || model.getAddProduct().getWeight().isEmpty()
+                || model.getAddProduct().getWeight().equalsIgnoreCase("0.0")
+                || model.getAddProduct().getWeight().equalsIgnoreCase("0")) {
+            isValid = false;
+            binding.editWeight.setBackgroundResource(R.drawable.back_edit_txt_red);
+        } else
+            binding.editWeight.setBackgroundResource(R.drawable.back_spinner);
+
 
         return isValid;
     }

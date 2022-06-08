@@ -80,10 +80,10 @@
     <string name="Click">Click to add images</string>
     <string name="Capture_images">Capture images</string>
     <string name="fixed1">Orders</string>
-    <string name="Completed">Pending</string>
-    <string name="Pending">Completed</string>
+    <string name="Completed">Completed</string>
+    <string name="Pending">Pending</string>
     <string name="Canceled">Canceled</string>
-    <string name="productt">6 products</string>
+    <string name="productt">products</string>
     <string name="min">2 min ago</string>
     <string name="yuyuu">Orders Details</string>
     <string name="yuyuyuy">Product Required</string>
@@ -272,4 +272,10 @@
     <string name="color">Color</string>
     <string name="gm_price">Gram Price in KWD</string>
     <string name="total_metal_weight">Total Metal Weight</string>
+    <string name="add_product">Add Product</string>
+    <string name="add_option">Add Option \"Optional\"</string>
+    <string name="wait_until_all_image_uploaded">Please wait for all the photos to be uploaded. </string>
+    <string name="stone_weight">Stone Weight in Grams</string>
+    <string name="no_product">No Products</string>
+    <string name="no_order">No Order</string>
 </resources>

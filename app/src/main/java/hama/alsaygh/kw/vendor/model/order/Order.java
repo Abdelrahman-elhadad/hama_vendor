@@ -49,7 +49,7 @@ public class Order implements Serializable {
     private String title;
 
     @SerializedName("total")
-    private double total;
+    private String total;
 
     @SerializedName("delivery")
     private Address delivery;
@@ -134,11 +134,11 @@ public class Order implements Serializable {
     }
 
 
-    public double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
@@ -204,5 +204,18 @@ public class Order implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCreateDate() {
+
+//        if (created_at != null && !created_at.isEmpty()) {
+//
+//            String[] date = created_at.split(" ");
+//            if (date.length > 0)
+//                return date[0];
+//            else
+//                return "";
+//        }
+        return created_at;
     }
 }

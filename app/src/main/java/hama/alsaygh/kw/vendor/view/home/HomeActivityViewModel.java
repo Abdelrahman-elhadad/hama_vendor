@@ -19,8 +19,8 @@ import com.google.android.material.navigation.NavigationBarView;
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.fragment.OffersActiveOffers;
-import hama.alsaygh.kw.vendor.fragment.Orders;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
+import hama.alsaygh.kw.vendor.view.order.OrdersFragment;
 import hama.alsaygh.kw.vendor.view.products.ProductsFragment;
 
 public class HomeActivityViewModel extends ViewModel {
@@ -100,7 +100,7 @@ public class HomeActivityViewModel extends ViewModel {
         if (item.getItemId() == R.id.item_orders) {
             toolBar.set(View.VISIBLE);
             title.setValue(context.getString(R.string.fixed1));
-            commitFragment(new Orders(), Orders);
+            commitFragment(OrdersFragment.newInstance(), Orders);
             return true;
         }
         if (item.getItemId() == R.id.item_offers) {

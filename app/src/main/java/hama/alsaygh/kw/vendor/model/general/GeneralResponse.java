@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class GeneralResponse {
 
     @SerializedName("status")
-    private boolean status;
+    private String status;
 
     @SerializedName("code")
     private String code;
@@ -16,11 +16,14 @@ public class GeneralResponse {
 
 
     public boolean isStatus() {
-        return status;
+        return status != null && status.equalsIgnoreCase("true");
     }
 
     public void setStatus(boolean status) {
-        this.status = status;
+        if (status)
+            this.status = "true";
+        else
+            this.status = "false";
     }
 
     public String getCode() {

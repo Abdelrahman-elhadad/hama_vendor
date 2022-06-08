@@ -114,6 +114,19 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/tv_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cairosemibold"
+                    android:text="@string/klkkl"
+                    android:textColor="@color/col_delete"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_upload_images"
                     android:layout_width="match_parent"

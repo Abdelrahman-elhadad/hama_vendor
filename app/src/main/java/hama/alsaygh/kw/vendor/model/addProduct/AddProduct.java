@@ -27,12 +27,21 @@ public class AddProduct implements Serializable {
     private String name_ar;
     private String description_ar;
     private String netWeight;
+    private String stoneWeight;
     private String stoneType;
     private String diamond;
     private String diamondWeight;
     private String purity;
     private String gmPrice;
     private String totalWeightMetal;
+
+    public String getStoneWeight() {
+        return stoneWeight;
+    }
+
+    public void setStoneWeight(String stoneWeight) {
+        this.stoneWeight = stoneWeight;
+    }
 
     public String getColor() {
         return color;

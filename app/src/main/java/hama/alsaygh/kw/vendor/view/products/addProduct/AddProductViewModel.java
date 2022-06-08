@@ -20,25 +20,27 @@ import hama.alsaygh.kw.vendor.model.category.CategoriesResponse;
 import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategoriesResponse;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
+import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
+import hama.alsaygh.kw.vendor.repo.ProductRepo;
 
 public class AddProductViewModel extends ViewModel {
 
-    private final String TAG = "ProductsViewModel";
     FragmentManager fragmentManager;
-
+    private final Context context;
     //  private Home home ;
     protected final int Step1 = 1;
     protected final int Step2 = 2;
     protected final AddProduct addProduct = new AddProduct();
     protected int position;
 
-    private Context context;
 
     private final MutableLiveData<String> weightObservable = new MutableLiveData<>();
     private final MutableLiveData<String> quantityObservable = new MutableLiveData<>();
     private final MutableLiveData<CategoriesResponse> categoriesMutableLiveData = new MutableLiveData<>();
     private final MutableLiveData<MainCategoriesResponse> mainCategoriesMutableLiveData = new MutableLiveData<>();
+    private final MutableLiveData<GeneralResponse> addProductMutableLiveData = new MutableLiveData<>();
+
     protected ObservableInt childSubVisibility = new ObservableInt();
     protected ObservableBoolean bindToMarket = new ObservableBoolean();
     protected ObservableBoolean fixedPrice = new ObservableBoolean();
@@ -46,7 +48,13 @@ public class AddProductViewModel extends ViewModel {
     protected ObservableInt bindToMarketVisibility = new ObservableInt();
     protected ObservableInt fixedPriceVisibility = new ObservableInt();
 
+    protected ObservableInt categoriesVisibility = new ObservableInt();
+    protected ObservableInt nextVisibility = new ObservableInt();
+    protected ObservableInt addProductVisibility = new ObservableInt();
+    protected ObservableInt pbAddProductVisibility = new ObservableInt();
+
     GeneralRepo generalRepo;
+    ProductRepo productRepo;
 
     Fragment fragment;
 
@@ -54,6 +62,7 @@ public class AddProductViewModel extends ViewModel {
         this.fragmentManager = fragmentManager;
         this.context = context;
         generalRepo = new GeneralRepo();
+        productRepo = new ProductRepo();
         weightObservable.setValue(addProduct.getWeight());
         quantityObservable.setValue(addProduct.getQuantity());
         childSubVisibility.set(View.GONE);
@@ -61,6 +70,10 @@ public class AddProductViewModel extends ViewModel {
         fixedPrice.set(false);
         bindToMarketVisibility.set(View.GONE);
         fixedPriceVisibility.set(View.GONE);
+        categoriesVisibility.set(View.GONE);
+        nextVisibility.set(View.VISIBLE);
+        addProductVisibility.set(View.GONE);
+        pbAddProductVisibility.set(View.GONE);
     }
 
     public AddProduct getAddProduct() {
@@ -83,6 +96,10 @@ public class AddProductViewModel extends ViewModel {
         return mainCategoriesMutableLiveData;
     }
 
+    public MutableLiveData<GeneralResponse> getAddProductObserver() {
+        return addProductMutableLiveData;
+    }
+
     public void getCategories(Context context) {
         generalRepo.getCategories(context, categoriesMutableLiveData);
     }
@@ -98,6 +115,14 @@ public class AddProductViewModel extends ViewModel {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.liner1, fragment);
         fragmentTransaction.commit();
+
+        if (position == Step1) {
+            nextVisibility.set(View.VISIBLE);
+            addProductVisibility.set(View.GONE);
+        } else {
+            nextVisibility.set(View.GONE);
+            addProductVisibility.set(View.VISIBLE);
+        }
     }
 
 
@@ -288,6 +313,25 @@ public class AddProductViewModel extends ViewModel {
             @Override
             public void afterTextChanged(Editable s) {
                 addProduct.setNetWeight(s.toString());
+            }
+        };
+    }
+
+    public TextWatcher stoneWeightTextWatcher() {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                addProduct.setStoneWeight(s.toString());
             }
         };
     }
@@ -485,6 +529,10 @@ public class AddProductViewModel extends ViewModel {
         return fixedPriceVisibility;
     }
 
+    public ObservableInt getCategoriesVisibility() {
+        return categoriesVisibility;
+    }
+
     public void setMainCategories(MainCategory category) {
         addProduct.setMain_category(category);
     }
@@ -514,7 +562,8 @@ public class AddProductViewModel extends ViewModel {
 
             bindToMarketVisibility.set(View.GONE);
             fixedPriceVisibility.set(View.VISIBLE);
-        }
+        } else
+            fixedPriceVisibility.set(View.GONE);
     }
 
     public void onMarketCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -525,21 +574,45 @@ public class AddProductViewModel extends ViewModel {
 
             bindToMarketVisibility.set(View.VISIBLE);
             fixedPriceVisibility.set(View.GONE);
-        }
+        } else
+            bindToMarketVisibility.set(View.VISIBLE);
     }
 
     public void onNextClick(View v) {
-        if (position == Step1) {
-            if (fragment != null) {
-                if (((AddProductStep1Fragment) fragment).isValid()) {
-
-                    commitFragment(AddProductStep2Fragment.newInstance(this), Step2);
-                }
+        if (fragment != null) {
+            if (((AddProductStep1Fragment) fragment).isValid()) {
+                commitFragment(AddProductStep2Fragment.newInstance(this), Step2);
             }
-        } else if (position == Step2) {
-
         }
     }
 
+    public void onAddProductClick(View v) {
 
+        if (fragment != null) {
+            if (((AddProductStep2Fragment) fragment).isValid()) {
+                addProduct.setMedia(((AddProductStep2Fragment) fragment).getImages());
+                addProductVisibility.set(View.GONE);
+                pbAddProductVisibility.set(View.VISIBLE);
+                productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
+            }
+        }
+
+    }
+
+    public void onAddOptionClick(View v) {
+
+    }
+
+
+    public ObservableInt getNextVisibility() {
+        return nextVisibility;
+    }
+
+    public ObservableInt getAddProductVisibility() {
+        return addProductVisibility;
+    }
+
+    public ObservableInt getPbProductVisibility() {
+        return pbAddProductVisibility;
+    }
 }

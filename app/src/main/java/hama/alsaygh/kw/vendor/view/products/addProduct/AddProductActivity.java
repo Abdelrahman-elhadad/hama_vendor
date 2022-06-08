@@ -2,7 +2,10 @@ package hama.alsaygh.kw.vendor.view.products.addProduct;
 
 import android.os.Bundle;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import hama.alsaygh.kw.vendor.databinding.ActivityAddProductBinding;
+import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
 
 public class AddProductActivity extends BaseActivity {
@@ -20,5 +23,27 @@ public class AddProductActivity extends BaseActivity {
         model.commitFragment(AddProductStep1Fragment.newInstance(model), model.Step1);
 
         binding.toolbarImg.setOnClickListener(v -> finish());
+
+
+        model.getAddProductObserver().observe(this, productsResponse -> {
+
+            if (productsResponse.isStatus()) {
+                Snackbar.make(binding.llNext, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+                finish();
+            } else {
+                if (productsResponse.getCode().equalsIgnoreCase("401"))
+                    LoginDialog.newInstance().show(getSupportFragmentManager(), "login");
+                else
+                    Snackbar.make(binding.llNext, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (model.position != model.Step2)
+            model.commitFragment(AddProductStep1Fragment.newInstance(model), model.Step1);
+        else
+            super.onBackPressed();
     }
 }

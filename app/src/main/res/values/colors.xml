@@ -83,6 +83,7 @@
     <color name="whiteColor">#fff</color>
     <color name="col3">#E53700</color>
     <color name="col_delete">#FF6363</color>
+    <color name="background_bage">#1A6E571D</color>
 
     <color name="color_light_shimmer">#1098BDAB</color>
     <color name="color_light_mask">#3598BDAB</color>

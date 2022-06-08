@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.order.statusOrder.adapter.OrdersViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back_item">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_images"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:visibility="@{model.rlImagesVisibility}">
+
+
+            <View
+                android:id="@+id/view_vertical"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="#EBF0FF"
+                android:visibility="@{model.ivVerticalVisibility}" />
+
+            <View
+                android:id="@+id/view_horizintal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:background="#EBF0FF"
+                android:visibility="@{model.ivHorizontalVisibility}" />
+
+            <ImageView
+                android:id="@+id/iv_1_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@+id/view_vertical"
+                android:layout_alignBottom="@+id/view_horizintal"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="1dp"
+                android:contentDescription="@string/Completed"
+                android:scaleType="fitCenter"
+                android:visibility="@{model.iv1Visibility}"
+                app:imageProductUrl="@{model.image1}" />
+
+            <ImageView
+                android:id="@+id/iv_3_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/view_vertical"
+                android:layout_alignBottom="@+id/view_horizintal"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="1dp"
+                android:contentDescription="@string/Completed"
+                android:visibility="@{model.iv2Visibility}"
+                android:scaleType="fitCenter"
+                app:imageProductUrl="@{model.image3}" />
+
+            <ImageView
+                android:id="@+id/iv_2_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/view_horizintal"
+                android:layout_alignEnd="@+id/view_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="1dp"
+                android:contentDescription="@string/Completed"
+                android:visibility="@{model.iv3Visibility}"
+                android:scaleType="fitCenter"
+                app:imageProductUrl="@{model.image2}" />
+
+            <ImageView
+                android:id="@+id/iv_4_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/view_vertical"
+                android:layout_alignTop="@+id/view_horizintal"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:contentDescription="@string/Completed"
+                android:visibility="@{model.iv4Visibility}"
+                android:scaleType="fitCenter"
+                android:layout_margin="1dp"
+                app:imageProductUrl="@{model.image4}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_more_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/view_vertical"
+                android:layout_alignTop="@+id/view_horizintal"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#BA000000"
+                android:fontFamily="@font/cairosemibold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="@{model.tvMoreVisibility}"
+                android:text="@{model.moreImages}" />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/gold_ring11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/garpeg"
+            android:layout_toEndOf="@+id/rl_images"
+            android:fontFamily="@font/cairobold"
+            android:gravity="start"
+            android:lines="2"
+            android:text="@{model.name}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/blackcolor1"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/kwd150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gold_ring11"
+            android:layout_alignStart="@+id/gold_ring11"
+            android:layout_alignBottom="@+id/rl_images"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toStartOf="@+id/history"
+            android:fontFamily="@font/cairobold"
+            android:gravity="start|bottom"
+            android:lines="1"
+            android:text="@{model.price}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/my_cart1"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/garpeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/viewStatus"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@{model.products}"
+            android:textColor="@color/hkhk"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_images"
+            android:layout_marginBottom="16dp"
+            android:layout_toStartOf="@+id/viewStatus"
+            android:fontFamily="@font/cairosemibold"
+            android:text="@{model.cratedTime}"
+            android:textColor="@color/hkhk" />
+
+        <View
+            android:id="@+id/viewStatus"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rl_images"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@{model.statusDrawable}" />
+
+
+    </RelativeLayout>
+</layout>
+

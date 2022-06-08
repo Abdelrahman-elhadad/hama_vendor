@@ -53,7 +53,6 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         skeleton = SkeletonLayoutUtils.applySkeleton(binding.rvProducts, R.layout.item_rv_my_prouduct, 2);
         Utils.getInstance().setSkeletonMaskAndShimmer(requireContext(), skeleton);
 
-
         model.getObserver().observe(requireActivity(), productsResponse -> {
             if (page == 1)
                 skeleton.showOriginal();
@@ -66,7 +65,9 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
                 if (productsResponse.getData().isEmpty()) {
                     if (page == 1) {
                         binding.rvProducts.setVisibility(View.GONE);
-                    }
+                        binding.llNoProduct.setVisibility(View.VISIBLE);
+                    } else
+                        binding.llNoProduct.setVisibility(View.GONE);
                     isLast = true;
                 } else {
                     binding.rvProducts.setVisibility(View.VISIBLE);
@@ -157,4 +158,6 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
     public void onDeleteClick(Object object, int position) {
 
     }
+
+
 }

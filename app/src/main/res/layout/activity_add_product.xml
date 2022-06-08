@@ -73,15 +73,59 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button3"
-                android:layout_width="172dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
                 android:background="@color/dgdg"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
                 android:gravity="center"
                 android:onClick="@{model::onNextClick}"
                 android:text="@string/Next"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="@{model.nextVisibility}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/but_add_product"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:background="@color/dgdg"
+                android:layout_marginStart="16dp"
+                android:gravity="center"
+                android:onClick="@{model::onAddProductClick}"
+                android:text="@string/add_product"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:visibility="@{model.addProductVisibility}" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/but_add_option"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="@color/background_bage"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:onClick="@{model::onAddOptionClick}"
+                android:text="@string/add_option"
+                android:textColor="@color/dgdg"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:visibility="@{model.addProductVisibility}" />
+
+            <ProgressBar
+                android:id="@+id/pb_add_product"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:visibility="@{model.pbProductVisibility}" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

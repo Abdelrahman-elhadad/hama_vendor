@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep2Binding;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
@@ -206,5 +207,28 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
 //
 //        }
         cameraImageActivityResultLauncher.launch(intent);
+    }
+
+
+    public boolean isValid() {
+        boolean isValid = true;
+
+        if (adapter != null && !adapter.isValid()) {
+            isValid = false;
+            binding.tvError.setVisibility(View.VISIBLE);
+        } else
+            binding.tvError.setVisibility(View.GONE);
+
+        return isValid;
+    }
+
+    public List<String> getImages() {
+        List<String> images = new ArrayList<>();
+
+        if (adapter != null) {
+            images.addAll(adapter.getImageName());
+        }
+
+        return images;
     }
 }
