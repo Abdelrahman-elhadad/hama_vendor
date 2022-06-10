@@ -95,6 +95,7 @@ public class OrdersFragment extends BaseFragment implements OnGeneralClickListen
     @Override
     public void onItemClick(Object object, int position) {
 
+
     }
 
     @Override

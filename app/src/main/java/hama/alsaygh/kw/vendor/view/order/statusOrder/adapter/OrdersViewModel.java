@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
-import hama.alsaygh.kw.vendor.model.cart.CartItem;
 import hama.alsaygh.kw.vendor.model.order.Order;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.LocalUtils;
@@ -92,17 +91,7 @@ public class OrdersViewModel extends ViewModel {
     }
 
     public String getName() {
-        String name = "";
-        if (storeModel.getItems() != null && !storeModel.getItems().isEmpty())
-            for (CartItem item : storeModel.getItems()) {
-                if (item.getProduct() != null) {
-                    name = name + "," + item.getProduct().getName();
-                }
-            }
-        if (name.startsWith(","))
-            name = name.replaceFirst(",", "");
-
-        return name;
+        return storeModel.getTitle();
     }
 
     public String getPrice() {

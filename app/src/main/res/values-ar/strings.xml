@@ -94,7 +94,7 @@
     <string name="Customer_Name">اسم الزبون</string>
     <string name="Country">دولة</string>
     <string name="City">مدينة</string>
-    <string name="address">غزة - شارع الرمال</string>
+    <string name="address">العنوان</string>
     <string name="Building_Number">رقم المبنى</string>
     <string name="ZIP_Code">رمز بريدي</string>
     <string name="hkhkho">معلومات المستخدم والفاتورة</string>
@@ -275,9 +275,16 @@
     <string name="gm_price">سعر الجرام بالدينار الكويتي</string>
     <string name="total_metal_weight">إجمالي وزن المعدن</string>
     <string name="add_product">أضف منتج</string>
-    <string name="add_option">إضافة خيار \ "اختياري \"</string>
+    <string name="add_option">إضافة خيار \" اختياري \" </string>
     <string name="wait_until_all_image_uploaded">انتظر حتى يتم رفع جميع الصور من فضلك. </string>
-    <string name="stone_weight">Stone Weight in Grams</string>
-    <string name="no_product">No Products</string>
-    <string name="no_order">No Order</string>
+    <string name="stone_weight">وزن الحجر بالجرام</string>
+    <string name="no_product">لا توجد منتجات</string>
+    <string name="no_order">لا توجد طلبات</string>
+    <string name="Delivery_type">نوع التوصيل</string>
+    <string name="accept_order">قبول الطلب \"xx\"</string>
+    <string name="buyer_name">اسم المشترى</string>
+    <string name="items">المنتجات</string>
+    <string name="total">السعر الكلي</string>
+    <string name="download_pdf">DOWNLOAD as PDF</string>
+    <string name="download_image">DOWNLOAD as IMAGE</string>
 </resources>

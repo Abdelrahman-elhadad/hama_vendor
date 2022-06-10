@@ -42,6 +42,17 @@ public class Order implements Serializable {
     @SerializedName("status_trans")
     private String status_trans;
 
+
+    @SerializedName("delivery_type")
+    private String delivery_type;
+
+    @SerializedName("delivery_type_str")
+    private String delivery_type_str;
+
+
+    @SerializedName("receipt_at")
+    private String receipt_at;
+
     @SerializedName("subtotal")
     private double subtotal;
 
@@ -63,8 +74,32 @@ public class Order implements Serializable {
     @SerializedName("packaging_store_info")
     private List<Store> packaging_store_info;
 
-    @SerializedName("user_info")
+    @SerializedName(value = "user_info", alternate = "user")
     private User user_info;
+
+    public String getDelivery_type() {
+        return delivery_type;
+    }
+
+    public void setDelivery_type(String delivery_type) {
+        this.delivery_type = delivery_type;
+    }
+
+    public String getDelivery_type_str() {
+        return delivery_type_str;
+    }
+
+    public void setDelivery_type_str(String delivery_type_str) {
+        this.delivery_type_str = delivery_type_str;
+    }
+
+    public String getReceipt_at() {
+        return receipt_at;
+    }
+
+    public void setReceipt_at(String receipt_at) {
+        this.receipt_at = receipt_at;
+    }
 
     public List<CartItem> getItems() {
         return items;

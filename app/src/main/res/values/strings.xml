@@ -94,7 +94,7 @@
     <string name="Customer_Name">Customer Name</string>
     <string name="Country">Country</string>
     <string name="City">City</string>
-    <string name="address">Gaza - Alremal St.</string>
+    <string name="address">Address</string>
     <string name="Building_Number">Building Number</string>
     <string name="ZIP_Code">ZIP Code</string>
     <string name="hkhkho">User Information and Invoice</string>
@@ -103,7 +103,7 @@
     <string name="hama_dilvery">Hama Delivery</string>
     <string name="Time">Time</string>
     <string name="User">User Information and Invoice</string>
-    <string name="DISCARD">DISCARD</string>
+    <string name="DISCARD">Discard</string>
     <string name="add5">Great Job!</string>
     <string name="pop1">You have accepted the order and now you can confirm that a notification will be sent to the delivery company with details.</string>
     <string name="add6"><![CDATA[CONFIRM & SEND TO DELIVERY]]></string>
@@ -278,4 +278,11 @@
     <string name="stone_weight">Stone Weight in Grams</string>
     <string name="no_product">No Products</string>
     <string name="no_order">No Order</string>
+    <string name="Delivery_type">Delivery Type</string>
+    <string name="accept_order">Accept Order \"xx\"</string>
+    <string name="buyer_name">Buyer Name</string>
+    <string name="items">Items</string>
+    <string name="total">Total</string>
+    <string name="download_pdf">DOWNLOAD as PDF</string>
+    <string name="download_image">DOWNLOAD as IMAGE</string>
 </resources>

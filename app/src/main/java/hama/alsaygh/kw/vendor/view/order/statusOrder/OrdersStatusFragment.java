@@ -1,5 +1,6 @@
 package hama.alsaygh.kw.vendor.view.order.statusOrder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,12 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.FragmentOrdersStatusBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.order.Order;
+import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.order.OrdersViewModel;
+import hama.alsaygh.kw.vendor.view.order.orderDetails.OrderDetailsActivity;
 import hama.alsaygh.kw.vendor.view.order.statusOrder.adapter.OrdersRecycleViewAdapter;
 
 public class OrdersStatusFragment extends BaseFragment implements OnGeneralClickListener {
@@ -84,7 +88,13 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
 
     @Override
     public void onItemClick(Object object, int position) {
-
+        if (object instanceof Order) {
+            Order order = (Order) object;
+            Intent intent = new Intent(requireContext(), OrderDetailsActivity.class);
+            intent.putExtra(AppConstants.ORDER_ID, order.getId());
+            intent.putExtra(AppConstants.ORDER_STATUS, type);
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -50,11 +50,19 @@
                 app:srcCompat="@drawable/ic_market" />
         </androidx.appcompat.widget.Toolbar>
 
+
         <FrameLayout
             android:id="@+id/liner1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/toolbar"
+            android:rotation="180"
+            android:background="@drawable/shape_shadow" />
 
         <View
             android:layout_width="match_parent"
@@ -65,7 +73,7 @@
         <LinearLayout
             android:id="@+id/ll_next"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="81dp"
             android:layout_alignParentBottom="true"
             android:background="#eeffffff"
             android:gravity="center"
@@ -74,12 +82,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button3"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
-                android:background="@color/dgdg"
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
+                android:layout_weight="1"
+                android:background="@color/dgdg"
                 android:gravity="center"
                 android:onClick="@{model::onNextClick}"
                 android:text="@string/Next"
@@ -90,40 +98,40 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/but_add_product"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="45dp"
-                android:background="@color/dgdg"
                 android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:background="@color/dgdg"
                 android:gravity="center"
                 android:onClick="@{model::onAddProductClick}"
                 android:text="@string/add_product"
-                android:textColor="@color/white"
                 android:textAllCaps="true"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:visibility="@{model.addProductVisibility}" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/but_add_option"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
-                android:background="@color/background_bage"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@color/background_bage"
                 android:gravity="center"
                 android:onClick="@{model::onAddOptionClick}"
                 android:text="@string/add_option"
+                android:textAllCaps="false"
                 android:textColor="@color/dgdg"
                 android:textSize="16sp"
-                android:textAllCaps="false"
                 android:visibility="@{model.addProductVisibility}" />
 
             <ProgressBar
                 android:id="@+id/pb_add_product"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="45dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:visibility="@{model.pbProductVisibility}" />
         </LinearLayout>
