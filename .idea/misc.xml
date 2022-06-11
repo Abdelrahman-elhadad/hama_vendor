@@ -128,6 +128,9 @@
         <entry key="app/src/main/res/layout/term_and_conditions.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/well_come_screen.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/menu/buttom_nav.xml" value="0.2546875" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.152" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_hama.xml" value="0.152" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.152" />
         <entry key="app/src/main/res/xml/file_paths.xml" value="0.125" />
       </map>
     </option>
