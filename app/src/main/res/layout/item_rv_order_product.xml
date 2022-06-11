@@ -72,9 +72,9 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:contentDescription="@string/accept_order"
-                app:srcCompat="@drawable/ic_delete"
                 android:onClick="@{model.onItemDeleteClick}"
-                android:visibility="@{model.ivDeleteVisibility}" />
+                android:visibility="@{model.ivDeleteVisibility}"
+                app:srcCompat="@drawable/ic_delete" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

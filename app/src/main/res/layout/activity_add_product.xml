@@ -110,23 +110,6 @@
                 android:textSize="16sp"
                 android:visibility="@{model.addProductVisibility}" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/but_add_option"
-                android:layout_width="0dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@color/background_bage"
-                android:gravity="center"
-                android:onClick="@{model::onAddOptionClick}"
-                android:text="@string/add_option"
-                android:textAllCaps="false"
-                android:textColor="@color/dgdg"
-                android:textSize="16sp"
-                android:visibility="@{model.addProductVisibility}" />
-
             <ProgressBar
                 android:id="@+id/pb_add_product"
                 android:layout_width="0dp"

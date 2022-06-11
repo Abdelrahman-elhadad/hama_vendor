@@ -290,18 +290,12 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
         } else
             binding.editWeight.setBackgroundResource(R.drawable.back_spinner);
 
-        if (model.getAddProduct().getGmPrice() == null || model.getAddProduct().getGmPrice().isEmpty()) {
-            isValid = false;
-            binding.editGmPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
-        } else
-            binding.editGmPrice.setBackgroundResource(R.drawable.back_spinner);
 
         if (model.getAddProduct().getTotalWeightMetal() == null || model.getAddProduct().getTotalWeightMetal().isEmpty()) {
             isValid = false;
             binding.editTotalMetalGm.setBackgroundResource(R.drawable.back_edit_txt_red);
         } else
             binding.editTotalMetalGm.setBackgroundResource(R.drawable.back_spinner);
-
 
         return isValid;
     }

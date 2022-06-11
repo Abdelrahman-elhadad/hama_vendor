@@ -114,7 +114,7 @@ public class ProductRepo {
                         .add("quantity", product.getQuantity() + "")
                         .add("discount_value", product.getDiscount() + "")
                         .add("bind_to_market", product.isBind_to_market() ? "1" : "0")
-                        .add("gram_price", product.getChild_sub_category().getId() + "")
+                        .add("gram_price", product.getGmPrice() == null || product.getGmPrice().isEmpty() ? "0.0" : product.getGmPrice() + "")
                         .add("manufacture_price", product.getManufacture_price() == null || product.getManufacture_price().isEmpty() ? "0.0" : product.getManufacture_price() + "");
 
                 if (product.getMain_category() != null) {
@@ -132,7 +132,7 @@ public class ProductRepo {
                 }
 
                 if (!product.isBind_to_market()) {
-                    builder.add("fixed_price", product.getChild_sub_category().getId() + "");
+                    builder.add("fixed_price", product.getFixed_price() + "");
                 }
 
                 if (product.getMedia() != null && !product.getMedia().isEmpty()) {

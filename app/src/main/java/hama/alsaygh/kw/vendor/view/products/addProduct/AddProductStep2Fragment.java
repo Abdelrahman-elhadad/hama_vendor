@@ -26,10 +26,12 @@ import java.util.List;
 import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep2Binding;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.image.ImageUpload;
+import hama.alsaygh.kw.vendor.model.product.Option;
 import hama.alsaygh.kw.vendor.utils.CheckAndRequestPermission;
 import hama.alsaygh.kw.vendor.utils.FileUtils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.AdapterImageProduct;
+import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.AdapterOptionProduct;
 
 public class AddProductStep2Fragment extends BaseFragment implements OnGeneralClickListener {
 
@@ -37,6 +39,7 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
     AddProductViewModel model;
     AdapterImageProduct adapter;
     Uri resultUri;
+    AdapterOptionProduct optionAdapter;
 
     public static AddProductStep2Fragment newInstance(AddProductViewModel model) {
         AddProductStep2Fragment fragment = new AddProductStep2Fragment();
@@ -64,6 +67,12 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
         adapter = new AdapterImageProduct(getActivity(), new ArrayList<ImageUpload>());
         binding.rvUploadImages.setAdapter(adapter);
         binding.rvUploadImages.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        optionAdapter = new AdapterOptionProduct(getActivity(), new ArrayList<Option>());
+        binding.rvOptions.setAdapter(adapter);
+        binding.rvOptions.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
         binding.llGallery.setOnClickListener(v -> permissionGallery());
 
@@ -227,6 +236,14 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
 
         if (adapter != null) {
             images.addAll(adapter.getImageId());
+        }
+        return images;
+    }
+
+    public List<Option> getOptions() {
+        List<Option> images = new ArrayList<>();
+        if (optionAdapter != null) {
+            images.addAll(optionAdapter.getItems());
         }
         return images;
     }

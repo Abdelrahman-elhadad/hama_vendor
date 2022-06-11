@@ -3,7 +3,6 @@ package hama.alsaygh.kw.vendor.model.product;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class Option implements Serializable {
 
@@ -13,11 +12,20 @@ public class Option implements Serializable {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("type")
-    private String type;
+    @SerializedName("available_quantity")
+    private int available_quantity;
 
-    @SerializedName("childs")
-    private List<OptionChild> childs;
+    @SerializedName("color")
+    private String color;
+
+    @SerializedName("total_weight")
+    private String total_weight;
+
+    @SerializedName("bind_to_market")
+    private boolean bind_to_market;
+
+    @SerializedName("price")
+    private double price;
 
     public int getId() {
         return id;
@@ -35,19 +43,43 @@ public class Option implements Serializable {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public int getAvailable_quantity() {
+        return available_quantity;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setAvailable_quantity(int available_quantity) {
+        this.available_quantity = available_quantity;
     }
 
-    public List<OptionChild> getChilds() {
-        return childs;
+    public String getColor() {
+        return color;
     }
 
-    public void setChilds(List<OptionChild> childs) {
-        this.childs = childs;
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTotal_weight() {
+        return total_weight;
+    }
+
+    public void setTotal_weight(String total_weight) {
+        this.total_weight = total_weight;
+    }
+
+    public boolean isBind_to_market() {
+        return bind_to_market;
+    }
+
+    public void setBind_to_market(boolean bind_to_market) {
+        this.bind_to_market = bind_to_market;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

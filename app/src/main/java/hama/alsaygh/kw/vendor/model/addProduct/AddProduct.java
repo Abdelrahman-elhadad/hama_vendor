@@ -6,6 +6,7 @@ import java.util.List;
 import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
 import hama.alsaygh.kw.vendor.model.product.Caliber;
+import hama.alsaygh.kw.vendor.model.product.Option;
 
 
 public class AddProduct implements Serializable {
@@ -35,6 +36,7 @@ public class AddProduct implements Serializable {
     private String gmPrice;
     private String totalWeightMetal;
     private String discount;
+    private List<Option> options;
 
     public String getDiscount() {
         if (discount == null || discount.isEmpty())
@@ -245,5 +247,13 @@ public class AddProduct implements Serializable {
 
     public void setMedia(List<String> media) {
         this.media = media;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 }

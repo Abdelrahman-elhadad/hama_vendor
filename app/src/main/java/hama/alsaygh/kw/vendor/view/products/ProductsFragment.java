@@ -72,14 +72,14 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
                 } else {
                     binding.rvProducts.setVisibility(View.VISIBLE);
                     if (page == 1) {
-                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), ProductsFragment.this);
+                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), getChildFragmentManager(), ProductsFragment.this);
                         binding.rvProducts.setAdapter(adapter);
 
                     } else {
                         if (adapter != null)
                             adapter.addItems(productsResponse.getData());
                         else {
-                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), ProductsFragment.this);
+                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), getChildFragmentManager(), ProductsFragment.this);
                             binding.rvProducts.setAdapter(adapter);
                         }
                     }
@@ -157,7 +157,14 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
     @Override
     public void onDeleteClick(Object object, int position) {
 
+        if (adapter != null) {
+            adapter.removeItem((int) object);
+            if (adapter.getItemCount() == 0) {
+
+                binding.rvProducts.setVisibility(View.GONE);
+                binding.llNoProduct.setVisibility(View.VISIBLE);
+
+            }
+        }
     }
-
-
 }

@@ -285,8 +285,17 @@
     <string name="buyer_name">اسم المشترى</string>
     <string name="items">المنتجات</string>
     <string name="total">السعر الكلي</string>
-    <string name="download_pdf">DOWNLOAD as PDF</string>
-    <string name="download_image">DOWNLOAD as IMAGE</string>
-    <string name="product_discount">Discount KWD</string>
-    <string name="product_discount_error">Please enter a value less than or equal to 100.</string>
+    <string name="download_pdf">تنزيل ك pdf</string>
+    <string name="download_image">تنزيل ك صورة</string>
+    <string name="product_discount">قيمة الخصم د.ك</string>
+    <string name="product_discount_error">رجاء إدخال عدد أقل من أو يساوي 100</string>
+    <string name="add_option_2">إضافة خيار + </string>
+
+    <string name="button_navigation">Delete from Cart</string>
+    <string name="button">DELETE ITEM</string>
+
+    <string name="delete_product">Are you sure to delete this item from
+the cart?</string>
+    <string name="delete_product1">DELETE PRODUCT</string>
+    <string name="no_internet_connection">No Internet Connection</string>
 </resources>

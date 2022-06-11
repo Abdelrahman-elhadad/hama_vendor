@@ -76,6 +76,36 @@ public class HomeActivityViewModel extends ViewModel {
         fragmentTransaction.commit();
     }
 
+    public void refresh() {
+        switch (HomeActivity.position) {
+            case Home:
+                openHome();
+                break;
+
+            case MyProducts:
+                openProducts();
+                break;
+
+            case Orders:
+                openOrders();
+                break;
+
+            case Offers:
+                openOffers();
+                break;
+            case more:
+                openMore();
+                break;
+
+        }
+    }
+
+    private void openHome() {
+        toolBar.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.home));
+        commitFragment(new HomeFragment(), Home);
+    }
+
 
     @BindingAdapter("onNavigationItemSelected")
     public static void setOnNavigationItemSelectedListener(
@@ -86,37 +116,51 @@ public class HomeActivityViewModel extends ViewModel {
 
     public boolean onNavigationClick(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.item_home) {
-            toolBar.set(View.VISIBLE);
-            title.setValue(context.getString(R.string.home));
-            commitFragment(new HomeFragment(), Home);
+            openHome();
             return true;
         }
         if (item.getItemId() == R.id.item_products) {
-            toolBar.set(View.VISIBLE);
-            title.setValue(context.getString(R.string.my_products));
-            commitFragment(ProductsFragment.newInstance(), MyProducts);
+            openProducts();
             return true;
         }
         if (item.getItemId() == R.id.item_orders) {
-            toolBar.set(View.VISIBLE);
-            title.setValue(context.getString(R.string.fixed1));
-            commitFragment(OrdersFragment.newInstance(), Orders);
+            openOrders();
             return true;
         }
         if (item.getItemId() == R.id.item_offers) {
-            toolBar.set(View.VISIBLE);
-            title.setValue(context.getString(R.string.Offers));
-            commitFragment(new OffersActiveOffers(), Offers);
+            openOffers();
             return true;
         }
 
         if (item.getItemId() == R.id.item_more) {
-            toolBar.set(View.GONE);
-            title.setValue("");
-            commitFragment(MoreFragment.newInstance(), more);
+            openMore();
             return true;
         }
         return false;
+    }
+
+    private void openMore() {
+        toolBar.set(View.GONE);
+        title.setValue("");
+        commitFragment(MoreFragment.newInstance(), more);
+    }
+
+    private void openOffers() {
+        toolBar.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.Offers));
+        commitFragment(new OffersActiveOffers(), Offers);
+    }
+
+    private void openOrders() {
+        toolBar.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.fixed1));
+        commitFragment(OrdersFragment.newInstance(), Orders);
+    }
+
+    private void openProducts() {
+        toolBar.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.my_products));
+        commitFragment(ProductsFragment.newInstance(), MyProducts);
     }
 
     public ObservableInt getToolBar() {

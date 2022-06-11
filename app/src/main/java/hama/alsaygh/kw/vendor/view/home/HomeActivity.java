@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.ActivityHomeBinding;
-import hama.alsaygh.kw.vendor.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.utils.LocalUtils;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
 
@@ -26,7 +25,8 @@ public class HomeActivity extends BaseActivity {
         model = new HomeActivityViewModel(this, getSupportFragmentManager());
         binding.setModel(model);
         binding.buttomNav.setSelectedItemId(R.id.item_home);
-        model.commitFragment(new HomeFragment(), model.getHome());
+        HomeActivity.position = model.getHome();
+
         lang = LocalUtils.getInstance().getLanguageShort(this);
         model.getTitleObserver().observe(this, title -> {
             binding.home1.setText(title);
@@ -50,5 +50,7 @@ public class HomeActivity extends BaseActivity {
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
         }
+
+        model.refresh();
     }
 }

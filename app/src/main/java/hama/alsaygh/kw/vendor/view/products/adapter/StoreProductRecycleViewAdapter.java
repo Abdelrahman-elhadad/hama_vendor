@@ -5,6 +5,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -20,10 +21,12 @@ public class StoreProductRecycleViewAdapter extends RecyclerView.Adapter<Recycle
 
     private List<Product> countries;
     private final OnGeneralClickListener onGeneralClickListener;
+    private final FragmentManager fragmentManager;
 
-    public StoreProductRecycleViewAdapter(List<Product> countries, OnGeneralClickListener onGeneralClickListener) {
+    public StoreProductRecycleViewAdapter(List<Product> countries, FragmentManager fragmentManager, OnGeneralClickListener onGeneralClickListener) {
         this.countries = countries;
         this.onGeneralClickListener = onGeneralClickListener;
+        this.fragmentManager = fragmentManager;
     }
 
 
@@ -39,7 +42,7 @@ public class StoreProductRecycleViewAdapter extends RecyclerView.Adapter<Recycle
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         CategoryViewHolder viewHolder = (CategoryViewHolder) holder;
-        viewHolder.bind(new StoreProductViewModel(viewHolder.binding.loveImg.getContext(), countries.get(position), onGeneralClickListener, position));
+        viewHolder.bind(new StoreProductViewModel(viewHolder.binding.loveImg.getContext(), countries.get(position), fragmentManager, onGeneralClickListener, position));
     }
 
     @Override
@@ -52,6 +55,18 @@ public class StoreProductRecycleViewAdapter extends RecyclerView.Adapter<Recycle
         if (countries == null)
             countries = new ArrayList<>();
         countries.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void removeItem(int id) {
+        if (countries == null)
+            countries = new ArrayList<>();
+        for (int i = 0; i < countries.size(); i++) {
+            if (countries.get(i).getId() == id) {
+                countries.remove(i);
+                break;
+            }
+        }
         notifyDataSetChanged();
     }
 

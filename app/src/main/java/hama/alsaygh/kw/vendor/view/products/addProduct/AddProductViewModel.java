@@ -629,6 +629,7 @@ public class AddProductViewModel extends ViewModel {
         if (fragment != null) {
             if (((AddProductStep2Fragment) fragment).isValid()) {
                 addProduct.setMedia(((AddProductStep2Fragment) fragment).getImages());
+                addProduct.setOptions(((AddProductStep2Fragment) fragment).getOptions());
                 addProductVisibility.set(View.GONE);
                 pbAddProductVisibility.set(View.VISIBLE);
                 productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
