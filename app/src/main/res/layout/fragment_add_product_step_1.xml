@@ -400,7 +400,7 @@
                             android:textSize="14sp" />
 
                         <ImageView
-                            android:id="@+id/iv_weight_min"
+                            android:id="@+id/iv_weight_max"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_alignTop="@+id/edit_weight"
@@ -408,11 +408,11 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="10dp"
                             android:contentDescription="@string/login_now"
-                            android:onClick="@{model::onMinWeightClick}"
+                            android:onClick="@{model::onMaxWeightClick}"
                             app:srcCompat="@drawable/ic_arrow_up_green" />
 
                         <ImageView
-                            android:id="@+id/iv_weight_max"
+                            android:id="@+id/iv_weight_min"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_alignEnd="@+id/edit_weight"
@@ -420,7 +420,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="8dp"
                             android:contentDescription="@string/login_now"
-                            android:onClick="@{model::onMaxWeightClick}"
+                            android:onClick="@{model::onMinWeightClick}"
                             app:srcCompat="@drawable/ic_arrow_down_green" />
 
 
@@ -461,7 +461,7 @@
 
 
                         <ImageView
-                            android:id="@+id/iv_quantity_min"
+                            android:id="@+id/iv_quantity_max"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_alignTop="@+id/edit_quantity"
@@ -469,11 +469,11 @@
                             android:layout_marginTop="8dp"
                             android:layout_marginEnd="10dp"
                             android:contentDescription="@string/login_now"
-                            android:onClick="@{model::onMinQuantityClick}"
+                            android:onClick="@{model::onMaxQuantityClick}"
                             app:srcCompat="@drawable/ic_arrow_up_green" />
 
                         <ImageView
-                            android:id="@+id/iv_quantity_max"
+                            android:id="@+id/iv_quantity_min"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_alignBottom="@+id/edit_quantity"
@@ -481,7 +481,8 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="8dp"
                             android:contentDescription="@string/login_now"
-                            android:onClick="@{model::onMaxQuantityClick}"
+                            android:onClick="@{model::onMinQuantityClick}"
+
                             app:srcCompat="@drawable/ic_arrow_down_green" />
 
 
@@ -580,6 +581,69 @@
                         android:textSize="14sp" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rl_fixed_price_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:visibility="@{model.fixedPriceVisibility}">
+
+                    <TextView
+                        android:id="@+id/tv_product_price_discount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cairolight"
+                        android:text="@string/product_discount"
+                        android:textColor="@color/text"
+                        android:textSize="14sp" />
+
+
+                    <EditText
+                        android:id="@+id/edit_product_price_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/tv_product_price_discount"
+                        android:layout_marginTop="4dp"
+                        android:layout_toStartOf="@+id/tv_price_unit_discount"
+                        android:background="@drawable/back_spinner"
+                        android:hint="@string/_0"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:labelFor="@+id/tv_weight"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        app:addTextChangedListener="@{model.fixedPriceDiscountTextWatcher}" />
+
+                    <TextView
+                        android:id="@+id/tv_price_unit_discount"
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/tv_product_price_discount"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="-6dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/back_spinner3"
+                        android:fontFamily="@font/cairolight"
+                        android:gravity="center"
+                        android:text="@string/currency"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_product_price_discount_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/cairolight"
+                    android:text="@string/product_discount_error"
+                    android:textColor="@color/back_canceld"
+                    android:textSize="12sp"
+                    android:visibility="@{model.discountVisibility}" />
+
                 <TextView
                     android:id="@+id/tv_caliber"
                     android:layout_width="wrap_content"
@@ -663,7 +727,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginEnd="10dp"
+                    android:visibility="@{model.categoriesVisibility}">
 
                     <TextView
                         android:id="@+id/tv_net_price"
@@ -716,12 +781,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="@{model.categoriesVisibility}">
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
@@ -809,7 +875,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="@{model.categoriesVisibility}">
 
                     <RelativeLayout
                         android:id="@+id/rl_diamond"
@@ -886,7 +953,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
                     android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="@{model.categoriesVisibility}">
 
                     <RelativeLayout
                         android:id="@+id/rl_purity"
@@ -958,8 +1026,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:visibility="@{model.fixedPriceVisibility}">
+                    android:layout_marginEnd="10dp">
 
                     <TextView
                         android:id="@+id/tv_gm_price"

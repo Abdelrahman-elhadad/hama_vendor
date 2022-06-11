@@ -68,7 +68,11 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                         Category category = arrayAdapter1.getItem(position);
                         model.setCategories(category);
                         setChildCategories(category.getChilds());
-
+                        if (category.getId() == 4 || category.getId() == 5) {
+                            model.categoriesVisibility.set(View.VISIBLE);
+                        } else {
+                            model.categoriesVisibility.set(View.GONE);
+                        }
 
                     }
 
@@ -97,12 +101,6 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         MainCategory category = arrayAdapter1.getItem(position);
                         model.setMainCategories(category);
-
-                        if (category.getId() == 1 || category.getId() == 2) {
-                            model.categoriesVisibility.set(View.VISIBLE);
-                        } else {
-                            model.categoriesVisibility.set(View.GONE);
-                        }
                     }
 
                     @Override
@@ -174,6 +172,13 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
 
     public boolean isValid() {
         boolean isValid = true;
+
+        if (model.getAddProduct().getCode() == null || model.getAddProduct().getCode().isEmpty()) {
+            isValid = false;
+            binding.editCode.setBackgroundResource(R.drawable.back_edit_txt_red);
+        } else
+            binding.editCode.setBackgroundResource(R.drawable.back_spinner);
+
         if (model.getAddProduct().getName() == null || model.getAddProduct().getName().isEmpty()) {
             isValid = false;
             binding.editProductNameEn.setBackgroundResource(R.drawable.back_edit_txt_red);
@@ -205,32 +210,34 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
             binding.viewSpCatMain.setBackgroundResource(R.drawable.back_edit_txt_red);
         } else {
             binding.viewSpCatMain.setBackgroundResource(R.drawable.back_spinner);
-
-            if (model.getAddProduct().getMain_category().getId() == 1 || model.getAddProduct().getMain_category().getId() == 2) {
-                if (model.getAddProduct().getManufacture_price() == null || model.getAddProduct().getManufacture_price().isEmpty()) {
-                    isValid = false;
-                    binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
-                } else
-                    binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_spinner);
-
-                if (model.getAddProduct().getCaliber() == null) {
-                    isValid = false;
-                    binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.back_canceld));
-                } else
-                    binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.text));
-
-            } else {
-                binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.text));
-                binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_spinner);
-            }
-
         }
 
         if (model.getAddProduct().getSub_category() == null) {
             isValid = false;
             binding.viewSpCatSub.setBackgroundResource(R.drawable.back_edit_txt_red);
-        } else
+        } else {
+
+            // if (model.getAddProduct().getSub_category().getId() == 4 || model.getAddProduct().getSub_category().getId() == 5) {
+//                if (model.getAddProduct().getManufacture_price() == null || model.getAddProduct().getManufacture_price().isEmpty()) {
+//                    isValid = false;
+//                    binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
+//                } else
+//                    binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_spinner);
+//
+//                if (model.getAddProduct().getCaliber() == null) {
+//                    isValid = false;
+//                    binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.back_canceld));
+//                } else
+//                    binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.text));
+
+            //  } else
+            {
+                binding.tvCaliber.setTextColor(ContextCompat.getColor(requireContext(), R.color.text));
+                binding.editManufacturingPrice.setBackgroundResource(R.drawable.back_spinner);
+            }
+
             binding.viewSpCatSub.setBackgroundResource(R.drawable.back_spinner);
+        }
 
 
         if (!model.fixedPrice.get() && !model.bindToMarket.get()) {
@@ -240,12 +247,22 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
             binding.tvPriceType.setTextColor(ContextCompat.getColor(requireContext(), R.color.text));
 
         if (model.fixedPrice.get()) {
-            if (model.getAddProduct().getGmPrice() == null || model.getAddProduct().getGmPrice().isEmpty()) {
-                isValid = false;
-                binding.editGmPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
-            } else
-                binding.editGmPrice.setBackgroundResource(R.drawable.back_spinner);
 
+            if (model.getAddProduct().getDiscount() == null || model.getAddProduct().getDiscount().isEmpty()) {
+                isValid = false;
+                binding.editProductPriceDiscount.setBackgroundResource(R.drawable.back_edit_txt_red);
+                model.discountVisibility.set(View.VISIBLE);
+            } else {
+                double dic = Double.parseDouble(model.getAddProduct().getDiscount());
+                if (dic > 100) {
+                    isValid = false;
+                    binding.editProductPriceDiscount.setBackgroundResource(R.drawable.back_edit_txt_red);
+                    model.discountVisibility.set(View.VISIBLE);
+                } else {
+                    binding.editProductPriceDiscount.setBackgroundResource(R.drawable.back_spinner);
+                    model.discountVisibility.set(View.GONE);
+                }
+            }
             if (model.getAddProduct().getFixed_price() == null || model.getAddProduct().getFixed_price().isEmpty()) {
                 isValid = false;
                 binding.editProductPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
@@ -253,9 +270,9 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                 binding.editProductPrice.setBackgroundResource(R.drawable.back_spinner);
         } else {
             binding.editProductPrice.setBackgroundResource(R.drawable.back_spinner);
-            binding.editGmPrice.setBackgroundResource(R.drawable.back_spinner);
+            binding.editProductPriceDiscount.setBackgroundResource(R.drawable.back_spinner);
+            model.discountVisibility.set(View.GONE);
         }
-
 
         if (model.getAddProduct().getQuantity() == null || model.getAddProduct().getQuantity().isEmpty()
                 || model.getAddProduct().getQuantity().equalsIgnoreCase("0.0")
@@ -272,6 +289,18 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
             binding.editWeight.setBackgroundResource(R.drawable.back_edit_txt_red);
         } else
             binding.editWeight.setBackgroundResource(R.drawable.back_spinner);
+
+        if (model.getAddProduct().getGmPrice() == null || model.getAddProduct().getGmPrice().isEmpty()) {
+            isValid = false;
+            binding.editGmPrice.setBackgroundResource(R.drawable.back_edit_txt_red);
+        } else
+            binding.editGmPrice.setBackgroundResource(R.drawable.back_spinner);
+
+        if (model.getAddProduct().getTotalWeightMetal() == null || model.getAddProduct().getTotalWeightMetal().isEmpty()) {
+            isValid = false;
+            binding.editTotalMetalGm.setBackgroundResource(R.drawable.back_edit_txt_red);
+        } else
+            binding.editTotalMetalGm.setBackgroundResource(R.drawable.back_spinner);
 
 
         return isValid;

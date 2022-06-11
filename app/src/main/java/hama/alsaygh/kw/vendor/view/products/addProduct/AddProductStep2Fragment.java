@@ -226,9 +226,8 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
         List<String> images = new ArrayList<>();
 
         if (adapter != null) {
-            images.addAll(adapter.getImageName());
+            images.addAll(adapter.getImageId());
         }
-
         return images;
     }
 }

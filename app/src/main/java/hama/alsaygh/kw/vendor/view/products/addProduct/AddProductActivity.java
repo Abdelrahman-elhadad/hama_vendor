@@ -1,6 +1,7 @@
 package hama.alsaygh.kw.vendor.view.products.addProduct;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,6 +28,8 @@ public class AddProductActivity extends BaseActivity {
 
         model.getAddProductObserver().observe(this, productsResponse -> {
 
+            model.pbAddProductVisibility.set(View.GONE);
+            model.addProductVisibility.set(View.VISIBLE);
             if (productsResponse.isStatus()) {
                 Snackbar.make(binding.llNext, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
                 finish();

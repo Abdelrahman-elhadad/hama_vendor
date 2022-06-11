@@ -23,6 +23,7 @@ import hama.alsaygh.kw.vendor.model.category.MainCategory;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
+import hama.alsaygh.kw.vendor.utils.Utils;
 
 public class AddProductViewModel extends ViewModel {
 
@@ -52,6 +53,7 @@ public class AddProductViewModel extends ViewModel {
     protected ObservableInt nextVisibility = new ObservableInt();
     protected ObservableInt addProductVisibility = new ObservableInt();
     protected ObservableInt pbAddProductVisibility = new ObservableInt();
+    protected ObservableInt discountVisibility = new ObservableInt();
 
     GeneralRepo generalRepo;
     ProductRepo productRepo;
@@ -74,6 +76,7 @@ public class AddProductViewModel extends ViewModel {
         nextVisibility.set(View.VISIBLE);
         addProductVisibility.set(View.GONE);
         pbAddProductVisibility.set(View.GONE);
+        discountVisibility.set(View.GONE);
     }
 
     public AddProduct getAddProduct() {
@@ -140,7 +143,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setCode(s.toString());
+                addProduct.setCode(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -236,7 +239,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setWeight(s.toString());
+                addProduct.setWeight(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -255,7 +258,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setQuantity(s.toString());
+                addProduct.setQuantity(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -274,7 +277,42 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setFixed_price(s.toString());
+
+                addProduct.setFixed_price(Utils.getInstance().convertArabic(s.toString()));
+            }
+        };
+    }
+
+    public TextWatcher fixedPriceDiscountTextWatcher() {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().isEmpty()) {
+                    addProduct.setDiscount("");
+                    discountVisibility.set(View.GONE);
+                } else {
+                    double discount = Double.parseDouble(Utils.getInstance().convertArabic(s.toString()));
+                    if (discount < 0) {
+                        addProduct.setDiscount("0");
+                        discountVisibility.set(View.GONE);
+                    } else if (discount < 100) {
+                        addProduct.setDiscount("100");
+                        discountVisibility.set(View.VISIBLE);
+                    } else {
+                        addProduct.setDiscount(discount + "");
+                        discountVisibility.set(View.GONE);
+                    }
+                }
             }
         };
     }
@@ -293,7 +331,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setManufacture_price(s.toString());
+                addProduct.setManufacture_price(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -312,7 +350,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setNetWeight(s.toString());
+                addProduct.setNetWeight(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -331,7 +369,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setStoneWeight(s.toString());
+                addProduct.setStoneWeight(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -350,7 +388,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setTotalWeightMetal(s.toString());
+                addProduct.setTotalWeightMetal(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -369,7 +407,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setStoneType(s.toString());
+                addProduct.setStoneType(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -388,7 +426,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setDiamond(s.toString());
+                addProduct.setDiamond(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -407,7 +445,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setDiamondWeight(s.toString());
+                addProduct.setDiamondWeight(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -426,7 +464,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setGmPrice(s.toString());
+                addProduct.setGmPrice(Utils.getInstance().convertArabic(Utils.getInstance().convertArabic(s.toString())));
             }
         };
     }
@@ -464,7 +502,7 @@ public class AddProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setPurity(s.toString());
+                addProduct.setPurity(Utils.getInstance().convertArabic(s.toString()));
             }
         };
     }
@@ -614,5 +652,9 @@ public class AddProductViewModel extends ViewModel {
 
     public ObservableInt getPbProductVisibility() {
         return pbAddProductVisibility;
+    }
+
+    public ObservableInt getDiscountVisibility() {
+        return discountVisibility;
     }
 }

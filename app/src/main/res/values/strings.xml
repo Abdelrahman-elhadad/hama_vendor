@@ -285,4 +285,6 @@
     <string name="total">Total</string>
     <string name="download_pdf">DOWNLOAD as PDF</string>
     <string name="download_image">DOWNLOAD as IMAGE</string>
+    <string name="product_discount">Discount KWD</string>
+    <string name="product_discount_error">Please enter a value less than or equal to 100.</string>
 </resources>

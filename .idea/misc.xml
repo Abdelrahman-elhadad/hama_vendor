@@ -85,7 +85,7 @@
         <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_new_product_step_1.xml" value="0.23777961888980945" />
-        <entry key="app/src/main/res/layout/fragment_add_product_step_1.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_add_product_step_1.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_add_product_step_2.xml" value="0.31645304361979176" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_orders.xml" value="0.15364583333333334" />

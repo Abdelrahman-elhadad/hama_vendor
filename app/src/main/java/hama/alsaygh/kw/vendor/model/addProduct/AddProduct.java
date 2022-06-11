@@ -34,6 +34,22 @@ public class AddProduct implements Serializable {
     private String purity;
     private String gmPrice;
     private String totalWeightMetal;
+    private String discount;
+
+    public String getDiscount() {
+        if (discount == null || discount.isEmpty())
+            discount = "0.0";
+        else {
+            double dis = Double.parseDouble(discount);
+            if (dis < 0)
+                discount = "0.0";
+        }
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
+    }
 
     public String getStoneWeight() {
         return stoneWeight;

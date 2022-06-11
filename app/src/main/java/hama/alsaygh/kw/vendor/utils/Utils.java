@@ -266,5 +266,19 @@ public class Utils {
         return String.format(Locale.ENGLISH, "%.1f %c", count / Math.pow(1000, exp), "kMGTPE".charAt(exp - 1));
     }
 
+    public String convertArabic(String arabicStr) {
+        char[] chArr = arabicStr.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char ch : chArr) {
+            if (Character.isDigit(ch)) {
+                sb.append(Character.getNumericValue(ch));
+            } else if (ch == '٫') {
+                sb.append(".");
+            } else {
+                sb.append(ch);
+            }
+        }
+        return sb.toString();
+    }
 }
 

@@ -146,6 +146,17 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
         return jsonArray;
     }
 
+    public List<String> getImageId() {
+
+        List<String> jsonArray = new ArrayList<>();
+        for (int i = 0; i < imageUploads.size(); i++) {
+            if (imageUploads.get(i).getImage() != null) {
+                jsonArray.add(imageUploads.get(i).getImage().getId());
+            }
+        }
+        return jsonArray;
+    }
+
     public class Holder extends RecyclerView.ViewHolder {
         TextView tv_name, tv_size;
         ImageView iv_item, iv_delete;

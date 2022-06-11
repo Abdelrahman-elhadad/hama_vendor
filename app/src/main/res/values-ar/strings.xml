@@ -272,7 +272,7 @@
     <string name="diamond_weight">وزن الماس (قيراط)</string>
     <string name="purity">نقاء</string>
     <string name="color">اللون</string>
-    <string name="gm_price">سعر الجرام بالدينار الكويتي</string>
+    <string name="gm_price">سعر الجرام ب د.ك</string>
     <string name="total_metal_weight">إجمالي وزن المعدن</string>
     <string name="add_product">أضف منتج</string>
     <string name="add_option">إضافة خيار \" اختياري \" </string>
@@ -287,4 +287,6 @@
     <string name="total">السعر الكلي</string>
     <string name="download_pdf">DOWNLOAD as PDF</string>
     <string name="download_image">DOWNLOAD as IMAGE</string>
+    <string name="product_discount">Discount KWD</string>
+    <string name="product_discount_error">Please enter a value less than or equal to 100.</string>
 </resources>
