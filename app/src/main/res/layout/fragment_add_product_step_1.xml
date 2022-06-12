@@ -30,7 +30,9 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/cairobold"
                     android:text="@string/hlhlh"
                     android:textColor="@color/black"
@@ -40,8 +42,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/klkkl"
                     android:textColor="@color/ghhg"
@@ -52,7 +54,7 @@
                     android:id="@+id/tv_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/code"
@@ -63,9 +65,9 @@
                     android:id="@+id/edit_code"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
                     android:importantForAutofill="no"
@@ -80,7 +82,7 @@
                     android:id="@+id/tv_product_name_ar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/product_name_ar"
@@ -91,9 +93,9 @@
                     android:id="@+id/edit_product_name_ar"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
                     android:importantForAutofill="no"
@@ -108,8 +110,8 @@
                     android:id="@+id/tv_product_name_en"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/product_name_en"
                     android:textColor="@color/text"
@@ -119,9 +121,9 @@
                     android:id="@+id/edit_product_name_en"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
                     android:importantForAutofill="no"
@@ -136,7 +138,7 @@
                     android:id="@+id/tv_product_desc_ar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/product_desc_ar"
@@ -147,9 +149,9 @@
                     android:id="@+id/edit_product_desc_ar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
                     android:importantForAutofill="no"
@@ -159,6 +161,8 @@
                     android:minLines="10"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:gravity="top|start"
                     android:textColor="@color/black"
                     app:addTextChangedListener="@{model.descArTextWatcher}" />
 
@@ -166,7 +170,7 @@
                     android:id="@+id/tv_product_desc_en"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/product_desc_en"
@@ -177,9 +181,9 @@
                     android:id="@+id/edit_product_desc_en"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
                     android:importantForAutofill="no"
@@ -189,15 +193,17 @@
                     android:minLines="10"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:gravity="top|start"
                     android:textColor="@color/black"
                     app:addTextChangedListener="@{model.descEnTextWatcher}" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
@@ -212,7 +218,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cairolight"
-                            android:text="@string/category"
+                            android:text="@string/yiyi"
                             android:textColor="@color/text"
                             android:textSize="14sp" />
 
@@ -258,7 +264,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/cairolight"
-                            android:text="@string/yiyi"
+                            android:text="@string/category"
                             android:textColor="@color/text"
                             android:textSize="14sp" />
 
@@ -299,9 +305,9 @@
                     android:id="@+id/rl_sub_sub_cat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.childSubVisibility}">
 
                     <TextView
@@ -345,9 +351,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
@@ -495,7 +501,7 @@
                     android:id="@+id/tv_price_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/Price_Type"
@@ -534,9 +540,9 @@
                     android:id="@+id/rl_fixed_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.fixedPriceVisibility}">
 
                     <TextView
@@ -585,9 +591,9 @@
                     android:id="@+id/rl_fixed_price_discount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.fixedPriceVisibility}">
 
                     <TextView
@@ -636,8 +642,8 @@
                     android:id="@+id/tv_product_price_discount_error"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/product_discount_error"
                     android:textColor="@color/back_canceld"
@@ -648,7 +654,7 @@
                     android:id="@+id/tv_caliber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/Caliber"
@@ -660,23 +666,23 @@
                     android:id="@+id/rv_caliber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="8dp"
                     android:orientation="vertical"
                     android:visibility="@{model.categoriesVisibility}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="4"
-                    tools:listitem="@layout/item_rv1_add_product" />
+                    tools:listitem="@layout/item_rv_caliber" />
 
 
                 <RelativeLayout
                     android:id="@+id/rl_manufacturing_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.categoriesVisibility}">
 
                     <TextView
@@ -725,9 +731,9 @@
                     android:id="@+id/rl_net_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.categoriesVisibility}">
 
                     <TextView
@@ -777,9 +783,9 @@
                     android:id="@+id/ll_stone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:visibility="@{model.categoriesVisibility}">
@@ -871,9 +877,9 @@
                     android:id="@+id/ll_diamond"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:visibility="@{model.categoriesVisibility}">
@@ -949,9 +955,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:visibility="@{model.categoriesVisibility}">
@@ -1024,9 +1030,9 @@
                     android:id="@+id/rl_gm_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:visibility="@{model.categoriesVisibility}">
 
                     <TextView
@@ -1059,9 +1065,9 @@
                     android:id="@+id/rl_total_metal_gm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp">
+                    android:layout_marginEnd="16dp">
 
                     <TextView
                         android:id="@+id/tv_total_metal_gm"

@@ -1,4 +1,4 @@
-package hama.alsaygh.kw.vendor.model.product;
+package hama.alsaygh.kw.vendor.model.product.caliber;
 
 import com.google.gson.annotations.SerializedName;
 

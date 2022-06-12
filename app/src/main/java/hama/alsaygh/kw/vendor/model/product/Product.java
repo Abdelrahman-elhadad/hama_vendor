@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 import hama.alsaygh.kw.vendor.model.product.review.Review;
 
 

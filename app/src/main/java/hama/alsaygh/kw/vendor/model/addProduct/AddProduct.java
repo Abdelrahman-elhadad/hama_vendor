@@ -5,12 +5,13 @@ import java.util.List;
 
 import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
-import hama.alsaygh.kw.vendor.model.product.Caliber;
 import hama.alsaygh.kw.vendor.model.product.Option;
+import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 
 
 public class AddProduct implements Serializable {
 
+    private int id;
     private String name;
     private String description;
     private String quantity;
@@ -37,6 +38,14 @@ public class AddProduct implements Serializable {
     private String totalWeightMetal;
     private String discount;
     private List<Option> options;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDiscount() {
         if (discount == null || discount.isEmpty())

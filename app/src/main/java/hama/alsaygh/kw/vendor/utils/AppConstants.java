@@ -13,5 +13,8 @@ public class AppConstants {
 
     public static final String ADDRESS = "address";
 
+    public static final int ADD = 1;
+    public static final int EDIT = 2;
+
 
 }

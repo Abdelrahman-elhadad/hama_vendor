@@ -1,6 +1,5 @@
 package hama.alsaygh.kw.vendor.view.products.addProduct.adapter;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONArray;
@@ -20,15 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.dialog.addOptionDialog.AddOptionProductDialog;
+import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Option;
 
 public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProduct.Holder> {
     ArrayList<Option> imageUploads;
-    Activity activity;
+    FragmentManager activity;
+    OnGeneralClickListener onGeneralClickListener;
 
-    public AdapterOptionProduct(Activity activity, ArrayList<Option> imageUploads) {
+    public AdapterOptionProduct(FragmentManager activity, ArrayList<Option> imageUploads, OnGeneralClickListener onGeneralClickListener) {
         this.imageUploads = imageUploads;
         this.activity = activity;
+        this.onGeneralClickListener = onGeneralClickListener;
     }
 
     @NonNull
@@ -44,7 +48,8 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
 
 
         holder.tv_name.setText(imageUploads.get(position).getName());
-        holder.tv_count.setText(imageUploads.get(position).getAvailable_quantity());
+        holder.tv_name_ar.setText(imageUploads.get(position).getNameAr());
+        holder.tv_count.setText(imageUploads.get(position).getAvailable_quantity() + "");
         holder.tv_price.setText(imageUploads.get(position).getPrice() + " " + holder.tv_price.getContext().getString(R.string.currency));
         holder.tv_market.setText(imageUploads.get(position).isBind_to_market() ? holder.tv_price.getContext().getString(R.string.save) : holder.tv_price.getContext().getString(R.string.find));
 
@@ -75,6 +80,11 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
             notifyDataSetChanged();
         });
 
+        holder.iv_edit.setOnClickListener(v -> {
+
+            AddOptionProductDialog.newInstance(imageUploads.get(index), index, onGeneralClickListener).show(activity, "edit");
+
+        });
 
     }
 
@@ -86,6 +96,12 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
 
     public void addItem(Option imageUpload) {
         imageUploads.add(imageUpload);
+        notifyDataSetChanged();
+    }
+
+    public void editItem(Option imageUpload, int index) {
+        imageUploads.remove(index);
+        imageUploads.add(index, imageUpload);
         notifyDataSetChanged();
     }
 
@@ -108,7 +124,7 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
 
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView tv_name, tv_count, tv_market, tv_price;
+        TextView tv_name, tv_name_ar, tv_count, tv_market, tv_price;
         ImageView iv_edit, iv_delete;
         View tv_color;
         LinearLayout ll_color;
@@ -119,6 +135,7 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
             iv_edit = itemView.findViewById(R.id.iv_edit);
             iv_delete = itemView.findViewById(R.id.iv_delete);
             tv_name = itemView.findViewById(R.id.tv_name);
+            tv_name_ar = itemView.findViewById(R.id.tv_name_ar);
             tv_market = itemView.findViewById(R.id.tv_market);
             tv_count = itemView.findViewById(R.id.tv_count);
             tv_price = itemView.findViewById(R.id.tv_price);

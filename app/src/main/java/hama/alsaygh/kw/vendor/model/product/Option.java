@@ -12,6 +12,9 @@ public class Option implements Serializable {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("name_ar")
+    private String nameAr;
+
     @SerializedName("available_quantity")
     private int available_quantity;
 
@@ -26,6 +29,14 @@ public class Option implements Serializable {
 
     @SerializedName("price")
     private double price;
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
+    }
 
     public int getId() {
         return id;
@@ -60,6 +71,8 @@ public class Option implements Serializable {
     }
 
     public String getTotal_weight() {
+        if (total_weight == null || total_weight.isEmpty())
+            total_weight = "0.0";
         return total_weight;
     }
 

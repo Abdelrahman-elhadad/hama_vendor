@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.dialog.addOptionDialog.AddOptionProductViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/parent_delete_p"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view10"
+            android:layout_width="52dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_navigation1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_close" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:fontFamily="@font/cairosemibold"
+                android:text="@string/add_option"
+                android:textColor="@color/blackcolor"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view25"
+            android:layout_width="350dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_buttom_navigation2" />
+
+        <TextView
+            android:id="@+id/tv_option_name_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/option_name_ar"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_option_name_ar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_spinner"
+            android:ems="10"
+            android:text="@{model.nameAr}"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:labelFor="@+id/tv_option_name_ar"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/black"
+            app:addTextChangedListener="@{model.nameArTextWatcher}" />
+
+        <TextView
+            android:id="@+id/tv_option_name_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/option_name_en"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_option_name_en"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_spinner"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:text="@{model.nameEn}"
+            android:labelFor="@+id/tv_product_name_en"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/black"
+            app:addTextChangedListener="@{model.nameEnTextWatcher}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairolight"
+                    android:text="@string/weight"
+                    android:textColor="@color/text"
+                    android:textSize="14sp" />
+
+
+                <EditText
+                    android:id="@+id/edit_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tv_weight"
+                    android:layout_marginTop="4dp"
+                    android:layout_toStartOf="@+id/tv_weight_unit"
+                    android:background="@drawable/back_spinner"
+                    android:hint="@string/_0"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"
+                    android:labelFor="@+id/tv_weight"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="30dp"
+                    android:text="@{model.weightObservable}"
+                    app:addTextChangedListener="@{model.weightTextWatcher}" />
+
+                <TextView
+                    android:id="@+id/tv_weight_unit"
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tv_weight"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="-6dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/back_spinner3"
+                    android:fontFamily="@font/cairolight"
+                    android:gravity="center"
+                    android:text="@string/Gram"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_weight_max"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignTop="@+id/edit_weight"
+                    android:layout_alignEnd="@+id/edit_weight"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/login_now"
+                    app:srcCompat="@drawable/ic_arrow_up_green" />
+
+                <ImageView
+                    android:id="@+id/iv_weight_min"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignEnd="@+id/edit_weight"
+                    android:layout_alignBottom="@+id/edit_weight"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/login_now"
+                    app:srcCompat="@drawable/ic_arrow_down_green" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_quantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairolight"
+                    android:text="@string/quantity_available"
+                    android:textColor="@color/text"
+                    android:textSize="14sp" />
+
+
+                <EditText
+                    android:id="@+id/edit_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tv_quantity"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/back_spinner"
+                    android:hint="@string/_0"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:labelFor="@+id/tv_quantity"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="30dp"
+                    android:text="@{model.quantityObservable}"
+                    app:addTextChangedListener="@{model.quantityTextWatcher}" />
+
+
+                <ImageView
+                    android:id="@+id/iv_quantity_max"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignTop="@+id/edit_quantity"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/login_now"
+                    app:srcCompat="@drawable/ic_arrow_up_green" />
+
+                <ImageView
+                    android:id="@+id/iv_quantity_min"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_alignBottom="@+id/edit_quantity"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/login_now"
+                    app:srcCompat="@drawable/ic_arrow_down_green" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_price_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/Price_Type"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_fixed_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/color_navigation"
+                android:checked="@{model.fixedPrice}"
+                android:onCheckedChanged="@{model::onFixedCheckedChanged}"
+                android:text="@string/find" />
+
+            <CheckBox
+                android:id="@+id/cb_market_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:buttonTint="@color/color_navigation"
+                android:checked="@{model.bindToMarket}"
+                android:onCheckedChanged="@{model::onMarketCheckedChanged}"
+                android:text="@string/save" />
+
+        </RadioGroup>
+
+        <RelativeLayout
+            android:id="@+id/rl_fixed_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="@{model.fixedPriceVisibility}">
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairolight"
+                android:text="@string/Product_Price"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/edit_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tv_product_price"
+                android:layout_marginTop="4dp"
+                android:layout_toStartOf="@+id/tv_price_unit"
+                android:background="@drawable/back_spinner"
+                android:hint="@string/_0"
+                android:text="@{model.price}"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:labelFor="@+id/tv_weight"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                app:addTextChangedListener="@{model.fixedPriceTextWatcher}" />
+
+            <TextView
+                android:id="@+id/tv_price_unit"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tv_product_price"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/back_spinner3"
+                android:fontFamily="@font/cairolight"
+                android:gravity="center"
+                android:text="@string/currency"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/color"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_color"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_spinner"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@{model.color}"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="265dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/back_ground_shadow"
+            android:text="@string/add_option_3"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_delete"
+            android:layout_width="265dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/back_ground_shadow"
+            android:padding="5dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</layout>

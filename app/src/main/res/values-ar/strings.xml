@@ -290,6 +290,7 @@
     <string name="product_discount">قيمة الخصم د.ك</string>
     <string name="product_discount_error">رجاء إدخال عدد أقل من أو يساوي 100</string>
     <string name="add_option_2">إضافة خيار + </string>
+    <string name="add_option_3">إضافة خيار</string>
 
     <string name="button_navigation">Delete from Cart</string>
     <string name="button">DELETE ITEM</string>
@@ -298,4 +299,7 @@
 the cart?</string>
     <string name="delete_product1">DELETE PRODUCT</string>
     <string name="no_internet_connection">No Internet Connection</string>
+    <string name="option_name_ar">Option Name \"Ar\"</string>
+    <string name="option_name_en">Option Name \"En\"</string>
+    <string name="pick_a_color">Pick A Color</string>
 </resources>

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep2Binding;
+import hama.alsaygh.kw.vendor.dialog.addOptionDialog.AddOptionProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.image.ImageUpload;
 import hama.alsaygh.kw.vendor.model.product.Option;
@@ -69,14 +70,18 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
         binding.rvUploadImages.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        optionAdapter = new AdapterOptionProduct(getActivity(), new ArrayList<Option>());
-        binding.rvOptions.setAdapter(adapter);
+        optionAdapter = new AdapterOptionProduct(getChildFragmentManager(), new ArrayList<>(), AddProductStep2Fragment.this);
+        binding.rvOptions.setAdapter(optionAdapter);
         binding.rvOptions.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         binding.llGallery.setOnClickListener(v -> permissionGallery());
 
         binding.llCamera.setOnClickListener(v -> permissionCamera());
+
+        binding.butAddOption.setOnClickListener(v -> {
+            AddOptionProductDialog.newInstance(AddProductStep2Fragment.this).show(getChildFragmentManager(), "add_option");
+        });
 
     }
 
@@ -112,11 +117,20 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
     @Override
     public void onItemClick(Object object, int position) {
 
+        if (object instanceof Option) {
+            Option option = (Option) object;
+            if (optionAdapter != null)
+                optionAdapter.addItem(option);
+        }
     }
 
     @Override
     public void onEditClick(Object object, int position) {
-
+        if (object instanceof Option) {
+            Option option = (Option) object;
+            if (optionAdapter != null)
+                optionAdapter.editItem(option, position);
+        }
     }
 
     @Override

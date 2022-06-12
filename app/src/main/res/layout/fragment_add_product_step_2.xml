@@ -29,8 +29,9 @@
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/cairobold"
                     android:text="@string/hlhlh"
                     android:textColor="@color/black"
@@ -40,8 +41,8 @@
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/cairolight"
                     android:text="@string/klkkl"
                     android:textColor="@color/ghhg"
@@ -50,9 +51,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="130dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
 
@@ -118,9 +119,9 @@
                     android:id="@+id/tv_error"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/cairosemibold"
                     android:text="@string/klkkl"
                     android:textColor="@color/col_delete"
@@ -131,14 +132,14 @@
                     android:id="@+id/rv_upload_images"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp" />
+                    android:layout_margin="16dp" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -160,7 +161,6 @@
                         android:layout_weight="1"
                         android:background="@color/background_bage"
                         android:gravity="center"
-                        android:onClick="@{model::onAddOptionClick}"
                         android:text="@string/add_option_2"
                         android:textAllCaps="false"
                         android:textColor="@color/dgdg"
@@ -173,7 +173,7 @@
                     android:id="@+id/rv_options"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp" />
+                    android:layout_margin="16dp" />
 
                 <View
                     android:layout_width="match_parent"

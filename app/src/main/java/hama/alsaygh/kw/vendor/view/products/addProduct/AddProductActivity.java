@@ -23,7 +23,7 @@ public class AddProductActivity extends BaseActivity {
         binding.setModel(model);
         model.commitFragment(AddProductStep1Fragment.newInstance(model), model.Step1);
 
-        binding.toolbarImg.setOnClickListener(v -> finish());
+        binding.toolbarImg.setOnClickListener(v -> onBackPressed());
 
 
         model.getAddProductObserver().observe(this, productsResponse -> {
@@ -44,7 +44,7 @@ public class AddProductActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (model.position != model.Step2)
+        if (model.position == model.Step2)
             model.commitFragment(AddProductStep1Fragment.newInstance(model), model.Step1);
         else
             super.onBackPressed();

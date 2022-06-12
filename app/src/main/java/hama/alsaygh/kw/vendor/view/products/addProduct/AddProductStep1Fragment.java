@@ -21,7 +21,9 @@ import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
+import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
+import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.caliber.CalibersRecycleViewAdapter;
 
 public class AddProductStep1Fragment extends BaseFragment implements OnGeneralClickListener {
 
@@ -117,15 +119,31 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
                     Snackbar.make(binding.textView2, mainCategoriesResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
             }
         });
+        model.getCalibersObserver().observe(requireActivity(), mainCategoriesResponse -> {
+            if (mainCategoriesResponse.isStatus()) {
+
+                CalibersRecycleViewAdapter adapter = new CalibersRecycleViewAdapter(mainCategoriesResponse.getData(), AddProductStep1Fragment.this);
+                binding.rvCaliber.setAdapter(adapter);
+
+            } else {
+                if (mainCategoriesResponse.getCode().equalsIgnoreCase("401"))
+                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                else
+                    Snackbar.make(binding.textView2, mainCategoriesResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         model.getMainCategories(requireContext());
         model.getCategories(requireContext());
+        model.getCaliberss(requireContext());
 
     }
 
     @Override
     public void onItemClick(Object object, int position) {
-
+        if (object instanceof Caliber) {
+            model.getAddProduct().setCaliber((Caliber) object);
+        }
     }
 
     @Override

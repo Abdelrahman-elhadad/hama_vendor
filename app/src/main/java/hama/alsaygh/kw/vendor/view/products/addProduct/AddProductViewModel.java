@@ -21,6 +21,7 @@ import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategoriesResponse;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
+import hama.alsaygh.kw.vendor.model.product.caliber.CalibersResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.utils.Utils;
@@ -41,6 +42,7 @@ public class AddProductViewModel extends ViewModel {
     private final MutableLiveData<CategoriesResponse> categoriesMutableLiveData = new MutableLiveData<>();
     private final MutableLiveData<MainCategoriesResponse> mainCategoriesMutableLiveData = new MutableLiveData<>();
     private final MutableLiveData<GeneralResponse> addProductMutableLiveData = new MutableLiveData<>();
+    private final MutableLiveData<CalibersResponse> calibersMutableLiveData = new MutableLiveData<>();
 
     protected ObservableInt childSubVisibility = new ObservableInt();
     protected ObservableBoolean bindToMarket = new ObservableBoolean();
@@ -91,6 +93,10 @@ public class AddProductViewModel extends ViewModel {
         return quantityObservable;
     }
 
+    public MutableLiveData<CalibersResponse> getCalibersObserver() {
+        return calibersMutableLiveData;
+    }
+
     public MutableLiveData<CategoriesResponse> getCategoriesObserver() {
         return categoriesMutableLiveData;
     }
@@ -111,6 +117,9 @@ public class AddProductViewModel extends ViewModel {
         generalRepo.getMainCategories(context, mainCategoriesMutableLiveData);
     }
 
+    public void getCaliberss(Context context) {
+        productRepo.getCalibers(context, calibersMutableLiveData);
+    }
 
     public void commitFragment(Fragment fragment, int position) {
         this.position = position;
@@ -305,8 +314,8 @@ public class AddProductViewModel extends ViewModel {
                     if (discount < 0) {
                         addProduct.setDiscount("0");
                         discountVisibility.set(View.GONE);
-                    } else if (discount < 100) {
-                        addProduct.setDiscount("100");
+                    } else if (discount > 100) {
+                        addProduct.setDiscount(discount + "");
                         discountVisibility.set(View.VISIBLE);
                     } else {
                         addProduct.setDiscount(discount + "");

@@ -77,4 +77,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    //color picker
+    implementation 'io.github.eltos:simpledialogfragments:3.6'
+
 }
