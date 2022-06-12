@@ -1,6 +1,7 @@
 package hama.alsaygh.kw.vendor.view.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -20,6 +21,7 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.fragment.OffersActiveOffers;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
+import hama.alsaygh.kw.vendor.view.notification.NotificationsActivity;
 import hama.alsaygh.kw.vendor.view.order.OrdersFragment;
 import hama.alsaygh.kw.vendor.view.products.ProductsFragment;
 
@@ -28,6 +30,7 @@ public class HomeActivityViewModel extends ViewModel {
     private final String TAG = "LoginActivityViewModel";
     private MutableLiveData<String> title = new MutableLiveData<>();
     private final ObservableInt toolBar = new ObservableInt();
+    private final ObservableInt market = new ObservableInt();
     FragmentManager fragmentManager;
 
     //  private Home home ;
@@ -42,6 +45,7 @@ public class HomeActivityViewModel extends ViewModel {
         this.fragmentManager = fragmentManager;
         this.context = context;
         toolBar.set(View.VISIBLE);
+        market.set(View.VISIBLE);
         title.setValue(context.getString(R.string.home));
     }
 
@@ -100,12 +104,6 @@ public class HomeActivityViewModel extends ViewModel {
         }
     }
 
-    private void openHome() {
-        toolBar.set(View.VISIBLE);
-        title.setValue(context.getString(R.string.home));
-        commitFragment(new HomeFragment(), Home);
-    }
-
 
     @BindingAdapter("onNavigationItemSelected")
     public static void setOnNavigationItemSelectedListener(
@@ -139,31 +137,50 @@ public class HomeActivityViewModel extends ViewModel {
         return false;
     }
 
+    private void openHome() {
+        toolBar.set(View.VISIBLE);
+        market.set(View.VISIBLE);
+        title.setValue(context.getString(R.string.home));
+        commitFragment(new HomeFragment(), Home);
+    }
+
     private void openMore() {
         toolBar.set(View.GONE);
+        market.set(View.GONE);
         title.setValue("");
         commitFragment(MoreFragment.newInstance(), more);
     }
 
     private void openOffers() {
         toolBar.set(View.VISIBLE);
+        market.set(View.GONE);
         title.setValue(context.getString(R.string.Offers));
         commitFragment(new OffersActiveOffers(), Offers);
     }
 
     private void openOrders() {
         toolBar.set(View.VISIBLE);
+        market.set(View.GONE);
         title.setValue(context.getString(R.string.fixed1));
         commitFragment(OrdersFragment.newInstance(), Orders);
     }
 
     private void openProducts() {
         toolBar.set(View.VISIBLE);
+        market.set(View.GONE);
         title.setValue(context.getString(R.string.my_products));
         commitFragment(ProductsFragment.newInstance(), MyProducts);
     }
 
     public ObservableInt getToolBar() {
         return toolBar;
+    }
+
+    public ObservableInt getMarket() {
+        return market;
+    }
+
+    public void onNotificationClick(View view) {
+        view.getContext().startActivity(new Intent(view.getContext(), NotificationsActivity.class));
     }
 }

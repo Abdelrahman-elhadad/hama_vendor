@@ -302,4 +302,5 @@ the cart?</string>
     <string name="option_name_ar">Option Name \"Ar\"</string>
     <string name="option_name_en">Option Name \"En\"</string>
     <string name="pick_a_color">Pick A Color</string>
+    <string name="notifications">Notifictions</string>
 </resources>

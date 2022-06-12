@@ -31,6 +31,8 @@ public class Option implements Serializable {
     private double price;
 
     public String getNameAr() {
+        if (nameAr == null)
+            nameAr = "";
         return nameAr;
     }
 
@@ -47,6 +49,8 @@ public class Option implements Serializable {
     }
 
     public String getName() {
+        if (name == null)
+            name = "";
         return name;
     }
 
@@ -63,6 +67,8 @@ public class Option implements Serializable {
     }
 
     public String getColor() {
+        if (color == null)
+            color = "";
         return color;
     }
 

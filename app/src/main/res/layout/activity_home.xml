@@ -28,6 +28,7 @@
                 android:layout_width="22dp"
                 android:layout_height="23dp"
                 android:layout_gravity="start"
+                android:onClick="@{model::onNotificationClick}"
                 app:srcCompat="@drawable/ic_notification_home" />
 
             <TextView
@@ -49,6 +50,15 @@
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@string/login_now"
                 app:srcCompat="@drawable/ic_search" />
+
+            <ImageView
+                android:id="@+id/love_img"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:visibility="@{model.market}"
+                app:srcCompat="@drawable/ic_market" />
 
 
         </androidx.appcompat.widget.Toolbar>
