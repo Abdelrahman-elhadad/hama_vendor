@@ -53,6 +53,10 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
         holder.tv_price.setText(imageUploads.get(position).getPrice() + " " + holder.tv_price.getContext().getString(R.string.currency));
         holder.tv_market.setText(imageUploads.get(position).isBind_to_market() ? holder.tv_price.getContext().getString(R.string.save) : holder.tv_price.getContext().getString(R.string.find));
 
+        if (imageUploads.get(position).isBind_to_market()) {
+            holder.tv_price.setVisibility(View.INVISIBLE);
+        } else
+            holder.tv_price.setVisibility(View.VISIBLE);
 
         if (imageUploads.get(position).getColor() != null && !imageUploads.get(position).getColor().isEmpty()) {
             int color = ContextCompat.getColor(holder.tv_color.getContext(), R.color.whiteColor);
@@ -70,7 +74,7 @@ public class AdapterOptionProduct extends RecyclerView.Adapter<AdapterOptionProd
             holder.tv_color.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
             holder.ll_color.setVisibility(View.VISIBLE);
         } else {
-            holder.ll_color.setVisibility(View.GONE);
+            holder.ll_color.setVisibility(View.INVISIBLE);
         }
 
         holder.iv_delete.setOnClickListener(v -> {

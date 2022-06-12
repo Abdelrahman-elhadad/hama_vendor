@@ -37,7 +37,7 @@
         android:fontFamily="@font/cairoregular"
         android:gravity="start"
         android:textColor="@color/blackcolor1"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:visibility="gone" />
 
     <TextView
@@ -60,7 +60,7 @@
         android:fontFamily="@font/cairoregular"
         android:gravity="start"
         android:textColor="@color/blackcolor1"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
     <LinearLayout
         android:id="@+id/ll_color"
