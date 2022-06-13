@@ -26,7 +26,7 @@
             android:name=".view.order.orderDetails.OrderDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.products.addProduct.AddProductActivity"
+            android:name=".view.products.addProduct.AddEditProductActivity"
             android:exported="false" />
         <activity
             android:name=".view.rateHama.RateHamaActivity"

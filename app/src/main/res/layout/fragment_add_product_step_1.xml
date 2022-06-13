@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="hama.alsaygh.kw.vendor.view.products.addProduct.AddProductViewModel" />
+            type="hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductViewModel" />
 
     </data>
 
@@ -70,6 +70,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
+                    android:text="@{model.addProduct.code}"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:labelFor="@+id/tv_code"
@@ -98,6 +99,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
+                    android:text="@{model.addProduct.name_ar}"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:labelFor="@+id/tv_product_name_ar"
@@ -126,6 +128,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
+                    android:text="@{model.addProduct.name}"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:labelFor="@+id/tv_product_name_en"
@@ -154,6 +157,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
+                    android:text="@{model.addProduct.description_ar}"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:labelFor="@+id/tv_product_desc_ar"
@@ -186,6 +190,7 @@
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/back_spinner"
                     android:ems="10"
+                    android:text="@{model.addProduct.description}"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:labelFor="@+id/tv_product_desc_en"
@@ -569,6 +574,7 @@
                         android:labelFor="@+id/tv_weight"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:text="@{model.addProduct.fixed_price}"
                         app:addTextChangedListener="@{model.fixedPriceTextWatcher}" />
 
                     <TextView
@@ -615,6 +621,7 @@
                         android:layout_toStartOf="@+id/tv_price_unit_discount"
                         android:background="@drawable/back_spinner"
                         android:hint="@string/_0"
+                        android:text="@{model.addProduct.discount}"
                         android:importantForAutofill="no"
                         android:inputType="numberDecimal"
                         android:labelFor="@+id/tv_weight"
@@ -704,6 +711,7 @@
                         android:layout_toStartOf="@+id/tv_manufacturing_price_unit"
                         android:background="@drawable/back_spinner"
                         android:hint="@string/_0"
+                        android:text="@{model.addProduct.manufacture_price}"
                         android:importantForAutofill="no"
                         android:inputType="numberDecimal"
                         android:labelFor="@+id/tv_weight"
@@ -755,6 +763,7 @@
                         android:layout_toStartOf="@+id/tv_net_price_unit"
                         android:background="@drawable/back_spinner"
                         android:hint="@string/_0"
+                        android:text="@{model.addProduct.netWeight}"
                         android:importantForAutofill="no"
                         android:inputType="numberDecimal"
                         android:labelFor="@+id/tv_weight"
@@ -812,6 +821,7 @@
                             android:layout_marginTop="4dp"
                             android:background="@drawable/back_spinner"
                             android:ems="10"
+                            android:text="@{model.addProduct.stoneType}"
                             android:importantForAutofill="no"
                             android:inputType="text"
                             android:labelFor="@+id/tv_stone_type"
@@ -848,6 +858,7 @@
                             android:layout_toStartOf="@+id/tv_stone_weight_unit"
                             android:background="@drawable/back_spinner"
                             android:hint="@string/_0"
+                            android:text="@{model.addProduct.stoneWeight}"
                             android:importantForAutofill="no"
                             android:inputType="numberDecimal"
                             android:labelFor="@+id/tv_weight"
@@ -911,6 +922,7 @@
                             android:labelFor="@+id/tv_weight"
                             android:paddingStart="10dp"
                             android:paddingEnd="30dp"
+                            android:text="@{model.addProduct.diamond}"
                             app:addTextChangedListener="@{model.diamondTextWatcher}" />
 
                     </RelativeLayout>
@@ -940,6 +952,7 @@
                             android:layout_marginTop="4dp"
                             android:background="@drawable/back_spinner"
                             android:hint="@string/_0"
+                            android:text="@{model.addProduct.diamondWeight}"
                             android:importantForAutofill="no"
                             android:inputType="numberDecimal"
                             android:labelFor="@+id/tv_diamond_weight"
@@ -989,6 +1002,7 @@
                             android:labelFor="@+id/tv_weight"
                             android:paddingStart="10dp"
                             android:paddingEnd="30dp"
+                            android:text="@{model.addProduct.purity}"
                             app:addTextChangedListener="@{model.purityTextWatcher}" />
 
                     </RelativeLayout>
@@ -1021,6 +1035,7 @@
                             android:labelFor="@+id/tv_diamond_weight"
                             android:paddingStart="10dp"
                             android:paddingEnd="30dp"
+                            android:text="@{model.addProduct.color}"
                             app:addTextChangedListener="@{model.colorTextWatcher}" />
 
                     </RelativeLayout>
@@ -1053,6 +1068,7 @@
                         android:layout_marginTop="4dp"
                         android:background="@drawable/back_spinner"
                         android:hint="@string/_0"
+                        android:text="@{model.addProduct.gmPrice}"
                         android:importantForAutofill="no"
                         android:inputType="numberDecimal"
                         android:labelFor="@+id/tv_weight"
@@ -1092,6 +1108,7 @@
                         android:labelFor="@+id/tv_weight"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:text="@{model.addProduct.totalWeightMetal}"
                         app:addTextChangedListener="@{model.totalMetalWeightTextWatcher}" />
                 </RelativeLayout>
 

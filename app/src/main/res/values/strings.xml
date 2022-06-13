@@ -300,4 +300,6 @@
     <string name="option_name_en">Option Name \"En\"</string>
     <string name="pick_a_color">Pick A Color</string>
     <string name="notifications">Notifictions</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_product">Edit Product</string>
 </resources>

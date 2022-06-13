@@ -12,6 +12,7 @@ public class AppConstants {
     public static final String ORDER_STATUS = "order_status";
 
     public static final String ADDRESS = "address";
+    public static final String PRODUCT = "product";
 
     public static final int ADD = 1;
     public static final int EDIT = 2;

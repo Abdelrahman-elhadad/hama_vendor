@@ -6,6 +6,9 @@ import java.io.Serializable;
 
 public class Media implements Serializable {
 
+    @SerializedName("id")
+    private String id;
+
     @SerializedName("link")
     private String link;
 
@@ -17,6 +20,14 @@ public class Media implements Serializable {
 
     @SerializedName("size")
     private String size;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getLink() {
         return link;

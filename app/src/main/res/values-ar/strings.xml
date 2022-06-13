@@ -292,15 +292,18 @@
     <string name="add_option_2">إضافة خيار + </string>
     <string name="add_option_3">إضافة خيار</string>
 
-    <string name="button_navigation">Delete from Cart</string>
-    <string name="button">DELETE ITEM</string>
+    <string name="button_navigation">حذف منتج</string>
+    <string name="button">حذف منتج</string>
 
     <string name="delete_product">Are you sure to delete this item from
 the cart?</string>
-    <string name="delete_product1">DELETE PRODUCT</string>
-    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="delete_product1">حذف منتج</string>
+    <string name="no_internet_connection">لا يوجد انترنت</string>
     <string name="option_name_ar">Option Name \"Ar\"</string>
     <string name="option_name_en">Option Name \"En\"</string>
-    <string name="pick_a_color">Pick A Color</string>
+    <string name="pick_a_color">اختر لون</string>
     <string name="notifications">Notifictions</string>
+
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_product">Edit Product</string>
 </resources>

@@ -21,20 +21,25 @@ import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategoriesResponse;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
+import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.model.product.caliber.CalibersResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.utils.Utils;
 
-public class AddProductViewModel extends ViewModel {
+public class AddEditProductViewModel extends ViewModel {
 
     FragmentManager fragmentManager;
     private final Context context;
     //  private Home home ;
     protected final int Step1 = 1;
     protected final int Step2 = 2;
+    protected final int Add = 1;
+    protected final int Edit = 2;
     protected final AddProduct addProduct = new AddProduct();
     protected int position;
+
+    protected int type = Add;
 
 
     private final MutableLiveData<String> weightObservable = new MutableLiveData<>();
@@ -62,7 +67,7 @@ public class AddProductViewModel extends ViewModel {
 
     Fragment fragment;
 
-    public AddProductViewModel(Context context, FragmentManager fragmentManager) {
+    public AddEditProductViewModel(Context context, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
         this.context = context;
         generalRepo = new GeneralRepo();
@@ -79,7 +84,65 @@ public class AddProductViewModel extends ViewModel {
         addProductVisibility.set(View.GONE);
         pbAddProductVisibility.set(View.GONE);
         discountVisibility.set(View.GONE);
+        type = Add;
     }
+
+    public AddEditProductViewModel(Context context, Product product, FragmentManager fragmentManager) {
+        this.fragmentManager = fragmentManager;
+        this.context = context;
+        generalRepo = new GeneralRepo();
+        productRepo = new ProductRepo();
+        type = Edit;
+        addProduct.setId(product.getId());
+        addProduct.setCode(product.getCate_code());
+        if (product.getTranslations() != null) {
+            if (product.getTranslations().getEn() != null) {
+                addProduct.setName(product.getTranslations().getEn().getName());
+                addProduct.setDescription(product.getTranslations().getEn().getDescription());
+            }
+            if (product.getTranslations().getEn() != null) {
+                addProduct.setName_ar(product.getTranslations().getAr().getName());
+                addProduct.setDescription_ar(product.getTranslations().getAr().getDescription());
+            }
+        }
+        addProduct.setWeight(product.getWeight());
+        addProduct.setCaliber(product.getCaliber());
+        addProduct.setQuantity(product.getQuantity() + "");
+        addProduct.setMain_category(product.getMain_category());
+        addProduct.setSub_category(product.getCategory());
+        addProduct.setChild_sub_category(product.getSub_category());
+        addProduct.setBind_to_market(product.isBind_to_market());
+        addProduct.setManufacture_price(product.getManufacture_price() + "");
+        addProduct.setNetWeight(product.getMetal_weight() + "");
+        addProduct.setStoneType(product.getSton_type() + "");
+        addProduct.setStoneWeight(product.getGem_stone_weight() + "");
+        addProduct.setDiamond(product.getDimond() + "");
+        addProduct.setDiamondWeight(product.getDiamond_weight() + "");
+        addProduct.setPurity(product.getPurity() + "");
+        addProduct.setColor(product.getColor());
+        addProduct.setFixed_price(product.getPrice() + "");
+        addProduct.setDiscount(product.getDiscount_value() + "");
+        addProduct.setGmPrice(product.getGram_price() + "");
+        addProduct.setTotalWeightMetal(product.getTotal_metal_weight() + "");
+        addProduct.setMedia(product.getMedia());
+        addProduct.setOptions(product.getOptions());
+
+
+        weightObservable.setValue(addProduct.getWeight());
+        quantityObservable.setValue(addProduct.getQuantity());
+        childSubVisibility.set(View.GONE);
+
+        bindToMarketVisibility.set(View.GONE);
+        fixedPriceVisibility.set(View.GONE);
+        categoriesVisibility.set(View.GONE);
+        nextVisibility.set(View.VISIBLE);
+        addProductVisibility.set(View.GONE);
+        pbAddProductVisibility.set(View.GONE);
+        discountVisibility.set(View.GONE);
+        bindToMarket.set(addProduct.isBind_to_market());
+        fixedPrice.set(!addProduct.isBind_to_market());
+    }
+
 
     public AddProduct getAddProduct() {
         return addProduct;
@@ -627,8 +690,8 @@ public class AddProductViewModel extends ViewModel {
 
     public void onNextClick(View v) {
         if (fragment != null) {
-            if (((AddProductStep1Fragment) fragment).isValid()) {
-                commitFragment(AddProductStep2Fragment.newInstance(this), Step2);
+            if (((AddEditProductStep1Fragment) fragment).isValid()) {
+                commitFragment(AddEditProductStep2Fragment.newInstance(this), Step2);
             }
         }
     }
@@ -636,12 +699,16 @@ public class AddProductViewModel extends ViewModel {
     public void onAddProductClick(View v) {
 
         if (fragment != null) {
-            if (((AddProductStep2Fragment) fragment).isValid()) {
-                addProduct.setMedia(((AddProductStep2Fragment) fragment).getImages());
-                addProduct.setOptions(((AddProductStep2Fragment) fragment).getOptions());
+            if (((AddEditProductStep2Fragment) fragment).isValid()) {
+                addProduct.setMedia(((AddEditProductStep2Fragment) fragment).getImages());
+                addProduct.setOptions(((AddEditProductStep2Fragment) fragment).getOptions());
                 addProductVisibility.set(View.GONE);
                 pbAddProductVisibility.set(View.VISIBLE);
-                productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
+
+                if (type == Add)
+                    productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
+                else if (type == Edit)
+                    productRepo.updateProduct(v.getContext(), addProduct, addProductMutableLiveData);
             }
         }
 

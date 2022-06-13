@@ -5,6 +5,7 @@ import java.util.List;
 
 import hama.alsaygh.kw.vendor.model.category.Category;
 import hama.alsaygh.kw.vendor.model.category.MainCategory;
+import hama.alsaygh.kw.vendor.model.product.Media;
 import hama.alsaygh.kw.vendor.model.product.Option;
 import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 
@@ -23,7 +24,7 @@ public class AddProduct implements Serializable {
     private MainCategory main_category;
     private Category child_sub_category;
     private Caliber caliber;
-    private List<String> media;
+    private List<Media> media;
     private String color;
     private String code;
     private String name_ar;
@@ -250,11 +251,11 @@ public class AddProduct implements Serializable {
         this.caliber = caliber;
     }
 
-    public List<String> getMedia() {
+    public List<Media> getMedia() {
         return media;
     }
 
-    public void setMedia(List<String> media) {
+    public void setMedia(List<Media> media) {
         this.media = media;
     }
 

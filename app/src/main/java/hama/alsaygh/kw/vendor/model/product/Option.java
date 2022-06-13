@@ -12,6 +12,9 @@ public class Option implements Serializable {
     @SerializedName("name")
     private String name;
 
+    @SerializedName("translations")
+    private Translations translations;
+
     @SerializedName("name_ar")
     private String nameAr;
 
@@ -30,7 +33,21 @@ public class Option implements Serializable {
     @SerializedName("price")
     private double price;
 
+    public Translations getTranslations() {
+        return translations;
+    }
+
+    public void setTranslations(Translations translations) {
+        this.translations = translations;
+    }
+
     public String getNameAr() {
+
+        if (translations != null) {
+            if (translations.getAr() != null)
+                nameAr = translations.getAr().getName();
+        }
+
         if (nameAr == null)
             nameAr = "";
         return nameAr;
@@ -38,6 +55,14 @@ public class Option implements Serializable {
 
     public void setNameAr(String nameAr) {
         this.nameAr = nameAr;
+
+        if (translations == null) {
+            translations = new Translations();
+        }
+        if (translations.getAr() == null)
+            translations.setAr(new TranslationsItem());
+
+        translations.getAr().setName(nameAr);
     }
 
     public int getId() {
@@ -49,6 +74,11 @@ public class Option implements Serializable {
     }
 
     public String getName() {
+
+        if (translations != null) {
+            if (translations.getEn() != null)
+                name = translations.getEn().getName();
+        }
         if (name == null)
             name = "";
         return name;
@@ -56,6 +86,13 @@ public class Option implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+        if (translations == null) {
+            translations = new Translations();
+        }
+        if (translations.getEn() == null)
+            translations.setEn(new TranslationsItem());
+
+        translations.getEn().setName(name);
     }
 
     public int getAvailable_quantity() {

@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
+import hama.alsaygh.kw.vendor.model.product.Media;
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.model.product.caliber.CalibersResponse;
 import okhttp3.FormBody;
@@ -110,6 +111,7 @@ public class ProductRepo {
                         .add("color", product.getColor() + "")
                         .add("purity", product.getPurity() + "")
                         .add("diamond_weight", product.getDiamondWeight() + "")
+                        .add("dimond", product.getDiamond() + "")
                         .add("gem_stone_weight", product.getStoneWeight() + "")
                         .add("metal_weight", product.getNetWeight() + "")
                         .add("total_metal_weight", product.getTotalWeightMetal() + "")
@@ -140,8 +142,8 @@ public class ProductRepo {
                 }
 
                 if (product.getMedia() != null && !product.getMedia().isEmpty()) {
-                    for (String path : product.getMedia()) {
-                        builder.add("images[]", path + "");
+                    for (Media path : product.getMedia()) {
+                        builder.add("images[]", path.getId() + "");
                     }
                 }
 
@@ -201,6 +203,7 @@ public class ProductRepo {
             try {
                 String url = RequestWrapper.getInstance().getFullPath() + "products/" + product.getId() + "/update";
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+
                 FormBody.Builder builder = new FormBody.Builder()
                         .add("title_ar", product.getName_ar() + "")
                         .add("description_ar", product.getDescription_ar() + "")
@@ -210,13 +213,14 @@ public class ProductRepo {
                         .add("color", product.getColor() + "")
                         .add("purity", product.getPurity() + "")
                         .add("diamond_weight", product.getDiamondWeight() + "")
+                        .add("dimond", product.getDiamond() + "")
                         .add("gem_stone_weight", product.getStoneWeight() + "")
                         .add("metal_weight", product.getNetWeight() + "")
                         .add("total_metal_weight", product.getTotalWeightMetal() + "")
                         .add("cate_code", product.getCode() + "")
                         .add("weight", product.getWeight() + "")
                         .add("quantity", product.getQuantity() + "")
-                        .add("discount_value", product.getDiscount() + "")
+                        .add("discount_value", product.isBind_to_market() ? "0" : product.getDiscount() + "")
                         .add("bind_to_market", product.isBind_to_market() ? "1" : "0")
                         .add("gram_price", product.getGmPrice() == null || product.getGmPrice().isEmpty() ? "0.0" : product.getGmPrice() + "")
                         .add("manufacture_price", product.getManufacture_price() == null || product.getManufacture_price().isEmpty() ? "0.0" : product.getManufacture_price() + "");
@@ -240,8 +244,8 @@ public class ProductRepo {
                 }
 
                 if (product.getMedia() != null && !product.getMedia().isEmpty()) {
-                    for (String path : product.getMedia()) {
-                        builder.add("images[]", path + "");
+                    for (Media path : product.getMedia()) {
+                        builder.add("images[]", path.getId() + "");
                     }
                 }
 

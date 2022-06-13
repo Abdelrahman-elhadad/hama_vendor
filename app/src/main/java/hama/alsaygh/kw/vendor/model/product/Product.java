@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import hama.alsaygh.kw.vendor.model.category.Category;
+import hama.alsaygh.kw.vendor.model.category.MainCategory;
 import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 import hama.alsaygh.kw.vendor.model.product.review.Review;
 
@@ -15,11 +17,17 @@ public class Product implements Serializable {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("name")
-    private String name;
+    @SerializedName("translations")
+    private Translations translations;
 
-    @SerializedName("description")
-    private String description;
+    @SerializedName("main_category")
+    private MainCategory main_category;
+
+    @SerializedName("category")
+    private Category category;
+
+    @SerializedName("parent_category")
+    private Category sub_category;
 
     @SerializedName("quantity")
     private int quantity;
@@ -27,38 +35,68 @@ public class Product implements Serializable {
     @SerializedName("bind_to_market")
     private boolean bind_to_market;
 
-    @SerializedName("i_fav")
-    private boolean i_fav;
+    @SerializedName("has_caliber_data")
+    private boolean has_caliber_data;
 
-    @SerializedName("fixed_price")
-    private double fixed_price;
+    @SerializedName("caliber")
+    private Caliber caliber;
 
-    @SerializedName("price")
-    private double price;
+    @SerializedName("manufacture_price")
+    private double manufacture_price;
+
+    @SerializedName("discount_type")
+    private String discount_type;
+
+    @SerializedName("discount_value")
+    private double discount_value;
+
+    @SerializedName("new_price")
+    private double new_price;
 
     @SerializedName("weight")
     private String weight;
 
+    @SerializedName("cate_code")
+    private String cate_code;
+
+    @SerializedName("total_metal_weight")
+    private double total_metal_weight;
+
+    @SerializedName("metal_weight")
+    private double metal_weight;
+
+    @SerializedName("gem_stone_weight")
+    private double gem_stone_weight;
+
+    @SerializedName("diamond_weight")
+    private double diamond_weight;
+
+    @SerializedName("purity")
+    private String purity;
+
+    @SerializedName("dimond")
+    private String dimond;
+
+    @SerializedName("color")
+    private String color;
+
+    @SerializedName("gram_price")
+    private double gram_price;
+
+    @SerializedName("ston_type")
+    private String ston_type;
+
     @SerializedName("rate")
     private float rate;
+
+    @SerializedName("price")
+    private double price;
 
     @SerializedName("in_stock")
     private boolean in_stock;
 
     @SerializedName("in_stock_str")
     private String in_stock_str;
-
-    @SerializedName("manufacture_price")
-    private double manufacture_price;
-
-    @SerializedName("category")
-    private Category category;
-
-    @SerializedName("main_category")
-    private Category main_category;
-
-    @SerializedName("caliber")
-    private Caliber caliber;
 
     @SerializedName("order_count")
     private int order_count;
@@ -71,6 +109,14 @@ public class Product implements Serializable {
 
     @SerializedName("reviews")
     private List<Review> reviews;
+
+    public Translations getTranslations() {
+        return translations;
+    }
+
+    public void setTranslations(Translations translations) {
+        this.translations = translations;
+    }
 
     public List<Review> getReviews() {
         return reviews;
@@ -120,21 +166,6 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -152,25 +183,10 @@ public class Product implements Serializable {
         this.bind_to_market = bind_to_market;
     }
 
-    public boolean isI_fav() {
-        return i_fav;
-    }
-
-    public void setI_fav(boolean i_fav) {
-        this.i_fav = i_fav;
-    }
-
-    public double getFixed_price() {
-        return fixed_price;
-    }
-
-    public void setFixed_price(double fixed_price) {
-        this.fixed_price = fixed_price;
-    }
 
     public String getWeight() {
-        if(weight==null || weight.isEmpty())
-            weight="0.0";
+        if (weight == null || weight.isEmpty())
+            weight = "0.0";
         return weight;
     }
 
@@ -212,11 +228,11 @@ public class Product implements Serializable {
         this.manufacture_price = manufacture_price;
     }
 
-    public Category getMain_category() {
+    public MainCategory getMain_category() {
         return main_category;
     }
 
-    public void setMain_category(Category main_category) {
+    public void setMain_category(MainCategory main_category) {
         this.main_category = main_category;
     }
 
@@ -235,4 +251,125 @@ public class Product implements Serializable {
     public void setOrder_count(int order_count) {
         this.order_count = order_count;
     }
+
+    public Category getSub_category() {
+        return sub_category;
+    }
+
+    public void setSub_category(Category sub_category) {
+        this.sub_category = sub_category;
+    }
+
+    public boolean isHas_caliber_data() {
+        return has_caliber_data;
+    }
+
+    public void setHas_caliber_data(boolean has_caliber_data) {
+        this.has_caliber_data = has_caliber_data;
+    }
+
+    public String getDiscount_type() {
+        return discount_type;
+    }
+
+    public void setDiscount_type(String discount_type) {
+        this.discount_type = discount_type;
+    }
+
+    public double getDiscount_value() {
+        return discount_value;
+    }
+
+    public void setDiscount_value(double discount_value) {
+        this.discount_value = discount_value;
+    }
+
+    public double getNew_price() {
+        return new_price;
+    }
+
+    public void setNew_price(double new_price) {
+        this.new_price = new_price;
+    }
+
+    public String getCate_code() {
+        return cate_code;
+    }
+
+    public void setCate_code(String cate_code) {
+        this.cate_code = cate_code;
+    }
+
+    public double getTotal_metal_weight() {
+        return total_metal_weight;
+    }
+
+    public void setTotal_metal_weight(double total_metal_weight) {
+        this.total_metal_weight = total_metal_weight;
+    }
+
+    public double getMetal_weight() {
+        return metal_weight;
+    }
+
+    public void setMetal_weight(double metal_weight) {
+        this.metal_weight = metal_weight;
+    }
+
+    public double getGem_stone_weight() {
+        return gem_stone_weight;
+    }
+
+    public void setGem_stone_weight(double gem_stone_weight) {
+        this.gem_stone_weight = gem_stone_weight;
+    }
+
+    public double getDiamond_weight() {
+        return diamond_weight;
+    }
+
+    public void setDiamond_weight(double diamond_weight) {
+        this.diamond_weight = diamond_weight;
+    }
+
+    public String getPurity() {
+        return purity;
+    }
+
+    public void setPurity(String purity) {
+        this.purity = purity;
+    }
+
+    public String getDimond() {
+        return dimond;
+    }
+
+    public void setDimond(String dimond) {
+        this.dimond = dimond;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getGram_price() {
+        return gram_price;
+    }
+
+    public void setGram_price(double gram_price) {
+        this.gram_price = gram_price;
+    }
+
+    public String getSton_type() {
+        return ston_type;
+    }
+
+    public void setSton_type(String ston_type) {
+        this.ston_type = ston_type;
+    }
+
 }

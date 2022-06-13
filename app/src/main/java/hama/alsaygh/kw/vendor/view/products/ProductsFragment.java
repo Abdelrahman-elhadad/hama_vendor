@@ -1,5 +1,6 @@
 package hama.alsaygh.kw.vendor.view.products;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,13 @@ import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.FragmentProuductsBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.product.Product;
+import hama.alsaygh.kw.vendor.repo.RequestWrapper;
+import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.products.adapter.StoreProductRecycleViewAdapter;
+import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
 public class ProductsFragment extends BaseFragment implements OnGeneralClickListener {
 
@@ -151,6 +156,10 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
 
     @Override
     public void onEditClick(Object object, int position) {
+
+        Intent intent = new Intent(requireContext(), AddEditProductActivity.class);
+        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
+        startActivity(intent);
 
     }
 

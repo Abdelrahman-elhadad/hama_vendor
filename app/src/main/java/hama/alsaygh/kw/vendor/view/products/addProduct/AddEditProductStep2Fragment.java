@@ -26,7 +26,9 @@ import java.util.List;
 import hama.alsaygh.kw.vendor.databinding.FragmentAddProductStep2Binding;
 import hama.alsaygh.kw.vendor.dialog.addOptionDialog.AddOptionProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.image.Image;
 import hama.alsaygh.kw.vendor.model.image.ImageUpload;
+import hama.alsaygh.kw.vendor.model.product.Media;
 import hama.alsaygh.kw.vendor.model.product.Option;
 import hama.alsaygh.kw.vendor.utils.CheckAndRequestPermission;
 import hama.alsaygh.kw.vendor.utils.FileUtils;
@@ -34,21 +36,21 @@ import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.AdapterImageProduct;
 import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.AdapterOptionProduct;
 
-public class AddProductStep2Fragment extends BaseFragment implements OnGeneralClickListener {
+public class AddEditProductStep2Fragment extends BaseFragment implements OnGeneralClickListener {
 
     FragmentAddProductStep2Binding binding;
-    AddProductViewModel model;
+    AddEditProductViewModel model;
     AdapterImageProduct adapter;
     Uri resultUri;
     AdapterOptionProduct optionAdapter;
 
-    public static AddProductStep2Fragment newInstance(AddProductViewModel model) {
-        AddProductStep2Fragment fragment = new AddProductStep2Fragment();
+    public static AddEditProductStep2Fragment newInstance(AddEditProductViewModel model) {
+        AddEditProductStep2Fragment fragment = new AddEditProductStep2Fragment();
         fragment.setModel(model);
         return fragment;
     }
 
-    public void setModel(AddProductViewModel model) {
+    public void setModel(AddEditProductViewModel model) {
         this.model = model;
     }
 
@@ -65,12 +67,29 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
 
         binding.setModel(model);
 
-        adapter = new AdapterImageProduct(getActivity(), new ArrayList<ImageUpload>());
+
+        ArrayList<ImageUpload> imageUploads = new ArrayList<>();
+        if (model.getAddProduct().getMedia() != null)
+            for (Media media : model.addProduct.getMedia()) {
+
+                ImageUpload imageUpload = new ImageUpload();
+                Image image = new Image();
+                image.setId(media.getId());
+                image.setUrl(media.getLink());
+                image.setFile_name(media.getDisplay_name());
+                imageUpload.setImage(image);
+                imageUploads.add(imageUpload);
+            }
+
+        adapter = new AdapterImageProduct(getActivity(), imageUploads);
         binding.rvUploadImages.setAdapter(adapter);
         binding.rvUploadImages.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        ArrayList<Option> options = new ArrayList<>();
+        if (model.getAddProduct().getOptions() != null)
+            options = new ArrayList<>(model.getAddProduct().getOptions());
 
-        optionAdapter = new AdapterOptionProduct(getChildFragmentManager(), new ArrayList<>(), AddProductStep2Fragment.this);
+        optionAdapter = new AdapterOptionProduct(getChildFragmentManager(), options, AddEditProductStep2Fragment.this);
         binding.rvOptions.setAdapter(optionAdapter);
         binding.rvOptions.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -80,7 +99,7 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
         binding.llCamera.setOnClickListener(v -> permissionCamera());
 
         binding.butAddOption.setOnClickListener(v -> {
-            AddOptionProductDialog.newInstance(AddProductStep2Fragment.this).show(getChildFragmentManager(), "add_option");
+            AddOptionProductDialog.newInstance(AddEditProductStep2Fragment.this).show(getChildFragmentManager(), "add_option");
         });
 
     }
@@ -245,8 +264,8 @@ public class AddProductStep2Fragment extends BaseFragment implements OnGeneralCl
         return isValid;
     }
 
-    public List<String> getImages() {
-        List<String> images = new ArrayList<>();
+    public List<Media> getImages() {
+        List<Media> images = new ArrayList<>();
 
         if (adapter != null) {
             images.addAll(adapter.getImageId());

@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="hama.alsaygh.kw.vendor.view.products.addProduct.AddProductViewModel" />
+            type="hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductViewModel" />
 
     </data>
 

@@ -15,6 +15,9 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -23,6 +26,7 @@ import java.util.List;
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.model.image.ImageResponse;
 import hama.alsaygh.kw.vendor.model.image.ImageUpload;
+import hama.alsaygh.kw.vendor.model.product.Media;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
 
 public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduct.Holder> {
@@ -45,7 +49,30 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
     @Override
     public void onBindViewHolder(@NonNull AdapterImageProduct.Holder holder, int index) {
         final int position = index;
-        holder.iv_item.setImageURI(imageUploads.get(position).getUri());
+        if (imageUploads.get(position).getUri() != null) {
+            holder.iv_item.setImageURI(imageUploads.get(position).getUri());
+        } else {
+            if (imageUploads.get(position).getImage() != null) {
+                String imageUrl = imageUploads.get(position).getImage().getUrl();
+                if (imageUrl != null && !imageUrl.isEmpty())
+                    Picasso.get().load(imageUrl).into(holder.iv_item, new Callback() {
+                        @Override
+                        public void onSuccess() {
+
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+
+                            Picasso.get().load(R.drawable.image_not_foundpng).into(holder.iv_item);
+                        }
+                    });
+                else
+                    Picasso.get().load(R.drawable.image_not_foundpng).into(holder.iv_item);
+            } else
+                Picasso.get().load(R.drawable.image_not_foundpng).into(holder.iv_item);
+        }
+
         if (imageUploads.get(position).getImage() == null) {
             holder.tv_name.setText("");
             holder.pb_load.setVisibility(View.VISIBLE);
@@ -146,12 +173,15 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
         return jsonArray;
     }
 
-    public List<String> getImageId() {
+    public List<Media> getImageId() {
 
-        List<String> jsonArray = new ArrayList<>();
+        List<Media> jsonArray = new ArrayList<>();
         for (int i = 0; i < imageUploads.size(); i++) {
             if (imageUploads.get(i).getImage() != null) {
-                jsonArray.add(imageUploads.get(i).getImage().getId());
+                Media media = new Media();
+                media.setId(imageUploads.get(i).getImage().getId());
+                media.setLink(imageUploads.get(i).getImage().getUrl());
+                jsonArray.add(media);
             }
         }
         return jsonArray;

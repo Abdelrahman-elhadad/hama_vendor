@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
-import hama.alsaygh.kw.vendor.view.products.addProduct.AddProductActivity;
+import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
 public class ProductsViewModel extends ViewModel {
 
@@ -36,7 +36,7 @@ public class ProductsViewModel extends ViewModel {
 
 
     public void onAddProductClick(View v) {
-        Intent intent = new Intent(v.getContext(), AddProductActivity.class);
+        Intent intent = new Intent(v.getContext(), AddEditProductActivity.class);
         v.getContext().startActivity(intent);
     }
 }

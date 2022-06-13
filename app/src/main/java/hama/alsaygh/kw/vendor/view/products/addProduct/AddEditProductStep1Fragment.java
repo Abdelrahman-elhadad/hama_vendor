@@ -25,19 +25,19 @@ import hama.alsaygh.kw.vendor.model.product.caliber.Caliber;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.products.addProduct.adapter.caliber.CalibersRecycleViewAdapter;
 
-public class AddProductStep1Fragment extends BaseFragment implements OnGeneralClickListener {
+public class AddEditProductStep1Fragment extends BaseFragment implements OnGeneralClickListener {
 
     FragmentAddProductStep1Binding binding;
-    AddProductViewModel model;
+    AddEditProductViewModel model;
 
-    public static AddProductStep1Fragment newInstance(AddProductViewModel model) {
+    public static AddEditProductStep1Fragment newInstance(AddEditProductViewModel model) {
 
-        AddProductStep1Fragment fragment = new AddProductStep1Fragment();
+        AddEditProductStep1Fragment fragment = new AddEditProductStep1Fragment();
         fragment.setModel(model);
         return fragment;
     }
 
-    public void setModel(AddProductViewModel model) {
+    public void setModel(AddEditProductViewModel model) {
         this.model = model;
     }
 
@@ -83,6 +83,15 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
 
                     }
                 });
+                if (model.addProduct.getSub_category() != null)
+                    for (int i = 0; i < categoriesResponse.getData().size(); i++) {
+                        if (categoriesResponse.getData().get(i).getId() == model.getAddProduct().getSub_category().getId()) {
+                            binding.spCatSub.setSelection(i);
+                            break;
+                        }
+                    }
+
+
             } else {
                 if (categoriesResponse.getCode().equalsIgnoreCase("401"))
                     LoginDialog.newInstance().show(getChildFragmentManager(), "login");
@@ -110,7 +119,13 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
 
                     }
                 });
-
+                if (model.addProduct.getMain_category() != null)
+                    for (int i = 0; i < mainCategoriesResponse.getData().size(); i++) {
+                        if (mainCategoriesResponse.getData().get(i).getId() == model.getAddProduct().getMain_category().getId()) {
+                            binding.spCatMain.setSelection(i);
+                            break;
+                        }
+                    }
 
             } else {
                 if (mainCategoriesResponse.getCode().equalsIgnoreCase("401"))
@@ -122,8 +137,17 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
         model.getCalibersObserver().observe(requireActivity(), mainCategoriesResponse -> {
             if (mainCategoriesResponse.isStatus()) {
 
-                CalibersRecycleViewAdapter adapter = new CalibersRecycleViewAdapter(mainCategoriesResponse.getData(), AddProductStep1Fragment.this);
+                CalibersRecycleViewAdapter adapter = new CalibersRecycleViewAdapter(mainCategoriesResponse.getData(), AddEditProductStep1Fragment.this);
                 binding.rvCaliber.setAdapter(adapter);
+
+                if (model.getAddProduct().getCaliber() != null)
+                    for (int i = 0; i < mainCategoriesResponse.getData().size(); i++) {
+                        if (mainCategoriesResponse.getData().get(i).getId() == model.getAddProduct().getCaliber().getId()) {
+                            adapter.setSelectedWithoutClick(i);
+                            break;
+                        }
+                    }
+
 
             } else {
                 if (mainCategoriesResponse.getCode().equalsIgnoreCase("401"))
@@ -175,6 +199,14 @@ public class AddProductStep1Fragment extends BaseFragment implements OnGeneralCl
 
                 }
             });
+
+            if (model.addProduct.getChild_sub_category() != null)
+                for (int i = 0; i < childCategories.size(); i++) {
+                    if (childCategories.get(i).getId() == model.getAddProduct().getChild_sub_category().getId()) {
+                        binding.spCatSubSub.setSelection(i);
+                        break;
+                    }
+                }
         } else
             model.childSubVisibility.set(View.GONE);
     }
