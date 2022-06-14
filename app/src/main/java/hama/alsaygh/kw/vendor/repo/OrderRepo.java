@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData;
 import hama.alsaygh.kw.vendor.model.check.CheckResponse;
 import hama.alsaygh.kw.vendor.model.order.OrderResponse;
 import hama.alsaygh.kw.vendor.model.order.OrdersResponse;
-import hama.alsaygh.kw.vendor.model.qr.QRDeliveryResponse;
 import okhttp3.FormBody;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -60,7 +59,7 @@ public class OrderRepo {
         new Thread(() -> {
             CheckResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPath() + "order/"+order_id+"/accept";
+                String url = RequestWrapper.getInstance().getFullPath() + "order/" + order_id + "/operation?status=accepted";
                 FormBody body = new FormBody.Builder().build();
 
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
@@ -123,83 +122,15 @@ public class OrderRepo {
 
         }).start();
     }
-    public void getOrderQr(final Context context,final int order_id,final int vendor_id,  final MutableLiveData<CheckResponse> loginResponseMutableLiveData) {
+
+    public void discardOrder(final Context context, final int order_id, final MutableLiveData<CheckResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             CheckResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPath() + "order/"+order_id+"/request-qr/"+vendor_id;
-                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
-                Request request = requestBuilder.url(url).get().build();
-
-                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
-                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
-                String responseString = response.body().string();
-
-                Log.i(TAG,  "order/"+order_id+"/request-qr/"+vendor_id+" : " + responseString);
-
-                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, CheckResponse.class);
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                loginSocialResponse = new CheckResponse();
-                loginSocialResponse.setStatus(false);
-                loginSocialResponse.setMessage("server error");
-
-            }
-
-            if (loginResponseMutableLiveData != null) {
-                final CheckResponse finalLoginSocialResponse = loginSocialResponse;
-                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
-            }
-
-        }).start();
-
-    }
-    public void postConfirmReceived(final Context context,final int order_id,final int vendor_id,final String qr,  final MutableLiveData<CheckResponse> loginResponseMutableLiveData) {
-
-        new Thread(() -> {
-            CheckResponse loginSocialResponse;
-            try {
-                String url = RequestWrapper.getInstance().getFullPath() + "order/"+order_id+"/confirm/"+vendor_id;
-                FormBody body = new FormBody.Builder()
-                        .add("qr_code",qr).build();
-                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
-                Request request = requestBuilder.url(url).post(body).build();
-
-                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
-                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
-                String responseString = response.body().string();
-
-                Log.i(TAG,  "order/"+order_id+"/confirm/"+vendor_id+" : " + responseString);
-
-                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, CheckResponse.class);
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                loginSocialResponse = new CheckResponse();
-                loginSocialResponse.setStatus(false);
-                loginSocialResponse.setMessage("server error");
-
-            }
-
-            if (loginResponseMutableLiveData != null) {
-                final CheckResponse finalLoginSocialResponse = loginSocialResponse;
-                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
-            }
-
-        }).start();
-
-    }
-    public void postConfirmDelivered(final Context context,final int order_id, final MutableLiveData<QRDeliveryResponse> loginResponseMutableLiveData) {
-
-        new Thread(() -> {
-            QRDeliveryResponse loginSocialResponse;
-            try {
-                String url = RequestWrapper.getInstance().getFullPath() + "order/"+order_id+"/delivered";
+                String url = RequestWrapper.getInstance().getFullPath() + "order/" + order_id + "/operation?status=rejected";
                 FormBody body = new FormBody.Builder().build();
+
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).post(body).build();
 
@@ -207,23 +138,25 @@ public class OrderRepo {
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
 
-                Log.i(TAG,  "order/"+order_id+"/delivered : " + responseString);
+                Log.i(TAG, "Response:order/" + order_id + "/rejected " + responseString);
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, CheckResponse.class);
 
-                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, QRDeliveryResponse.class);
 
             } catch (Exception e) {
                 e.printStackTrace();
-                loginSocialResponse = new QRDeliveryResponse();
+                loginSocialResponse = new CheckResponse();
                 loginSocialResponse.setStatus(false);
                 loginSocialResponse.setMessage("server error");
+
             }
 
             if (loginResponseMutableLiveData != null) {
-                final QRDeliveryResponse finalLoginSocialResponse = loginSocialResponse;
+                final CheckResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 
         }).start();
+
     }
 
 }

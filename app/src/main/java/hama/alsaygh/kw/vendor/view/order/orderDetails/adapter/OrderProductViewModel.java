@@ -43,9 +43,9 @@ public class OrderProductViewModel extends ViewModel {
     }
 
     public String getName() {
-        if (isEnglish())
-            return storeModel.getProduct().getTranslations().getEn().getName();
-        return storeModel.getProduct().getTranslations().getAr().getName();
+
+        return storeModel.getProduct().getName();
+
     }
 
     public String getPrice() {

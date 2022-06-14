@@ -11,6 +11,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.databinding.ActivityOrderDetailsBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.dialog.order.AcceptOrderDialog;
+import hama.alsaygh.kw.vendor.dialog.order.DiscardOrderDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
@@ -55,6 +57,35 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
                     else
                         binding.llNext.setVisibility(View.GONE);
 
+                    if (model.storeModel.getDelivery_type().equalsIgnoreCase("hand_by_hand")) {
+                        binding.tvCountry.setVisibility(View.GONE);
+                        binding.tvCountryName.setVisibility(View.GONE);
+                        binding.tvCity.setVisibility(View.GONE);
+                        binding.tvBuilding.setVisibility(View.GONE);
+                        binding.tvBuildingNo.setVisibility(View.GONE);
+                        binding.tvCity.setVisibility(View.GONE);
+                        binding.tvZipCode.setVisibility(View.GONE);
+                        binding.tvZipCodeTitle.setVisibility(View.GONE);
+                        binding.llAddress.setVisibility(View.GONE);
+                        binding.tvDeliveryDateTitle.setVisibility(View.VISIBLE);
+                        binding.tvDeliveryDate.setVisibility(View.VISIBLE);
+                        binding.llDate.setVisibility(View.VISIBLE);
+
+                    } else {
+                        binding.tvCountry.setVisibility(View.VISIBLE);
+                        binding.tvCountryName.setVisibility(View.VISIBLE);
+                        binding.tvCity.setVisibility(View.VISIBLE);
+                        binding.tvBuilding.setVisibility(View.VISIBLE);
+                        binding.tvBuildingNo.setVisibility(View.VISIBLE);
+                        binding.tvCity.setVisibility(View.VISIBLE);
+                        binding.tvZipCode.setVisibility(View.VISIBLE);
+                        binding.tvZipCodeTitle.setVisibility(View.VISIBLE);
+                        binding.llAddress.setVisibility(View.VISIBLE);
+                        binding.tvDeliveryDateTitle.setVisibility(View.GONE);
+                        binding.tvDeliveryDate.setVisibility(View.GONE);
+                        binding.llDate.setVisibility(View.GONE);
+                    }
+
                     OrderProductsRecycleViewAdapter adapter = new OrderProductsRecycleViewAdapter(orderResponse.getData().getItems(), status, OrderDetailsActivity.this);
                     binding.rvProducts.setAdapter(adapter);
 
@@ -71,10 +102,16 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
 
         });
 
-        skeleton.showSkeleton();
-        binding.llNext.setVisibility(View.GONE);
-        model.getOrders(this, id, status);
 
+        binding.butAccept.setOnClickListener(v ->
+                AcceptOrderDialog.newInstance(model.storeModel.getId(), null)
+                        .show(getSupportFragmentManager(), "accept")
+        );
+
+        binding.butDiscard.setOnClickListener(v ->
+                DiscardOrderDialog.newInstance(model.storeModel.getId(), this)
+                        .show(getSupportFragmentManager(), "discard")
+        );
 
     }
 
@@ -90,7 +127,17 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
 
     @Override
     public void onDeleteClick(Object object, int position) {
+        skeleton.showSkeleton();
+        binding.llNext.setVisibility(View.GONE);
+        model.getOrders(this, id, status);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        skeleton.showSkeleton();
+        binding.llNext.setVisibility(View.GONE);
+        model.getOrders(this, id, status);
     }
 
     @Override

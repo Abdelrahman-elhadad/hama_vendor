@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
+import hama.alsaygh.kw.vendor.model.mySales.MySalesResponse;
 import hama.alsaygh.kw.vendor.model.notifications.NotificationsResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
@@ -418,6 +419,43 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final NotificationsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+
+    /////////////////////// my sales /////////////////
+    public void getMySales(final Context context, final MutableLiveData<MySalesResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            MySalesResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "my-sales";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                Log.i(TAG, "Response:my-sales : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, MySalesResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new MySalesResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final MySalesResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

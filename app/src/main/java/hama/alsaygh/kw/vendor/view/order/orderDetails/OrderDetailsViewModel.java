@@ -178,28 +178,28 @@ public class OrderDetailsViewModel extends ViewModel {
 
     public String getCountry() {
         String name = "";
-        if (storeModel != null)
+        if (storeModel != null && storeModel.getDelivery() != null)
             name = storeModel.getDelivery().getCountry().getName();
         return name;
     }
 
     public String getCity() {
         String name = "";
-        if (storeModel != null)
+        if (storeModel != null && storeModel.getDelivery() != null)
             name = storeModel.getDelivery().getStreet();
         return name;
     }
 
     public String getZipCode() {
         String name = "";
-        if (storeModel != null)
+        if (storeModel != null && storeModel.getDelivery() != null)
             name = storeModel.getDelivery().getZip_code();
         return name;
     }
 
     public String getBuildingNo() {
         String name = "";
-        if (storeModel != null)
+        if (storeModel != null && storeModel.getDelivery() != null)
             name = storeModel.getDelivery().getBuilding_no();
         return name;
     }

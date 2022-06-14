@@ -20,6 +20,9 @@ public class Product implements Serializable {
     @SerializedName("translations")
     private Translations translations;
 
+    @SerializedName("name")
+    private String name;
+
     @SerializedName("main_category")
     private MainCategory main_category;
 
@@ -109,6 +112,14 @@ public class Product implements Serializable {
 
     @SerializedName("reviews")
     private List<Review> reviews;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Translations getTranslations() {
         return translations;

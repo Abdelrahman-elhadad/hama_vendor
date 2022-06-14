@@ -106,8 +106,10 @@
         <entry key="app/src/main/res/layout/change_password.xml" value="0.11354166666666667" />
         <entry key="app/src/main/res/layout/confirm_order.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/contact_us.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/dialog_accept_order.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_add_option_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_delete_product.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/dialog_discard_order.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_filter_by.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/dialog_gps_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_login.xml" value="0.1546875" />
@@ -121,9 +123,9 @@
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_orders.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/fragment_orders_status.xml" value="0.15364583333333334" />
-        <entry key="app/src/main/res/layout/fragment_prouducts.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/fragment_prouducts.xml" value="0.165402124430956" />
         <entry key="app/src/main/res/layout/general_settings.xml" value="0.2546875" />
-        <entry key="app/src/main/res/layout/gongrats.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/gongrats.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/item_add_new_offer.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_rv1_add_product.xml" value="0.14166666666666666" />
@@ -160,6 +162,7 @@
         <entry key="app/src/main/res/layout/row_market_price_currency_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_market_price_gold_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_sorting.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/layout/store_rate.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/tab_title.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/term_and_conditions.xml" value="0.15364583333333334" />
         <entry key="app/src/main/res/layout/well_come_screen.xml" value="0.17291666666666666" />

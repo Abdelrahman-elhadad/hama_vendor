@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.gongrats.GongratsViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:contentDescription="@string/Gold"
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            app:srcCompat="@drawable/hama_logo" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/cairobold"
+            android:gravity="center"
+            android:text="@string/Congratulations"
+            android:textColor="@color/dgdg"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/cairoregular"
+            android:gravity="center"
+            android:text="@string/gold_ri"
+            android:textColor="@color/blackcolor"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="192dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/dgdg"
+            android:gravity="center"
+            android:text="@string/BACK_TO_HOME"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:onClick="@{model::onHomeClickClick}" />
+
+        <TextView
+            android:id="@+id/tv_back_to_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/add7"
+            android:textColor="@color/dgdg"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>

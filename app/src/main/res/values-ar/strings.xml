@@ -328,5 +328,7 @@ the cart?</string>
     <string name="price">السعر</string>
     <string name="sort_by">ترتيب حسب</string>
     <string name="Gold">ذهب</string>
+    <string name="great_job">Great Job!</string>
+    <string name="confirm_send_to_delivery"><![CDATA[Confirm & Send To  Delivery]]></string>
 
 </resources>

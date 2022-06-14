@@ -20,7 +20,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/cairobold"
         android:layout_marginTop="10dp"
-        android:textSize="22dp"
+        android:textSize="22sp"
         android:textColor="@color/dgdg"
         android:gravity="center"
         android:text="@string/Great_work" />

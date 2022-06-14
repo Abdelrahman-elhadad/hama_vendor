@@ -62,7 +62,7 @@ public class OrdersViewModel extends ViewModel {
                 tvMoreVisibility.set(View.GONE);
                 ivVerticalVisibility.set(View.VISIBLE);
                 ivHorizontalVisibility.set(View.VISIBLE);
-            } else if (storeModel.getItems().size() > 3) {
+            } else if (storeModel.getItems().size() == 3) {
                 iv1Visibility.set(View.VISIBLE);
                 iv2Visibility.set(View.VISIBLE);
                 iv3Visibility.set(View.VISIBLE);
@@ -70,7 +70,7 @@ public class OrdersViewModel extends ViewModel {
                 tvMoreVisibility.set(View.GONE);
                 ivVerticalVisibility.set(View.VISIBLE);
                 ivHorizontalVisibility.set(View.VISIBLE);
-            } else if (storeModel.getItems().size() > 2) {
+            } else if (storeModel.getItems().size() == 2) {
                 iv1Visibility.set(View.VISIBLE);
                 iv2Visibility.set(View.VISIBLE);
                 iv3Visibility.set(View.GONE);
@@ -78,8 +78,16 @@ public class OrdersViewModel extends ViewModel {
                 tvMoreVisibility.set(View.GONE);
                 ivVerticalVisibility.set(View.GONE);
                 ivHorizontalVisibility.set(View.VISIBLE);
-            } else if (storeModel.getItems().size() > 1) {
+            } else if (storeModel.getItems().size() == 1) {
                 iv1Visibility.set(View.VISIBLE);
+                iv2Visibility.set(View.GONE);
+                iv3Visibility.set(View.GONE);
+                iv4Visibility.set(View.GONE);
+                tvMoreVisibility.set(View.GONE);
+                ivVerticalVisibility.set(View.GONE);
+                ivHorizontalVisibility.set(View.GONE);
+            } else {
+                iv1Visibility.set(View.GONE);
                 iv2Visibility.set(View.GONE);
                 iv3Visibility.set(View.GONE);
                 iv4Visibility.set(View.GONE);

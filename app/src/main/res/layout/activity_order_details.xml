@@ -521,7 +521,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:id="@+id/ll_date">
 
                         <TextView
                             android:layout_width="0dp"
@@ -570,7 +571,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:id="@+id/ll_address">
 
                         <TextView
                             android:layout_width="0dp"
@@ -738,7 +740,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/but_add_product"
+                android:id="@+id/but_accept"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
@@ -752,7 +754,7 @@
                 android:visibility="@{model.addProductVisibility}" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/but_add_option"
+                android:id="@+id/but_discard"
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
