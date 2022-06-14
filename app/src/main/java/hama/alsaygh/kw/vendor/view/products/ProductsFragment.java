@@ -19,6 +19,9 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.FragmentProuductsBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.dialog.filterBy.FilterByDialog;
+import hama.alsaygh.kw.vendor.dialog.sortBy.SortByDialog;
+import hama.alsaygh.kw.vendor.listener.OnFilterListener;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.repo.RequestWrapper;
@@ -28,7 +31,7 @@ import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.products.adapter.StoreProductRecycleViewAdapter;
 import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
-public class ProductsFragment extends BaseFragment implements OnGeneralClickListener {
+public class ProductsFragment extends BaseFragment implements OnGeneralClickListener, OnFilterListener {
 
     FragmentProuductsBinding binding;
     ProductsViewModel model;
@@ -147,6 +150,17 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         skeleton.showSkeleton();
         model.getProducts(requireContext(), page);
 
+        binding.linerFilter.setOnClickListener(v -> {
+            FilterByDialog.newInstance(model.getType_of_price(), model.getCategory_level_1(), model.getCategory_level_2(),
+                            model.getCategory_level_3(), model.getRange_price_from(), model.getRange_price_to(), ProductsFragment.this)
+                    .show(getChildFragmentManager(), "filter");
+        });
+
+        binding.linerSort.setOnClickListener(v -> {
+            SortByDialog.newInstance(model.getSort_key(), ProductsFragment.this)
+                    .show(getChildFragmentManager(), "sort");
+        });
+
     }
 
     @Override
@@ -175,5 +189,34 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
 
             }
         }
+    }
+
+    @Override
+    public void onFilterClick(String type_of_price, int category_level_1, int category_level_2, int category_level_3, String range_price_from, String range_price_to) {
+
+        model.setType_of_price(type_of_price);
+        model.setCategory_level_1(category_level_1);
+        model.setCategory_level_2(category_level_2);
+        model.setCategory_level_3(category_level_3);
+        model.setRange_price_from(range_price_from);
+        model.setRange_price_to(range_price_to);
+
+
+        isLoading = true;
+        isLast = false;
+        page = 1;
+        skeleton.showSkeleton();
+        model.getProducts(requireContext(), page);
+    }
+
+    @Override
+    public void onSortClickClick(String sortBy) {
+
+        model.setSort_key(sortBy);
+        isLoading = true;
+        isLast = false;
+        page = 1;
+        skeleton.showSkeleton();
+        model.getProducts(requireContext(), page);
     }
 }

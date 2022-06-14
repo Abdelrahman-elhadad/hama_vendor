@@ -20,6 +20,9 @@
         android:theme="@style/Theme.HamaVendor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".view.marketPrice.MarketPriceActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.notification.NotificationsActivity"
             android:exported="false" />
         <activity

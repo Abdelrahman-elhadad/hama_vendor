@@ -17,6 +17,7 @@ import hama.alsaygh.kw.vendor.model.image.ImageResponse;
 import hama.alsaygh.kw.vendor.model.onBoarding.OnBoardResponse;
 import hama.alsaygh.kw.vendor.model.page.PageResponse;
 import hama.alsaygh.kw.vendor.model.socialMedia.SocialMediaResponse;
+import hama.alsaygh.kw.vendor.model.sort.FilterProductResponse;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import okhttp3.FormBody;
 import okhttp3.MultipartBody;
@@ -413,4 +414,43 @@ public class GeneralRepo {
         }).start();
 
     }
+
+////////////////// Filters ///////////
+
+    public void getSort(final Context context, final MutableLiveData<FilterProductResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            FilterProductResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathConstants() + "products-sort";
+
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+
+                Log.i(TAG, "Response:products-sort :  " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, FilterProductResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new FilterProductResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final FilterProductResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
 }

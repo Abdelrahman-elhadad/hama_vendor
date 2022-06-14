@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.fragment.OffersActiveOffers;
+import hama.alsaygh.kw.vendor.view.marketPrice.MarketPriceActivity;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
 import hama.alsaygh.kw.vendor.view.notification.NotificationsActivity;
 import hama.alsaygh.kw.vendor.view.order.OrdersFragment;
@@ -182,5 +183,9 @@ public class HomeActivityViewModel extends ViewModel {
 
     public void onNotificationClick(View view) {
         view.getContext().startActivity(new Intent(view.getContext(), NotificationsActivity.class));
+    }
+
+    public void onMarketPriceClick(View view) {
+        view.getContext().startActivity(new Intent(view.getContext(), MarketPriceActivity.class));
     }
 }

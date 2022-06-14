@@ -61,7 +61,7 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'org.jsoup:jsoup:1.13.1'
-    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.google.code.gson:gson:2.8.9'
 
     implementation 'com.faltenreich:skeletonlayout:2.1.0'
 
@@ -72,6 +72,7 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.maps.android:android-maps-utils:2.1.0'
 
@@ -79,5 +80,8 @@ dependencies {
 
     //color picker
     implementation 'io.github.eltos:simpledialogfragments:3.6'
+
+    /// range bar
+    implementation 'com.appyvet:materialrangebar:1.4.8'
 
 }

@@ -1,6 +1,7 @@
 package hama.alsaygh.kw.vendor.view.products.addProduct;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -26,6 +27,7 @@ import hama.alsaygh.kw.vendor.model.product.caliber.CalibersResponse;
 import hama.alsaygh.kw.vendor.repo.GeneralRepo;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.utils.Utils;
+import hama.alsaygh.kw.vendor.view.marketPrice.MarketPriceActivity;
 
 public class AddEditProductViewModel extends ViewModel {
 
@@ -733,5 +735,9 @@ public class AddEditProductViewModel extends ViewModel {
 
     public ObservableInt getDiscountVisibility() {
         return discountVisibility;
+    }
+
+    public void onMarketPriceClick(View view) {
+        view.getContext().startActivity(new Intent(view.getContext(), MarketPriceActivity.class));
     }
 }

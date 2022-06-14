@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:layout_marginStart="6dp"
+    android:layout_marginEnd="6dp">
+
+
+    <TextView
+        android:id="@+id/tv_filter_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/iv_close"
+        android:fontFamily="@font/cairoregular"
+        android:textColor="@color/blackcolor1"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="10dp"
+        android:layout_height="5.5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:srcCompat="@drawable/ic_dawnicon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_filter_name"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_item_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rc_item"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_price_radio"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:layout_below="@+id/rc_item_child">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_market_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:checked="true"
+                android:buttonTint="@color/color_navigation"
+                android:layout_marginStart="30dp"
+                android:layout_gravity="start"
+                android:fontFamily="@font/cairoregular"
+                android:text="@string/FILTER_BY5"
+                android:textColor="@color/blackcolor1" />
+
+            <RadioButton
+                android:id="@+id/rb_fixed_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="14sp"
+                android:buttonTint="@color/color_navigation"
+                android:layout_marginStart="110dp"
+                android:fontFamily="@font/cairoregular"
+                android:text="@string/FILTER_BY6"
+                android:textColor="@color/blackcolor1" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <com.appyvet.materialrangebar.RangeBar
+        android:id="@+id/rangebar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:mrb_connectingLineColor="@color/color_navigation"
+        app:mrb_barWeight="2dp"
+        app:mrb_connectingLineWeight="4dp"
+        app:mrb_leftThumbColor="@color/color_navigation"
+        app:mrb_minThumbDistance="-1"
+        app:mrb_pinColor="@color/color_navigation"
+        app:mrb_pinMaxFont="15sp"
+        app:mrb_pinMinFont="12sp"
+        app:mrb_pinRadius="14dp"
+        app:mrb_pinTextColor="@color/blackcolor"
+        app:mrb_rangeBar="true"
+        app:mrb_rangeBarPaddingBottom="30dp"
+        app:mrb_rangeBar_rounded="true"
+        app:mrb_rightThumbColor="@color/color_navigation"
+        app:mrb_thumbBoundaryColor="@color/color_navigation"
+        app:mrb_thumbBoundarySize="2dp"
+        app:mrb_thumbSize="10dp"
+        app:mrb_temporaryPins="true"
+        app:mrb_tickDefaultColor="@color/color_navigation"
+        app:mrb_tickDefaultLabel="label"
+        app:mrb_tickEnd="10"
+        app:mrb_tickHeight="4dp"
+        app:mrb_tickInterval="1"
+        app:mrb_tickLabelColor="@color/color_navigation"
+        app:mrb_tickLabelSelectedColor="@color/color_navigation"
+        app:mrb_tickLabelSize="14sp"
+        app:mrb_tickStart="1"
+        android:layout_below="@+id/ll_price_radio" />
+
+    <View
+        android:id="@+id/view88"
+        android:layout_width="match_parent"
+        android:layout_height="0.58dp"
+        android:layout_below="@+id/rangebar1"
+        android:layout_marginTop="8dp"
+        android:background="@color/my_cart2" />
+
+
+</RelativeLayout>

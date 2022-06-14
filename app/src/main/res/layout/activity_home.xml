@@ -58,7 +58,8 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
                 android:visibility="@{model.market}"
-                app:srcCompat="@drawable/ic_market" />
+                app:srcCompat="@drawable/ic_market"
+                android:onClick="@{model::onMarketPriceClick}" />
 
 
         </androidx.appcompat.widget.Toolbar>

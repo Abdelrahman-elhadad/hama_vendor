@@ -302,4 +302,24 @@
     <string name="notifications">Notifictions</string>
     <string name="save_changes">Save Changes</string>
     <string name="edit_product">Edit Product</string>
+    <string name="silver_market">Gold / Silver Market</string>
+    <string name="Gold_Market">Gold Market</string>
+    <string name="Silver_Market">Silver Market</string>
+    <string name="oz_price">Oz Price: xx KWD</string>
+    <string name="timer_price"> Update price after : xx</string>
+    <string name="Caliber_A">xx Caliber</string>
+
+    <string name="filter_by">FILTER BY</string>
+    <string name="FILTER_BY1">CLEAR ALL</string>
+    <string name="FILTER_BY2">Categorize</string>
+    <string name="FILTER_BY4">Type of Price</string>
+    <string name="FILTER_BY5">Market Price</string>
+    <string name="FILTER_BY6">Fixed Price</string>
+    <string name="FILTER_BY7">SHOW RESULTS</string>
+    <string name="FILTER_BY8">FILTER BY</string>
+    <string name="FILTER_BY9">CLEAR ALL</string>
+    <string name="FILTER_BY10">SHOW RESULTS</string>
+    <string name="price">Price</string>
+    <string name="sort_by">SORT BY</string>
+    <string name="Gold">Gold</string>
 </resources>

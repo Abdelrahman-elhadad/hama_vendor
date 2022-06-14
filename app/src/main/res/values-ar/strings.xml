@@ -306,4 +306,27 @@ the cart?</string>
 
     <string name="save_changes">Save Changes</string>
     <string name="edit_product">Edit Product</string>
+
+    <string name="silver_market">بورصة الذهب / الفضة</string>
+    <string name="Gold_Market">بورصة الذهب</string>
+    <string name="Silver_Market">بورصة الفضة</string>
+
+    <string name="oz_price"> سعر الاونصة xx د.ك</string>
+    <string name="timer_price"> تحديث السعر بعد : xx</string>
+    <string name="Caliber_A">xx عيار</string>
+
+    <string name="filter_by">تصنيف على </string>
+    <string name="FILTER_BY1">مسح الكل</string>
+    <string name="FILTER_BY2">الاصناف</string>
+    <string name="FILTER_BY4">نوع السعر</string>
+    <string name="FILTER_BY5">اسعار البورصة</string>
+    <string name="FILTER_BY6">سعر ثابة</string>
+    <string name="FILTER_BY7">إظهار النتائج</string>
+    <string name="FILTER_BY8">التصنيف</string>
+    <string name="FILTER_BY9">مسح الكل</string>
+    <string name="FILTER_BY10">اظهار النتائج</string>
+    <string name="price">السعر</string>
+    <string name="sort_by">ترتيب حسب</string>
+    <string name="Gold">ذهب</string>
+
 </resources>

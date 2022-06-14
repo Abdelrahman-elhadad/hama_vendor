@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/liner_parent_filter"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="16dp"
+            app:srcCompat="@drawable/iconx" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/FILTER_BY8"
+            android:textColor="@color/filter_by"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_clear_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/FILTER_BY9"
+            android:textColor="@color/color_navigation" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/rv_filter"
+        tools:listitem="@layout/row_filter_main"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/but_result"
+            android:layout_width="172dp"
+            android:layout_height="45dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/cairobold"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/back_ground_shadow"
+            android:textColor="@color/whiteColor"
+            android:text="@string/FILTER_BY7" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

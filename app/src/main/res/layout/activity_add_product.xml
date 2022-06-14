@@ -41,13 +41,14 @@
                 android:textSize="20sp" />
 
             <ImageView
-                android:id="@+id/notification_img"
+                android:id="@+id/market_img"
                 android:layout_width="20dp"
                 android:layout_height="23dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@string/available_colors"
-                app:srcCompat="@drawable/ic_market" />
+                app:srcCompat="@drawable/ic_market"
+                android:onClick="@{model::onMarketPriceClick}" />
         </androidx.appcompat.widget.Toolbar>
 
 

@@ -25,12 +25,39 @@ public class ProductRepo {
     private final String TAG = "RequestWrapper";
 
     ///////////////////// Products ///////////////////////////////
-    public void getProducts(final Context context, final int page, final MutableLiveData<ProductsResponse> loginResponseMutableLiveData) {
+    public void getProducts(final Context context, final int page, final String sort_key, final int category_level_1, final int category_level_2, final int category_level_3, final String type_of_price, final String range_price_from, final String range_price_to, final MutableLiveData<ProductsResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             ProductsResponse loginSocialResponse;
             try {
                 String url = RequestWrapper.getInstance().getFullPath() + "products/index?page=" + page;
+
+
+                if (!sort_key.isEmpty()) {
+                    url = url + "sort_key=" + sort_key;
+                }
+
+                if (category_level_1 != -1) {
+                    url = url + "&category_level_1=" + category_level_1;
+                }
+
+                if (category_level_2 != -1) {
+                    url = url + "&category_level_2=" + category_level_2;
+                }
+
+                if (category_level_3 != -1) {
+                    url = url + "&category_level_3=" + category_level_3;
+                }
+
+                if (!type_of_price.isEmpty()) {
+                    url = url + "&type_of_price=" + type_of_price;
+                }
+
+                if (!range_price_from.isEmpty() && !range_price_to.isEmpty()) {
+                    url = url + "&range_price_from=" + range_price_from;
+                    url = url + "&range_price_to=" + range_price_to;
+                }
+
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
 
