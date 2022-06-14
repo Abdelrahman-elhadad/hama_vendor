@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -29,7 +30,7 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
     FragmentAddProductStep1Binding binding;
     AddEditProductViewModel model;
-
+    FragmentManager fragmentManager;
     public static AddEditProductStep1Fragment newInstance(AddEditProductViewModel model) {
 
         AddEditProductStep1Fragment fragment = new AddEditProductStep1Fragment();
@@ -51,6 +52,7 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        fragmentManager = getChildFragmentManager();
         binding.setModel(model);
 
         model.getWeightObserver().observe(requireActivity(), weight -> binding.editWeight.setText(weight));
@@ -94,7 +96,7 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
             } else {
                 if (categoriesResponse.getCode().equalsIgnoreCase("401"))
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    LoginDialog.newInstance().show(fragmentManager, "login");
                 else
                     Snackbar.make(binding.textView2, categoriesResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
             }
@@ -129,7 +131,7 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
             } else {
                 if (mainCategoriesResponse.getCode().equalsIgnoreCase("401"))
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    LoginDialog.newInstance().show(fragmentManager, "login");
                 else
                     Snackbar.make(binding.textView2, mainCategoriesResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
             }
@@ -151,7 +153,7 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
             } else {
                 if (mainCategoriesResponse.getCode().equalsIgnoreCase("401"))
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    LoginDialog.newInstance().show(fragmentManager, "login");
                 else
                     Snackbar.make(binding.textView2, mainCategoriesResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
             }

@@ -92,4 +92,10 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
     public void onDeleteClick(Object object, int position) {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        model.getObserver().removeObservers(this);
+    }
 }

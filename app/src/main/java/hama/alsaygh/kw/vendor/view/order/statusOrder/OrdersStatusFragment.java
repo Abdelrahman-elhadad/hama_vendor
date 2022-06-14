@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 import com.faltenreich.skeletonlayout.Skeleton;
 import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
@@ -31,6 +32,7 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
     OrdersViewModel model;
     int type;
     Skeleton skeleton;
+    FragmentManager fragmentManager;
 
     public static OrdersStatusFragment newInstance(int type) {
         OrdersStatusFragment fragment = new OrdersStatusFragment();
@@ -52,7 +54,7 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        fragmentManager = getChildFragmentManager();
         model = new OrdersViewModel();
         binding.setModel(model);
         skeleton = SkeletonLayoutUtils.applySkeleton(binding.rvOrders, R.layout.item_rv_orders, 2);
@@ -75,7 +77,7 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
             } else {
 
                 if (productsResponse.getCode().equalsIgnoreCase("401")) {
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    LoginDialog.newInstance().show(fragmentManager, "login");
                 } else {
                     Snackbar.make(binding.rvOrders, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
                 }
@@ -105,6 +107,12 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
     @Override
     public void onDeleteClick(Object object, int position) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        model.getObserver().removeObservers(requireActivity());
     }
 
 

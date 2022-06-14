@@ -34,4 +34,11 @@
         <item name="colorAccent">@color/color_navigation</item>
         <item name="android:progressBarStyle">@style/Widget.AppCompat.ProgressBar.Horizontal</item>
     </style>
+
+    <style name="customfontstyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:fontFamily">@font/cairobold</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

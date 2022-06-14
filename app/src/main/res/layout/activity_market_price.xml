@@ -44,16 +44,20 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_orders"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:layout_below="@+id/toolbar"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/tab_back"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="start"
             app:tabIndicatorColor="#00ffffff"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/blackcolor1"
+            app:tabIndicatorFullWidth="true"
+            app:tabMode="auto"
+            app:tabSelectedTextColor="@color/ghhg"
+            app:tabTextAppearance="@style/customfontstyle"
             app:tabTextColor="@color/color_store_page" />
 
         <androidx.viewpager.widget.ViewPager

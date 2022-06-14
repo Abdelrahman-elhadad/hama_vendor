@@ -260,7 +260,7 @@ public class GoldMarketFragment extends BaseFragment implements OnCurrencyListen
                     caliberItem.setIs_up(jsonObject.getString("is_up"));
                     caliberItem.setPrice(jsonObject.getDouble("price"));
                     String priceFormatted = String.format(Locale.ENGLISH, "%.3f", caliberItem.getPrice());
-                    binding.textView73.setText(getString(R.string.oz_price).replace("xx", priceFormatted));
+                    binding.textView73.setText(requireContext().getString(R.string.oz_price).replace("xx", priceFormatted));
                     binding.textView74.setText(priceFormatted);
                     if (!caliberItem.isUp())
                         binding.imageView13.setImageResource(R.drawable.ic_ounca_down);

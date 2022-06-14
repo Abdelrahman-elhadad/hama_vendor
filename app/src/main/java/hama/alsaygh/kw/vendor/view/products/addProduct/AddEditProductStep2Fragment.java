@@ -18,6 +18,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class AddEditProductStep2Fragment extends BaseFragment implements OnGener
     AdapterImageProduct adapter;
     Uri resultUri;
     AdapterOptionProduct optionAdapter;
+    FragmentManager fragmentManager;
 
     public static AddEditProductStep2Fragment newInstance(AddEditProductViewModel model) {
         AddEditProductStep2Fragment fragment = new AddEditProductStep2Fragment();
@@ -64,7 +66,7 @@ public class AddEditProductStep2Fragment extends BaseFragment implements OnGener
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        fragmentManager = getChildFragmentManager();
         binding.setModel(model);
 
 
@@ -89,7 +91,7 @@ public class AddEditProductStep2Fragment extends BaseFragment implements OnGener
         if (model.getAddProduct().getOptions() != null)
             options = new ArrayList<>(model.getAddProduct().getOptions());
 
-        optionAdapter = new AdapterOptionProduct(getChildFragmentManager(), options, AddEditProductStep2Fragment.this);
+        optionAdapter = new AdapterOptionProduct(fragmentManager, options, AddEditProductStep2Fragment.this);
         binding.rvOptions.setAdapter(optionAdapter);
         binding.rvOptions.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -98,9 +100,9 @@ public class AddEditProductStep2Fragment extends BaseFragment implements OnGener
 
         binding.llCamera.setOnClickListener(v -> permissionCamera());
 
-        binding.butAddOption.setOnClickListener(v -> {
-            AddOptionProductDialog.newInstance(AddEditProductStep2Fragment.this).show(getChildFragmentManager(), "add_option");
-        });
+        binding.butAddOption.setOnClickListener(v ->
+                AddOptionProductDialog.newInstance(AddEditProductStep2Fragment.this).show(fragmentManager, "add_option")
+        );
 
     }
 

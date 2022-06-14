@@ -10,6 +10,7 @@ import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 
 import com.faltenreich.skeletonlayout.Skeleton;
 import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
@@ -36,6 +37,7 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
     FragmentProuductsBinding binding;
     ProductsViewModel model;
     Skeleton skeleton;
+    FragmentManager fragmentManager;
 
     int page = 1;
     boolean isLast = false, isLoading = false;
@@ -55,7 +57,7 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        fragmentManager = getChildFragmentManager();
         model = new ProductsViewModel();
         binding.setModel(model);
         skeleton = SkeletonLayoutUtils.applySkeleton(binding.rvProducts, R.layout.item_rv_my_prouduct, 2);
@@ -80,14 +82,14 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
                 } else {
                     binding.rvProducts.setVisibility(View.VISIBLE);
                     if (page == 1) {
-                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), getChildFragmentManager(), ProductsFragment.this);
+                        adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), fragmentManager, ProductsFragment.this);
                         binding.rvProducts.setAdapter(adapter);
 
                     } else {
                         if (adapter != null)
                             adapter.addItems(productsResponse.getData());
                         else {
-                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), getChildFragmentManager(), ProductsFragment.this);
+                            adapter = new StoreProductRecycleViewAdapter(productsResponse.getData(), fragmentManager, ProductsFragment.this);
                             binding.rvProducts.setAdapter(adapter);
                         }
                     }
@@ -95,7 +97,7 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
             } else {
 
                 if (productsResponse.getCode().equalsIgnoreCase("401")) {
-                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    LoginDialog.newInstance().show(fragmentManager, "login");
                 } else {
                     Snackbar.make(binding.rvProducts, productsResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
                 }
@@ -153,12 +155,12 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         binding.linerFilter.setOnClickListener(v -> {
             FilterByDialog.newInstance(model.getType_of_price(), model.getCategory_level_1(), model.getCategory_level_2(),
                             model.getCategory_level_3(), model.getRange_price_from(), model.getRange_price_to(), ProductsFragment.this)
-                    .show(getChildFragmentManager(), "filter");
+                    .show(fragmentManager, "filter");
         });
 
         binding.linerSort.setOnClickListener(v -> {
             SortByDialog.newInstance(model.getSort_key(), ProductsFragment.this)
-                    .show(getChildFragmentManager(), "sort");
+                    .show(fragmentManager, "sort");
         });
 
     }
@@ -218,5 +220,11 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         page = 1;
         skeleton.showSkeleton();
         model.getProducts(requireContext(), page);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        model.getObserver().removeObservers(requireActivity());
     }
 }

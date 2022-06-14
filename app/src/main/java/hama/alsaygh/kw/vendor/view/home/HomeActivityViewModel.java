@@ -32,6 +32,7 @@ public class HomeActivityViewModel extends ViewModel {
     private MutableLiveData<String> title = new MutableLiveData<>();
     private final ObservableInt toolBar = new ObservableInt();
     private final ObservableInt market = new ObservableInt();
+    private final ObservableInt search = new ObservableInt();
     FragmentManager fragmentManager;
 
     //  private Home home ;
@@ -47,6 +48,7 @@ public class HomeActivityViewModel extends ViewModel {
         this.context = context;
         toolBar.set(View.VISIBLE);
         market.set(View.VISIBLE);
+        search.set(View.VISIBLE);
         title.setValue(context.getString(R.string.home));
     }
 
@@ -141,6 +143,7 @@ public class HomeActivityViewModel extends ViewModel {
     private void openHome() {
         toolBar.set(View.VISIBLE);
         market.set(View.VISIBLE);
+        search.set(View.VISIBLE);
         title.setValue(context.getString(R.string.home));
         commitFragment(new HomeFragment(), Home);
     }
@@ -148,13 +151,15 @@ public class HomeActivityViewModel extends ViewModel {
     private void openMore() {
         toolBar.set(View.GONE);
         market.set(View.GONE);
+        search.set(View.GONE);
         title.setValue("");
         commitFragment(MoreFragment.newInstance(), more);
     }
 
     private void openOffers() {
         toolBar.set(View.VISIBLE);
-        market.set(View.GONE);
+        market.set(View.VISIBLE);
+        search.set(View.GONE);
         title.setValue(context.getString(R.string.Offers));
         commitFragment(new OffersActiveOffers(), Offers);
     }
@@ -162,6 +167,7 @@ public class HomeActivityViewModel extends ViewModel {
     private void openOrders() {
         toolBar.set(View.VISIBLE);
         market.set(View.GONE);
+        search.set(View.VISIBLE);
         title.setValue(context.getString(R.string.fixed1));
         commitFragment(OrdersFragment.newInstance(), Orders);
     }
@@ -169,6 +175,7 @@ public class HomeActivityViewModel extends ViewModel {
     private void openProducts() {
         toolBar.set(View.VISIBLE);
         market.set(View.GONE);
+        search.set(View.VISIBLE);
         title.setValue(context.getString(R.string.my_products));
         commitFragment(ProductsFragment.newInstance(), MyProducts);
     }
@@ -179,6 +186,10 @@ public class HomeActivityViewModel extends ViewModel {
 
     public ObservableInt getMarket() {
         return market;
+    }
+
+    public ObservableInt getSearch() {
+        return search;
     }
 
     public void onNotificationClick(View view) {

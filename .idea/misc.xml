@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/drawable/back_view_myorder_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_dash.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_tab.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/background_unselected_tab.xml" value="0.1425" />
         <entry key="app/src/main/res/drawable/backk.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/card_canceld_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/card_tab_canceled.xml" value="0.152" />
@@ -75,6 +76,7 @@
         <entry key="app/src/main/res/drawable/switch_thum_light.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/switch_tracker_light.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/tab_back.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.1425" />
         <entry key="app/src/main/res/drawable/text_color_of_menu.xml" value="0.152" />
         <entry key="app/src/main/res/layout/active_offers_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.2846320346320346" />
