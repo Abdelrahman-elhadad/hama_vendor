@@ -15,8 +15,7 @@ public class GenderData {
     private double others;
 
     public double getMales() {
-        if (males == 0)
-            males = 8;
+
         return males;
     }
 
@@ -25,8 +24,7 @@ public class GenderData {
     }
 
     public double getFemale() {
-        if (female == 0)
-            female = 10;
+
         return female;
     }
 
@@ -35,8 +33,7 @@ public class GenderData {
     }
 
     public double getOthers() {
-        if (others == 0)
-            others = 20;
+
         return others;
     }
 

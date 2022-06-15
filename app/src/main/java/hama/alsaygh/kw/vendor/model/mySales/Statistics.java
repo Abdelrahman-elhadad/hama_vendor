@@ -42,8 +42,7 @@ public class Statistics {
     private double december;
 
     public double getJan() {
-        if (jan == 0)
-            jan = 1500;
+
         return jan;
     }
 
@@ -52,8 +51,7 @@ public class Statistics {
     }
 
     public double getFeb() {
-        if (feb == 0)
-            feb = 1000;
+
         return feb;
     }
 
@@ -62,8 +60,7 @@ public class Statistics {
     }
 
     public double getMarch() {
-        if (march == 0)
-            march = 500;
+
         return march;
     }
 
@@ -72,8 +69,7 @@ public class Statistics {
     }
 
     public double getApril() {
-        if (april == 0)
-            april = 700;
+
         return april;
     }
 
@@ -82,8 +78,7 @@ public class Statistics {
     }
 
     public double getMay() {
-        if (may == 0)
-            may = 900;
+
         return may;
     }
 
@@ -92,8 +87,7 @@ public class Statistics {
     }
 
     public double getJune() {
-        if (june == 0)
-            june = 1500;
+
         return june;
     }
 
