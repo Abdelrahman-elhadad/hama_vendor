@@ -9,9 +9,9 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.databinding.EnterNewPasswordBinding;
-import hama.alsaygh.kw.vendor.databinding.MobileVerificationBinding;
+import hama.alsaygh.kw.vendor.databinding.ActivityMobileVerificationBinding;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
+import hama.alsaygh.kw.vendor.view.auth.resetPassword.EnterNewPasswordActivity;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
 
 
@@ -20,14 +20,14 @@ public class MobileVerificationActivity extends BaseActivity implements LoginLis
 
     private String email;
 
-    MobileVerificationBinding binding;
+    ActivityMobileVerificationBinding binding;
     VerificationActivityViewModel model;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = MobileVerificationBinding.inflate(getLayoutInflater());
+        binding = ActivityMobileVerificationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         model = new VerificationActivityViewModel(this);
         binding.setModel(model);
@@ -52,7 +52,7 @@ public class MobileVerificationActivity extends BaseActivity implements LoginLis
             model.setPbLoginVisibility(View.GONE);
             if (loginResponse.isStatus()) {
 
-                Intent intent = new Intent(MobileVerificationActivity.this, EnterNewPasswordBinding.class);
+                Intent intent = new Intent(MobileVerificationActivity.this, EnterNewPasswordActivity.class);
                 intent.putExtra("token", loginResponse.getData().getToken());
                 startActivity(intent);
             } else

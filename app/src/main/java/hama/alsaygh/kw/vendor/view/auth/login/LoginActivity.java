@@ -7,7 +7,7 @@ import android.view.View;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.databinding.LoginBinding;
+import hama.alsaygh.kw.vendor.databinding.ActivityLoginBinding;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
@@ -15,12 +15,12 @@ import hama.alsaygh.kw.vendor.view.home.HomeActivity;
 import hama.alsaygh.kw.vendor.view.onBoading.OnBoardingActivity;
 
 public class LoginActivity extends BaseActivity implements LoginListener {
-    LoginBinding binding;
+    ActivityLoginBinding binding;
     LoginActivityViewModel model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= LoginBinding.inflate(getLayoutInflater());
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         model=new LoginActivityViewModel(this);
         binding.setModel(model);

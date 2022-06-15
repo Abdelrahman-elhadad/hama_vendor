@@ -37,7 +37,7 @@
     <string name="More">أكثر</string>
     <string name="order">5 أوامر جديدة</string>
     <string name="hghghg">انقر هنا لرؤية الطلبات المعلقة</string>
-    <string name="bvbvb">سعر المبيعات "5.5 ألف درهم "</string>
+    <string name="bvbvb">سعر المبيعات "\xx د.ك "\</string>
     <string name="best">أفضل يوم بائع</string>
     <string name="Overview">ملخص</string>
     <string name="Store_Views">آراء المتجر</string>
@@ -330,5 +330,19 @@ the cart?</string>
     <string name="Gold">ذهب</string>
     <string name="great_job">Great Job!</string>
     <string name="confirm_send_to_delivery"><![CDATA[Confirm & Send To  Delivery]]></string>
+    <string name="no_data">No Data Found</string>
+
+    <string name="jan">يناير</string>
+    <string name="feb">فبراير</string>
+    <string name="mar">مارس</string>
+    <string name="apr">إبريل</string>
+    <string name="may">مايو</string>
+    <string name="jun">يونيو</string>
+    <string name="jul">يوليو</string>
+    <string name="aug">أغسطس</string>
+    <string name="sep">سبتمبر</string>
+    <string name="oct">أكتوبر</string>
+    <string name="nov">نوفمبر</string>
+    <string name="dec">ديسمبر</string>
 
 </resources>

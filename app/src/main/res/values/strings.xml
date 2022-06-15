@@ -38,7 +38,7 @@
     <string name="More">More</string>
     <string name="order">5 New Orders</string>
     <string name="hghghg">Click here to see the pending orders</string>
-    <string name="bvbvb">Sales Rate "5.5K AED"</string>
+    <string name="bvbvb">Sales Rate \"xx KWD\"</string>
     <string name="best">Best Seller Day</string>
     <string name="Overview">Overview</string>
     <string name="Store_Views">Store Views</string>
@@ -323,6 +323,21 @@
     <string name="sort_by">SORT BY</string>
     <string name="Gold">Gold</string>
     <string name="great_job">Great Job!</string>
-    <string name="accept_order_msg">You have accepted the order and now you can confirm that a notification will be sent to the delivery company with details.</string>
     <string name="confirm_send_to_delivery"><![CDATA[Confirm & Send To  Delivery]]></string>
+    <string name="no_data">No Data Found</string>
+
+
+    <string name="jan">Jan</string>
+    <string name="feb">Feb</string>
+    <string name="mar">Mar</string>
+    <string name="apr">Apr</string>
+    <string name="may">May</string>
+    <string name="jun">Jun</string>
+    <string name="jul">Jul</string>
+    <string name="aug">Aug</string>
+    <string name="sep">Sep</string>
+    <string name="oct">Oct</string>
+    <string name="nov">Nov</string>
+    <string name="dec">Dec</string>
+
 </resources>

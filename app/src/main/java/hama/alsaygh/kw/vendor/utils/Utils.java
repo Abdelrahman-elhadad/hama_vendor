@@ -15,6 +15,7 @@ import com.faltenreich.skeletonlayout.Skeleton;
 
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Collections;
@@ -261,7 +262,7 @@ public class Utils {
 
 
     public static String formatNumber(double count) {
-        if (count < 1000) return "" + count;
+        if (count < 1000) return "" + new DecimalFormat("##.##").format(count);
         int exp = (int) (Math.log(count) / Math.log(1000));
         return String.format(Locale.ENGLISH, "%.1f %c", count / Math.pow(1000, exp), "kMGTPE".charAt(exp - 1));
     }

@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/drawable/back_liner_gold_buttom.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_liner_gold_top.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_liner_kwd.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_mysales.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_product.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_reset_pass.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_reset_pass_red.xml" value="0.152" />
@@ -31,6 +32,7 @@
         <entry key="app/src/main/res/drawable/back_sort.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_spinner.xml" value="0.1515" />
         <entry key="app/src/main/res/drawable/back_spinner3.xml" value="0.1515" />
+        <entry key="app/src/main/res/drawable/back_view_home.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_view_my_card_order.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_view_myorder_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_dash.xml" value="0.152" />
@@ -40,7 +42,9 @@
         <entry key="app/src/main/res/drawable/card_canceld_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/card_tab_canceled.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/edit_interface_sign.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/ic_ather.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/ic_category_male.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_closee.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_dawnicon.xml" value="0.152" />
@@ -50,6 +54,7 @@
         <entry key="app/src/main/res/drawable/ic_down.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_edit.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/ic_ellipsis.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/ic_femal.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_group_3082.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_icon_feather_link_2.xml" value="0.152" />
@@ -90,9 +95,12 @@
         <entry key="app/src/main/res/layout/activity_language_setting.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/activity_market_price.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/layout/activity_mobile_verification.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_my_sales.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_notification_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.16927083333333334" />
         <entry key="app/src/main/res/layout/activity_order_details.xml" value="0.23769633507853402" />
+        <entry key="app/src/main/res/layout/activity_recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_new_product_step2.xml" value="0.14947916666666666" />
@@ -106,6 +114,8 @@
         <entry key="app/src/main/res/layout/change_password.xml" value="0.11354166666666667" />
         <entry key="app/src/main/res/layout/confirm_order.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/contact_us.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/create_offer_done.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/create_offer_offer_data.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_accept_order.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_add_option_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_delete_product.xml" value="0.45" />
@@ -113,6 +123,7 @@
         <entry key="app/src/main/res/layout/dialog_filter_by.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/dialog_gps_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_login.xml" value="0.1546875" />
+        <entry key="app/src/main/res/layout/discard_order.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.5" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_add_new_product_step_1.xml" value="0.23777961888980945" />
@@ -145,6 +156,7 @@
         <entry key="app/src/main/res/layout/login.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/mobile_verification.xml" value="0.15208333333333332" />
         <entry key="app/src/main/res/layout/my_profile.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/my_sales.xml" value="0.45" />
         <entry key="app/src/main/res/layout/notification_settings.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/offers_active_offers.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/order.xml" value="0.2546875" />

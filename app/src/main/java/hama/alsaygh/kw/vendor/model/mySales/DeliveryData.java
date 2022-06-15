@@ -6,20 +6,24 @@ public class DeliveryData {
 
 
     @SerializedName("hama")
-    private double males;
+    private double hama;
 
     @SerializedName("hand_by_hand")
     private double hand_by_hand;
 
-    public double getMales() {
-        return males;
+    public double getHama() {
+        if (hama == 0)
+            hama = 20;
+        return hama;
     }
 
-    public void setMales(double males) {
-        this.males = males;
+    public void setHama(double hama) {
+        this.hama = hama;
     }
 
     public double getHand_by_hand() {
+        if (hand_by_hand == 0)
+            hand_by_hand = 20;
         return hand_by_hand;
     }
 

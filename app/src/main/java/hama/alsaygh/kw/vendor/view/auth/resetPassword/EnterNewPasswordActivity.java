@@ -7,14 +7,14 @@ import android.view.View;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.databinding.EnterNewPasswordBinding;
+import hama.alsaygh.kw.vendor.databinding.ActivityEnterNewPasswordBinding;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.view.auth.login.LoginActivity;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
 
 public class EnterNewPasswordActivity extends BaseActivity implements LoginListener {
     String token;
-    EnterNewPasswordBinding binding;
+    ActivityEnterNewPasswordBinding binding;
     EnterNewPasswordViewModel model;
 
 
@@ -22,7 +22,7 @@ public class EnterNewPasswordActivity extends BaseActivity implements LoginListe
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        binding = EnterNewPasswordBinding.inflate(getLayoutInflater());
+        binding = ActivityEnterNewPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         model = new EnterNewPasswordViewModel(this);
         binding.setModel(model);

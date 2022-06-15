@@ -85,6 +85,7 @@
     <color name="col_delete">#FF6363</color>
     <color name="background_bage">#1A6E571D</color>
     <color name="text_not_selected">#B6BFD8</color>
+    <color name="chart_green">#97bcaa</color>
 
     <color name="color_light_shimmer">#1098BDAB</color>
     <color name="color_light_mask">#3598BDAB</color>

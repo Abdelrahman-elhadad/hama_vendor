@@ -37,6 +37,7 @@
                 android:layout_height="46dp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/cairobold"
+                android:gravity="center"
                 android:text="@string/Contact_Uss"
                 android:textColor="@color/filter_by"
                 android:textSize="20sp" />
