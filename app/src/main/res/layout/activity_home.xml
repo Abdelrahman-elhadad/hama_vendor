@@ -39,7 +39,7 @@
                 android:fontFamily="@font/cairobold"
                 android:gravity="center"
                 android:text="@string/home"
-                android:textColor="@color/blackcolor1"
+                android:textColor="@color/filter_by"
                 android:textSize="20sp" />
 
             <ImageView

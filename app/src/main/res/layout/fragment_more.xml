@@ -36,7 +36,8 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/cairobold"
                 android:text="@string/Profile"
-                android:textColor="@color/blackcolor1"
+                android:gravity="center"
+                android:textColor="@color/filter_by"
                 android:textSize="20sp" />
 
             <ImageView
@@ -136,9 +137,10 @@
 
                     <View
                         android:id="@+id/view9"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -153,15 +155,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onOrderTrackingClick}"
                         android:text="@string/profile"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_order_tracking" />
 
 
                     <View
                         android:id="@+id/view1"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile"
                         android:scaleType="fitXY" />
 
@@ -170,7 +174,6 @@
                         android:id="@+id/pakckeging_stores"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="15dp"
@@ -178,15 +181,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onOrderRateClick}"
                         android:text="@string/profile1"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_online_store" />
 
 
                     <View
                         android:id="@+id/view2"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -201,15 +206,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onGeneralSettingsClick}"
                         android:text="@string/profile2"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_settings" />
 
 
                     <View
                         android:id="@+id/view3"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
                     <View
@@ -217,7 +224,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="30dp"
-                        android:background="@color/my_profile" />
+                        android:background="@drawable/back_my_profile_2" />
 
 
                     <TextView
@@ -231,15 +238,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onHamaRateClick}"
                         android:text="@string/profile3"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_path_13401" />
 
 
                     <View
                         android:id="@+id/view4"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -254,15 +263,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onTermsClick}"
                         android:text="@string/profile4"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_terms___conditions" />
 
 
                     <View
                         android:id="@+id/view6"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -277,15 +288,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onContactHamaClick}"
                         android:text="@string/profile5"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_contact_us" />
 
 
                     <View
                         android:id="@+id/view7"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -300,15 +313,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onRecommendationHamaClick}"
                         android:text="@string/profile6"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_recommendation__1_" />
 
 
                     <View
                         android:id="@+id/view8"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
 
@@ -323,15 +338,17 @@
                         android:fontFamily="@font/cairosemibold"
                         android:onClick="@{model::onAppointmentHamaClick}"
                         android:text="@string/profile7"
+                        android:textColor="@color/my_profile"
                         android:textSize="14sp"
                         app:drawableStartCompat="@drawable/ic_appointment_booking" />
 
 
                     <View
                         android:id="@+id/view99"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="0.5dp"
                         android:layout_marginStart="45dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/back_my_profile" />
 
                 </LinearLayout>

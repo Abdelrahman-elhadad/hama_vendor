@@ -5,11 +5,11 @@
         android:bottomLeftRadius="0dp"
         android:bottomRightRadius="0dp"
         android:topLeftRadius="0dp"
-        android:topRightRadius="0dp"/>
+        android:topRightRadius="0dp" />
     <gradient
         android:angle="0"
-        android:endColor="#FFFFFF"
-        android:startColor="#54788F9B"
+        android:endColor="#54788F9B"
+        android:startColor="@color/my_profile_view"
 
         android:type="linear" />
 
