@@ -16,7 +16,6 @@ public class GenderData {
 
     public double getMales() {
 
-        males = 80;
         return males;
     }
 
@@ -26,7 +25,6 @@ public class GenderData {
 
     public double getFemale() {
 
-        female = 20;
         return female;
     }
 
