@@ -75,6 +75,7 @@
         <entry key="app/src/main/res/drawable/ic_subject.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/shape_canceled.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/shape_oval_grey.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/shape_oval_ttee.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/shape_oval_ttee_dark.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/shape_pending_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/shape_round_white.xml" value="0.152" />
@@ -112,6 +113,8 @@
         <entry key="app/src/main/res/layout/card_request_image.xml" value="0.5" />
         <entry key="app/src/main/res/layout/card_splash_screen.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/change_password.xml" value="0.11354166666666667" />
+        <entry key="app/src/main/res/layout/chart_linear_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/chart_pie_item.xml" value="0.45" />
         <entry key="app/src/main/res/layout/confirm_order.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/contact_us.xml" value="0.125" />
         <entry key="app/src/main/res/layout/create_offer_done.xml" value="0.2546875" />

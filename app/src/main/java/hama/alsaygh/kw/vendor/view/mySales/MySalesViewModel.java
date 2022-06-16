@@ -29,6 +29,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import java.util.ArrayList;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.model.mySales.MyMarkerView;
 import hama.alsaygh.kw.vendor.model.mySales.MySalesData;
 import hama.alsaygh.kw.vendor.model.mySales.MySalesResponse;
 import hama.alsaygh.kw.vendor.repo.ProfileRepo;
@@ -106,6 +107,9 @@ public class MySalesViewModel extends ViewModel {
         Paint paint = chart.getRenderer().getPaintRender();
         paint.setShader(gradient);
 
+        chart.setMarker(new MyMarkerView(context, R.layout.chart_linear_item, context.getString(R.string.currency)));
+
+
         // don't forget to refresh the drawing
         chart.invalidate();
 
@@ -151,6 +155,9 @@ public class MySalesViewModel extends ViewModel {
         chartAudiance.setEntryLabelTypeface(ResourcesCompat.getFont(context, R.font.cairobold));
         chartAudiance.setEntryLabelTextSize(12f);
         chartAudiance.setContentDescription(" ");
+        chartAudiance.setNoDataText(context.getString(R.string.no_data));
+        chartAudiance.setMarker(new MyMarkerView(context, R.layout.chart_pie_item, "%"));
+
     }
 
     public void setAudiansData(Context context, PieChart chart, MySalesData mySalesData) {

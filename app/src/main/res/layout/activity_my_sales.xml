@@ -108,7 +108,7 @@
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chart_audiance"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="300dp"
                         android:layout_marginTop="16dp" />
 
 
@@ -196,7 +196,7 @@
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chart_delivery"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="300dp"
                         android:layout_marginTop="16dp" />
 
 
