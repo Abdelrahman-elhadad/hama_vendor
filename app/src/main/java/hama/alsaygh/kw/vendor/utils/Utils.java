@@ -3,6 +3,7 @@ package hama.alsaygh.kw.vendor.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.provider.Settings;
 import android.text.InputFilter;
 import android.util.DisplayMetrics;
@@ -284,6 +285,10 @@ public class Utils {
             }
         }
         return sb.toString();
+    }
+
+    public int getDominantColor(Bitmap bitmap) {
+        return bitmap.getPixel(0, 0);
     }
 }
 

@@ -24,7 +24,7 @@ public class AddNewOffers extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentManager=getChildFragmentManager();
-        View view = inflater.inflate(R.layout.add_new_offer_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_new_offer, container, false);
         return view;
 
     }

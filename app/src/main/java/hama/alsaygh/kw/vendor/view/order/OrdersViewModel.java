@@ -2,11 +2,16 @@ package hama.alsaygh.kw.vendor.view.order;
 
 import android.content.Context;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 import hama.alsaygh.kw.vendor.model.order.OrdersResponse;
 import hama.alsaygh.kw.vendor.repo.OrderRepo;
+import hama.alsaygh.kw.vendor.view.order.adapter.AdapterPagerMyOrder;
 
 public class OrdersViewModel extends ViewModel {
 
@@ -46,6 +51,16 @@ public class OrdersViewModel extends ViewModel {
                 break;
         }
         productRepo.getOrders(context, status, languageResponseMutableLiveData);
+    }
+
+    public void init(Context context, ViewPager vpOrders, TabLayout tabOrders, FragmentManager fragmentManager) {
+        AdapterPagerMyOrder adapterPagerMyOrder = new AdapterPagerMyOrder(context, fragmentManager);
+        vpOrders.setAdapter(adapterPagerMyOrder);
+        tabOrders.setupWithViewPager(vpOrders);
+        vpOrders.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabOrders));
+
+        tabOrders.selectTab(tabOrders.getTabAt(1));
+
     }
 
 }

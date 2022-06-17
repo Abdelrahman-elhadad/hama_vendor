@@ -18,11 +18,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.fragment.OffersActiveOffers;
 import hama.alsaygh.kw.vendor.view.home.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.view.marketPrice.MarketPriceActivity;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
 import hama.alsaygh.kw.vendor.view.notification.NotificationsActivity;
+import hama.alsaygh.kw.vendor.view.offers.MainOffersFragment;
 import hama.alsaygh.kw.vendor.view.order.OrdersFragment;
 import hama.alsaygh.kw.vendor.view.products.ProductsFragment;
 
@@ -161,7 +161,7 @@ public class HomeActivityViewModel extends ViewModel {
         market.set(View.VISIBLE);
         search.set(View.GONE);
         title.setValue(context.getString(R.string.Offers));
-        commitFragment(new OffersActiveOffers(), Offers);
+        commitFragment(MainOffersFragment.newInstance(), Offers);
     }
 
     private void openOrders() {

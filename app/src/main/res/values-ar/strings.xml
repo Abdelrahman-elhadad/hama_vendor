@@ -346,5 +346,8 @@ the cart?</string>
     <string name="dec">ديسمبر</string>
 
     <string name="number_short">كمجتبي</string>
+    <string name="edit_offer">تعديل العرض</string>
+    <string name="delete_offer">ازالة العرض</string>
+    <string name="search_hint_add_offer">ابحث في منتجك لاضافةعرض!</string>
 
 </resources>

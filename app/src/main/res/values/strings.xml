@@ -341,5 +341,8 @@
     <string name="dec">Dec</string>
 
     <string name="number_short">kMGTPE</string>
+    <string name="edit_offer">Edit Offer</string>
+    <string name="delete_offer">Remove Offer</string>
+    <string name="search_hint_add_offer">Search on your product to make an offer!</string>
 
 </resources>

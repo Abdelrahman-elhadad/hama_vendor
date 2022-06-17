@@ -29,6 +29,8 @@
     <color name="liner_back">#00000F</color>
     <color name="my_profile">#788F9B</color>
     <color name="my_profile_view">#99788F9B</color>
+    <color name="my_profile_image">#BF788F9B</color>
+    <color name="color_image_not_found">#C9C9C9</color>
 
 
     <color name="tracking">#DCDCDC</color>

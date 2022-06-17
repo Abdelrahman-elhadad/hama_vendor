@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="hama.alsaygh.kw.vendor.view.products.adapter.StoreProductViewModel" />
+            type="hama.alsaygh.kw.vendor.view.offers.activeOffer.adapter.ActiveOffersViewModel" />
 
     </data>
 
@@ -123,20 +123,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/cairosemibold"
-                    android:text="@{model.orderCount}"
+                    android:text="@{model.discount}"
                     android:textColor="@color/black"
                     android:textSize="11sp" />
 
 
                 <TextView
-                    android:id="@+id/store_page_number1"
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_price_before"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_weight="2"
                     android:fontFamily="@font/cairosemibold"
                     android:gravity="end"
-                    android:text="@{model.revenuePrice}"
+                    android:text="@{model.priceBefore}"
                     android:textColor="@color/black"
                     android:textSize="11sp" />
 

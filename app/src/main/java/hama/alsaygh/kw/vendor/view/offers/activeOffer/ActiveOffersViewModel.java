@@ -1,4 +1,4 @@
-package hama.alsaygh.kw.vendor.view.products;
+package hama.alsaygh.kw.vendor.view.offers.activeOffer;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
-public class ProductsViewModel extends ViewModel {
+public class ActiveOffersViewModel extends ViewModel {
 
     private final String TAG = "ProductsViewModel";
 
@@ -23,7 +23,7 @@ public class ProductsViewModel extends ViewModel {
     private int category_level_1 = -1, category_level_2 = -1, category_level_3 = -1;
 
 
-    public ProductsViewModel() {
+    public ActiveOffersViewModel() {
         productRepo = new ProductRepo();
 
     }
@@ -35,7 +35,7 @@ public class ProductsViewModel extends ViewModel {
     }
 
     public void getProducts(Context context, int page) {
-        productRepo.getProducts(context, page, sort_key, category_level_1, category_level_2, category_level_3, type_of_price, range_price_from, range_price_to, -1, languageResponseMutableLiveData);
+        productRepo.getProducts(context, page, sort_key, category_level_1, category_level_2, category_level_3, type_of_price, range_price_from, range_price_to, 1, languageResponseMutableLiveData);
     }
 
 

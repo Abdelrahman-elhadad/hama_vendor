@@ -1,4 +1,4 @@
-package hama.alsaygh.kw.vendor.view.order;
+package hama.alsaygh.kw.vendor.view.offers;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
-import hama.alsaygh.kw.vendor.databinding.FragmentOrdersBinding;
+import hama.alsaygh.kw.vendor.databinding.FragmentMainOffersBinding;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 
-public class OrdersFragment extends BaseFragment {
+public class MainOffersFragment extends BaseFragment {
 
-    FragmentOrdersBinding binding;
-    OrdersViewModel model;
+    FragmentMainOffersBinding binding;
+    MainOffersViewModel model;
     FragmentManager fragmentManager;
 
-    public static OrdersFragment newInstance() {
-        return new OrdersFragment();
+    public static MainOffersFragment newInstance() {
+        return new MainOffersFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentOrdersBinding.inflate(inflater, container, false);
+        binding = FragmentMainOffersBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -33,9 +33,8 @@ public class OrdersFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragmentManager = getChildFragmentManager();
-        model = new OrdersViewModel();
+        model = new MainOffersViewModel();
         binding.setModel(model);
         model.init(requireContext(), binding.vpOrders, binding.tabOrders, fragmentManager);
     }
-
 }
