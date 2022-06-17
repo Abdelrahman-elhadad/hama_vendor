@@ -52,7 +52,7 @@ public class StoreProductViewModel extends ViewModel {
     }
 
     public String getRevenuePrice() {
-        return context.getString(R.string.pro).replace("xx", Utils.formatNumber(storeModel.getOrder_count() * storeModel.getPrice())) + " " + context.getString(R.string.currency);
+        return context.getString(R.string.pro).replace("xx", Utils.formatNumber(context, storeModel.getOrder_count() * storeModel.getPrice())) + " " + context.getString(R.string.currency);
     }
 
     public String getOrderCount() {

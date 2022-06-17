@@ -261,10 +261,14 @@ public class Utils {
     }
 
 
-    public static String formatNumber(double count) {
+    public static String formatNumber(Context context, double count) {
         if (count < 1000) return "" + new DecimalFormat("##.##").format(count);
         int exp = (int) (Math.log(count) / Math.log(1000));
-        return String.format(Locale.ENGLISH, "%.1f %c", count / Math.pow(1000, exp), "kMGTPE".charAt(exp - 1));
+        return String.format(Locale.ENGLISH, "%.1f %c", count / Math.pow(1000, exp), context.getString(R.string.number_short).charAt(exp - 1));
+    }
+
+    public static String formatNumberDigital(double count) {
+        return new DecimalFormat("#,###.##").format(count);
     }
 
     public String convertArabic(String arabicStr) {

@@ -9,9 +9,9 @@ import com.github.mikephil.charting.data.CandleEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.MPPointF;
-import com.github.mikephil.charting.utils.Utils;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.utils.Utils;
 
 public class MyMarkerView extends MarkerView {
 
@@ -40,10 +40,10 @@ public class MyMarkerView extends MarkerView {
 
             CandleEntry ce = (CandleEntry) e;
 
-            tvContent.setText(Utils.formatNumber(ce.getHigh(), 0, true) + " " + currency);
+            tvContent.setText(Utils.formatNumberDigital(ce.getHigh()) + " " + currency);
         } else {
 
-            tvContent.setText(Utils.formatNumber(e.getY(), 0, true) + " " + currency);
+            tvContent.setText(Utils.formatNumberDigital(e.getY()) + " " + currency);
         }
 
         super.refreshContent(e, highlight);

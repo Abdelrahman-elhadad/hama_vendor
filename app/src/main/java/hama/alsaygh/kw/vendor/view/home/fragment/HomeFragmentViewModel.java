@@ -19,8 +19,10 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.model.mySales.MyMarkerView;
@@ -61,17 +63,23 @@ public class HomeFragmentViewModel extends ViewModel {
 
         chart.setDrawGridBackground(false);
 
-        chart.getAxisLeft().setDrawGridLines(false);
-        chart.getAxisLeft().setDrawAxisLine(false);
+        chart.getAxisLeft().setDrawGridLines(true);
+        chart.getAxisLeft().setDrawAxisLine(true);
         chart.getXAxis().setDrawGridLines(false);
         chart.getXAxis().setDrawLabels(true);
-        chart.getXAxis().setDrawAxisLine(true);
+        chart.getXAxis().setDrawAxisLine(false);
         //Part5
         chart.getXAxis().setLabelRotationAngle(0f);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         chart.getXAxis().setGranularity(1f);
         chart.getXAxis().setDrawLabels(true);
-        chart.getXAxis().setDrawAxisLine(false);
+        chart.getXAxis().setDrawAxisLine(true);
+        chart.getXAxis().setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return Utils.formatNumber(context, value);
+            }
+        });
 
 
         //Part7
@@ -102,8 +110,12 @@ public class HomeFragmentViewModel extends ViewModel {
         paint.setShader(gradient);
 
         chart.setMarker(new MyMarkerView(context, R.layout.chart_linear_item, context.getString(R.string.currency)));
-
-
+        chart.getAxisLeft().setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return Utils.formatNumber(context, value);
+            }
+        });
         // don't forget to refresh the drawing
         chart.invalidate();
 
@@ -117,7 +129,7 @@ public class HomeFragmentViewModel extends ViewModel {
             avgPrice = (mySalesData.getStatistics().getTotal()) / 12;
         }
 
-        avg = avg.replace("xx", Utils.formatNumber(avgPrice));
+        avg = avg.replace("xx", Utils.formatNumber(context, avgPrice));
         return avg;
     }
 
@@ -127,33 +139,47 @@ public class HomeFragmentViewModel extends ViewModel {
         if (mySalesData.getStatistics() != null) {
 
             values.add(new Entry(0, 0f));
-            values.add(new Entry(1, (float) mySalesData.getStatistics().getJan()));
-            values.add(new Entry(2, (float) mySalesData.getStatistics().getFeb()));
-            values.add(new Entry(3, (float) mySalesData.getStatistics().getMarch()));
-            values.add(new Entry(4, (float) mySalesData.getStatistics().getApril()));
-            values.add(new Entry(5, (float) mySalesData.getStatistics().getMay()));
-            values.add(new Entry(6, (float) mySalesData.getStatistics().getJune()));
-            values.add(new Entry(7, (float) mySalesData.getStatistics().getJuly()));
-            values.add(new Entry(8, (float) mySalesData.getStatistics().getAugust()));
-            values.add(new Entry(9, (float) mySalesData.getStatistics().getSeptember()));
-            values.add(new Entry(10, (float) mySalesData.getStatistics().getOctober()));
-            values.add(new Entry(11, (float) mySalesData.getStatistics().getNovember()));
-            values.add(new Entry(12, (float) mySalesData.getStatistics().getDecember()));
+//            values.add(new Entry(1, (float) mySalesData.getStatistics().getJan()));
+//            values.add(new Entry(2, (float) mySalesData.getStatistics().getFeb()));
+//            values.add(new Entry(3, (float) mySalesData.getStatistics().getMarch()));
+//            values.add(new Entry(4, (float) mySalesData.getStatistics().getApril()));
+//            values.add(new Entry(5, (float) mySalesData.getStatistics().getMay()));
+//            values.add(new Entry(6, (float) mySalesData.getStatistics().getJune()));
+//            values.add(new Entry(7, (float) mySalesData.getStatistics().getJuly()));
+//            values.add(new Entry(8, (float) mySalesData.getStatistics().getAugust()));
+//            values.add(new Entry(9, (float) mySalesData.getStatistics().getSeptember()));
+//            values.add(new Entry(10, (float) mySalesData.getStatistics().getOctober()));
+//            values.add(new Entry(11, (float) mySalesData.getStatistics().getNovember()));
+//            values.add(new Entry(12, (float) mySalesData.getStatistics().getDecember()));
+
+
+            values.add(new Entry(1, 500f));
+            values.add(new Entry(2, (float) 700.78898798798797));
+            values.add(new Entry(3, (float) 600));
+            values.add(new Entry(4, (float) 1000));
+            values.add(new Entry(5, (float) 10000));
+            values.add(new Entry(6, (float) 1500));
+            values.add(new Entry(7, (float) 10000));
+            values.add(new Entry(8, (float) 1000));
+            values.add(new Entry(9, (float) 900));
+            values.add(new Entry(10, (float) 10000));
+            values.add(new Entry(11, (float) 1000500));
+            values.add(new Entry(12, (float) 30000));
 
 
             months.add("");
-            months.add(context.getString(R.string.jan));
-            months.add(context.getString(R.string.feb));
-            months.add(context.getString(R.string.mar));
-            months.add(context.getString(R.string.apr));
-            months.add(context.getString(R.string.may));
-            months.add(context.getString(R.string.jun));
-            months.add(context.getString(R.string.jul));
-            months.add(context.getString(R.string.aug));
-            months.add(context.getString(R.string.sep));
-            months.add(context.getString(R.string.oct));
-            months.add(context.getString(R.string.nov));
-            months.add(context.getString(R.string.dec));
+            months.add(context.getString(R.string.jan).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.feb).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.mar).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.apr).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.may).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.jun).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.jul).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.aug).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.sep).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.oct).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.nov).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.dec).toUpperCase(Locale.ENGLISH));
 
         }
 
@@ -171,6 +197,12 @@ public class HomeFragmentViewModel extends ViewModel {
             set1.setDrawFilled(true);
             set1.setDrawValues(true);
             set1.setLineWidth(2f);
+            set1.setValueFormatter(new ValueFormatter() {
+                @Override
+                public String getFormattedValue(float value) {
+                    return Utils.formatNumber(context, value);
+                }
+            });
 
             set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.white));
             set1.setCircleColors(ContextCompat.getColor(context, R.color.chart_green));

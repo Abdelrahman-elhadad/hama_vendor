@@ -24,9 +24,11 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.model.mySales.MyMarkerView;
@@ -67,8 +69,8 @@ public class MySalesViewModel extends ViewModel {
 
         chart.setDrawGridBackground(false);
 
-        chart.getAxisLeft().setDrawGridLines(false);
-        chart.getAxisLeft().setDrawAxisLine(false);
+        chart.getAxisLeft().setDrawGridLines(true);
+        chart.getAxisLeft().setDrawAxisLine(true);
         chart.getXAxis().setDrawGridLines(false);
         chart.getXAxis().setDrawLabels(true);
         chart.getXAxis().setDrawAxisLine(true);
@@ -109,7 +111,12 @@ public class MySalesViewModel extends ViewModel {
 
         chart.setMarker(new MyMarkerView(context, R.layout.chart_linear_item, context.getString(R.string.currency)));
 
-
+        chart.getAxisLeft().setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return Utils.formatNumber(context, value);
+            }
+        });
         // don't forget to refresh the drawing
         chart.invalidate();
 
@@ -123,7 +130,7 @@ public class MySalesViewModel extends ViewModel {
             avgPrice = (mySalesData.getStatistics().getTotal()) / 12;
         }
 
-        avg = avg.replace("xx", Utils.formatNumber(avgPrice));
+        avg = avg.replace("xx", Utils.formatNumber(context, avgPrice));
         return avg;
     }
 
@@ -250,18 +257,18 @@ public class MySalesViewModel extends ViewModel {
 
 
             months.add("");
-            months.add(context.getString(R.string.jan));
-            months.add(context.getString(R.string.feb));
-            months.add(context.getString(R.string.mar));
-            months.add(context.getString(R.string.apr));
-            months.add(context.getString(R.string.may));
-            months.add(context.getString(R.string.jun));
-            months.add(context.getString(R.string.jul));
-            months.add(context.getString(R.string.aug));
-            months.add(context.getString(R.string.sep));
-            months.add(context.getString(R.string.oct));
-            months.add(context.getString(R.string.nov));
-            months.add(context.getString(R.string.dec));
+            months.add(context.getString(R.string.jan).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.feb).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.mar).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.apr).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.may).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.jun).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.jul).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.aug).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.sep).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.oct).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.nov).toUpperCase(Locale.ENGLISH));
+            months.add(context.getString(R.string.dec).toUpperCase(Locale.ENGLISH));
 
         }
 
@@ -279,6 +286,12 @@ public class MySalesViewModel extends ViewModel {
             set1.setDrawFilled(true);
             set1.setDrawValues(true);
             set1.setLineWidth(2f);
+            set1.setValueFormatter(new ValueFormatter() {
+                @Override
+                public String getFormattedValue(float value) {
+                    return Utils.formatNumber(context, value);
+                }
+            });
 
             set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.white));
             set1.setCircleColors(ContextCompat.getColor(context, R.color.chart_green));
