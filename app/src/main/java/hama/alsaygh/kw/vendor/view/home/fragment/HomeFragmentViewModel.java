@@ -38,7 +38,7 @@ public class HomeFragmentViewModel extends ViewModel {
     private final ProfileRepo authRepo;
     private MutableLiveData<MySalesResponse> loginResponseMutableLiveData;
 
-    private Context context;
+    private final Context context;
 
     public HomeFragmentViewModel(Context context, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
@@ -139,32 +139,32 @@ public class HomeFragmentViewModel extends ViewModel {
         if (mySalesData.getStatistics() != null) {
 
             values.add(new Entry(0, 0f));
-//            values.add(new Entry(1, (float) mySalesData.getStatistics().getJan()));
-//            values.add(new Entry(2, (float) mySalesData.getStatistics().getFeb()));
-//            values.add(new Entry(3, (float) mySalesData.getStatistics().getMarch()));
-//            values.add(new Entry(4, (float) mySalesData.getStatistics().getApril()));
-//            values.add(new Entry(5, (float) mySalesData.getStatistics().getMay()));
-//            values.add(new Entry(6, (float) mySalesData.getStatistics().getJune()));
-//            values.add(new Entry(7, (float) mySalesData.getStatistics().getJuly()));
-//            values.add(new Entry(8, (float) mySalesData.getStatistics().getAugust()));
-//            values.add(new Entry(9, (float) mySalesData.getStatistics().getSeptember()));
-//            values.add(new Entry(10, (float) mySalesData.getStatistics().getOctober()));
-//            values.add(new Entry(11, (float) mySalesData.getStatistics().getNovember()));
-//            values.add(new Entry(12, (float) mySalesData.getStatistics().getDecember()));
+            values.add(new Entry(1, (float) mySalesData.getStatistics().getJan()));
+            values.add(new Entry(2, (float) mySalesData.getStatistics().getFeb()));
+            values.add(new Entry(3, (float) mySalesData.getStatistics().getMarch()));
+            values.add(new Entry(4, (float) mySalesData.getStatistics().getApril()));
+            values.add(new Entry(5, (float) mySalesData.getStatistics().getMay()));
+            values.add(new Entry(6, (float) mySalesData.getStatistics().getJune()));
+            values.add(new Entry(7, (float) mySalesData.getStatistics().getJuly()));
+            values.add(new Entry(8, (float) mySalesData.getStatistics().getAugust()));
+            values.add(new Entry(9, (float) mySalesData.getStatistics().getSeptember()));
+            values.add(new Entry(10, (float) mySalesData.getStatistics().getOctober()));
+            values.add(new Entry(11, (float) mySalesData.getStatistics().getNovember()));
+            values.add(new Entry(12, (float) mySalesData.getStatistics().getDecember()));
 
 
-            values.add(new Entry(1, 500f));
-            values.add(new Entry(2, (float) 700.78898798798797));
-            values.add(new Entry(3, (float) 600));
-            values.add(new Entry(4, (float) 1000));
-            values.add(new Entry(5, (float) 10000));
-            values.add(new Entry(6, (float) 1500));
-            values.add(new Entry(7, (float) 10000));
-            values.add(new Entry(8, (float) 1000));
-            values.add(new Entry(9, (float) 900));
-            values.add(new Entry(10, (float) 10000));
-            values.add(new Entry(11, (float) 1000500));
-            values.add(new Entry(12, (float) 30000));
+//            values.add(new Entry(1, 500f));
+//            values.add(new Entry(2, (float) 700.78898798798797));
+//            values.add(new Entry(3, (float) 600));
+//            values.add(new Entry(4, (float) 1000));
+//            values.add(new Entry(5, (float) 10000));
+//            values.add(new Entry(6, (float) 1500));
+//            values.add(new Entry(7, (float) 10000));
+//            values.add(new Entry(8, (float) 1000));
+//            values.add(new Entry(9, (float) 900));
+//            values.add(new Entry(10, (float) 10000));
+//            values.add(new Entry(11, (float) 1000500));
+//            values.add(new Entry(12, (float) 30000));
 
 
             months.add("");
@@ -204,11 +204,11 @@ public class HomeFragmentViewModel extends ViewModel {
                 }
             });
 
-            set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.white));
+            set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.transparent_color));
             set1.setCircleColors(ContextCompat.getColor(context, R.color.chart_green));
             set1.setDrawCircles(true);
             set1.setDrawCircleHole(false);
-            set1.setCircleRadius(4f);
+            set1.setCircleRadius(5f);
             set1.setValueTextColor(ContextCompat.getColor(context, R.color.chart_green));
             set1.setColor(ContextCompat.getColor(context, R.color.chart_green));
 

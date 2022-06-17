@@ -293,14 +293,13 @@ public class MySalesViewModel extends ViewModel {
                 }
             });
 
-            set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.white));
+            set1.setFillDrawable(ContextCompat.getDrawable(context, R.color.transparent_color));
             set1.setCircleColors(ContextCompat.getColor(context, R.color.chart_green));
             set1.setDrawCircles(true);
             set1.setDrawCircleHole(false);
-            set1.setCircleRadius(4f);
+            set1.setCircleRadius(5f);
             set1.setValueTextColor(ContextCompat.getColor(context, R.color.chart_green));
             set1.setColor(ContextCompat.getColor(context, R.color.chart_green));
-
             set1.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
 
