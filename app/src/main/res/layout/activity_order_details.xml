@@ -199,6 +199,8 @@
                         android:layout_below="@+id/tv_customer_name"
                         android:layout_alignEnd="@id/user_view_center"
                         android:layout_alignParentStart="true"
+                        android:gravity="start"
+                        android:textAlignment="viewStart"
                         android:fontFamily="@font/cairobold"
                         android:text="@{model.userName}"
                         android:textColor="@color/black"
@@ -212,7 +214,9 @@
                         android:layout_alignStart="@+id/tv_country"
                         android:layout_alignParentEnd="true"
                         android:fontFamily="@font/cairobold"
+                        android:gravity="start"
                         android:text="@{model.country}"
+                        android:textAlignment="viewStart"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -253,8 +257,8 @@
                         android:layout_alignStart="@id/tv_city"
                         android:layout_alignEnd="@id/tv_city"
                         android:fontFamily="@font/cairobold"
-                        android:text="@{model.city}"
                         android:gravity="start"
+                        android:text="@{model.city}"
                         android:textAlignment="viewStart"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -269,7 +273,9 @@
                         android:fontFamily="@font/cairosemibold"
                         android:text="@{model.buildingNo}"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
 
                     <TextView
                         android:id="@+id/tv_zip_code_title"
@@ -295,7 +301,9 @@
                         android:fontFamily="@font/cairobold"
                         android:text="@{model.zipCode}"
                         android:textColor="@color/black"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:gravity="start"
+                        android:textAlignment="viewStart" />
 
                 </RelativeLayout>
 

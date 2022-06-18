@@ -122,20 +122,8 @@ public class MySalesViewModel extends ViewModel {
 
     }
 
-    public String getSalesAvg(Context context, MySalesData mySalesData) {
-        String avg = context.getString(R.string.bvbvb);
-        double avgPrice = 0;
-
-        if (mySalesData.getStatistics() != null) {
-            avgPrice = (mySalesData.getStatistics().getTotal()) / 12;
-        }
-
-        avg = avg.replace("xx", Utils.formatNumber(context, avgPrice));
-        return avg;
-    }
-
     public void setPieChartSetting(Context context, PieChart chartAudiance) {
-        chartAudiance.setUsePercentValues(true);
+        chartAudiance.setUsePercentValues(false);
         chartAudiance.getDescription().setEnabled(false);
         chartAudiance.setExtraOffsets(5, 10, 5, 5);
         chartAudiance.setDragDecelerationFrictionCoef(0.95f);
@@ -315,4 +303,17 @@ public class MySalesViewModel extends ViewModel {
 
 
     }
+
+    public String getSalesAvg(Context context, MySalesData mySalesData) {
+        String avg = context.getString(R.string.bvbvb);
+        double avgPrice = 0;
+
+        if (mySalesData.getStatistics() != null) {
+            avgPrice = (mySalesData.getStatistics().getTotal()) / 12;
+        }
+
+        avg = avg.replace("xx", Utils.formatNumber(context, avgPrice));
+        return avg;
+    }
+
 }
