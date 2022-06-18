@@ -344,5 +344,7 @@
     <string name="edit_offer">Edit Offer</string>
     <string name="delete_offer">Remove Offer</string>
     <string name="search_hint_add_offer">Search on your product to make an offer!</string>
+    <string name="delete_offer_msg">Are you sure to remove this offer ?</string>
+    <string name="download_file">File is downloading...</string>
 
 </resources>

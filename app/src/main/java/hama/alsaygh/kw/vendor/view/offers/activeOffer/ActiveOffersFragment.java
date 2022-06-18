@@ -1,6 +1,5 @@
 package hama.alsaygh.kw.vendor.view.offers.activeOffer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,12 +21,9 @@ import hama.alsaygh.kw.vendor.databinding.FragmentActiveOffersBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Product;
-import hama.alsaygh.kw.vendor.repo.RequestWrapper;
-import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.offers.activeOffer.adapter.ActiveOffersRecycleViewAdapter;
-import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
 public class ActiveOffersFragment extends BaseFragment implements OnGeneralClickListener {
     FragmentActiveOffersBinding binding;
@@ -163,10 +159,13 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
     @Override
     public void onEditClick(Object object, int position) {
 
-        Intent intent = new Intent(requireContext(), AddEditProductActivity.class);
-        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
-        startActivity(intent);
-
+        if (adapter != null) {
+            adapter.editItem((Product) object);
+            if (adapter.getItemCount() == 0) {
+                binding.rvProducts.setVisibility(View.GONE);
+                binding.llNoProduct.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @Override

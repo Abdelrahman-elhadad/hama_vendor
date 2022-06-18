@@ -62,6 +62,12 @@ public class Order implements Serializable {
     @SerializedName("total")
     private String total;
 
+    @SerializedName("voucher_pdf_link")
+    private String voucher_pdf_link;
+
+    @SerializedName("voucher_image_link")
+    private String voucher_image_link;
+
     @SerializedName("delivery")
     private Address delivery;
 
@@ -252,5 +258,21 @@ public class Order implements Serializable {
 //                return "";
 //        }
         return created_at;
+    }
+
+    public String getVoucher_pdf_link() {
+        return voucher_pdf_link;
+    }
+
+    public void setVoucher_pdf_link(String voucher_pdf_link) {
+        this.voucher_pdf_link = voucher_pdf_link;
+    }
+
+    public String getVoucher_image_link() {
+        return voucher_image_link;
+    }
+
+    public void setVoucher_image_link(String voucher_image_link) {
+        this.voucher_image_link = voucher_image_link;
     }
 }

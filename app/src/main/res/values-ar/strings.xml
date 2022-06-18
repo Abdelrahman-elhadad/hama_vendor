@@ -295,17 +295,16 @@
     <string name="button_navigation">حذف منتج</string>
     <string name="button">حذف منتج</string>
 
-    <string name="delete_product">Are you sure to delete this item from
-the cart?</string>
+    <string name="delete_product">هل أنت متأكد من حذف هذا العنصر؟</string>
     <string name="delete_product1">حذف منتج</string>
     <string name="no_internet_connection">لا يوجد انترنت</string>
-    <string name="option_name_ar">Option Name \"Ar\"</string>
-    <string name="option_name_en">Option Name \"En\"</string>
+    <string name="option_name_ar">الاسم \"العربية\"</string>
+    <string name="option_name_en">الاسم \"الانجليزية\"</string>
     <string name="pick_a_color">اختر لون</string>
-    <string name="notifications">Notifictions</string>
+    <string name="notifications">اشعارات</string>
 
-    <string name="save_changes">Save Changes</string>
-    <string name="edit_product">Edit Product</string>
+    <string name="save_changes">حفظ التعديلات</string>
+    <string name="edit_product">تعديل المنتج</string>
 
     <string name="silver_market">بورصة الذهب / الفضة</string>
     <string name="Gold_Market">بورصة الذهب</string>
@@ -329,8 +328,8 @@ the cart?</string>
     <string name="sort_by">ترتيب حسب</string>
     <string name="Gold">ذهب</string>
     <string name="great_job">Great Job!</string>
-    <string name="confirm_send_to_delivery"><![CDATA[Confirm & Send To  Delivery]]></string>
-    <string name="no_data">No Data Found</string>
+    <string name="confirm_send_to_delivery">تأكيد وإرسال للتسليم</string>
+    <string name="no_data">لا توجد بيانات</string>
 
     <string name="jan">يناير</string>
     <string name="feb">فبراير</string>
@@ -349,5 +348,7 @@ the cart?</string>
     <string name="edit_offer">تعديل العرض</string>
     <string name="delete_offer">ازالة العرض</string>
     <string name="search_hint_add_offer">ابحث في منتجك لاضافةعرض!</string>
+    <string name="delete_offer_msg">هل أنت متأكد من إزالة هذا العرض؟</string>
+    <string name="download_file">is downloading...</string>
 
 </resources>

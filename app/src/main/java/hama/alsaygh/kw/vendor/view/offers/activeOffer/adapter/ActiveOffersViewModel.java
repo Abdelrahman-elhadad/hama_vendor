@@ -14,7 +14,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.dialog.DeleteProduct;
+import hama.alsaygh.kw.vendor.dialog.offers.AddEditOfferProductDialog;
+import hama.alsaygh.kw.vendor.dialog.offers.RemoveOffersProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.LocalUtils;
@@ -100,14 +101,12 @@ public class ActiveOffersViewModel extends ViewModel {
 
 
         tvEdit.setOnClickListener(v1 -> {
-
-            if (onGeneralClickListener != null)
-                onGeneralClickListener.onEditClick(storeModel, position);
+            AddEditOfferProductDialog.newInstance(storeModel, position, onGeneralClickListener).show(fragmentManager, "Edit");
             popupWindow.dismiss();
         });
 
         tvDelete.setOnClickListener(v12 -> {
-            DeleteProduct.newInstance(storeModel.getId(), onGeneralClickListener).show(fragmentManager, "Delete");
+            RemoveOffersProductDialog.newInstance(storeModel.getId(), storeModel, onGeneralClickListener).show(fragmentManager, "Delete");
             popupWindow.dismiss();
         });
 
@@ -136,5 +135,4 @@ public class ActiveOffersViewModel extends ViewModel {
             }
         });
     }
-
 }

@@ -72,6 +72,19 @@ public class ActiveOffersRecycleViewAdapter extends RecyclerView.Adapter<Recycle
         notifyDataSetChanged();
     }
 
+    public void editItem(Product product) {
+        if (countries == null)
+            countries = new ArrayList<>();
+        for (int i = 0; i < countries.size(); i++) {
+            if (countries.get(i).getId() == product.getId()) {
+                countries.remove(i);
+                countries.add(i, product);
+                break;
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     static class CategoryViewHolder extends RecyclerView.ViewHolder {
         final ItemRvActiveOfferBinding binding;
 

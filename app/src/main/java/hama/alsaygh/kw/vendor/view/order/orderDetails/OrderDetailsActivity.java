@@ -2,13 +2,17 @@ package hama.alsaygh.kw.vendor.view.order.orderDetails;
 
 import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.PENDING;
 
+import android.app.DownloadManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 
 import com.faltenreich.skeletonlayout.Skeleton;
 import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
+import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.ActivityOrderDetailsBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.dialog.order.AcceptOrderDialog;
@@ -86,6 +90,17 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
                         binding.llDate.setVisibility(View.GONE);
                     }
 
+
+                    if (model.storeModel.getVoucher_image_link() == null || !model.storeModel.getVoucher_image_link().isEmpty())
+                        binding.btnImage.setVisibility(View.GONE);
+                    else
+                        binding.btnImage.setVisibility(View.VISIBLE);
+
+                    if (model.storeModel.getVoucher_pdf_link() == null || !model.storeModel.getVoucher_pdf_link().isEmpty())
+                        binding.btnPdf.setVisibility(View.GONE);
+                    else
+                        binding.btnPdf.setVisibility(View.VISIBLE);
+
                     OrderProductsRecycleViewAdapter adapter = new OrderProductsRecycleViewAdapter(orderResponse.getData().getItems(), status, OrderDetailsActivity.this);
                     binding.rvProducts.setAdapter(adapter);
 
@@ -113,6 +128,27 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
                         .show(getSupportFragmentManager(), "discard")
         );
 
+        binding.btnPdf.setOnClickListener(v -> {
+            DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_pdf_link()));
+            request.setTitle(getString(R.string.download_pdf))
+                    .setDescription(getString(R.string.download_file))
+                    .setDestinationInExternalFilesDir(this,
+                            Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            downloadManager.enqueue(request);
+        });
+
+        binding.btnImage.setOnClickListener(v -> {
+            DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_image_link()));
+            request.setTitle(getString(R.string.download_image))
+                    .setDescription(getString(R.string.download_file))
+                    .setDestinationInExternalFilesDir(this,
+                            Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            downloadManager.enqueue(request);
+        });
     }
 
     @Override

@@ -7,6 +7,8 @@ import android.view.View;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
+import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
@@ -100,4 +102,45 @@ public class ActiveOffersViewModel extends ViewModel {
     public void setCategory_level_3(int category_level_3) {
         this.category_level_3 = category_level_3;
     }
+
+    public AddProduct setProductToSend(Product product) {
+        AddProduct addProduct = new AddProduct();
+        addProduct.setId(product.getId());
+        addProduct.setCode(product.getCate_code());
+        if (product.getTranslations() != null) {
+            if (product.getTranslations().getEn() != null) {
+                addProduct.setName(product.getTranslations().getEn().getName());
+                addProduct.setDescription(product.getTranslations().getEn().getDescription());
+            }
+            if (product.getTranslations().getEn() != null) {
+                addProduct.setName_ar(product.getTranslations().getAr().getName());
+                addProduct.setDescription_ar(product.getTranslations().getAr().getDescription());
+            }
+        }
+        addProduct.setWeight(product.getWeight());
+        addProduct.setCaliber(product.getCaliber());
+        addProduct.setQuantity(product.getQuantity() + "");
+        addProduct.setMain_category(product.getMain_category());
+        addProduct.setSub_category(product.getCategory());
+        addProduct.setChild_sub_category(product.getSub_category());
+        addProduct.setBind_to_market(product.isBind_to_market());
+        addProduct.setManufacture_price(product.getManufacture_price() + "");
+        addProduct.setNetWeight(product.getMetal_weight() + "");
+        addProduct.setStoneType(product.getSton_type() + "");
+        addProduct.setStoneWeight(product.getGem_stone_weight() + "");
+        addProduct.setDiamond(product.getDimond() + "");
+        addProduct.setDiamondWeight(product.getDiamond_weight() + "");
+        addProduct.setPurity(product.getPurity() + "");
+        addProduct.setColor(product.getColor());
+        addProduct.setFixed_price(product.getPrice() + "");
+        addProduct.setDiscount(product.getDiscount_value() + "");
+        addProduct.setGmPrice(product.getGram_price() + "");
+        addProduct.setTotalWeightMetal(product.getTotal_metal_weight() + "");
+        addProduct.setMedia(product.getMedia());
+        addProduct.setOptions(product.getOptions());
+
+        return addProduct;
+
+    }
+
 }
