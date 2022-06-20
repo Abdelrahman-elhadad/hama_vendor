@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/back_edit_txt_red.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_editt.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_border.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_ground_border_image_home.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_button.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_button_2.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/back_ground_button_transparent.xml" value="0.152" />
@@ -23,6 +24,7 @@
         <entry key="app/src/main/res/drawable/back_item_rv_not_selected.xml" value="0.1485" />
         <entry key="app/src/main/res/drawable/back_liner_gold_buttom.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_liner_gold_top.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_liner_home.xml" value="0.146" />
         <entry key="app/src/main/res/drawable/back_liner_kwd.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_my_profile.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_my_profile_2.xml" value="0.152" />
@@ -147,7 +149,7 @@
         <entry key="app/src/main/res/layout/fragment_add_product_step_1.xml" value="0.2004521477015825" />
         <entry key="app/src/main/res/layout/fragment_add_product_step_2.xml" value="0.31645304361979176" />
         <entry key="app/src/main/res/layout/fragment_gold_market.xml" value="0.16302083333333334" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.21866666666666668" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_main_offers.xml" value="0.896875" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.48148148148148145" />
         <entry key="app/src/main/res/layout/fragment_orders.xml" value="0.15364583333333334" />
@@ -159,7 +161,7 @@
         <entry key="app/src/main/res/layout/item_active_offer.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_add_new_offer.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_rv1_add_product.xml" value="0.14166666666666666" />
-        <entry key="app/src/main/res/layout/item_rv1_home.xml" value="0.14947916666666666" />
+        <entry key="app/src/main/res/layout/item_rv1_home.xml" value="0.45" />
         <entry key="app/src/main/res/layout/item_rv2_home.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_rv_active_offer.xml" value="0.14947916666666666" />
         <entry key="app/src/main/res/layout/item_rv_caliber.xml" value="0.2546875" />

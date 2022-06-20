@@ -36,7 +36,7 @@
     <string name="Orders">Orders</string>
     <string name="Offers">Offers</string>
     <string name="More">More</string>
-    <string name="order">5 New Orders</string>
+    <string name="order">xx New Orders</string>
     <string name="hghghg">Click here to see the pending orders</string>
     <string name="bvbvb">Sales Rate \"xx KWD\"</string>
     <string name="best">Best Seller Day</string>
@@ -49,7 +49,7 @@
     <string name="stores">Best 5 Products</string>
     <string name="SEE_ALL">SEE ALL</string>
     <string name="gold_ring">Gold Ring</string>
-    <string name="name1">"Was ordered 150 times "</string>
+    <string name="name1">Was ordered xx times</string>
     <string name="name">abu mohamad</string>
     <string name="hkhk">Lorem ipsum dolor sit amet</string>
     <string name="filter">Filter</string>
@@ -346,5 +346,16 @@
     <string name="search_hint_add_offer">Search on your product to make an offer!</string>
     <string name="delete_offer_msg">Are you sure to remove this offer ?</string>
     <string name="download_file">File is downloading...</string>
+
+
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">T</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="sunday">S</string>
+    <string name="last_week">Last week</string>
+
 
 </resources>

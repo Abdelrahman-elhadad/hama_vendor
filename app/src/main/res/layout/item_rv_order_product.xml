@@ -46,8 +46,10 @@
                 android:layout_toEndOf="@+id/iv_image"
                 android:ellipsize="end"
                 android:fontFamily="@font/cairobold"
+                android:gravity="start"
                 android:lines="1"
                 android:text="@{model.name}"
+                android:textAlignment="viewStart"
                 android:textColor="@color/black" />
 
             <TextView

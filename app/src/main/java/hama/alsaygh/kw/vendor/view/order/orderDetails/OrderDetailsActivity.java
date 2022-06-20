@@ -18,6 +18,7 @@ import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.dialog.order.AcceptOrderDialog;
 import hama.alsaygh.kw.vendor.dialog.order.DiscardOrderDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.cart.CartItem;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
@@ -56,9 +57,19 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
                     model.addProductVisibility.set(View.VISIBLE);
                     model.pbAddProductVisibility.set(View.GONE);
 
-                    if (status == PENDING)
-                        binding.llNext.setVisibility(View.VISIBLE);
-                    else
+                    if (status == PENDING) {
+                        boolean isAccepted = true;
+                        for (CartItem storeModel : orderResponse.getData().getItems()) {
+                            if (!storeModel.getStatus().equalsIgnoreCase("accepted")) {
+                                isAccepted = false;
+                                break;
+                            }
+                        }
+                        if (isAccepted)
+                            binding.llNext.setVisibility(View.GONE);
+                        else
+                            binding.llNext.setVisibility(View.VISIBLE);
+                    } else
                         binding.llNext.setVisibility(View.GONE);
 
                     if (model.storeModel.getDelivery_type().equalsIgnoreCase("hand_by_hand")) {

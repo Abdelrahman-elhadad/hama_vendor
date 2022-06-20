@@ -43,6 +43,7 @@ public class MyMarkerView extends MarkerView {
             tvContent.setText(Utils.formatNumberDigital(ce.getHigh()) + " " + currency);
         } else {
 
+
             tvContent.setText(Utils.formatNumberDigital(e.getY()) + " " + currency);
         }
 

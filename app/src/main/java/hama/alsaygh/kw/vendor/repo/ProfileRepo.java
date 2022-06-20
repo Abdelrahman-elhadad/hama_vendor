@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
+import hama.alsaygh.kw.vendor.model.home.HomeResponse;
 import hama.alsaygh.kw.vendor.model.mySales.MySalesResponse;
 import hama.alsaygh.kw.vendor.model.notifications.NotificationsResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
@@ -440,7 +441,8 @@ public class ProfileRepo {
                 Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
-
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"null\"", "null");
                 Log.i(TAG, "Response:my-sales : " + responseString);
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, MySalesResponse.class);
@@ -456,6 +458,44 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final MySalesResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+
+    ////////////////////// home //////////////
+    public void getHome(final Context context, final MutableLiveData<HomeResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            HomeResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "home";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"null\"", "null");
+                Log.i(TAG, "Response:home : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, HomeResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new HomeResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final HomeResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

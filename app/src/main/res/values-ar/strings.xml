@@ -9,7 +9,7 @@
     <string name="add21">مرحبًا بعودتك</string>
     <string name="Language_Settings4">تسجيل الدخول إلى متجرك الآن!</string>
     <string name="Language_Settings5">نسيت؟</string>
-    <string name="email">البزيد الالكتروني</string>
+    <string name="email">البريد الالكتروني</string>
     <string name="pass">كلمة المرور</string>
     <string name="confirm2">"ليس لديك حساب بائع؟"</string>
     <string name="sign_up"><u>سجل الان</u>.</string>
@@ -35,12 +35,12 @@
     <string name="Orders">الطلبات</string>
     <string name="Offers">العروض</string>
     <string name="More">أكثر</string>
-    <string name="order">5 أوامر جديدة</string>
+    <string name="order">xx طلبات جديدة</string>
     <string name="hghghg">انقر هنا لرؤية الطلبات المعلقة</string>
     <string name="bvbvb">سعر المبيعات "\xx د.ك "\</string>
     <string name="best">أفضل يوم بائع</string>
     <string name="Overview">ملخص</string>
-    <string name="Store_Views">آراء المتجر</string>
+    <string name="Store_Views"> عدد مشاهدة المتجر</string>
     <string name="Most">معظم الفئات العمرية</string>
     <string name="Male">ذكر</string>
     <string name="New_Orders">طلبات جديدة</string>
@@ -48,7 +48,7 @@
     <string name="stores">أفضل 5 منتجات</string>
     <string name="SEE_ALL">اظهار الكل</string>
     <string name="gold_ring">خاتم ذهب</string>
-    <string name="name1">"تم طلبه 150 مرة "</string>
+    <string name="name1">تم طلبه xx مرة</string>
     <string name="name">ابو محمد</string>
     <string name="hkhk">أبجد هوز دولور الجلوس امات</string>
     <string name="filter">فلتر</string>
@@ -130,7 +130,7 @@
     <string name="email1">احمد محمد العزيزة</string>
     <string name="fixed12">مبيعاتي</string>
     <string name="profile">تتبع الطلب</string>
-    <string name="profile1">سعر المتجر</string>
+    <string name="profile1">تقيم المتجر</string>
     <string name="profile2">الاعدادات العامة</string>
     <string name="profile3">قيم هامه</string>
     <string name="profile4">الشروط و الاحكام</string>
@@ -327,7 +327,7 @@
     <string name="price">السعر</string>
     <string name="sort_by">ترتيب حسب</string>
     <string name="Gold">ذهب</string>
-    <string name="great_job">Great Job!</string>
+    <string name="great_job">عمل عظيم!</string>
     <string name="confirm_send_to_delivery">تأكيد وإرسال للتسليم</string>
     <string name="no_data">لا توجد بيانات</string>
 
@@ -349,6 +349,14 @@
     <string name="delete_offer">ازالة العرض</string>
     <string name="search_hint_add_offer">ابحث في منتجك لاضافةعرض!</string>
     <string name="delete_offer_msg">هل أنت متأكد من إزالة هذا العرض؟</string>
-    <string name="download_file">is downloading...</string>
+    <string name="download_file">يتم تنزيل ...</string>
 
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="sunday">الاحد</string>
+    <string name="last_week">الاسبوع الاخير</string>
 </resources>

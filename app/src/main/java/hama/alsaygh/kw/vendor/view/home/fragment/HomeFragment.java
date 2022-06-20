@@ -9,17 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 
+import com.faltenreich.skeletonlayout.Skeleton;
+import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
+import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.FragmentHomeBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
+import hama.alsaygh.kw.vendor.view.home.HomeActivity;
+import hama.alsaygh.kw.vendor.view.home.fragment.adapter.BeastProductRecycleViewAdapter;
 
 public class HomeFragment extends BaseFragment {
 
     FragmentHomeBinding binding;
     HomeFragmentViewModel model;
     FragmentManager fragmentManager;
+    Skeleton skeleton;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -38,16 +44,34 @@ public class HomeFragment extends BaseFragment {
         fragmentManager = getChildFragmentManager();
         model = new HomeFragmentViewModel(requireContext(), fragmentManager);
         binding.setModel(model);
-
+        skeleton = SkeletonLayoutUtils.createSkeleton(binding.nsMain);
 
         model.setLineChartSetting(requireContext(), binding.chartSales);
+        model.setBarChartSetting(requireContext(), binding.chartBestDaySales);
 
         model.getObservable().observe(requireActivity(), mySalesResponse -> {
+            skeleton.showOriginal();
             if (mySalesResponse.isStatus()) {
 
 
                 model.setSalesData(requireContext(), binding.chartSales, mySalesResponse.getData());
                 binding.tvSales.setText(model.getSalesAvg(requireContext(), mySalesResponse.getData()));
+
+                model.setBestSalesData(requireContext(), binding.chartBestDaySales, mySalesResponse.getData());
+
+                if (mySalesResponse.getData().getStore_info() != null) {
+                    binding.tvAcceptablePrice.setText(mySalesResponse.getData().getStore_info().getLast_week_orders_avg());
+                    binding.tvNewOrder.setText(mySalesResponse.getData().getStore_info().getLast_week_orders() + "");
+                    binding.tvStoreViews.setText(mySalesResponse.getData().getStore_info().getVisitors_count() + "");
+                    binding.tvAgeGroup.setText(mySalesResponse.getData().getStore_info().getMost_age_group());
+                }
+                if (mySalesResponse.getData().getBest_products() != null && !mySalesResponse.getData().getBest_products().isEmpty()) {
+                    BeastProductRecycleViewAdapter productAdapter = new BeastProductRecycleViewAdapter(mySalesResponse.getData().getBest_products(), null);
+                    binding.rvBeastProducts.setAdapter(productAdapter);
+                    binding.llBeastProduct.setVisibility(View.VISIBLE);
+                } else {
+                    binding.llBeastProduct.setVisibility(View.GONE);
+                }
             } else {
                 if (mySalesResponse.getCode().equalsIgnoreCase("401"))
                     LoginDialog.newInstance().show(fragmentManager, "login");
@@ -56,7 +80,34 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
-        model.getMySales(requireContext());
+        skeleton.showSkeleton();
+        model.getHome(requireContext());
 
+
+        binding.tvSeeAllBeastProduct.setOnClickListener(v -> ((HomeActivity) requireActivity()).openProducts());
+
+        model.getOrderPendingObserver().observe(requireActivity(), mySalesResponse -> {
+
+            if (mySalesResponse.isStatus()) {
+                if (mySalesResponse.getData() != null && !mySalesResponse.getData().isEmpty()) {
+                    binding.llPendingOrder.setVisibility(View.VISIBLE);
+                    String orders = requireContext().getString(R.string.order).replace("xx", mySalesResponse.getData().size() + "");
+                    binding.tvOrderNewCount.setText(orders);
+                } else {
+                    binding.llPendingOrder.setVisibility(View.GONE);
+                }
+            } else {
+                binding.llPendingOrder.setVisibility(View.GONE);
+            }
+        });
+        model.getOrders(requireContext());
+        binding.llPendingOrder.setOnClickListener(v -> ((HomeActivity) requireActivity()).openOrders());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        model.getOrderPendingObserver().removeObservers(requireActivity());
+        model.getObservable().removeObservers(requireActivity());
     }
 }

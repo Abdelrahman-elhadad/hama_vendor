@@ -33,6 +33,14 @@ public class HomeActivity extends BaseActivity {
         });
     }
 
+    public void openProducts() {
+        binding.buttomNav.setSelectedItemId(R.id.item_products);
+    }
+
+    public void openOrders() {
+        binding.buttomNav.setSelectedItemId(R.id.item_orders);
+    }
+
     @Override
     public void onBackPressed() {
         if (position != model.getHome())
