@@ -30,11 +30,11 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="10dp"
+                android:background="@drawable/back_liner_home"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/back_liner_home">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="60dp"
@@ -94,8 +94,8 @@
                 android:background="@drawable/back_mysales"
                 android:orientation="vertical"
                 android:paddingTop="16dp"
-                android:visibility="visible"
-                android:paddingBottom="16dp">
+                android:paddingBottom="16dp"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/tv_sales"
@@ -129,8 +129,8 @@
                 android:background="@drawable/back_mysales"
                 android:orientation="vertical"
                 android:paddingTop="16dp"
-                android:visibility="visible"
-                android:paddingBottom="16dp">
+                android:paddingBottom="16dp"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/Best_Seller_Day"
@@ -164,8 +164,8 @@
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/back_mysales"
                 android:paddingTop="16dp"
-                android:visibility="visible"
-                android:paddingBottom="16dp">
+                android:paddingBottom="16dp"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/tv_overview"
@@ -334,6 +334,7 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/ll_beast_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -342,7 +343,6 @@
                 android:background="@drawable/back_mysales"
                 android:orientation="vertical"
                 android:paddingTop="16dp"
-                android:id="@+id/ll_beast_product"
                 android:paddingBottom="16dp">
 
                 <LinearLayout
@@ -356,25 +356,25 @@
                     <TextView
                         android:id="@+id/best_stores11"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/cairobold"
-                        android:text="@string/stores"
-                        android:textColor="@color/blackcolor1"
-                        android:textSize="19sp"
                         android:gravity="start|center"
-                        android:textAlignment="viewStart" />
+                        android:text="@string/stores"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/blackcolor1"
+                        android:textSize="19sp" />
 
                     <TextView
                         android:id="@+id/tv_see_all_beast_product"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:drawablePadding="5dp"
                         android:fontFamily="@font/cairobold"
                         android:gravity="end"
                         android:text="@string/SEE_ALL"
                         android:textColor="@color/textviewhome"
                         android:textSize="13sp"
-                        android:drawablePadding="5dp"
                         app:drawableEndCompat="@drawable/ic_seeall" />
 
                 </LinearLayout>
@@ -384,8 +384,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    tools:itemCount="5"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
                     tools:listitem="@layout/item_rv1_beast_product_home" />
 
 
@@ -393,72 +393,65 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_users"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/back_mysales"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
 
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/back_view_home">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/best_stores111"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="@string/user_recommendations"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/blackcolor1"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/tv_see_all_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/cairobold"
-                        android:text="@string/stores"
-                        android:textColor="@color/blackcolor1"
-                        android:textSize="15sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/see_all_best_stores55"
-                        android:layout_width="wrap_content"
-                        android:layout_height="23dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="25dp"
+                        android:drawablePadding="5dp"
                         android:fontFamily="@font/cairobold"
                         android:gravity="end"
                         android:text="@string/SEE_ALL"
                         android:textColor="@color/textviewhome"
                         android:textSize="13sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:drawableEndCompat="@drawable/ic_seeall" />
 
-                    </TextView>
+                </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/see_all2"
-                        android:layout_width="14dp"
-                        android:layout_height="11dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_seeall" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_rv_user_home" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/home_rf2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_marginTop="60dp"
-                        android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/best_stores111"
-                        tools:listitem="@layout/item_rv2_home" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="110dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -19,6 +19,7 @@ import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.home.HomeActivity;
 import hama.alsaygh.kw.vendor.view.home.fragment.adapter.BeastProductRecycleViewAdapter;
+import hama.alsaygh.kw.vendor.view.home.fragment.adapter.UsersRecycleViewAdapter;
 
 public class HomeFragment extends BaseFragment {
 
@@ -71,6 +72,14 @@ public class HomeFragment extends BaseFragment {
                     binding.llBeastProduct.setVisibility(View.VISIBLE);
                 } else {
                     binding.llBeastProduct.setVisibility(View.GONE);
+                }
+
+                if (mySalesResponse.getData().getUser_rate() != null && !mySalesResponse.getData().getUser_rate().isEmpty()) {
+                    UsersRecycleViewAdapter productAdapter = new UsersRecycleViewAdapter(mySalesResponse.getData().getUser_rate(), null);
+                    binding.rvUser.setAdapter(productAdapter);
+                    binding.llUsers.setVisibility(View.VISIBLE);
+                } else {
+                    binding.llUsers.setVisibility(View.GONE);
                 }
             } else {
                 if (mySalesResponse.getCode().equalsIgnoreCase("401"))

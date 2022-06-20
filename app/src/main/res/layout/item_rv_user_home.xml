@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.home.fragment.adapter.UsersViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_ground_border_image_home"
+            android:orientation="vertical"
+            android:padding="1dp">
+
+            <ImageView
+                android:id="@+id/ring_secand_myorder"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:contentDescription="@string/add"
+                android:scaleType="fitXY"
+                app:imageProductUrl="@{model.image}"
+                app:srcCompat="@drawable/man" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/gold_rin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/cairobold"
+            android:gravity="start"
+            android:text="@{model.name}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/filter_by"
+            android:textSize="14sp" />
+    </LinearLayout>
+</layout>
+

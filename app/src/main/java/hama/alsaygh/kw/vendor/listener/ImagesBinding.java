@@ -24,7 +24,7 @@ public interface ImagesBinding {
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
 
                     view.setBackgroundColor(Utils.getInstance().getDominantColor(bitmap));
-                    view.setImageBitmap(bitmap);
+                    Picasso.get().load(imageUrl).into(view);
                 }
 
                 @Override
@@ -36,7 +36,6 @@ public interface ImagesBinding {
 
                 @Override
                 public void onPrepareLoad(Drawable placeHolderDrawable) {
-
                     view.setImageDrawable(placeHolderDrawable);
                 }
             });

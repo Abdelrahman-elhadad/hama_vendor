@@ -23,7 +23,7 @@ public class HomeData {
     private List<Product> best_products;
 
     @SerializedName("user_rate")
-    private List<HomeData> user_rate;
+    private List<HomeUserData> user_rate;
 
     public Statistics getStatistics() {
         return statistics;
@@ -57,11 +57,11 @@ public class HomeData {
         this.best_products = best_products;
     }
 
-    public List<HomeData> getUser_rate() {
+    public List<HomeUserData> getUser_rate() {
         return user_rate;
     }
 
-    public void setUser_rate(List<HomeData> user_rate) {
+    public void setUser_rate(List<HomeUserData> user_rate) {
         this.user_rate = user_rate;
     }
 }

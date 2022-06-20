@@ -28,6 +28,7 @@
                 android:layout_width="22dp"
                 android:layout_height="23dp"
                 android:layout_gravity="start"
+                android:contentDescription="@string/user_recommendations"
                 android:onClick="@{model::onNotificationClick}"
                 app:srcCompat="@drawable/ic_notification_home" />
 
@@ -58,6 +59,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
+                android:contentDescription="@string/user_recommendations"
                 android:onClick="@{model::onMarketPriceClick}"
                 android:visibility="@{model.market}"
                 app:srcCompat="@drawable/ic_market" />

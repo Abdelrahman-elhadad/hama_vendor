@@ -9,7 +9,7 @@ public class HomeStoreInfoData {
     private int visitors_count;
 
     @SerializedName(value = "last_week_orders")
-    private double last_week_orders;
+    private int last_week_orders;
 
     @SerializedName(value = "last_week_orders_avg")
     private String last_week_orders_avg;
@@ -25,11 +25,11 @@ public class HomeStoreInfoData {
         this.visitors_count = visitors_count;
     }
 
-    public double getLast_week_orders() {
+    public int getLast_week_orders() {
         return last_week_orders;
     }
 
-    public void setLast_week_orders(double last_week_orders) {
+    public void setLast_week_orders(int last_week_orders) {
         this.last_week_orders = last_week_orders;
     }
 
