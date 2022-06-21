@@ -23,6 +23,7 @@ public class OrdersViewModel extends ViewModel {
     public static final int PENDING = 1;
     public static final int COMPLETED = 2;
     public static final int CANCELED = 3;
+    public static final int IN_PROGRESS = 4;
 
     public OrdersViewModel() {
         productRepo = new OrderRepo();
@@ -48,6 +49,9 @@ public class OrdersViewModel extends ViewModel {
 
             case CANCELED:
                 status = "canceled";
+                break;
+            case IN_PROGRESS:
+                status = "in_progress";
                 break;
         }
         productRepo.getOrders(context, status, languageResponseMutableLiveData);

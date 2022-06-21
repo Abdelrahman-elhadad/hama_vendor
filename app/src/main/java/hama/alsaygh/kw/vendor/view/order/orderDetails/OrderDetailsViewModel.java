@@ -2,6 +2,7 @@ package hama.alsaygh.kw.vendor.view.order.orderDetails;
 
 import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.CANCELED;
 import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.COMPLETED;
+import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.IN_PROGRESS;
 import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.PENDING;
 
 import android.content.Context;
@@ -83,6 +84,9 @@ public class OrderDetailsViewModel extends ViewModel {
 
             case CANCELED:
                 status = "canceled";
+                break;
+            case IN_PROGRESS:
+                status = "in_progress";
                 break;
         }
         productRepo.getOrder(context, id, status, languageResponseMutableLiveData);

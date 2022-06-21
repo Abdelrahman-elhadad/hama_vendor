@@ -1,5 +1,7 @@
 package hama.alsaygh.kw.vendor.dialog.order;
 
+import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.IN_PROGRESS;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +25,7 @@ import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.check.CheckResponse;
 import hama.alsaygh.kw.vendor.repo.OrderRepo;
+import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.view.gongrats.GongratsActivity;
 
 
@@ -76,7 +79,11 @@ public class AcceptOrderDialog extends BottomSheetDialogFragment {
             button3.setVisibility(View.VISIBLE);
             if (productsResponse.isStatus()) {
                 dismiss();
-                startActivity(new Intent(requireContext(), GongratsActivity.class));
+                requireActivity().finish();
+                Intent intent = new Intent(requireContext(), GongratsActivity.class);
+                intent.putExtra(AppConstants.ORDER_ID, product_id);
+                intent.putExtra(AppConstants.ORDER_STATUS, IN_PROGRESS);
+                startActivity(intent);
 
             } else {
                 if (productsResponse.getCode().equalsIgnoreCase("401")) {

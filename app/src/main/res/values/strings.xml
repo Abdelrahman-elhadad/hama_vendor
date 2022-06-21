@@ -82,6 +82,7 @@
     <string name="fixed1">Orders</string>
     <string name="Completed">Completed</string>
     <string name="Pending">Pending</string>
+    <string name="in_progress">In Progress</string>
     <string name="Canceled">Canceled</string>
     <string name="productt">products</string>
     <string name="min">2 min ago</string>

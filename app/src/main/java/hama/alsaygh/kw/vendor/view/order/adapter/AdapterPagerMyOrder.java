@@ -24,6 +24,7 @@ public class AdapterPagerMyOrder extends FragmentPagerAdapter {
 
         orderStatusList.add(new OrderStatus(OrdersViewModel.COMPLETED, context.getString(R.string.Completed)));
         orderStatusList.add(new OrderStatus(OrdersViewModel.PENDING, context.getString(R.string.Pending)));
+        orderStatusList.add(new OrderStatus(OrdersViewModel.IN_PROGRESS, context.getString(R.string.in_progress)));
         orderStatusList.add(new OrderStatus(OrdersViewModel.CANCELED, context.getString(R.string.Canceled)));
 
     }
