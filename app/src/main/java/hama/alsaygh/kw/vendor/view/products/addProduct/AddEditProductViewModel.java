@@ -33,7 +33,7 @@ import hama.alsaygh.kw.vendor.view.marketPrice.MarketPriceActivity;
 public class AddEditProductViewModel extends ViewModel {
 
     FragmentManager fragmentManager;
-    private final Context context;
+
     //  private Home home ;
     protected final int Step1 = 1;
     protected final int Step2 = 2;
@@ -72,7 +72,7 @@ public class AddEditProductViewModel extends ViewModel {
 
     public AddEditProductViewModel(Context context, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
-        this.context = context;
+
         generalRepo = new GeneralRepo();
         productRepo = new ProductRepo();
         weightObservable.setValue(addProduct.getWeight());
@@ -92,7 +92,7 @@ public class AddEditProductViewModel extends ViewModel {
 
     public AddEditProductViewModel(Context context, Product product, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
-        this.context = context;
+
         generalRepo = new GeneralRepo();
         productRepo = new ProductRepo();
         type = Edit;

@@ -433,6 +433,7 @@
                         android:text="@string/SEE_ALL"
                         android:textColor="@color/textviewhome"
                         android:textSize="13sp"
+                        android:visibility="gone"
                         app:drawableEndCompat="@drawable/ic_seeall" />
 
                 </LinearLayout>

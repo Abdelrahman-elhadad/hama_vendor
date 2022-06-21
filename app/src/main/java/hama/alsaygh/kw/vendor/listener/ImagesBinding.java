@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -18,27 +19,40 @@ public interface ImagesBinding {
     @BindingAdapter({"imageProductUrl"})
     public static void loadProductImage(final ImageView view, String imageUrl) {
 
-        if (imageUrl != null && !imageUrl.isEmpty())
+        if (imageUrl != null && !imageUrl.isEmpty()) {
             Picasso.get().load(imageUrl).into(new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
 
                     view.setBackgroundColor(Utils.getInstance().getDominantColor(bitmap));
-                    Picasso.get().load(imageUrl).into(view);
+
                 }
 
                 @Override
                 public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                    Picasso.get().load(R.drawable.image_not_foundpng).into(view);
                     view.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.color_image_not_found));
                 }
 
 
                 @Override
                 public void onPrepareLoad(Drawable placeHolderDrawable) {
-                    view.setImageDrawable(placeHolderDrawable);
+                    //view.setImageDrawable(placeHolderDrawable);
                 }
             });
+
+            Picasso.get().load(imageUrl).into(view, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    Picasso.get().load(R.drawable.image_not_foundpng).into(view);
+                    view.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.color_image_not_found));
+                }
+            });
+        }
         else {
             Picasso.get().load(R.drawable.image_not_foundpng).into(view);
             view.setBackgroundColor(ContextCompat.getColor(view.getContext(), R.color.color_image_not_found));
