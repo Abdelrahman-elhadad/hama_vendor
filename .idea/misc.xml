@@ -137,6 +137,7 @@
         <entry key="app/src/main/res/layout/create_offer_done.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/create_offer_offer_data.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_accept_order.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/dialog_add_offer_product.xml" value="0.1913265306122449" />
         <entry key="app/src/main/res/layout/dialog_add_option_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_delete_product.xml" value="0.45" />
         <entry key="app/src/main/res/layout/dialog_discard_order.xml" value="0.25" />

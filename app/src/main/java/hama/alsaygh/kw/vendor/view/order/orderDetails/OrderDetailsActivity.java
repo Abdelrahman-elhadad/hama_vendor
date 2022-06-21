@@ -1,5 +1,6 @@
 package hama.alsaygh.kw.vendor.view.order.orderDetails;
 
+import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.CANCELED;
 import static hama.alsaygh.kw.vendor.view.order.OrdersViewModel.PENDING;
 
 import android.app.DownloadManager;
@@ -176,6 +177,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
     public void onDeleteClick(Object object, int position) {
         skeleton.showSkeleton();
         binding.llNext.setVisibility(View.GONE);
+        status = CANCELED;
         model.getOrders(this, id, status);
     }
 

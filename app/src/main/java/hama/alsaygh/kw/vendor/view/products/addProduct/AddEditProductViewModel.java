@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 
@@ -111,8 +112,15 @@ public class AddEditProductViewModel extends ViewModel {
         addProduct.setCaliber(product.getCaliber());
         addProduct.setQuantity(product.getQuantity() + "");
         addProduct.setMain_category(product.getMain_category());
-        addProduct.setSub_category(product.getCategory());
-        addProduct.setChild_sub_category(product.getSub_category());
+
+        if (product.getCategory() == null) {
+            addProduct.setSub_category(product.getSub_category());
+            addProduct.setChild_sub_category(null);
+        } else {
+            addProduct.setSub_category(product.getCategory());
+            addProduct.setChild_sub_category(product.getSub_category());
+        }
+
         addProduct.setBind_to_market(product.isBind_to_market());
         addProduct.setManufacture_price(product.getManufacture_price() + "");
         addProduct.setNetWeight(product.getMetal_weight() + "");
@@ -143,6 +151,8 @@ public class AddEditProductViewModel extends ViewModel {
         discountVisibility.set(View.GONE);
         bindToMarket.set(addProduct.isBind_to_market());
         fixedPrice.set(!addProduct.isBind_to_market());
+
+        Log.i("json", "json : " + addProduct.toString());
     }
 
 

@@ -19,7 +19,9 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.FragmentAddNewOfferBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.dialog.offers.AddEditOfferProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
@@ -147,6 +149,10 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
         skeleton.showSkeleton();
         model.getProducts(requireContext(), page);
 
+        binding.button3.setOnClickListener(v -> {
+            AddEditOfferProductDialog.newInstance(model.getProduct(), this).
+                    show(fragmentManager, "add_offers");
+        });
 
     }
 
@@ -156,6 +162,15 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
         if (object instanceof Product) {
             model.setSelectedProduct((Product) object);
             binding.button3.setVisibility(View.VISIBLE);
+        } else if (object instanceof AddProduct) {
+            isLoading = true;
+            isLast = false;
+            page = 1;
+            skeleton.showSkeleton();
+            model.getProducts(requireContext(), page);
+            model.setSelectedProduct(null);
+            binding.button3.setVisibility(View.GONE);
+
         }
     }
 

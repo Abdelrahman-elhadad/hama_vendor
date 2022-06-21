@@ -1,6 +1,7 @@
 package hama.alsaygh.kw.vendor.view.products.addProduct;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +29,7 @@ public class AddEditProductActivity extends BaseActivity {
         if (getIntent() != null) {
             String json = getIntent().getStringExtra(AppConstants.PRODUCT);
             if (json != null && !json.isEmpty()) {
+                Log.i("json", json);
                 product = RequestWrapper.getInstance().getGson().fromJson(json, Product.class);
             }
         }

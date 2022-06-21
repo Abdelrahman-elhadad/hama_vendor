@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.dialog.offers.AddEditOfferProductViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/parent_delete_p"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/view10"
+            android:layout_width="52dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_navigation1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_close"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/add14"
+                android:textColor="@color/blackcolor"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view25"
+            android:layout_width="350dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_buttom_navigation2" />
+
+        <TextView
+            android:id="@+id/tv_option_name_ar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/Product_Name"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/edit_option_name_ar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="start|center"
+            android:textAlignment="viewStart"
+            android:background="@drawable/back_spinner"
+            android:fontFamily="@font/cairoregular"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@{model.name}"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_option_name_en"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/Main_Price"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_option_name_en"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/hkhkhkh"
+            android:ems="10"
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:labelFor="@+id/tv_product_name_en"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@{model.price}"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView299"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cairolight"
+            android:text="@string/Offer_Ratio"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/edit_product_discount"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back_spinner"
+            android:hint="@string/_0"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:labelFor="@+id/tv_weight"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@{model.discount}"
+            app:addTextChangedListener="@{model.ratioTextWatcher}" />
+
+        <RelativeLayout
+            android:id="@+id/rl_fixed_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp">
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairolight"
+                android:text="@string/New_Price"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+            <EditText
+                android:id="@+id/edit_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tv_product_price"
+                android:layout_marginTop="4dp"
+                android:layout_toStartOf="@+id/tv_price_unit"
+                android:background="@drawable/back_spinner"
+                android:hint="@string/_0"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:labelFor="@+id/tv_weight"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+
+            <TextView
+                android:id="@+id/tv_price_unit"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/tv_product_price"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-6dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/back_spinner3"
+                android:fontFamily="@font/cairolight"
+                android:gravity="center"
+                android:text="@string/currency"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            android:layout_width="265dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/back_ground_shadow"
+            android:text="@string/CONFIRM"
+            android:textColor="@color/whiteColor"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_delete"
+            android:layout_width="265dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/back_ground_shadow"
+            android:padding="5dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/cairobold"
+            android:text="@string/BACK_TO_OFFERS"
+            android:textColor="@color/dgdg"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+</layout>

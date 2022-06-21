@@ -63,6 +63,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
             if (categoriesResponse.isStatus()) {
 
+                int cat_id = -1;
+                if (model.addProduct.getSub_category() != null)
+                    cat_id = model.addProduct.getSub_category().getId();
                 ArrayAdapter<Category> arrayAdapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, categoriesResponse.getData());
                 arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 binding.spCatSub.setAdapter(arrayAdapter1);
@@ -85,9 +88,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
                     }
                 });
-                if (model.addProduct.getSub_category() != null)
+                if (cat_id != -1)
                     for (int i = 0; i < categoriesResponse.getData().size(); i++) {
-                        if (categoriesResponse.getData().get(i).getId() == model.getAddProduct().getSub_category().getId()) {
+                        if (categoriesResponse.getData().get(i).getId() == cat_id) {
                             binding.spCatSub.setSelection(i);
                             break;
                         }
@@ -106,6 +109,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
         model.getMainCategoriesObserver().observe(requireActivity(), mainCategoriesResponse -> {
             if (mainCategoriesResponse.isStatus()) {
 
+                int cat_id = -1;
+                if (model.addProduct.getMain_category() != null)
+                    cat_id = model.addProduct.getMain_category().getId();
                 ArrayAdapter<MainCategory> arrayAdapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, mainCategoriesResponse.getData());
                 arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 binding.spCatMain.setAdapter(arrayAdapter1);
@@ -121,9 +127,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
 
                     }
                 });
-                if (model.addProduct.getMain_category() != null)
+                if (cat_id != -1)
                     for (int i = 0; i < mainCategoriesResponse.getData().size(); i++) {
-                        if (mainCategoriesResponse.getData().get(i).getId() == model.getAddProduct().getMain_category().getId()) {
+                        if (mainCategoriesResponse.getData().get(i).getId() == cat_id) {
                             binding.spCatMain.setSelection(i);
                             break;
                         }
@@ -183,6 +189,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
     }
 
     public void setChildCategories(List<Category> childCategories) {
+        int cat_id = -1;
+        if (model.addProduct.getChild_sub_category() != null)
+            cat_id = model.addProduct.getChild_sub_category().getId();
         model.setChildCategories(null);
         if (childCategories != null && !childCategories.isEmpty()) {
             model.childSubVisibility.set(View.VISIBLE);
@@ -202,9 +211,9 @@ public class AddEditProductStep1Fragment extends BaseFragment implements OnGener
                 }
             });
 
-            if (model.addProduct.getChild_sub_category() != null)
+            if (cat_id != -1)
                 for (int i = 0; i < childCategories.size(); i++) {
-                    if (childCategories.get(i).getId() == model.getAddProduct().getChild_sub_category().getId()) {
+                    if (childCategories.get(i).getId() == cat_id) {
                         binding.spCatSubSub.setSelection(i);
                         break;
                     }

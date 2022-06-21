@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.android.material.snackbar.Snackbar;
 
-import eltos.simpledialogfragment.SimpleDialog;
-import eltos.simpledialogfragment.color.SimpleColorDialog;
-import hama.alsaygh.kw.vendor.databinding.DialogAddOptionProductBinding;
+import hama.alsaygh.kw.vendor.databinding.DialogAddOfferProductBinding;
+import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
 
 
-public class AddEditOfferProductDialog extends BottomSheetDialogFragment implements SimpleDialog.OnDialogResultListener {
+public class AddEditOfferProductDialog extends BottomSheetDialogFragment {
 
-    DialogAddOptionProductBinding binding;
+    DialogAddOfferProductBinding binding;
     AddEditOfferProductViewModel model;
 
     OnGeneralClickListener onMyCartListener;
@@ -29,6 +29,7 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
     int position;
     AddProduct addProduct;
     Product product;
+
 
     public void setType(int type) {
         this.type = type;
@@ -38,7 +39,7 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
         this.position = position;
     }
 
-    public void setAddProduct(Product product) {
+    public void setAddProduct(Product product, int type) {
         addProduct = new AddProduct();
         addProduct.setId(product.getId());
         addProduct.setCode(product.getCate_code());
@@ -56,8 +57,15 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
         addProduct.setCaliber(product.getCaliber());
         addProduct.setQuantity(product.getQuantity() + "");
         addProduct.setMain_category(product.getMain_category());
-        addProduct.setSub_category(product.getCategory());
-        addProduct.setChild_sub_category(product.getSub_category());
+        if (product.getCategory() == null) {
+            addProduct.setSub_category(product.getSub_category());
+            addProduct.setChild_sub_category(null);
+        } else {
+            addProduct.setSub_category(product.getCategory());
+            addProduct.setChild_sub_category(product.getSub_category());
+        }
+
+
         addProduct.setBind_to_market(product.isBind_to_market());
         addProduct.setManufacture_price(product.getManufacture_price() + "");
         addProduct.setNetWeight(product.getMetal_weight() + "");
@@ -68,13 +76,17 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
         addProduct.setPurity(product.getPurity() + "");
         addProduct.setColor(product.getColor());
         addProduct.setFixed_price(product.getPrice() + "");
-        addProduct.setDiscount("0.0");
+        if (type == AppConstants.ADD)
+            addProduct.setDiscount("0.0");
+        else
+            addProduct.setDiscount(product.getDiscount_value() + "");
         addProduct.setGmPrice(product.getGram_price() + "");
         addProduct.setTotalWeightMetal(product.getTotal_metal_weight() + "");
         addProduct.setMedia(product.getMedia());
         addProduct.setOptions(product.getOptions());
 
     }
+
 
     public void setProduct(Product product) {
         this.product = product;
@@ -84,11 +96,12 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
         this.onMyCartListener = onMyCartListener;
     }
 
-    public static AddEditOfferProductDialog newInstance(OnGeneralClickListener onMyCartListener) {
+    public static AddEditOfferProductDialog newInstance(Product product, OnGeneralClickListener onMyCartListener) {
 
         AddEditOfferProductDialog fragment = new AddEditOfferProductDialog();
         fragment.setOnMyCartListener(onMyCartListener);
         fragment.setType(AppConstants.ADD);
+        fragment.setAddProduct(product, AppConstants.ADD);
 
         return fragment;
     }
@@ -99,7 +112,7 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
         fragment.setOnMyCartListener(onMyCartListener);
         fragment.setType(AppConstants.EDIT);
         fragment.setPosition(position);
-        fragment.setAddProduct(product);
+        fragment.setAddProduct(product, AppConstants.EDIT);
         fragment.setProduct(product);
         return fragment;
     }
@@ -108,54 +121,56 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment impleme
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        binding = DialogAddOptionProductBinding.inflate(inflater);
-        //final View view = inflater.inflate(R.layout.dialog_delete_product, container, false);
+        binding = DialogAddOfferProductBinding.inflate(inflater);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (type == AppConstants.ADD)
-            model = new AddEditOfferProductViewModel(requireContext());
-        else
-            model = new AddEditOfferProductViewModel(requireContext(), addProduct, product);
-        //   binding.setModel(model);
+        model = new AddEditOfferProductViewModel(requireContext());
+        model.setAddProduct(addProduct);
+        model.setProduct(product);
+        model.setType(type);
+        binding.setModel(model);
         binding.ivClose.setOnClickListener(v -> dismiss());
+        binding.tvBack.setOnClickListener(v -> dismiss());
 
-        binding.button3.setOnClickListener(v -> {
+        model.newPriceObservable.observe(requireActivity(), price -> binding.editProductPrice.setText(price));
+        model.addProductMutableLiveData.observe(requireActivity(), generalResponse -> {
 
-            if (isValid()) {
+            binding.button3.setVisibility(View.VISIBLE);
+            binding.pbDelete.setVisibility(View.GONE);
+
+            if (generalResponse.isStatus()) {
                 if (type == AppConstants.ADD) {
                     if (onMyCartListener != null)
                         onMyCartListener.onItemClick(model.addProduct, 0);
                 } else {
                     if (onMyCartListener != null)
-                        onMyCartListener.onEditClick(model.addProduct, position);
+                        onMyCartListener.onEditClick(model.product, position);
                 }
                 dismiss();
+            } else {
+                if (generalResponse.getCode().equalsIgnoreCase("401")) {
+                    LoginDialog.newInstance().show(getChildFragmentManager(), "login");
+                    dismiss();
+                } else
+                    Snackbar.make(binding.button3, generalResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+            }
+
+        });
+        binding.button3.setOnClickListener(v ->
+        {
+            if (isValid()) {
+                binding.button3.setVisibility(View.GONE);
+                binding.pbDelete.setVisibility(View.VISIBLE);
+                model.addEditDiscount(v.getContext());
             }
         });
-
-
-        model.getWeightObserver().observe(requireActivity(), weight -> binding.editWeight.setText(weight));
-
-        model.getQuantityObserver().observe(requireActivity(), quantity -> binding.editQuantity.setText(quantity));
-
     }
 
     private boolean isValid() {
         return true;
-    }
-
-    @Override
-    public boolean onResult(@NonNull String dialogTag, int which, @NonNull Bundle extras) {
-
-        int color = extras.getInt(SimpleColorDialog.COLOR);  // The color chosen
-        // int color = extras.getInt(SimpleColorWheelDialog.COLOR);  // The color chosen
-        String hexColor = String.format("#%06X", (0xFFFFFF & color));
-        binding.tvColor.setText(hexColor);
-        model.addProduct.setColor(hexColor);
-        return false;
     }
 }

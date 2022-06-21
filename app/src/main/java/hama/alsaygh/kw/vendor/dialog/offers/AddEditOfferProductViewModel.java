@@ -3,16 +3,17 @@ package hama.alsaygh.kw.vendor.dialog.offers;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
-import android.widget.CompoundButton;
+import android.util.Log;
 
-import androidx.databinding.ObservableBoolean;
-import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
+import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.model.product.Product;
+import hama.alsaygh.kw.vendor.repo.ProductRepo;
+import hama.alsaygh.kw.vendor.utils.LocalUtils;
+import hama.alsaygh.kw.vendor.utils.Utils;
 
 public class AddEditOfferProductViewModel extends ViewModel {
 
@@ -20,44 +21,18 @@ public class AddEditOfferProductViewModel extends ViewModel {
     protected AddProduct addProduct = new AddProduct();
     protected Product product = new Product();
     protected int position;
+    public final MutableLiveData<String> newPriceObservable = new MutableLiveData<>();
+    public final MutableLiveData<GeneralResponse> addProductMutableLiveData = new MutableLiveData<>();
 
-
-    public final MutableLiveData<String> weightObservable = new MutableLiveData<>();
-    public final MutableLiveData<String> quantityObservable = new MutableLiveData<>();
-
-    protected ObservableBoolean bindToMarket = new ObservableBoolean();
-    protected ObservableBoolean fixedPrice = new ObservableBoolean();
-
-    protected ObservableInt bindToMarketVisibility = new ObservableInt();
-    protected ObservableInt fixedPriceVisibility = new ObservableInt();
-    Context context;
+    private Context context;
+    int type;
 
     public AddEditOfferProductViewModel(Context context) {
         this.context = context;
-//        weightObservable.setValue(addProduct.getTotal_weight());
-//        quantityObservable.setValue(addProduct.getAvailable_quantity() + "");
-
-        bindToMarket.set(false);
-        fixedPrice.set(false);
-        bindToMarketVisibility.set(View.GONE);
-        fixedPriceVisibility.set(View.GONE);
-
     }
 
-    public AddEditOfferProductViewModel(Context context, AddProduct option, Product product) {
-        this.context = context;
-        this.addProduct = option;
-        this.product = product;
-
-//        weightObservable.setValue(addProduct.getTotal_weight());
-//        quantityObservable.setValue(addProduct.getAvailable_quantity() + "");
-
-        bindToMarket.set(addProduct.isBind_to_market());
-        fixedPrice.set(!addProduct.isBind_to_market());
-        bindToMarketVisibility.set(View.GONE);
-        fixedPriceVisibility.set(View.GONE);
-
-
+    public void setType(int type) {
+        this.type = type;
     }
 
     public AddProduct getAddProduct() {
@@ -68,16 +43,52 @@ public class AddEditOfferProductViewModel extends ViewModel {
         return product;
     }
 
-    public MutableLiveData<String> getWeightObserver() {
-        return weightObservable;
+    public void setProduct(Product product) {
+        this.product = product;
+
+
+        if (addProduct.getDiscount() != null && !addProduct.getDiscount().isEmpty() && addProduct.getFixed_price() != null && !addProduct.getFixed_price().isEmpty()) {
+            double price = Double.parseDouble(addProduct.getFixed_price());
+            double offers = Double.parseDouble(Utils.getInstance().convertArabic(addProduct.getDiscount()));
+            double discount = (offers / price) * 100;
+            newPriceObservable.setValue(Utils.formatNumberDigital(price - discount));
+            product.setDiscount_value(offers);
+        } else {
+            newPriceObservable.setValue(addProduct.getFixed_price());
+            product.setDiscount_value(0.0);
+        }
+
     }
 
-    public MutableLiveData<String> getQuantityObserver() {
-        return quantityObservable;
+    public void setAddProduct(AddProduct addProduct) {
+        this.addProduct = addProduct;
+    }
+
+    public String getName() {
+        if (addProduct != null)
+            if (isEnglish())
+                return addProduct.getName();
+            else
+                return addProduct.getName_ar();
+        return "";
+    }
+
+    public String getPrice() {
+        if (addProduct != null) {
+            Log.i("getFixed_price", "getFixed_price : " + addProduct.getFixed_price());
+            return addProduct.getFixed_price();
+        }
+        return "";
+    }
+
+    public String getDiscount() {
+        if (addProduct != null)
+            return addProduct.getDiscount();
+        return "";
     }
 
 
-    public TextWatcher nameEnTextWatcher() {
+    public TextWatcher ratioTextWatcher() {
         return new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -91,86 +102,29 @@ public class AddEditOfferProductViewModel extends ViewModel {
 
             @Override
             public void afterTextChanged(Editable s) {
-                addProduct.setName(s.toString());
+                addProduct.setDiscount(Utils.getInstance().convertArabic(s.toString()));
+
+
+                if (!s.toString().isEmpty() && addProduct.getFixed_price() != null && !addProduct.getFixed_price().isEmpty()) {
+                    double price = Double.parseDouble(addProduct.getFixed_price());
+                    double offers = Double.parseDouble(Utils.getInstance().convertArabic(s.toString()));
+                    double discount = (offers / price) * 100;
+                    newPriceObservable.setValue(Utils.formatNumberDigital(price - discount));
+                    product.setDiscount_value(offers);
+                } else {
+                    newPriceObservable.setValue(addProduct.getFixed_price());
+                    product.setDiscount_value(0.0);
+                }
+
             }
         };
     }
 
-
-    public MutableLiveData<String> getWeightObservable() {
-        return weightObservable;
+    public void addEditDiscount(Context context) {
+        new ProductRepo().updateProduct(context, addProduct, addProductMutableLiveData);
     }
 
-    public MutableLiveData<String> getQuantityObservable() {
-        return quantityObservable;
+    public boolean isEnglish() {
+        return LocalUtils.getInstance().getLanguageShort(context).equalsIgnoreCase("en");
     }
-
-
-    public ObservableInt getBindToMarketVisibility() {
-        return bindToMarketVisibility;
-    }
-
-    public ObservableInt getFixedPriceVisibility() {
-        return fixedPriceVisibility;
-    }
-
-
-    public ObservableBoolean getBindToMarket() {
-        return bindToMarket;
-    }
-
-    public ObservableBoolean getFixedPrice() {
-        return fixedPrice;
-    }
-
-    public void onFixedCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-        if (isChecked) {
-            addProduct.setBind_to_market(false);
-            fixedPrice.set(true);
-            bindToMarket.set(false);
-
-            bindToMarketVisibility.set(View.GONE);
-            fixedPriceVisibility.set(View.VISIBLE);
-        } else
-            fixedPriceVisibility.set(View.GONE);
-    }
-
-    public void onMarketCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            addProduct.setBind_to_market(true);
-            fixedPrice.set(false);
-            bindToMarket.set(true);
-
-            bindToMarketVisibility.set(View.VISIBLE);
-            fixedPriceVisibility.set(View.GONE);
-        } else
-            bindToMarketVisibility.set(View.VISIBLE);
-    }
-
-    public String getNameEn() {
-        if (addProduct != null)
-            return addProduct.getName();
-        return "";
-    }
-
-
-    public String getColor() {
-        if (addProduct != null)
-            return addProduct.getColor();
-        return "";
-    }
-
-    public boolean isFixedPrice() {
-        if (addProduct != null)
-            return !addProduct.isBind_to_market();
-        return false;
-    }
-
-    public boolean isMarketPrice() {
-        if (addProduct != null)
-            return addProduct.isBind_to_market();
-        return false;
-    }
-
 }

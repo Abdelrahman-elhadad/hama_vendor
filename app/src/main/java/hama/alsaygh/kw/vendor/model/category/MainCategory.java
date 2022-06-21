@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MainCategory {
+import java.io.Serializable;
+
+public class MainCategory implements Serializable {
 
     @SerializedName("id")
     private int id;

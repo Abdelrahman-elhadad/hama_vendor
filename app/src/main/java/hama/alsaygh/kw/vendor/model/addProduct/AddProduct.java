@@ -266,4 +266,37 @@ public class AddProduct implements Serializable {
     public void setOptions(List<Option> options) {
         this.options = options;
     }
+
+    @Override
+    public String toString() {
+        return "AddProduct{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", quantity='" + quantity + '\'' +
+                ", bind_to_market=" + bind_to_market +
+                ", fixed_price='" + fixed_price + '\'' +
+                ", weight='" + weight + '\'' +
+                ", manufacture_price='" + manufacture_price + '\'' +
+                ", sub_category=" + sub_category +
+                ", main_category=" + main_category +
+                ", child_sub_category=" + child_sub_category +
+                ", caliber=" + caliber +
+                ", media=" + media +
+                ", color='" + color + '\'' +
+                ", code='" + code + '\'' +
+                ", name_ar='" + name_ar + '\'' +
+                ", description_ar='" + description_ar + '\'' +
+                ", netWeight='" + netWeight + '\'' +
+                ", stoneWeight='" + stoneWeight + '\'' +
+                ", stoneType='" + stoneType + '\'' +
+                ", diamond='" + diamond + '\'' +
+                ", diamondWeight='" + diamondWeight + '\'' +
+                ", purity='" + purity + '\'' +
+                ", gmPrice='" + gmPrice + '\'' +
+                ", totalWeightMetal='" + totalWeightMetal + '\'' +
+                ", discount='" + discount + '\'' +
+                ", options=" + options +
+                '}';
+    }
 }

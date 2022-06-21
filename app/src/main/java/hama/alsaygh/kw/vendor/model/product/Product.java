@@ -27,10 +27,10 @@ public class Product implements Serializable {
     private MainCategory main_category;
 
     @SerializedName("category")
-    private Category category;
+    private Category sub_category;
 
     @SerializedName("parent_category")
-    private Category sub_category;
+    private Category category;
 
     @SerializedName("quantity")
     private int quantity;
@@ -344,6 +344,8 @@ public class Product implements Serializable {
     }
 
     public String getPurity() {
+        if (purity == null || purity.isEmpty() || purity.equalsIgnoreCase("null"))
+            purity = "";
         return purity;
     }
 
@@ -352,6 +354,8 @@ public class Product implements Serializable {
     }
 
     public String getDimond() {
+        if (dimond == null || dimond.isEmpty() || dimond.equalsIgnoreCase("null"))
+            dimond = "";
         return dimond;
     }
 
@@ -360,6 +364,8 @@ public class Product implements Serializable {
     }
 
     public String getColor() {
+        if (color == null || color.isEmpty() || color.equalsIgnoreCase("null"))
+            color = "";
         return color;
     }
 
@@ -376,6 +382,8 @@ public class Product implements Serializable {
     }
 
     public String getSton_type() {
+        if (ston_type == null || ston_type.isEmpty() || ston_type.equalsIgnoreCase("null"))
+            ston_type = "";
         return ston_type;
     }
 
