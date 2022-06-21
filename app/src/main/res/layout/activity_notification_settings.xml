@@ -46,10 +46,16 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_shadow"
+            android:rotation="180" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:id="@+id/textView11"

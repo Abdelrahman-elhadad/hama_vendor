@@ -198,19 +198,21 @@
     <string name="boking">أي وقت مناسب لك!</string>
     <string name="boking2">يمكنك الضغط على أي خيار للاتصال أو إرسال بريد إلكتروني مباشرة</string>
     <string name="boking_button">ارسل طلب</string>
-    <string name="Contact_Us12">تحرير ملف تعريف المتجر</string>
+    <string name="Contact_Us12">تعديل الملف الشخصي</string>
     <string name="Contact_Us_error_2">Contact_Us_error_2</string>
-    <string name="complint51">وصف المتجر</string>
+    <string name="complint51">وصف المتجر \" الانجليزية \"</string>
+    <string name="store_desc_ar">وصف المتجر \" العربية \"</string>
+
     <string name="ID_No">رقم بطاقة الهوية</string>
-    <string name="Capture_imagejs">التقاط لصورة الهوية</string>
+    <string name="Capture_imagejs">صورة الهوية</string>
     <string name="send22">حفظ التغييرات</string>
-    <string name="Personal_Phone_Number">رقم الهاتف الشخصي</string>
-    <string name="Store_Phone_Number">رقم هاتف المتجر</string>
-    <string name="Store_Informations">معلومات المتجر</string>
-    <string name="Clicck">صورة رخصة المتجر</string>
+    <string name="Personal_Phone_Number">رقم الهاتف ارضي</string>
+    <string name="Store_Phone_Number">رقم هاتف المحمول</string>
+    <string name="Store_Informations">معلومات ملفات المتجر</string>
+    <string name="Clicck">صورة الرخصة التجارية</string>
     <string name="License_expiry_date">تاريخ انتهاء الترخيص</string>
-    <string name="Capture_for_lease">القبض على الإيجار</string>
-    <string name="Cliccck">عقد الشراكة \ "إن وجد \"</string>
+    <string name="Capture_for_lease">صورة سجل تجاري</string>
+    <string name="Cliccck">صورة التوقيع</string>
     <string name="Gender">جنس</string>
     <string name="Date_of_Birth">تاريخ الميلاد</string>
     <string name="Order_Tracking44">تتبع الطلب</string>
@@ -260,10 +262,10 @@
     <string name="available_colors">الألوان المتاحة</string>
     <string name="category"> فئة</string>
     <string name="code">كود</string>
-    <string name="product_name_ar">اسم المنتج \"عربي\"</string>
-    <string name="product_name_en">اسم المنتج \"انجليش\"</string>
-    <string name="product_desc_ar">وصف المنتج \"عربي\"</string>
-    <string name="product_desc_en">وصف المنتج \"انجليش\"</string>
+    <string name="product_name_ar">اسم المنتج \"العربية\"</string>
+    <string name="product_name_en">اسم المنتج \"الانجليزية\"</string>
+    <string name="product_desc_ar">وصف المنتج \"العربية\"</string>
+    <string name="product_desc_en">وصف المنتج \"الانجليزية\"</string>
     <string name="manufacturing_price">سعر التصنيع</string>
     <string name="net_weight">الوزن الصافي للمعدن بالجرام</string>
     <string name="gm">جرام</string>
@@ -360,4 +362,10 @@
     <string name="sunday">الاحد</string>
     <string name="last_week">الاسبوع الاخير</string>
     <string name="user_recommendations">توصيات المستخدم</string>
+    <string name="no_reviews">لا توجد تعليقات</string>
+    <string name="store_admin_info">معلومات المتجر</string>
+    <string name="store_name_en">اسم المتجر \"الانجليزية\"</string>
+    <string name="store_name_ar">اسم المتجر \"العربية\"</string>
+    <string name="male">ذكر</string>
+    <string name="female">انثي</string>
 </resources>

@@ -12,6 +12,7 @@ import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.model.home.HomeResponse;
 import hama.alsaygh.kw.vendor.model.mySales.MySalesResponse;
 import hama.alsaygh.kw.vendor.model.notifications.NotificationsResponse;
+import hama.alsaygh.kw.vendor.model.review.ReviewsResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.model.user.UserResponse;
@@ -496,6 +497,41 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final HomeResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    ////////////////////// Rate Store //////////////
+    public void getStoreRate(final Context context, final int page, final MutableLiveData<ReviewsResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            ReviewsResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "store-rates?page=" + page;
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:store-rates ?page= " + page + " : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, ReviewsResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new ReviewsResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final ReviewsResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

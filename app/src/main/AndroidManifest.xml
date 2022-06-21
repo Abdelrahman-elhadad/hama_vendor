@@ -20,7 +20,10 @@
         android:theme="@style/Theme.HamaVendor"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".view.storeRate.StoreRateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".view.mySales.MySalesActivity"

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginEnd="16dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/person"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:contentDescription="@string/user_recommendations" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_person"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/name"
+                android:textAlignment="viewStart"
+                android:textColor="@color/blackcolor1"
+
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/rb_review"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:progressTint="@color/card_color_store_page1"
+                android:rating="0"
+                android:secondaryProgressTint="@color/card_color_store_page1"
+                android:stepSize="0.25" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_person1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="start"
+            android:text="@string/prouduct_detaeils"
+            android:textAlignment="viewStart" />
+    </LinearLayout>
+
+</LinearLayout>

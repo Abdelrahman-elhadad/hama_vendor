@@ -114,8 +114,11 @@
         <entry key="app/src/main/res/layout/activity_notification_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.16927083333333334" />
         <entry key="app/src/main/res/layout/activity_order_details.xml" value="0.23769633507853402" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.20451693851944794" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.20684931506849316" />
+        <entry key="app/src/main/res/layout/activity_rate_hama.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/activity_recommendations.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1671654553227875" />
+        <entry key="app/src/main/res/layout/activity_store_rate.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_new_product_step2.xml" value="0.14947916666666666" />
@@ -175,6 +178,7 @@
         <entry key="app/src/main/res/layout/item_rv_orders.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/item_rv_pending_firest.xml" value="0.4340567612687813" />
         <entry key="app/src/main/res/layout/item_rv_pending_secand.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/item_rv_review.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/item_rv_store_rate.xml" value="0.11822916666666666" />
         <entry key="app/src/main/res/layout/language_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/login.xml" value="0.17291666666666666" />

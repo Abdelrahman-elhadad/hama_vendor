@@ -11,7 +11,7 @@ public class User implements Serializable {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("image")
+    @SerializedName(value = "image", alternate = "avatar")
     private String image;
 
     @SerializedName("logo")
@@ -119,7 +119,6 @@ public class User implements Serializable {
 
     public User() {
     }
-
 
 
     public String getPassword() {

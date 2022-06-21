@@ -13,8 +13,10 @@ import hama.alsaygh.kw.vendor.view.appointment.AppointmentBookingActivity;
 import hama.alsaygh.kw.vendor.view.contactUs.ContactUsActivity;
 import hama.alsaygh.kw.vendor.view.generalSettings.GeneralSettingsActivity;
 import hama.alsaygh.kw.vendor.view.mySales.MySalesActivity;
+import hama.alsaygh.kw.vendor.view.profile.ProfileActivity;
 import hama.alsaygh.kw.vendor.view.rateHama.RateHamaActivity;
 import hama.alsaygh.kw.vendor.view.recommendation.RecommendationActivity;
+import hama.alsaygh.kw.vendor.view.storeRate.StoreRateActivity;
 import hama.alsaygh.kw.vendor.view.terms.TermsActivity;
 
 public class MoreViewModel extends ViewModel {
@@ -48,7 +50,8 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onOrderRateClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), StoreRateActivity.class);
+        view.getContext().startActivity(intent);
     }
     public void onGeneralSettingsClick(View view) {
 
@@ -83,7 +86,8 @@ public class MoreViewModel extends ViewModel {
         Utils.getInstance().logOut(view.getContext());
     }
     public void onEditProfileClick(View view) {
-
+        Intent intent = new Intent(view.getContext(), ProfileActivity.class);
+        view.getContext().startActivity(intent);
     }
 
 }

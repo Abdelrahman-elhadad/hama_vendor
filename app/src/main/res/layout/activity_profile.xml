@@ -1,529 +1,612 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/transparent_color">
+    <data>
 
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="25dp"
-            android:layout_height="23dp"
-            android:layout_gravity="start"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:contentDescription="@string/about_hama3"
-            app:srcCompat="@drawable/backk" />
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.profile.EditProfileViewModel" />
 
-        <TextView
-            android:id="@+id/txt_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:fontFamily="@font/cairobold"
-            android:gravity="center"
-            android:text="@string/Contact_Us"
-            android:textColor="@color/filter_by"
-            android:textSize="20sp" />
-    </androidx.appcompat.widget.Toolbar>
+    </data>
 
-    <androidx.core.widget.NestedScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/transparent_color">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/about_hama3"
+                app:srcCompat="@drawable/backk" />
+
+            <TextView
+                android:id="@+id/txt_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:text="@string/Contact_Us12"
+                android:textColor="@color/filter_by"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@+id/toolbar"
+            android:background="@drawable/shape_shadow"
+            android:rotation="180" />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_above="@id/ll_next"
+            android:background="@drawable/shape_shadow" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/ns_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView106"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/cairobold"
-                android:text="@string/Contact_Us12"
-                android:textColor="@color/blackcolor1"
-                android:textSize="18sp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imageView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/camm" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/camm" />
-
-                <ImageView
-                    android:id="@+id/imageView19"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="45dp"
-                    android:layout_marginTop="50dp"
-                    android:contentDescription="@string/enter_old_password"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView18"
-                    app:layout_constraintStart_toStartOf="@+id/imageView18"
-                    app:layout_constraintTop_toTopOf="@+id/imageView18"
-                    app:srcCompat="@drawable/ic_icon_awesome_camera" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <EditText
-                android:id="@+id/edt_full_name"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Full_Name"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView18" />
-
-            <EditText
-                android:id="@+id/edt_email"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/email"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_full_name" />
-
-            <EditText
-                android:id="@+id/edt_phone"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Phone_Number"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_email" />
-
-            <EditText
-                android:id="@+id/editText18"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:gravity="start"
-                android:hint="@string/complint51"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:padding="10dp"
-                android:textColorHint="@color/text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_phone" />
-
-            <TextView
-                android:id="@+id/textView107"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/cairobold"
-                android:text="@string/Contact_Us12"
-                android:textColor="@color/blackcolor1"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText18" />
-
-
-            <EditText
-                android:id="@+id/edt_id_no"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/ID_No"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView107" />
-
+            android:layout_below="@id/toolbar"
+            android:fillViewport="true">
 
             <LinearLayout
-                android:id="@+id/ll_capture_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/ic_rectangle_3294"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_id_no">
-
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:srcCompat="@drawable/ic_id" />
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView106"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/Contact_Us12"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="18sp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/camm" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/camm" />
+
+                    <ImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginTop="50dp"
+                        android:contentDescription="@string/enter_old_password"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView18"
+                        app:layout_constraintStart_toStartOf="@+id/imageView18"
+                        app:layout_constraintTop_toTopOf="@+id/imageView18"
+                        app:srcCompat="@drawable/ic_icon_awesome_camera" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <EditText
+                    android:id="@+id/edt_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="@string/Capture_imagejs"
-                    android:textColor="@color/ghhg" />
-            </LinearLayout>
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:hint="@string/Full_Name"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@{model.user.name}"
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.fullNameTextWatcher}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView18" />
 
-            <EditText
-                android:id="@+id/edt_gender"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Gender"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ll_capture_id" />
-
-
-            <EditText
-                android:id="@+id/edt_email89"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Date_of_Birth"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_gender" />
-
-
-            <EditText
-                android:id="@+id/edt_personal_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Personal_Phone_Number"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_email89" />
-
-            <EditText
-                android:id="@+id/edt_store_phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/Store_Phone_Number"
-                android:importantForAutofill="no"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_personal_phone_number" />
-
-            <TextView
-                android:id="@+id/textView109"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/cairobold"
-                android:text="@string/Store_Informations"
-                android:textColor="@color/blackcolor1"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_store_phone_number" />
-
-            <LinearLayout
-                android:id="@+id/ll_capture_store_license"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_rectangle_3294"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView109">
-
-                <ImageView
-                    android:id="@+id/imageView5"
+                <EditText
+                    android:id="@+id/edt_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:srcCompat="@drawable/up_load" />
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@{model.user.email}"
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.emailTextWatcher}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_full_name" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text">
+
+                    <Spinner
+                        android:id="@+id/sp_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:textColorHint="@color/text"
+                        android:textSize="15sp"
+                        android:background="@color/transparent_color" />
+
+                    <ImageView
+
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignTop="@+id/sp_gender"
+                        android:layout_alignBottom="@+id/sp_gender"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/login_now"
+                        app:srcCompat="@drawable/ic_icon_ionic_ios_arrow_back" />
+                </RelativeLayout>
+
+
+                <EditText
+                    android:id="@+id/edt_id_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:hint="@string/ID_No"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@{model.user.id_no}"
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    app:addTextChangedListener="@{model.idNoTextWatcher}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView107" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_capture_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/background_blue_dash"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_id_no">
+
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:srcCompat="@drawable/ic_id" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/Capture_imagejs"
+                        android:textColor="@color/ghhg" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textView107"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/cairosemibold"
-                    android:gravity="center"
-                    android:text="@string/Clicck"
-                    android:textColor="@color/ghhg"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/edt_expiry_date_license"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/License_expiry_date"
-                android:importantForAutofill="no"
-                android:inputType="date"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ll_capture_store_license" />
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/store_admin_info"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText18" />
 
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_rectangle_3294"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_expiry_date_license">
-
-                <ImageView
-                    android:id="@+id/imageView55"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:srcCompat="@drawable/up_load" />
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edt_store_name_ar"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_ground_edit_text"
+                        android:ems="10"
+                        android:hint="@string/store_name_en"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@{model.user.name}"
+                        android:textColorHint="@color/text"
+                        android:textSize="15sp"
+                        app:addTextChangedListener="@{model.fullNameTextWatcher}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+                    <EditText
+                        android:id="@+id/edt_store_name_en"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_ground_edit_text"
+                        android:ems="10"
+                        android:hint="@string/store_name_ar"
+                        android:importantForAutofill="no"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@{model.user.name}"
+                        android:textColorHint="@color/text"
+                        android:textSize="15sp"
+                        app:addTextChangedListener="@{model.fullNameTextWatcher}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editText18"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:gravity="start"
+                    android:hint="@string/complint51"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="@color/text"
+                    android:visibility="visible"
+                    app:addTextChangedListener="@{model.descTextWatcher}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_phone" />
+
+                <EditText
+                    android:id="@+id/tv_store_desc_en"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:gravity="start"
+                    android:hint="@string/store_desc_ar"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textColorHint="@color/text"
+                    android:visibility="visible"
+                    app:addTextChangedListener="@{model.descArTextWatcher}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_phone" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp">
+
+                    <EditText
+                        android:id="@+id/edt_store_phone_number"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+
+                        android:layout_weight="1"
+                        android:background="@drawable/back_ground_edit_text"
+                        android:ems="10"
+                        android:hint="@string/Store_Phone_Number"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@{model.user.mobile}"
+                        android:textColorHint="@color/text"
+                        android:textSize="15sp"
+                        app:addTextChangedListener="@{model.phoneTextWatcher}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edt_personal_phone_number" />
+
+                    <EditText
+                        android:id="@+id/edt_personal_phone_number"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/back_ground_edit_text"
+                        android:ems="10"
+                        android:hint="@string/Personal_Phone_Number"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"
+                        android:padding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:text="@{model.user.landline}"
+                        android:textColorHint="@color/text"
+                        android:textSize="15sp"
+                        app:addTextChangedListener="@{model.personalNoTextWatcher}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/edt_email89" />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <EditText
+                    android:id="@+id/edt_email89"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:ems="10"
+                    android:hint="@string/Date_of_Birth"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_gender" />
+
 
                 <TextView
-                    android:id="@+id/textView111"
+                    android:id="@+id/textView109"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/cairosemibold"
-                    android:gravity="center"
-                    android:text="@string/Capture_for_lease"
-                    android:textColor="@color/ghhg"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/Store_Informations"
+                    android:textColor="@color/blackcolor1"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_store_phone_number" />
 
-            <EditText
-                android:id="@+id/edt_emai115"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/License_expiry_date"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/ic_rectangle_3294"
-                android:gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_emai115">
-
-                <ImageView
-                    android:id="@+id/imageView64"
+                <LinearLayout
+                    android:id="@+id/ll_capture_store_license"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/enter_old_password"
-                    app:srcCompat="@drawable/up_load" />
+                    android:layout_height="90dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/background_blue_dash"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView109">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:srcCompat="@drawable/up_load" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:gravity="center"
+                        android:text="@string/Clicck"
+                        android:textColor="@color/ghhg"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView112"
+                    android:id="@+id/edt_expiry_date_license"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/cairosemibold"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/back_ground_edit_text"
+                    android:hint="@string/License_expiry_date"
+                    android:onClick="@{model::onExpiryDateClick}"
+                    android:padding="10dp"
+                    android:text="@{model.user.license_deadline}"
+                    android:textColorHint="@color/text"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_capture_store_license" />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/background_blue_dash"
                     android:gravity="center"
-                    android:text="@string/Cliccck"
-                    android:textColor="@color/ghhg"
-                    android:textSize="14sp" />
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_expiry_date_license">
+
+                    <ImageView
+                        android:id="@+id/imageView55"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:srcCompat="@drawable/up_load" />
+
+                    <TextView
+                        android:id="@+id/textView111"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:gravity="center"
+                        android:text="@string/Capture_for_lease"
+                        android:textColor="@color/ghhg"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_blue_dash"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_emai115">
+
+                    <ImageView
+                        android:id="@+id/imageView64"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/enter_old_password"
+                        app:srcCompat="@drawable/up_load" />
+
+                    <TextView
+                        android:id="@+id/textView112"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/cairosemibold"
+                        android:gravity="center"
+                        android:text="@string/Cliccck"
+                        android:textColor="@color/ghhg"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp" />
+
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
 
-            <EditText
-                android:id="@+id/edt_emai5"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/back_ground_edit_text"
-                android:ems="10"
-                android:hint="@string/License_expiry_date"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:textColorHint="@color/text"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        <LinearLayout
+            android:id="@+id/ll_next"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_alignParentBottom="true"
+            android:background="#eeffffff"
+            android:gravity="center"
+            android:orientation="horizontal">
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -531,22 +614,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/back_ground_shadow"
                 android:fontFamily="@font/cairobold"
                 android:minWidth="256dp"
                 android:text="@string/send22"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edt_emai5" />
+                android:visibility="@{model.editVisibility}" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="70dp" />
-
+            <ProgressBar
+                android:id="@+id/pb_add_product"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/back_ground_shadow"
+                android:gravity="center"
+                android:minWidth="256dp"
+                android:visibility="@{model.pbEditVisibility}" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+    </RelativeLayout>
+</layout>

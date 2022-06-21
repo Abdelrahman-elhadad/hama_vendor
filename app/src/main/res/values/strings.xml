@@ -200,17 +200,17 @@
     <string name="boking_button">SEND REQUEST</string>
     <string name="Contact_Us12">Edit Store Profile</string>
     <string name="Contact_Us_error_2">Contact_Us_error_2</string>
-    <string name="complint51">Store Description</string>
+    <string name="complint51">Store Description \"En\"</string>
     <string name="ID_No">ID No</string>
     <string name="Capture_imagejs">Capture for ID Image</string>
     <string name="send22">SAVE CHANGES</string>
-    <string name="Personal_Phone_Number">Personal Phone Number</string>
-    <string name="Store_Phone_Number">Store Phone Number</string>
-    <string name="Store_Informations">Store Informations</string>
-    <string name="Clicck">Capture for Store license</string>
+    <string name="Personal_Phone_Number">Landline Number</string>
+    <string name="Store_Phone_Number">Phone Number</string>
+    <string name="Store_Informations">Store\'s Files Information</string>
+    <string name="Clicck">Capture for commercial license</string>
     <string name="License_expiry_date">License expiry date</string>
-    <string name="Capture_for_lease">Capture for lease</string>
-    <string name="Cliccck">Partnership Contract \"If Available\"</string>
+    <string name="Capture_for_lease">Capture for commercial Record</string>
+    <string name="Cliccck">Capture for signature</string>
     <string name="Gender">Gender</string>
     <string name="Date_of_Birth">Date of Birth</string>
     <string name="Order_Tracking44">Order Tracking</string>
@@ -357,6 +357,13 @@
     <string name="sunday">S</string>
     <string name="last_week">Last week</string>
     <string name="user_recommendations">User Recommendations</string>
+    <string name="no_reviews">No Reviews</string>
+    <string name="store_admin_info">Store Admin Info</string>
+    <string name="store_name_en">Store name \"En\"</string>
+    <string name="store_name_ar">Store Name \"Ar\"</string>
+    <string name="store_desc_ar">Store Description \"Ar\"</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
 
 </resources>
