@@ -25,6 +25,7 @@ import hama.alsaygh.kw.vendor.view.notification.NotificationsActivity;
 import hama.alsaygh.kw.vendor.view.offers.MainOffersFragment;
 import hama.alsaygh.kw.vendor.view.order.OrdersFragment;
 import hama.alsaygh.kw.vendor.view.products.ProductsFragment;
+import hama.alsaygh.kw.vendor.view.search.SearchActivity;
 
 public class HomeActivityViewModel extends ViewModel {
 
@@ -198,5 +199,9 @@ public class HomeActivityViewModel extends ViewModel {
 
     public void onMarketPriceClick(View view) {
         view.getContext().startActivity(new Intent(view.getContext(), MarketPriceActivity.class));
+    }
+
+    public void onSearchClick(View view) {
+        view.getContext().startActivity(new Intent(view.getContext(), SearchActivity.class));
     }
 }

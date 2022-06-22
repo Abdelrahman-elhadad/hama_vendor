@@ -13,6 +13,8 @@ import hama.alsaygh.kw.vendor.model.home.HomeResponse;
 import hama.alsaygh.kw.vendor.model.mySales.MySalesResponse;
 import hama.alsaygh.kw.vendor.model.notifications.NotificationsResponse;
 import hama.alsaygh.kw.vendor.model.review.ReviewsResponse;
+import hama.alsaygh.kw.vendor.model.searchLog.ProductsSearchResponse;
+import hama.alsaygh.kw.vendor.model.searchLog.SearchLogsResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.model.user.UserResponse;
@@ -532,6 +534,109 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final ReviewsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    ////////////////////////search /////////////
+    public void deleteSearchLogs(final Context context, final MutableLiveData<SearchLogsResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            SearchLogsResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/clear";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).delete().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:search-log/clear : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, SearchLogsResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new SearchLogsResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final SearchLogsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void getSearchLogs(final Context context, final MutableLiveData<SearchLogsResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            SearchLogsResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/index";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:search-log/index : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, SearchLogsResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new SearchLogsResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final SearchLogsResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void getSearchLogsProduct(final Context context, final String search, final MutableLiveData<ProductsSearchResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            ProductsSearchResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/search?key=" + search + "&type=products";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:search-log/search?key=" + search + "&type=products : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, ProductsSearchResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new ProductsSearchResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final ProductsSearchResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

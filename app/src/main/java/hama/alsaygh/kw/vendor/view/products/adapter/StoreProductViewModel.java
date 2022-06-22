@@ -41,10 +41,14 @@ public class StoreProductViewModel extends ViewModel {
     }
 
     public String getName() {
-        if (isEnglish())
-            return storeModel.getTranslations().getEn().getName();
-        else
-            return storeModel.getTranslations().getAr().getName();
+        if (storeModel.getTranslations() != null) {
+            if (isEnglish())
+                return storeModel.getTranslations().getEn().getName();
+            else
+                return storeModel.getTranslations().getAr().getName();
+        } else if (storeModel.getName() != null)
+            return storeModel.getName();
+        return "";
     }
 
     public String getPrice() {

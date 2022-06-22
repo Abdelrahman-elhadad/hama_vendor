@@ -50,6 +50,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
                 android:contentDescription="@string/login_now"
+                android:onClick="@{model::onSearchClick}"
                 android:visibility="@{model.search}"
                 app:srcCompat="@drawable/ic_search" />
 

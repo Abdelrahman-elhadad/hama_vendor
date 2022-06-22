@@ -51,7 +51,7 @@ public class Product implements Serializable {
     private String discount_type;
 
     @SerializedName("discount_value")
-    private double discount_value;
+    private String discount_value;
 
     @SerializedName("new_price")
     private double new_price;
@@ -283,16 +283,19 @@ public class Product implements Serializable {
         return discount_type;
     }
 
-    public void setDiscount_type(String discount_type) {
-        this.discount_type = discount_type;
-    }
-
     public double getDiscount_value() {
-        return discount_value;
+
+        discount_value = discount_value.toLowerCase();
+        discount_value = discount_value.replace("off", "");
+        discount_value = discount_value.replace("%", "");
+        discount_value = discount_value.replace(" ", "");
+        discount_value = discount_value.replace(":", "");
+
+        return Double.parseDouble(discount_value);
     }
 
     public void setDiscount_value(double discount_value) {
-        this.discount_value = discount_value;
+        this.discount_value = discount_value + "";
     }
 
     public double getNew_price() {

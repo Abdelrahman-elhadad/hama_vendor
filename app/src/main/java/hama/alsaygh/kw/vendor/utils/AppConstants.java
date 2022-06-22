@@ -17,5 +17,7 @@ public class AppConstants {
     public static final int ADD = 1;
     public static final int EDIT = 2;
 
+    public static final String SEARCH = "search";
+
 
 }

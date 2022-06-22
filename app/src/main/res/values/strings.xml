@@ -365,6 +365,13 @@
     <string name="store_desc_ar">Store Description \"Ar\"</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="SEARCH">Search</string>
 
+    <string name="SEARCH1">Products and others</string>
+    <string name="SEARCH2">Recent Searches</string>
+    <string name="clear">CLEAR</string>
+    <string name="products">Products</string>
+    <string name="search_products">Search Products</string>
+    <string name="Packaging_Stores2">Recently Added</string>
 
 </resources>

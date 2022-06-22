@@ -368,5 +368,12 @@
     <string name="store_name_ar">اسم المتجر \"العربية\"</string>
     <string name="male">ذكر</string>
     <string name="female">انثي</string>
-    <string name="in_progress">In Progress</string>
+    <string name="in_progress">قيد التحضير</string>
+    <string name="SEARCH">بحث</string>
+    <string name="SEARCH1">منتجات و غيرها</string>
+    <string name="SEARCH2">اخر عمليات البحث</string>
+    <string name="clear">مسح</string>
+    <string name="products">منتاجات</string>
+    <string name="search_products">البحث عن منتاجات</string>
+    <string name="Packaging_Stores2">المضاف مؤخرا</string>
 </resources>

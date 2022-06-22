@@ -15,8 +15,10 @@
         <entry key="app/src/main/res/drawable/back_ground_button_2.xml" value="0.129" />
         <entry key="app/src/main/res/drawable/back_ground_button_transparent.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_edit_text.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_ground_edit_text_search.xml" value="0.134" />
         <entry key="app/src/main/res/drawable/back_ground_rv_filter.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_ground_rv_filter_unselect.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/back_ground_search.xml" value="0.123" />
         <entry key="app/src/main/res/drawable/back_ground_shadow.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_item.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/back_item_order.xml" value="0.335" />
@@ -82,6 +84,7 @@
         <entry key="app/src/main/res/drawable/ic_rectangle_3099.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_rectangle_3288.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/ic_rectangle_3294.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/ic_seachbackicon.xml" value="0.123" />
         <entry key="app/src/main/res/drawable/ic_seeall.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_sell_your_product.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/ic_solid.xml" value="0.152" />
@@ -120,6 +123,8 @@
         <entry key="app/src/main/res/layout/activity_rate_hama.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/activity_recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1671654553227875" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.2153179190751445" />
+        <entry key="app/src/main/res/layout/activity_search_result_product.xml" value="0.14150047483380818" />
         <entry key="app/src/main/res/layout/activity_store_rate.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
@@ -204,6 +209,7 @@
         <entry key="app/src/main/res/layout/row_filter_main.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_market_price_currency_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_market_price_gold_list.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/layout/row_search_log.xml" value="0.1" />
         <entry key="app/src/main/res/layout/row_sorting.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/store_rate.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/tab_title.xml" value="0.2546875" />

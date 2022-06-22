@@ -30,9 +30,11 @@ public class RequestWrapper {
     private final String PATH = "https://hamakw.com/api";
     private final String VERSION = "v1";
     private final String MODULE_CONSTANTS = "constants";
-    private final String MODULE_USER = "vendor";
-    private final String FULL_PATH_USER = PATH + "/" + VERSION + "/" + MODULE_USER + "/";
+    private final String MODULE_VENDOR = "vendor";
+    private final String FULL_PATH_VENDOR = PATH + "/" + VERSION + "/" + MODULE_VENDOR + "/";
     private final String FULL_PATH_CONSTANTS = PATH + "/" + VERSION + "/" + MODULE_CONSTANTS + "/";
+    private final String FULL_PATH_USER = PATH + "/" + VERSION + "/" + "user" + "/";
+
 
     private final MediaType MEDIA_TYPE = MediaType.parse("image/*");
     private final MediaType FILE_TYPE = MediaType.parse("*/*");
@@ -94,6 +96,10 @@ public class RequestWrapper {
         return "android";
     }
 
+    public String getFullPathUser() {
+        return FULL_PATH_USER;
+    }
+
     public String getAppVersion(Context context) {
 
         PackageManager pm = context.getPackageManager();
@@ -118,7 +124,7 @@ public class RequestWrapper {
     }
 
     public String getFullPath() {
-        return FULL_PATH_USER;
+        return FULL_PATH_VENDOR;
     }
 
     public String getFullPathConstants() {
