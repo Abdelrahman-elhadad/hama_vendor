@@ -1,5 +1,6 @@
 package hama.alsaygh.kw.vendor.dialog.offers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
+import hama.alsaygh.kw.vendor.view.gongrats.offers.GongratsOfferActivity;
 
 
 public class AddEditOfferProductDialog extends BottomSheetDialogFragment {
@@ -65,7 +67,6 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment {
             addProduct.setChild_sub_category(product.getSub_category());
         }
 
-
         addProduct.setBind_to_market(product.isBind_to_market());
         addProduct.setManufacture_price(product.getManufacture_price() + "");
         addProduct.setNetWeight(product.getMetal_weight() + "");
@@ -101,6 +102,7 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment {
         AddEditOfferProductDialog fragment = new AddEditOfferProductDialog();
         fragment.setOnMyCartListener(onMyCartListener);
         fragment.setType(AppConstants.ADD);
+        fragment.setProduct(product);
         fragment.setAddProduct(product, AppConstants.ADD);
 
         return fragment;
@@ -144,8 +146,9 @@ public class AddEditOfferProductDialog extends BottomSheetDialogFragment {
 
             if (generalResponse.isStatus()) {
                 if (type == AppConstants.ADD) {
-                    if (onMyCartListener != null)
-                        onMyCartListener.onItemClick(model.addProduct, 0);
+
+                    startActivity(new Intent(requireContext(), GongratsOfferActivity.class));
+
                 } else {
                     if (onMyCartListener != null)
                         onMyCartListener.onEditClick(model.product, position);
