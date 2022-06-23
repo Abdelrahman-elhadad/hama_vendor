@@ -33,6 +33,7 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
         model = new SearchViewModel(this);
         binding.setModel(model);
         binding.imgBack.setOnClickListener(v -> finish());
+
         binding.recycleSearchForStores.setLayoutManager(new GridLayoutManager(this, 2));
 
         if (getIntent() != null) {

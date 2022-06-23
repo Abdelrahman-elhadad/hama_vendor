@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import hama.alsaygh.kw.vendor.model.category.SearchCategoriesResponse;
 import hama.alsaygh.kw.vendor.model.contactUs.ContactUsResponse;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.model.home.HomeResponse;
@@ -637,6 +638,40 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final ProductsSearchResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void getSearchLogsCategories(final Context context, final String search, final MutableLiveData<SearchCategoriesResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            SearchCategoriesResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/search?key=" + search + "&type=categories";
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:search-log/search?key=" + search + "&type=categories : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, SearchCategoriesResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new SearchCategoriesResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final SearchCategoriesResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

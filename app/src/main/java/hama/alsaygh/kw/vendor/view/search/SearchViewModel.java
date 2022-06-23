@@ -27,7 +27,7 @@ public class SearchViewModel extends ViewModel {
         this.context = context;
         productRepo = new ProfileRepo();
 
-        arrayForSpinner = new String[]{/* getString(R.string.Categories),*/  context.getString(R.string.products)};
+        arrayForSpinner = new String[]{context.getString(R.string.Categories), context.getString(R.string.products)};
 
     }
 

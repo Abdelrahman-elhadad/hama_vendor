@@ -54,7 +54,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/edit_serch_for_stores"
@@ -75,7 +76,7 @@
                 app:iconifiedByDefault="false"
                 app:queryBackground="@android:color/transparent"
                 app:queryHint="@string/search_products"
-                app:searchIcon="@drawable/ic_search" />
+                app:searchIcon="@drawable/ic_icon_search" />
 
         </RelativeLayout>
 

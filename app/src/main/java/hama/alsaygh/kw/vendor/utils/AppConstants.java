@@ -18,6 +18,9 @@ public class AppConstants {
     public static final int EDIT = 2;
 
     public static final String SEARCH = "search";
+    public static final String CAT_LEVEL_1 = "cat_level_1";
+    public static final String CAT_LEVEL_2 = "cat_level_2";
+    public static final String CAT_LEVEL_3 = "cat_level_3";
 
 
 }

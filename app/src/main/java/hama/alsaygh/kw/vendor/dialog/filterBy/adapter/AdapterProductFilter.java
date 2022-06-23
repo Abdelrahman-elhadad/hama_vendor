@@ -118,6 +118,22 @@ public class AdapterProductFilter extends RecyclerView.Adapter<RecyclerView.View
             notifyDataSetChanged();
         });
 
+        if (filterProduct.getId() == -3) {
+            holder.rc_item.setVisibility(View.VISIBLE);
+            holder.rc_item_child.setVisibility(View.VISIBLE);
+            holder.iv_close.setImageResource(R.drawable.ic_dawnicon);
+
+            if (categories == null || categories.isEmpty()) {
+                holder.tv_no_data.setVisibility(View.VISIBLE);
+            } else
+                holder.tv_no_data.setVisibility(View.GONE);
+
+        } else {
+            holder.rc_item.setVisibility(View.GONE);
+            holder.rc_item_child.setVisibility(View.GONE);
+            holder.iv_close.setImageResource(R.drawable.ic_icon_upp);
+            holder.tv_no_data.setVisibility(View.GONE);
+        }
 
         holder.rangebar1.setDrawTicks(true);
         holder.rangebar1.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
@@ -191,7 +207,7 @@ public class AdapterProductFilter extends RecyclerView.Adapter<RecyclerView.View
     public static class Holder extends RecyclerView.ViewHolder {
         RadioButton rb_market_price, rb_fixed_price;
         View view;
-        TextView tv_filter_name;
+        TextView tv_filter_name, tv_no_data;
         ImageView iv_close;
         RecyclerView rc_item, rc_item_child;
         LinearLayout ll_price_radio;
@@ -207,6 +223,7 @@ public class AdapterProductFilter extends RecyclerView.Adapter<RecyclerView.View
             iv_close = itemView.findViewById(R.id.iv_close);
             rc_item = itemView.findViewById(R.id.rc_item);
             rc_item_child = itemView.findViewById(R.id.rc_item_child);
+            tv_no_data = itemView.findViewById(R.id.tv_no_categories);
             view = itemView.findViewById(R.id.view88);
 
         }

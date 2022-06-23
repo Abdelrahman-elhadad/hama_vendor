@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="hama.alsaygh.kw.vendor.view.products.ProductsViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="25dp"
+                android:layout_height="23dp"
+                android:layout_gravity="start"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@string/about_hama3"
+                app:srcCompat="@drawable/backk" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:text="@string/SEARCH"
+                android:textColor="@color/filter_by"
+                android:textSize="20sp" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_shadow"
+            android:rotation="180" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sw_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/ns_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/liner_filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/back_sort"
+                            android:orientation="horizontal"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/imageView39"
+                                android:layout_width="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:contentDescription="@string/login_now"
+                                app:srcCompat="@drawable/ic_filter" />
+
+                            <TextView
+                                android:id="@+id/textView57"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/cairosemibold"
+                                android:paddingStart="0dp"
+                                android:paddingEnd="8dp"
+                                android:text="@string/filter"
+                                android:textColor="@color/color_store_page"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/liner_sort"
+                            android:layout_width="83dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="-1dp"
+                            android:background="@drawable/back_sort"
+                            android:orientation="horizontal"
+                            app:layout_constraintStart_toEndOf="@+id/liner_filter"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/imageView319"
+                                android:layout_width="19dp"
+                                android:layout_height="19dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:contentDescription="@string/login_now"
+                                app:srcCompat="@drawable/ic_icon_material_sort" />
+
+                            <TextView
+                                android:id="@+id/textView517"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/cairosemibold"
+                                android:text="@string/Sort"
+                                android:textColor="@color/color_store_page"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="37dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/dgdg"
+                            android:fontFamily="@font/cairobold"
+                            android:gravity="center"
+                            android:onClick="@{model::onAddProductClick}"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:text="@string/add"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_products"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="13dp"
+                        android:visibility="visible"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:spanCount="2"
+                        tools:listitem="@layout/item_rv_my_prouduct" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_loading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_no_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/my_order_img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_marginTop="6dp"
+                            android:contentDescription="@string/app_name"
+                            app:srcCompat="@drawable/ic_box__1_" />
+
+                        <TextView
+                            android:id="@+id/no_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cairoblack"
+                            android:text="@string/no_product"
+                            android:textSize="25sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

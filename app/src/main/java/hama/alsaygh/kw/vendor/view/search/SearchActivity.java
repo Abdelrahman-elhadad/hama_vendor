@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import hama.alsaygh.kw.vendor.databinding.ActivitySearchBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.dialog.filterBy.FilterBySearchDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.searchLog.SearchLog;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
@@ -50,6 +51,9 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
                 switch (position) {
 
                     case 0:
+                        openCategories(query);
+                        break;
+                    case 1:
                         openProduct(query);
                         break;
                 }
@@ -67,6 +71,11 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
         binding.clSearchProduct.setOnClickListener(v -> {
 
             openProduct("");
+        });
+
+        binding.clSearchCat.setOnClickListener(v -> {
+
+            openCategories("");
         });
 
 
@@ -106,6 +115,8 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
             SearchLog searchLog = (SearchLog) object;
             if (searchLog.getType().equalsIgnoreCase("products")) {
                 openProduct(searchLog.getKey());
+            } else if (searchLog.getType().equalsIgnoreCase("categories")) {
+                openCategories(searchLog.getKey());
             }
 
         }
@@ -127,6 +138,11 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
         intent.putExtra(AppConstants.SEARCH, s);
         startActivity(intent);
     }
+
+    private void openCategories(String s) {
+        FilterBySearchDialog.newInstance(s).show(getSupportFragmentManager(), "search_cat");
+    }
+
 
     @Override
     protected void onDestroy() {

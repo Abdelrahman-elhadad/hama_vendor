@@ -44,6 +44,21 @@
         android:layout_below="@+id/rc_item"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/tv_no_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rc_item_child"
+        android:layout_toStartOf="@+id/iv_close"
+        android:fontFamily="@font/cairoregular"
+        android:textColor="@color/blackcolor1"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/no_data" />
 
     <LinearLayout
         android:id="@+id/ll_price_radio"
@@ -52,7 +67,7 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         android:visibility="gone"
-        android:layout_below="@+id/rc_item_child">
+        android:layout_below="@+id/tv_no_categories">
 
         <RadioGroup
             android:layout_width="match_parent"

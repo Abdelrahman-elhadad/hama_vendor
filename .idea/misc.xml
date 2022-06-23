@@ -123,8 +123,9 @@
         <entry key="app/src/main/res/layout/activity_rate_hama.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/activity_recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1671654553227875" />
-        <entry key="app/src/main/res/layout/activity_search.xml" value="0.2153179190751445" />
-        <entry key="app/src/main/res/layout/activity_search_result_product.xml" value="0.14150047483380818" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_search_categories_product.xml" value="0.15006412997007268" />
+        <entry key="app/src/main/res/layout/activity_search_result_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_store_rate.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
@@ -206,7 +207,7 @@
         <entry key="app/src/main/res/layout/rate_hama.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/register.xml" value="0.16979166666666667" />
-        <entry key="app/src/main/res/layout/row_filter_main.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/layout/row_filter_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/row_market_price_currency_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_market_price_gold_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/row_search_log.xml" value="0.1" />
