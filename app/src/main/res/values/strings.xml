@@ -374,5 +374,6 @@
     <string name="search_products">Search Products</string>
     <string name="Packaging_Stores2">Recently Added</string>
     <string name="Categories">Categories</string>
+    <string name="select_image">Select Image</string>
 
 </resources>

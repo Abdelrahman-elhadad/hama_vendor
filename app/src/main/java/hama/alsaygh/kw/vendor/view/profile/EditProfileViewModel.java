@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.databinding.ObservableInt;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -20,9 +21,12 @@ import java.util.Date;
 import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.dialog.SelectImageDialog;
+import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.repo.ProfileRepo;
+import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
 
 public class EditProfileViewModel extends ViewModel {
@@ -40,16 +44,28 @@ public class EditProfileViewModel extends ViewModel {
     String[] arrayForSpinner;
     ProfileRepo productRepo;
 
+    int imageType;
+    OnGeneralClickListener onGeneralClickListener;
+    FragmentManager fragmentManager;
 
-    public EditProfileViewModel(Context context) {
+    public EditProfileViewModel(Context context, FragmentManager fragmentManager, OnGeneralClickListener onGeneralClickListener) {
         this.context = context;
         productRepo = new ProfileRepo();
         user = SharedPreferenceConstant.getSharedPreferenceUser(context);
-
+        this.onGeneralClickListener = onGeneralClickListener;
         editVisibility.set(View.VISIBLE);
         pbEditVisibility.set(View.GONE);
+        this.fragmentManager = fragmentManager;
 
         arrayForSpinner = new String[]{context.getString(R.string.male), context.getString(R.string.female)};
+    }
+
+    public void setImageType(int imageType) {
+        this.imageType = imageType;
+    }
+
+    public int getImageType() {
+        return imageType;
     }
 
     public MutableLiveData<LoginResponse> getProfileObserver() {
@@ -87,6 +103,44 @@ public class EditProfileViewModel extends ViewModel {
             @Override
             public void afterTextChanged(Editable s) {
                 user.setName(s.toString());
+            }
+        };
+    }
+
+    public TextWatcher storeNameArTextWatcher() {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                user.getTranslations().getAr().setCompany_name(s.toString());
+            }
+        };
+    }
+
+    public TextWatcher storeNameEnTextWatcher() {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                user.getTranslations().getEn().setCompany_name(s.toString());
             }
         };
     }
@@ -144,6 +198,7 @@ public class EditProfileViewModel extends ViewModel {
             @Override
             public void afterTextChanged(Editable s) {
 
+                user.getTranslations().getEn().setCompany_description(s.toString());
             }
         };
     }
@@ -163,6 +218,7 @@ public class EditProfileViewModel extends ViewModel {
             @Override
             public void afterTextChanged(Editable s) {
 
+                user.getTranslations().getAr().setCompany_description(s.toString());
             }
         };
     }
@@ -251,4 +307,83 @@ public class EditProfileViewModel extends ViewModel {
     }
 
 
+    public void onProfileClick(View v) {
+
+        imageType = AppConstants.PROFILE;
+        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+
+    }
+
+    public void onIdClick(View v) {
+
+        imageType = AppConstants.ID;
+        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+
+    }
+
+    public void onCommercialLicenseClick(View v) {
+
+        imageType = AppConstants.COMMERCIAL_LICENSE;
+        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+
+    }
+
+    public void onCommercialRecordClick(View v) {
+
+        imageType = AppConstants.COMMERCIAL_RECORD;
+        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+
+    }
+
+    public void onSignatureClick(View v) {
+
+        imageType = AppConstants.SIGNATURE;
+        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+
+    }
+
+    public void setLogo(String path) {
+        user.setLogo(path);
+    }
+
+    public void setID(String path) {
+        user.setNational_id(path);
+    }
+
+    public void setCommercialLicense(String path) {
+        user.setCommercial_license(path);
+    }
+
+    public void setCommercialRecord(String path) {
+        user.setCommercial_record(path);
+    }
+
+    public void setSignature(String path) {
+        user.setSignature_approval(path);
+    }
+
+    public String getLogo() {
+        return user.getLogo();
+    }
+
+    public String getId() {
+        return user.getNational_id();
+    }
+
+    public String getCommercialLicense() {
+        return user.getCommercial_license();
+    }
+
+    public String getCommercialRecord() {
+        return user.getCommercial_record();
+    }
+
+    public String getSignature() {
+        return user.getSignature_approval();
+    }
+
+
+    public void sendChanges(Context context) {
+        productRepo.updateProfile(context, user, editMutableLiveData);
+    }
 }

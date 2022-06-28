@@ -24,7 +24,7 @@ import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 
 
-public class DeleteProduct extends BottomSheetDialogFragment {
+public class DeleteProductDialog extends BottomSheetDialogFragment {
 
 
     LinearLayout parent_delete_p;
@@ -46,9 +46,9 @@ public class DeleteProduct extends BottomSheetDialogFragment {
         this.product_id = product_id;
     }
 
-    public static DeleteProduct newInstance(int product_id, OnGeneralClickListener onMyCartListener) {
+    public static DeleteProductDialog newInstance(int product_id, OnGeneralClickListener onMyCartListener) {
 
-        DeleteProduct fragment = new DeleteProduct();
+        DeleteProductDialog fragment = new DeleteProductDialog();
         fragment.setProduct_id(product_id);
         fragment.setOnMyCartListener(onMyCartListener);
         return fragment;

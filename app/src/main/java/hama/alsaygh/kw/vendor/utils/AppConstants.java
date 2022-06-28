@@ -23,4 +23,11 @@ public class AppConstants {
     public static final String CAT_LEVEL_3 = "cat_level_3";
 
 
+    public static final int PROFILE = 0;
+    public static final int ID = 1;
+    public static final int COMMERCIAL_LICENSE = 2;
+    public static final int COMMERCIAL_RECORD = 3;
+    public static final int SIGNATURE = 4;
+
+
 }

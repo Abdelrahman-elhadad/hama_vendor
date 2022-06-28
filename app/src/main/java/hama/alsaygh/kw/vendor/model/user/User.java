@@ -115,11 +115,23 @@ public class User implements Serializable {
     @SerializedName("has_rate")
     private boolean has_rate;
 
+    @SerializedName("translations")
+    private UserTranslate translations;
+
     private String password, newPassword, confirmNewPassword;
 
     public User() {
     }
 
+    public UserTranslate getTranslations() {
+        if (translations == null)
+            translations = new UserTranslate();
+        return translations;
+    }
+
+    public void setTranslations(UserTranslate translations) {
+        this.translations = translations;
+    }
 
     public String getPassword() {
         if (password == null)
@@ -248,6 +260,8 @@ public class User implements Serializable {
     }
 
     public String getLicense() {
+        if (license == null)
+            license = "";
         return license;
     }
 
@@ -336,6 +350,8 @@ public class User implements Serializable {
     }
 
     public String getCommercial_record() {
+        if (commercial_record == null)
+            commercial_record = "";
         return commercial_record;
     }
 
@@ -344,6 +360,8 @@ public class User implements Serializable {
     }
 
     public String getCommercial_license() {
+        if (commercial_license == null)
+            commercial_license = "";
         return commercial_license;
     }
 
@@ -352,6 +370,8 @@ public class User implements Serializable {
     }
 
     public String getNational_id() {
+        if (national_id == null)
+            national_id = "";
         return national_id;
     }
 
@@ -360,6 +380,8 @@ public class User implements Serializable {
     }
 
     public String getSignature_approval() {
+        if (signature_approval == null)
+            signature_approval = "";
         return signature_approval;
     }
 

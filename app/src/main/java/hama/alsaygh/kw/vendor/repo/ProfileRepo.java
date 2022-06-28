@@ -41,7 +41,7 @@ public class ProfileRepo {
                 Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
-
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
                 Log.i(TAG, "Response:profileData " + responseString);
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
@@ -78,6 +78,7 @@ public class ProfileRepo {
                 String responseString = response.body().string();
 
                 Log.i(TAG, "Response:fetch-user " + responseString);
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
@@ -99,23 +100,45 @@ public class ProfileRepo {
 
     }
 
-    public void updateProfile(final Context context, final User user, final String cites, final MutableLiveData<LoginResponse> loginResponseMutableLiveData) {
+    public void updateProfile(final Context context, final User user, final MutableLiveData<LoginResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
             LoginResponse loginSocialResponse;
             try {
                 String url = RequestWrapper.getInstance().getFullPath() + "updateProfile";
-                FormBody body = new FormBody.Builder()
+                FormBody.Builder builder = new FormBody.Builder()
                         .add("name", user.getName())
-                        .add("birth_date", user.getBirth_date())
-                        .add("address", user.getAddress())
-                        .add("avatar", user.getImage())
-                        .add("cities", cites)
-                        .add("current_password", user.getPassword().isEmpty() ? "" : user.getPassword())
-                        .add("password", user.getPassword().isEmpty() ? "" : user.getNewPassword())
-                        .add("password_confirmation", user.getPassword().isEmpty() ? "" : user.getConfirmNewPassword())
-                        .build();
+                        .add("email", user.getEmail())
+                        .add("phone", user.getMobile())
+                        .add("landline", user.getLandline())
+                        .add("company_name_ar", user.getTranslations().getAr().getCompany_name())
+                        .add("company_name_en", user.getTranslations().getEn().getCompany_name())
+                        .add("company_description_ar", user.getTranslations().getAr().getCompany_description())
+                        .add("company_description_en", user.getTranslations().getEn().getCompany_description())
+                        .add("id_no", user.getId_no())
+                        .add("license_deadline", user.getLicense_deadline());
 
+                if (!user.getNational_id().startsWith("http") && !user.getNational_id().startsWith("https")) {
+                    builder.add("national_id", user.getNational_id());
+                }
+
+                if (!user.getCommercial_record().startsWith("http") && !user.getCommercial_record().startsWith("https")) {
+                    builder.add("commercial_record", user.getCommercial_record());
+                }
+
+                if (!user.getCommercial_license().startsWith("http") && !user.getCommercial_license().startsWith("https")) {
+                    builder.add("commercial_license", user.getCommercial_license());
+                }
+
+                if (!user.getSignature_approval().startsWith("http") && !user.getSignature_approval().startsWith("https")) {
+                    builder.add("signature_approval", user.getSignature_approval());
+                }
+
+                if (!user.getLicense().startsWith("http") && !user.getLicense().startsWith("https")) {
+                    builder.add("license", user.getLicense());
+                }
+
+                FormBody body = builder.build();
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).put(body).build();
 
@@ -125,6 +148,8 @@ public class ProfileRepo {
 
                 Log.i(TAG, "Response:updateProfile " + responseString);
                 responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
+
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
 
@@ -548,7 +573,7 @@ public class ProfileRepo {
         new Thread(() -> {
             SearchLogsResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/clear";
+                String url = RequestWrapper.getInstance().getFullPath() + "search-log/clear";
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).delete().build();
 
@@ -582,7 +607,7 @@ public class ProfileRepo {
         new Thread(() -> {
             SearchLogsResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/index";
+                String url = RequestWrapper.getInstance().getFullPath() + "search-log/index";
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
 
@@ -616,7 +641,7 @@ public class ProfileRepo {
         new Thread(() -> {
             ProductsSearchResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/search?key=" + search + "&type=products";
+                String url = RequestWrapper.getInstance().getFullPath() + "search-log/search?key=" + search + "&type=products";
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
 
@@ -650,7 +675,7 @@ public class ProfileRepo {
         new Thread(() -> {
             SearchCategoriesResponse loginSocialResponse;
             try {
-                String url = RequestWrapper.getInstance().getFullPathUser() + "search-log/search?key=" + search + "&type=categories";
+                String url = RequestWrapper.getInstance().getFullPath() + "search-log/search?key=" + search + "&type=categories";
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
                 Request request = requestBuilder.url(url).get().build();
 

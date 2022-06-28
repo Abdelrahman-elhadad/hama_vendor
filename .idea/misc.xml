@@ -43,6 +43,7 @@
         <entry key="app/src/main/res/drawable/back_view_myorder_ar.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_dash.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/background_blue_tab.xml" value="0.152" />
+        <entry key="app/src/main/res/drawable/background_dash.xml" value="0.1235" />
         <entry key="app/src/main/res/drawable/background_unselected_tab.xml" value="0.1425" />
         <entry key="app/src/main/res/drawable/backk.xml" value="0.148" />
         <entry key="app/src/main/res/drawable/card_canceld_ar.xml" value="0.152" />
@@ -121,7 +122,7 @@
         <entry key="app/src/main/res/layout/activity_notification_settings.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.16927083333333334" />
         <entry key="app/src/main/res/layout/activity_order_details.xml" value="0.23769633507853402" />
-        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.20684931506849316" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_rate_hama.xml" value="0.1671654553227875" />
         <entry key="app/src/main/res/layout/activity_recommendations.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1671654553227875" />
@@ -155,6 +156,7 @@
         <entry key="app/src/main/res/layout/dialog_filter_by.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/dialog_gps_setting.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/dialog_login.xml" value="0.1546875" />
+        <entry key="app/src/main/res/layout/dialog_select_image.xml" value="0.125" />
         <entry key="app/src/main/res/layout/discard_order.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/edit_store_profile.xml" value="0.48148148148148145" />
         <entry key="app/src/main/res/layout/enter_new_password.xml" value="0.25" />

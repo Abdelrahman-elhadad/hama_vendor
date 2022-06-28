@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
-import hama.alsaygh.kw.vendor.dialog.DeleteProduct;
+import hama.alsaygh.kw.vendor.dialog.DeleteProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.utils.LocalUtils;
@@ -113,7 +113,7 @@ public class StoreProductViewModel extends ViewModel {
         });
 
         tvDelete.setOnClickListener(v12 -> {
-            DeleteProduct.newInstance(storeModel.getId(), onGeneralClickListener).show(fragmentManager, "Delete");
+            DeleteProductDialog.newInstance(storeModel.getId(), onGeneralClickListener).show(fragmentManager, "Delete");
             popupWindow.dismiss();
         });
 

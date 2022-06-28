@@ -33,7 +33,7 @@ public class AuthRepo {
                         .add("fcm_token", token)
                         .build();
 
-                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeaderPush(context,token);
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeaderPush(context, token);
                 Request request = requestBuilder.url(url).post(body).build();
 
                 Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
@@ -42,7 +42,9 @@ public class AuthRepo {
 
                 Log.i(TAG, "Response:auth/login " + responseString);
 
-                responseString=responseString.replace("\"data\":[]","\"data\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
+
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
 
@@ -161,6 +163,8 @@ public class AuthRepo {
                 String responseString = response.body().string();
 
                 Log.i(TAG, "Response:auth/verify " + responseString);
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
@@ -251,6 +255,8 @@ public class AuthRepo {
                 String responseString = response.body().string();
 
                 Log.i(TAG, "Response:auth/register " + responseString);
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+                responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 
