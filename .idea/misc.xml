@@ -106,12 +106,14 @@
         <entry key="app/src/main/res/layout/activity_appointment_booking.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_enter_new_password.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_forget_password.xml" value="0.3773148148148148" />
         <entry key="app/src/main/res/layout/activity_general_settings.xml" value="0.13802083333333334" />
         <entry key="app/src/main/res/layout/activity_gongrats.xml" value="0.11329628046173579" />
-        <entry key="app/src/main/res/layout/activity_gongrats_offer.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_gongrats_offer.xml" value="0.11" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_language_setting.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17291666666666666" />
         <entry key="app/src/main/res/layout/activity_market_price.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/activity_mobile_verification.xml" value="0.2546875" />
@@ -127,6 +129,7 @@
         <entry key="app/src/main/res/layout/activity_search_categories_product.xml" value="0.15006412997007268" />
         <entry key="app/src/main/res/layout/activity_search_result_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_store_rate.xml" value="0.1671654553227875" />
+        <entry key="app/src/main/res/layout/activity_term_and_conditions.xml" value="0.335" />
         <entry key="app/src/main/res/layout/add_new_offer_fragment.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/add_new_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/add_new_product_step2.xml" value="0.14947916666666666" />

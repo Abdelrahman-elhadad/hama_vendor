@@ -43,11 +43,11 @@
 
             <ImageView
                 android:id="@+id/imageView55"
-                android:layout_width="77dp"
-                android:layout_height="96dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="70dp"
-                android:background="@drawable/hama_logo" />
+                android:src="@drawable/logo" />
 
             <TextView
                 android:id="@+id/well_come"

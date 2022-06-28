@@ -140,6 +140,7 @@
                 android:text="@string/Language_Settings7"
                 android:textColor="@color/my_profile"
                 android:textSize="16sp"
+                android:visibility="gone"
                 android:onClick="@{model::onSocialMediaClick}"/>
 
 
@@ -149,6 +150,7 @@
             android:layout_height="0.5dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="5dp"
+            android:visibility="gone"
             android:background="@drawable/back_my_profile" />
     </LinearLayout>
 </layout>

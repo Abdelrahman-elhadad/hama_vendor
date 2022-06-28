@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">هامه متاجر </string>
-    <string name="vendor_portal">بوابة البائعين</string>
+    <string name="vendor_portal">بوابة المتاجر</string>
     <string name="login">تسجيل دخول</string>
     <string name="login_now">تسجيل دخول الآن</string>
     <string name="homeee">تسجيل</string>
@@ -82,7 +82,7 @@
     <string name="fixed1">الطلبات</string>
     <string name="Completed">مكتمل</string>
     <string name="Pending">قيد الانتظار</string>
-    <string name="Canceled">ألغيت</string>
+    <string name="Canceled">ملغي</string>
     <string name="productt"> منتجات</string>
     <string name="min">قبل دقيقتين</string>
     <string name="yuyuu">تفاصيل الطلبات</string>
@@ -376,5 +376,5 @@
     <string name="products">منتاجات</string>
     <string name="search_products">البحث عن منتاجات</string>
     <string name="Packaging_Stores2">المضاف مؤخرا</string>
-    <string name="Categories">Categories</string>
+    <string name="Categories">الفئات</string>
 </resources>

@@ -18,11 +18,11 @@
         <ImageView
             android:contentDescription="@string/Gold"
             android:id="@+id/imageView11"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="90dp"
-            app:srcCompat="@drawable/hama_logo" />
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView24"

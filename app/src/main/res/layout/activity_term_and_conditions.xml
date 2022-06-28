@@ -67,7 +67,7 @@
                         android:layout_height="73dp"
                         android:layout_marginStart="10dp"
                         android:contentDescription="@string/enter_old_password"
-                        app:srcCompat="@drawable/hama_logo" />
+                        app:srcCompat="@drawable/logo" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
