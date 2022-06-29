@@ -200,6 +200,8 @@
                     android:hint="@string/complint5"
                     android:inputType="text"
                     android:padding="10dp"
+
+                    android:visibility="gone"
                     app:addTextChangedListener="@{model.msgTextWatcher}"
                     android:textColorHint="@color/textColor" />
 
@@ -216,7 +218,7 @@
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:onClick="@{model::onBookingClick}"
-                    android:visibility="@{model.loginVisibility}"
+                    android:visibility="gone"
                     />
 
                 <ProgressBar
@@ -228,7 +230,7 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/back_ground_shadow"
                     android:padding="5dp"
-                    android:visibility="@{model.pbLoginVisibility}" />
+                    android:visibility="gone" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

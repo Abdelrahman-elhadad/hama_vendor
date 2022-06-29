@@ -51,11 +51,11 @@ public class MoreFragment extends BaseFragment {
                 @Override
                 public void onError(Exception e) {
 
-                    Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivProfile);
+                    Picasso.get().load(R.drawable.image_not_foundpng).transform(new CircleTransform()).into(binding.ivProfile);
                 }
             });
         else
-            Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivProfile);
+            Picasso.get().load(R.drawable.image_not_foundpng).transform(new CircleTransform()).into(binding.ivProfile);
 
 
     }

@@ -116,11 +116,11 @@ public class StoreRateActivity extends BaseActivity {
                 @Override
                 public void onError(Exception e) {
 
-                    Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivLogo);
+                    Picasso.get().load(R.drawable.image_not_foundpng).transform(new CircleTransform()).into(binding.ivLogo);
                 }
             });
         else
-            Picasso.get().load(R.drawable.hama_logo).transform(new CircleTransform()).into(binding.ivLogo);
+            Picasso.get().load(R.drawable.image_not_foundpng).transform(new CircleTransform()).into(binding.ivLogo);
 
         binding.tvStoreName.setText(getName());
 
