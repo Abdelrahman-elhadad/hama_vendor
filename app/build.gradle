@@ -89,4 +89,7 @@ dependencies {
     //chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    //file picker
+    implementation 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
+
 }

@@ -24,6 +24,7 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.dialog.SelectImageDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
+import hama.alsaygh.kw.vendor.model.user.UpdateProfileResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.repo.ProfileRepo;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
@@ -39,7 +40,7 @@ public class EditProfileViewModel extends ViewModel {
     protected int position;
 
     private final MutableLiveData<LoginResponse> profileMutableLiveData = new MutableLiveData<>();
-    private final MutableLiveData<LoginResponse> editMutableLiveData = new MutableLiveData<>();
+    private final MutableLiveData<UpdateProfileResponse> editMutableLiveData = new MutableLiveData<>();
 
     String[] arrayForSpinner;
     ProfileRepo productRepo;
@@ -72,7 +73,7 @@ public class EditProfileViewModel extends ViewModel {
         return profileMutableLiveData;
     }
 
-    public MutableLiveData<LoginResponse> getEditProfileObserver() {
+    public MutableLiveData<UpdateProfileResponse> getEditProfileObserver() {
         return editMutableLiveData;
     }
 
@@ -86,6 +87,43 @@ public class EditProfileViewModel extends ViewModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+
+    public String getIdName() {
+        if (user != null && user.getNational_id() != null && !user.getNational_id().isEmpty()) {
+
+            return user.getNational_id().substring(user.getNational_id().lastIndexOf("/") + 1);
+        }
+
+        return "";
+    }
+
+    public String getCommercialName() {
+        if (user != null && user.getCommercial_license() != null && !user.getCommercial_license().isEmpty()) {
+
+            return user.getCommercial_license().substring(user.getCommercial_license().lastIndexOf("/") + 1);
+        }
+
+        return "";
+    }
+
+    public String getCommercialRecordName() {
+        if (user != null && user.getCommercial_record() != null && !user.getCommercial_record().isEmpty()) {
+
+            return user.getCommercial_record().substring(user.getCommercial_record().lastIndexOf("/") + 1);
+        }
+
+        return "";
+    }
+
+    public String getSignatureName() {
+        if (user != null && user.getSignature_approval() != null && !user.getSignature_approval().isEmpty()) {
+
+            return user.getSignature_approval().substring(user.getSignature_approval().lastIndexOf("/") + 1);
+        }
+
+        return "";
     }
 
     public TextWatcher fullNameTextWatcher() {
@@ -317,28 +355,37 @@ public class EditProfileViewModel extends ViewModel {
     public void onIdClick(View v) {
 
         imageType = AppConstants.ID;
-        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
-
+        //SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+        if (onGeneralClickListener != null) {
+            onGeneralClickListener.onEditClick(imageType, imageType);
+        }
     }
 
     public void onCommercialLicenseClick(View v) {
 
         imageType = AppConstants.COMMERCIAL_LICENSE;
-        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
-
+        //SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+        if (onGeneralClickListener != null) {
+            onGeneralClickListener.onEditClick(imageType, imageType);
+        }
     }
 
     public void onCommercialRecordClick(View v) {
 
         imageType = AppConstants.COMMERCIAL_RECORD;
-        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
-
+        // SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+        if (onGeneralClickListener != null) {
+            onGeneralClickListener.onEditClick(imageType, imageType);
+        }
     }
 
     public void onSignatureClick(View v) {
 
         imageType = AppConstants.SIGNATURE;
-        SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
+        if (onGeneralClickListener != null) {
+            onGeneralClickListener.onEditClick(imageType, imageType);
+        }
+        // SelectImageDialog.newInstance(onGeneralClickListener).show(fragmentManager, "select_image");
 
     }
 

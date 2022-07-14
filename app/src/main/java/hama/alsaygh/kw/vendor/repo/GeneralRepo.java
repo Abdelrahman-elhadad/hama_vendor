@@ -309,7 +309,16 @@ public class GeneralRepo {
                 MultipartBody.Builder builder = new MultipartBody.Builder()
                         .setType(MultipartBody.FORM);
                 String IMG_Name = Utils.getInstance().encodeString(image.substring(image.lastIndexOf("/") + 1));
-                builder.addFormDataPart("file", IMG_Name, RequestBody.create(RequestWrapper.getInstance().getFILE_TYPE(), new File(image)));
+
+                File file = new File(image);
+//                if(image.startsWith("/storage/emulated/0")) {
+//                    String filepath = Environment.getExternalStorageDirectory().getPath();
+//                     file = new File(filepath + "/" +
+//                             "Download/"+IMG_Name );
+//                    Log.i("filfilefilee",filepath+" ff :"+image+" vv :"+file.getAbsolutePath());
+//                }
+
+                builder.addFormDataPart("file", IMG_Name, RequestBody.create(file, RequestWrapper.getInstance().getFILE_TYPE()));
                 MultipartBody requestBody = builder.build();
 
                 Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeaderMedia(context);

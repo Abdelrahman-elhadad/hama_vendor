@@ -1,5 +1,6 @@
 package hama.alsaygh.kw.vendor.view.search;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
@@ -13,10 +14,13 @@ import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.ActivitySearchResultProductBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
+import hama.alsaygh.kw.vendor.model.product.Product;
+import hama.alsaygh.kw.vendor.repo.RequestWrapper;
 import hama.alsaygh.kw.vendor.utils.AppConstants;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseActivity;
 import hama.alsaygh.kw.vendor.view.products.adapter.StoreProductRecycleViewAdapter;
+import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
 public class SearchResultProductActivity extends BaseActivity implements OnGeneralClickListener {
     ActivitySearchResultProductBinding binding;
@@ -24,6 +28,7 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
 
     String search;
     private Skeleton skeleton;
+    StoreProductRecycleViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +80,7 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
             skeleton.showOriginal();
             if (productsSearchResponse.isStatus()) {
 
-                StoreProductRecycleViewAdapter adapter = new StoreProductRecycleViewAdapter(productsSearchResponse.getSProducts(), getSupportFragmentManager(), this);
+                adapter = new StoreProductRecycleViewAdapter(productsSearchResponse.getSProducts(), getSupportFragmentManager(), this);
                 binding.recycleSearchForStores.setAdapter(adapter);
 
 
@@ -103,15 +108,15 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
 
     @Override
     public void onEditClick(Object object, int position) {
-        skeleton.showSkeleton();
-        model.getSearchLogProduct(SearchResultProductActivity.this, search);
-
+        Intent intent = new Intent(this, AddEditProductActivity.class);
+        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
+        startActivity(intent);
     }
 
     @Override
     public void onDeleteClick(Object object, int position) {
-        skeleton.showSkeleton();
-        model.getSearchLogProduct(SearchResultProductActivity.this, search);
-
+        if (adapter != null) {
+            adapter.removeItem((int) object);
+        }
     }
 }

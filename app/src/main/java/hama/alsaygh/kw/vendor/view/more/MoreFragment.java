@@ -40,7 +40,7 @@ public class MoreFragment extends BaseFragment {
         model = new MoreViewModel(requireContext());
         binding.setModel(model);
 
-        String imageUrl = SharedPreferenceConstant.getSharedPreferenceUser(requireContext()).getImage();
+        String imageUrl = SharedPreferenceConstant.getSharedPreferenceUser(requireContext()).getLogo();
         if (imageUrl != null && !imageUrl.isEmpty())
             Picasso.get().load(imageUrl).transform(new CircleTransform()).into(binding.ivProfile, new Callback() {
                 @Override

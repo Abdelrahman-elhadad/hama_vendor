@@ -204,15 +204,15 @@
     <string name="store_desc_ar">وصف المتجر \" العربية \"</string>
 
     <string name="ID_No">رقم بطاقة الهوية</string>
-    <string name="Capture_imagejs">صورة الهوية</string>
+    <string name="Capture_imagejs">ملف صورة الهوية كPDF</string>
     <string name="send22">حفظ التغييرات</string>
     <string name="Personal_Phone_Number">رقم الهاتف ارضي</string>
     <string name="Store_Phone_Number">رقم هاتف المحمول</string>
     <string name="Store_Informations">معلومات ملفات المتجر</string>
-    <string name="Clicck">صورة الرخصة التجارية</string>
+    <string name="Clicck">ملف الرخصة التجارية كPDF</string>
     <string name="License_expiry_date">تاريخ انتهاء الترخيص</string>
-    <string name="Capture_for_lease">صورة سجل تجاري</string>
-    <string name="Cliccck">صورة التوقيع</string>
+    <string name="Capture_for_lease">ملف سجل تجاري كPDF</string>
+    <string name="Cliccck"> ملف التوقيع كPDF</string>
     <string name="Gender">جنس</string>
     <string name="Date_of_Birth">تاريخ الميلاد</string>
     <string name="Order_Tracking44">تتبع الطلب</string>

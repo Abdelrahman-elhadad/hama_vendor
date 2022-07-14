@@ -16,6 +16,7 @@ package hama.alsaygh.kw.vendor.utils;
  * limitations under the License.
  */
 
+import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
@@ -321,7 +323,14 @@ public class FileUtils {
                 };
 
                 for (String contentUriPrefix : contentUriPrefixesToTry) {
-                    Uri contentUri = ContentUris.withAppendedId(Uri.parse(contentUriPrefix), Long.valueOf(id));
+                    String id1;
+                    String[] split = id.split(":");
+                    if (split.length > 1)
+                        id1 = split[1];
+                    else
+                        id1 = split[0];
+
+                    Uri contentUri = ContentUris.withAppendedId(Uri.parse(contentUriPrefix), Long.valueOf(id1));
                     try {
                         String path = getDataColumn(context, contentUri, null, null);
                         if (path != null) {
@@ -821,5 +830,153 @@ public class FileUtils {
         }
         return null;
     }
+
+
+    public static String getFilePath2(Activity activity, final Uri uri) {
+
+        final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
+        if (isKitKat) {
+            // MediaStore (and general)
+            return getForApi19(activity, uri);
+        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+
+            // Return the remote address
+            if (isGooglePhotosUri(uri))
+                return uri.getLastPathSegment();
+
+            return getDataColumn(activity, uri, null, null);
+        }
+        // File
+        else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            return uri.getPath();
+        }
+
+        return null;
+    }
+
+
+    private static String getForApi19(Activity activity, Uri uri) {
+        Log.e("tag", "+++ API 19 URI :: " + uri);
+        if (DocumentsContract.isDocumentUri(activity, uri)) {
+            Log.e("tag", "+++ Document URI");
+            // ExternalStorageProvider
+            if (isExternalStorageDocument(uri)) {
+                Log.e("tag", "+++ External Document URI");
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                final String type = split[0];
+
+                if ("primary".equalsIgnoreCase(type)) {
+                    Log.e("tag", "+++ Primary External Document URI");
+                    return Environment.getExternalStorageDirectory() + "/" + split[1];
+                } else {
+                    try {
+                        final Uri contentUri = ContentUris.withAppendedId(
+                                Uri.parse("content://downloads/public_downloads"), Long.valueOf(docId));
+                        return getDataColumn(activity, contentUri, null, null);
+                    } catch (NumberFormatException e) {
+                        return null;
+                    }
+                }
+
+                // TODO handle non-primary volumes
+            }
+            // DownloadsProvider
+            else if (isDownloadsDocument(uri)) {
+                Log.e("tag", "+++ Downloads External Document URI");
+                final String id = DocumentsContract.getDocumentId(uri);
+
+                if (!TextUtils.isEmpty(id)) {
+                    if (id.startsWith("raw:")) {
+                        return id.replaceFirst("raw:", "");
+                    }
+                    try {
+                        final Uri contentUri = ContentUris.withAppendedId(
+                                Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                        return getDataColumn(activity, contentUri, null, null);
+                    } catch (NumberFormatException e) {
+                        return null;
+                    }
+                }
+            }
+            // MediaProvider
+            else if (isMediaDocument(uri)) {
+                Log.e("tag", "+++ Media Document URI");
+                final String docId = DocumentsContract.getDocumentId(uri);
+                final String[] split = docId.split(":");
+                final String type = split[0];
+
+                Uri contentUri = null;
+                if ("image".equals(type)) {
+                    Log.e("tag", "+++ Image Media Document URI");
+                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+                } else if ("video".equals(type)) {
+                    Log.e("tag", "+++ Video Media Document URI");
+                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                } else if ("audio".equals(type)) {
+                    Log.e("tag", "+++ Audio Media Document URI");
+                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                }
+
+                final String selection = "_id=?";
+                final String[] selectionArgs = new String[]{
+                        split[1]
+                };
+
+                return getDataColumn(activity, contentUri, selection, selectionArgs);
+            }
+        } else if ("content".equalsIgnoreCase(uri.getScheme())) {
+            Log.e("tag", "+++ No DOCUMENT URI :: CONTENT ");
+
+            // Return the remote address
+            if (isGooglePhotosUri(uri))
+                return uri.getLastPathSegment();
+
+            return getDataColumn(activity, uri, null, null);
+        }
+        // File
+        else if ("file".equalsIgnoreCase(uri.getScheme())) {
+            Log.e("tag", "+++ No DOCUMENT URI :: FILE ");
+            return uri.getPath();
+        }
+        return null;
+    }
+
+    /**
+     * Get the value of the data column for this Uri. This is useful for
+     * MediaStore Uris, and other file-based ContentProviders.
+     *
+     * @param uri           The Uri to query.
+     * @param selection     (Optional) Filter used in the query.
+     * @param selectionArgs (Optional) Selection arguments used in the query.
+     * @return The value of the _data column, which is typically a file path.
+     */
+    public static String getDataColumn(Activity activity, Uri uri, String selection,
+                                       String[] selectionArgs) {
+
+        Cursor cursor = null;
+        final String column = "_data";
+        final String[] projection = {
+                column
+        };
+
+        try {
+            cursor = activity.getContentResolver().query(uri, new String[]{
+                    OpenableColumns.DISPLAY_NAME, OpenableColumns.SIZE
+            }, null, null, null);
+
+            int nameIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+            cursor.moveToFirst();
+
+            if (cursor != null && cursor.moveToFirst()) {
+                return cursor.getString(nameIndex);
+            }
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+        return null;
+    }
+
 
 }

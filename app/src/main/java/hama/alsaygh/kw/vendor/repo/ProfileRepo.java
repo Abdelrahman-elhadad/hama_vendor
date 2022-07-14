@@ -17,6 +17,7 @@ import hama.alsaygh.kw.vendor.model.review.ReviewsResponse;
 import hama.alsaygh.kw.vendor.model.searchLog.ProductsSearchResponse;
 import hama.alsaygh.kw.vendor.model.searchLog.SearchLogsResponse;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
+import hama.alsaygh.kw.vendor.model.user.UpdateProfileResponse;
 import hama.alsaygh.kw.vendor.model.user.User;
 import hama.alsaygh.kw.vendor.model.user.UserResponse;
 import okhttp3.FormBody;
@@ -100,10 +101,10 @@ public class ProfileRepo {
 
     }
 
-    public void updateProfile(final Context context, final User user, final MutableLiveData<LoginResponse> loginResponseMutableLiveData) {
+    public void updateProfile(final Context context, final User user, final MutableLiveData<UpdateProfileResponse> loginResponseMutableLiveData) {
 
         new Thread(() -> {
-            LoginResponse loginSocialResponse;
+            UpdateProfileResponse loginSocialResponse;
             try {
                 String url = RequestWrapper.getInstance().getFullPath() + "updateProfile";
                 FormBody.Builder builder = new FormBody.Builder()
@@ -120,22 +121,51 @@ public class ProfileRepo {
 
                 if (!user.getNational_id().startsWith("http") && !user.getNational_id().startsWith("https")) {
                     builder.add("national_id", user.getNational_id());
+                } else {
+                    if (user.getNational_id() != null && !user.getNational_id().isEmpty()) {
+
+                        builder.add("national_id", user.getNational_id().substring(user.getNational_id().lastIndexOf("/") + 1));
+                    }
                 }
 
                 if (!user.getCommercial_record().startsWith("http") && !user.getCommercial_record().startsWith("https")) {
                     builder.add("commercial_record", user.getCommercial_record());
+                } else {
+                    if (user.getCommercial_record() != null && !user.getCommercial_record().isEmpty()) {
+
+                        builder.add("commercial_record", user.getCommercial_record().substring(user.getCommercial_record().lastIndexOf("/") + 1));
+                    }
                 }
 
                 if (!user.getCommercial_license().startsWith("http") && !user.getCommercial_license().startsWith("https")) {
                     builder.add("commercial_license", user.getCommercial_license());
+                } else {
+                    if (user.getCommercial_license() != null && !user.getCommercial_license().isEmpty()) {
+
+                        builder.add("commercial_license", user.getCommercial_license().substring(user.getCommercial_license().lastIndexOf("/") + 1));
+                    }
                 }
 
                 if (!user.getSignature_approval().startsWith("http") && !user.getSignature_approval().startsWith("https")) {
                     builder.add("signature_approval", user.getSignature_approval());
+                } else {
+                    if (user.getSignature_approval() != null && !user.getSignature_approval().isEmpty()) {
+
+                        builder.add("signature_approval", user.getSignature_approval().substring(user.getSignature_approval().lastIndexOf("/") + 1));
+                    }
                 }
 
                 if (!user.getLicense().startsWith("http") && !user.getLicense().startsWith("https")) {
                     builder.add("license", user.getLicense());
+                } else {
+                    if (user.getLicense() != null && !user.getLicense().isEmpty()) {
+
+                        builder.add("license", user.getLicense().substring(user.getLicense().lastIndexOf("/") + 1));
+                    }
+                }
+                Log.i("RequestWrapper", "logo :" + user.getLogo() + "");
+                if (user.getLogo() != null && !user.getLogo().isEmpty() && !user.getLogo().startsWith("http") && !user.getLogo().startsWith("https")) {
+                    builder.add("logo", user.getLogo());
                 }
 
                 FormBody body = builder.build();
@@ -150,19 +180,19 @@ public class ProfileRepo {
                 responseString = responseString.replace("\"data\":[]", "\"data\":{}");
                 responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
 
-                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, UpdateProfileResponse.class);
 
 
             } catch (Exception e) {
                 e.printStackTrace();
-                loginSocialResponse = new LoginResponse();
+                loginSocialResponse = new UpdateProfileResponse();
                 loginSocialResponse.setStatus(false);
                 loginSocialResponse.setMessage("server error");
 
             }
 
             if (loginResponseMutableLiveData != null) {
-                final LoginResponse finalLoginSocialResponse = loginSocialResponse;
+                final UpdateProfileResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 
@@ -697,6 +727,40 @@ public class ProfileRepo {
 
             if (loginResponseMutableLiveData != null) {
                 final SearchCategoriesResponse finalLoginSocialResponse = loginSocialResponse;
+                new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
+            }
+
+        }).start();
+
+    }
+
+    public void getSearchLogsProduct(final Context context, final String search, final int isOffer, final MutableLiveData<ProductsSearchResponse> loginResponseMutableLiveData) {
+
+        new Thread(() -> {
+            ProductsSearchResponse loginSocialResponse;
+            try {
+                String url = RequestWrapper.getInstance().getFullPath() + "search-log/search?key=" + search + "&type=products&type_of_price=fixed&is_offer=" + isOffer;
+                Request.Builder requestBuilder = RequestWrapper.getInstance().getRequestHeader(context);
+                Request request = requestBuilder.url(url).get().build();
+
+                Log.i(TAG, "Request: " + request + "\n " + RequestWrapper.getInstance().requestBodyToString(request));
+                Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
+                String responseString = response.body().string();
+                Log.i(TAG, "Response:search-log/search?key=" + search + "&type=products : " + responseString);
+
+                loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, ProductsSearchResponse.class);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                loginSocialResponse = new ProductsSearchResponse();
+                loginSocialResponse.setStatus(false);
+                loginSocialResponse.setMessage("server error");
+
+            }
+
+            if (loginResponseMutableLiveData != null) {
+                final ProductsSearchResponse finalLoginSocialResponse = loginSocialResponse;
                 new Handler(Looper.getMainLooper()).post(() -> loginResponseMutableLiveData.setValue(finalLoginSocialResponse));
             }
 

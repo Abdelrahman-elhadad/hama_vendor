@@ -244,15 +244,6 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp">
 
-                    <ImageView
-                        android:id="@+id/iv_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/enter_old_password"
-                        android:scaleType="fitXY"
-                        android:layout_margin="2dp"
-                        android:src="@drawable/image_not_foundpng"
-                        app:imageProductUrl="@{model.id}" />
 
                     <LinearLayout
                         android:id="@+id/ll_capture_id"
@@ -283,6 +274,16 @@
                     </LinearLayout>
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/tv_ID_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
+                    android:text="@{model.idName}"
+                    android:textColor="@color/ghhg" />
 
                 <TextView
                     android:id="@+id/textView107"
@@ -501,14 +502,6 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp">
 
-                    <ImageView
-                        android:id="@+id/iv_store_license"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:contentDescription="@string/enter_old_password"
-                        android:scaleType="fitXY"
-                        app:imageProductUrl="@{model.commercialLicense}" />
 
                     <LinearLayout
                         android:id="@+id/ll_capture_store_license"
@@ -540,6 +533,17 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:id="@+id/tv_commercial_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
+                    android:text="@{model.commercialName}"
+                    android:textColor="@color/ghhg" />
+
+                <TextView
                     android:id="@+id/tv_expiry_date_license"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
@@ -566,14 +570,6 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp">
 
-                    <ImageView
-                        android:id="@+id/iv_store_record"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/enter_old_password"
-                        android:scaleType="fitXY"
-                        android:layout_margin="2dp"
-                        app:imageProductUrl="@{model.commercialRecord}" />
 
                     <LinearLayout
                         android:id="@+id/ll_commercial_record"
@@ -605,6 +601,17 @@
 
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/tv_commercial_record_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
+                    android:text="@{model.commercialRecordName}"
+                    android:textColor="@color/ghhg" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
@@ -612,14 +619,6 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp">
 
-                    <ImageView
-                        android:id="@+id/iv_signature"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="2dp"
-                        android:contentDescription="@string/enter_old_password"
-                        android:scaleType="fitXY"
-                        app:imageProductUrl="@{model.signature}" />
 
                     <LinearLayout
                         android:id="@+id/ll_signature"
@@ -649,6 +648,17 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_signature_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
+                    android:text="@{model.signatureName}"
+                    android:textColor="@color/ghhg" />
 
                 <View
                     android:layout_width="match_parent"

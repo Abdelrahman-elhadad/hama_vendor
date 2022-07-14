@@ -8,6 +8,7 @@ import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 
@@ -35,6 +36,7 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
     int page = 1;
     boolean isLast = false, isLoading = false;
     ActiveOffersRecycleViewAdapter adapter;
+    String search = "";
 
     public static ActiveOffersFragment newInstance() {
 
@@ -109,7 +111,9 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
                 isLast = false;
                 page = 1;
                 model.getProducts(requireContext(), page);
-
+                binding.svOffer.setQuery("", true);
+                search = "";
+                binding.svOffer.setQuery("", true);
 
             } else
                 binding.swRefresh.setRefreshing(false);
@@ -123,14 +127,16 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
                 int diff = (view.getBottom() - (binding.nsMain.getHeight() + binding.nsMain
                         .getScrollY()));
 
-                if (diff == 0) {
-                    if (getActivity() != null) {
+                if (search == null || search.isEmpty()) {
+                    if (diff == 0) {
+                        if (getActivity() != null) {
 
-                        if (!isLoading && !isLast) {
-                            binding.pbLoading.setVisibility(View.VISIBLE);
-                            isLoading = true;
-                            ++page;
-                            model.getProducts(requireContext(), page);
+                            if (!isLoading && !isLast) {
+                                binding.pbLoading.setVisibility(View.VISIBLE);
+                                isLoading = true;
+                                ++page;
+                                model.getProducts(requireContext(), page);
+                            }
                         }
                     }
                 }
@@ -148,6 +154,49 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
         skeleton.showSkeleton();
         model.getProducts(requireContext(), page);
 
+
+        binding.svOffer.setOnCloseListener(() -> {
+            search = "";
+            binding.svOffer.setQuery("", true);
+            isLoading = true;
+            isLast = false;
+            page = 1;
+            skeleton.showSkeleton();
+            model.getProducts(requireContext(), page);
+
+            return false;
+        });
+
+        binding.svOffer.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search = query;
+                skeleton.showSkeleton();
+                model.getSearchLogProductActive(requireContext(), search);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        model.getSearchObserver().observe(requireActivity(), productsSearchResponse -> {
+            skeleton.showOriginal();
+            if (productsSearchResponse.isStatus()) {
+
+                adapter = new ActiveOffersRecycleViewAdapter(productsSearchResponse.getSProducts(), fragmentManager, ActiveOffersFragment.this);
+                binding.rvProducts.setAdapter(adapter);
+
+            } else {
+                if (productsSearchResponse.getCode().equalsIgnoreCase("401"))
+                    LoginDialog.newInstance().show(fragmentManager, "Login");
+                else
+                    Snackbar.make(binding.svOffer, productsSearchResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

@@ -105,7 +105,7 @@ public class StoreRateActivity extends BaseActivity {
         skeleton.showSkeleton();
         model.getReviews(this, page);
 
-        String imageUrl = SharedPreferenceConstant.getSharedPreferenceUser(this).getImage();
+        String imageUrl = SharedPreferenceConstant.getSharedPreferenceUser(this).getLogo();
         if (imageUrl != null && !imageUrl.isEmpty())
             Picasso.get().load(imageUrl).transform(new CircleTransform()).into(binding.ivLogo, new Callback() {
                 @Override

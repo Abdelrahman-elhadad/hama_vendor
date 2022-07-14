@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.HamaVendor"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".view.search.SearchCategoriesProductActivity"
             android:exported="false" />
@@ -36,7 +37,8 @@
             android:exported="false" />
         <activity
             android:name=".view.profile.ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".view.mySales.MySalesActivity"
             android:exported="false" />
