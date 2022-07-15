@@ -108,7 +108,7 @@ public class AddEditOfferProductViewModel extends ViewModel {
                 if (!s.toString().isEmpty() && addProduct.getFixed_price() != null && !addProduct.getFixed_price().isEmpty()) {
                     double price = Double.parseDouble(addProduct.getFixed_price());
                     double offers = Double.parseDouble(Utils.getInstance().convertArabic(s.toString()));
-                    double discount = (offers / price) * 100;
+                    double discount = price * (offers / 100);
                     newPriceObservable.setValue(Utils.formatNumberDigital(price - discount));
                     product.setDiscount_value(offers);
                 } else {
