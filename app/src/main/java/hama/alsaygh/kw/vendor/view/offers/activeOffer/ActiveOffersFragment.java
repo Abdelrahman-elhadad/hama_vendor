@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -119,32 +118,29 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
                 binding.swRefresh.setRefreshing(false);
         });
 
-        binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-                View view = (View) binding.nsMain.getChildAt(binding.nsMain.getChildCount() - 1);
+        binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(() -> {
+            View view1 = (View) binding.nsMain.getChildAt(binding.nsMain.getChildCount() - 1);
 
-                int diff = (view.getBottom() - (binding.nsMain.getHeight() + binding.nsMain
-                        .getScrollY()));
+            int diff = (view1.getBottom() - (binding.nsMain.getHeight() + binding.nsMain
+                    .getScrollY()));
 
-                if (search == null || search.isEmpty()) {
-                    if (diff == 0) {
-                        if (getActivity() != null) {
+            if (search == null || search.isEmpty()) {
+                if (diff == 0) {
+                    if (getActivity() != null) {
 
-                            if (!isLoading && !isLast) {
-                                binding.pbLoading.setVisibility(View.VISIBLE);
-                                isLoading = true;
-                                ++page;
-                                model.getProducts(requireContext(), page);
-                            }
+                        if (!isLoading && !isLast) {
+                            binding.pbLoading.setVisibility(View.VISIBLE);
+                            isLoading = true;
+                            ++page;
+                            model.getProducts(requireContext(), page);
                         }
                     }
                 }
+            }
 //                if (binding.nsMain.getScrollY() == 0) {
 //                    binding.rlToTop.setVisibility(View.GONE);
 //                } else
 //                    binding.rlToTop.setVisibility(View.VISIBLE);
-            }
         });
 
 
