@@ -50,8 +50,8 @@ public class AddEditOfferProductViewModel extends ViewModel {
         if (addProduct.getDiscount() != null && !addProduct.getDiscount().isEmpty() && addProduct.getFixed_price() != null && !addProduct.getFixed_price().isEmpty()) {
             double price = Double.parseDouble(addProduct.getFixed_price());
             double offers = Double.parseDouble(Utils.getInstance().convertArabic(addProduct.getDiscount()));
-            double discount = (offers / price) * 100;
-            newPriceObservable.setValue(Utils.formatNumberDigital(price - discount));
+            double discount = price * (offers / 100);
+            newPriceObservable.setValue(Utils.formatNumberDigital(Math.round(price - discount)));
             this.product.setDiscount_value(offers);
         } else {
             newPriceObservable.setValue(addProduct.getFixed_price());
@@ -109,7 +109,7 @@ public class AddEditOfferProductViewModel extends ViewModel {
                     double price = Double.parseDouble(addProduct.getFixed_price());
                     double offers = Double.parseDouble(Utils.getInstance().convertArabic(s.toString()));
                     double discount = price * (offers / 100);
-                    newPriceObservable.setValue(Utils.formatNumberDigital(price - discount));
+                    newPriceObservable.setValue(Utils.formatNumberDigital(Math.round(price - discount)));
                     product.setDiscount_value(offers);
                 } else {
                     newPriceObservable.setValue(addProduct.getFixed_price());

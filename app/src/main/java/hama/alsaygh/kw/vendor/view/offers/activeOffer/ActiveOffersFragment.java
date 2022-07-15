@@ -209,7 +209,11 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
     public void onEditClick(Object object, int position) {
 
         if (adapter != null) {
+            Product product = (Product) object;
             adapter.editItem((Product) object);
+            if (product.getDiscount_value() == 0.0) {
+                adapter.removeItem(product.getId());
+            }
             if (adapter.getItemCount() == 0) {
                 binding.rvProducts.setVisibility(View.GONE);
                 binding.llNoProduct.setVisibility(View.VISIBLE);

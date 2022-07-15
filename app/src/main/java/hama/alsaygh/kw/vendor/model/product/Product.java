@@ -290,6 +290,7 @@ public class Product implements Serializable {
         discount_value = discount_value.replace("%", "");
         discount_value = discount_value.replace(" ", "");
         discount_value = discount_value.replace(":", "");
+        discount_value = discount_value.replace("خصم", "");
 
         return Double.parseDouble(discount_value);
     }
