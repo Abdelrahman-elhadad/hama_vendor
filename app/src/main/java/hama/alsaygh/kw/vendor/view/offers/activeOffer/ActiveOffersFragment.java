@@ -112,7 +112,6 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
                 model.getProducts(requireContext(), page);
                 binding.svOffer.setQuery("", true);
                 search = "";
-                binding.svOffer.setQuery("", true);
 
             } else
                 binding.swRefresh.setRefreshing(false);
@@ -174,6 +173,17 @@ public class ActiveOffersFragment extends BaseFragment implements OnGeneralClick
 
             @Override
             public boolean onQueryTextChange(String newText) {
+
+                if (newText == null || newText.isEmpty()) {
+                    search = "";
+                    isLoading = true;
+                    isLast = false;
+                    page = 1;
+                    skeleton.showSkeleton();
+                    model.getProducts(requireContext(), page);
+
+                }
+
                 return false;
             }
         });

@@ -9,7 +9,9 @@ import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.model.product.Product;
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
+import hama.alsaygh.kw.vendor.model.searchLog.ProductsSearchResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
+import hama.alsaygh.kw.vendor.repo.ProfileRepo;
 import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
 
 public class AddOffersViewModel extends ViewModel {
@@ -17,8 +19,9 @@ public class AddOffersViewModel extends ViewModel {
     private final String TAG = "ProductsViewModel";
 
     private MutableLiveData<ProductsResponse> languageResponseMutableLiveData;
-
+    private MutableLiveData<ProductsSearchResponse> productsSearchResponseMutableLiveData;
     final private ProductRepo productRepo;
+    final private ProfileRepo profileRepo;
 
     private String sort_key = "", type_of_price = "fixed", range_price_from = "", range_price_to = "";
     private int category_level_1 = -1, category_level_2 = -1, category_level_3 = -1;
@@ -27,7 +30,14 @@ public class AddOffersViewModel extends ViewModel {
 
     public AddOffersViewModel() {
         productRepo = new ProductRepo();
+        profileRepo = new ProfileRepo();
 
+    }
+
+    public MutableLiveData<ProductsSearchResponse> getSearchObserver() {
+        if (productsSearchResponseMutableLiveData == null)
+            productsSearchResponseMutableLiveData = new MutableLiveData<>();
+        return productsSearchResponseMutableLiveData;
     }
 
     private void setProduct(Product product) {
@@ -113,5 +123,10 @@ public class AddOffersViewModel extends ViewModel {
 
     public void setCategory_level_3(int category_level_3) {
         this.category_level_3 = category_level_3;
+    }
+
+
+    public void getSearchLogProductNotActive(Context context, String search) {
+        profileRepo.getSearchLogsProduct(context, search, 0, productsSearchResponseMutableLiveData);
     }
 }
