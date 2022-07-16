@@ -61,7 +61,7 @@ public class LoginDialog extends BottomSheetDialogFragment implements View.OnCli
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(BottomSheetDialogFragment.STYLE_NORMAL, R.style.CustomBottomSheetDialogTheme);
-        this.setCancelable(true);
+        this.setCancelable(false);
 
     }
 
@@ -86,7 +86,7 @@ public class LoginDialog extends BottomSheetDialogFragment implements View.OnCli
 
 
         dialog.setContentView(view);
-        this.setCancelable(true);
+        this.setCancelable(false);
 
     }
 

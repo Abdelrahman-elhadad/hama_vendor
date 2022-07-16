@@ -31,7 +31,7 @@ public class SharedPreferenceConstant {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString(KEY_USER_ACCOUNT_LOGIN_USER, token);
                 editor.apply();
-                LocalUtils.getInstance().setLanguage(context, user.getLanguage());
+                //LocalUtils.getInstance().setLanguage(context, user.getLanguage());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -43,6 +43,8 @@ public class ProfileRepo {
                 Response response = RequestWrapper.getInstance().getClient().newCall(request).execute();
                 String responseString = response.body().string();
                 responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
+
                 Log.i(TAG, "Response:profileData " + responseString);
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
@@ -80,6 +82,7 @@ public class ProfileRepo {
 
                 Log.i(TAG, "Response:fetch-user " + responseString);
                 responseString = responseString.replace("\"translations\":[]", "\"translations\":{}");
+                responseString = responseString.replace("\"data\":[]", "\"data\":{}");
 
                 loginSocialResponse = RequestWrapper.getInstance().getGson().fromJson(responseString, LoginResponse.class);
 

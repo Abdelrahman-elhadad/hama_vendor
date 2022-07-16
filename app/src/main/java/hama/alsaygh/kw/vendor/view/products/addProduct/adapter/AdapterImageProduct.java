@@ -15,6 +15,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -115,6 +116,10 @@ public class AdapterImageProduct extends RecyclerView.Adapter<AdapterImageProduc
                 imageUploads.add(position, imageUpload);
 
                 notifyItemChanged(position);
+                notifyDataSetChanged();
+            } else {
+                Snackbar.make(holder.iv_item, imageResponse.getMessage(), Snackbar.LENGTH_SHORT).show();
+                imageUploads.remove(position);
                 notifyDataSetChanged();
             }
         });

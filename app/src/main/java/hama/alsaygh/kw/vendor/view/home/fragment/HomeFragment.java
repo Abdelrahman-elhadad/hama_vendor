@@ -53,8 +53,6 @@ public class HomeFragment extends BaseFragment {
         model.getObservable().observe(requireActivity(), mySalesResponse -> {
             skeleton.showOriginal();
             if (mySalesResponse.isStatus()) {
-
-
                 model.setSalesData(requireContext(), binding.chartSales, mySalesResponse.getData());
                 binding.tvSales.setText(model.getSalesAvg(requireContext(), mySalesResponse.getData()));
 

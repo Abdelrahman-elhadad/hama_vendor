@@ -36,7 +36,8 @@
                     android:layout_height="15dp"
                     android:layout_marginTop="30dp"
                     app:srcCompat="@drawable/ic_closee"
-                    tools:ignore="VectorDrawableCompat" />
+                    tools:ignore="VectorDrawableCompat"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/textView23"
