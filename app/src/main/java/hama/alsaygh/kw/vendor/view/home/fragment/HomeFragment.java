@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar;
 import hama.alsaygh.kw.vendor.R;
 import hama.alsaygh.kw.vendor.databinding.FragmentHomeBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
+import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.base.BaseFragment;
 import hama.alsaygh.kw.vendor.view.home.HomeActivity;
 import hama.alsaygh.kw.vendor.view.home.fragment.adapter.BeastProductRecycleViewAdapter;
@@ -46,7 +47,7 @@ public class HomeFragment extends BaseFragment {
         model = new HomeFragmentViewModel(requireContext(), fragmentManager);
         binding.setModel(model);
         skeleton = SkeletonLayoutUtils.createSkeleton(binding.nsMain);
-
+        Utils.getInstance().setSkeletonMaskAndShimmer(requireContext(), skeleton);
         model.setLineChartSetting(requireContext(), binding.chartSales);
         model.setBarChartSetting(requireContext(), binding.chartBestDaySales);
 
