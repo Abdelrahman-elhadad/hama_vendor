@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
 import hama.alsaygh.kw.vendor.R;
@@ -22,6 +23,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
             setLightStatusBar();
         getSupportActionBar().hide(); //<< this
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
     }
 

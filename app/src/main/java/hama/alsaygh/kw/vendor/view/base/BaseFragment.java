@@ -7,6 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -17,7 +18,8 @@ public class BaseFragment  extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         LocalUtils.getInstance().updateResources(requireContext(), LocalUtils.getInstance().getLanguageShort(requireContext()));
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        LocalUtils.getInstance().updateResources(requireContext(), LocalUtils.getInstance().getLanguageShort(requireContext()));
 //        if (SharedPreferenceConstant.getSharedPreferenceDarkMode(getContext())) {
 //            this.getActivity().setTheme(R.style.darktheme);
 //            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
