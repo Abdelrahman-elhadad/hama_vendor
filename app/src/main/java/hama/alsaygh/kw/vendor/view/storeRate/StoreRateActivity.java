@@ -3,6 +3,8 @@ package hama.alsaygh.kw.vendor.view.storeRate;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.faltenreich.skeletonlayout.Skeleton;
 import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,6 +37,7 @@ public class StoreRateActivity extends BaseActivity {
         setContentView(binding.getRoot());
         model = new RateStoreViewModel();
         binding.setModel(model);
+        binding.rvReview.setLayoutManager(new LinearLayoutManager(this));
 
         skeleton = SkeletonLayoutUtils.createSkeleton(binding.nsMain);
         Utils.getInstance().setSkeletonMaskAndShimmer(this, skeleton);

@@ -28,13 +28,13 @@
 
     <ImageView
         android:id="@+id/iv_image"
-        android:layout_width="160dp"
-        android:layout_height="202dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="190dp"
         android:elevation="5dp"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@drawable/hama_logo"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

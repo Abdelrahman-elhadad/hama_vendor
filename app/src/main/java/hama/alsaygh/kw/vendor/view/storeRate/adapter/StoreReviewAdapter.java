@@ -45,6 +45,7 @@ public class StoreReviewAdapter extends RecyclerView.Adapter<StoreReviewAdapter.
         holder.tv1.setText(Reviews.get(position).getUser().getName());
         holder.rb_review.setRating(Reviews.get(position).getRate());
         holder.tv2.setText(Reviews.get(position).getReview());
+        holder.tv3.setText(Reviews.get(position).getCreated_at());
 
         if (Reviews.get(position).getUser().getImage() != null && !Reviews.get(position).getUser().getImage().isEmpty())
             Picasso.get().load(Reviews.get(position).getUser().getImage()).fit().transform(new CircleTransform()).into(holder.imageView, new Callback() {
@@ -72,7 +73,7 @@ public class StoreReviewAdapter extends RecyclerView.Adapter<StoreReviewAdapter.
     }
 
     public class Holder_details2 extends RecyclerView.ViewHolder {
-        TextView tv1, tv2;
+        TextView tv1, tv2, tv3;
         View view;
         ImageView imageView;
         RatingBar rb_review;
@@ -83,6 +84,7 @@ public class StoreReviewAdapter extends RecyclerView.Adapter<StoreReviewAdapter.
             rb_review = itemView.findViewById(R.id.rb_review);
             tv1 = itemView.findViewById(R.id.text_person);
             tv2 = itemView.findViewById(R.id.text_person1);
+            tv3 = itemView.findViewById(R.id.text_person2);
 
 
         }

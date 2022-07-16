@@ -32,6 +32,8 @@ public class OnBoard implements Serializable {
     }
 
     public String getTitle() {
+        if (title == null || title.isEmpty() || title.trim().equalsIgnoreCase("-"))
+            return "";
         return title;
     }
 
@@ -40,6 +42,8 @@ public class OnBoard implements Serializable {
     }
 
     public String getShort_description() {
+        if (short_description == null || short_description.isEmpty() || short_description.trim().equalsIgnoreCase("-"))
+            return "";
         return short_description;
     }
 
