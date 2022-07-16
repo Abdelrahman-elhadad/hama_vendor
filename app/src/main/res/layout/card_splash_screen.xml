@@ -20,11 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="2dp"
-        android:src="@drawable/splash"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:contentDescription="@string/phone_number" />
 
     <ImageView
         android:id="@+id/iv_image"
@@ -35,6 +34,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/hama_logo"
         android:visibility="gone"
+        android:contentDescription="@string/phone_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -102,6 +102,7 @@
         android:text="@string/login_now"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:background="@drawable/back_ground_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

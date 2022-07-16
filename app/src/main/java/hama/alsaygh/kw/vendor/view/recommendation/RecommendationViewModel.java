@@ -9,6 +9,10 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.repo.ProfileRepo;
@@ -18,7 +22,7 @@ public class RecommendationViewModel extends ViewModel {
     private final String TAG = "RecommendationViewModel";
 
     private final ProfileRepo authRepo;
-    private String  msg;
+    private String msg;
 
     private final ObservableInt loginVisibility = new ObservableInt();
     private final ObservableInt pbLoginVisibility = new ObservableInt();
@@ -55,20 +59,23 @@ public class RecommendationViewModel extends ViewModel {
     }
 
     public void login(Context context) {
-        authRepo.suggestion(context,  msg, loginResponseMutableLiveData);
+        authRepo.suggestion(context, msg, loginResponseMutableLiveData);
 
     }
 
     public void onResetClick(View view) {
+        if (MainApplication.isConnected) {
+            if (listener != null)
+                listener.validation();
+            if (msg != null && !msg.isEmpty()) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
 
-        if (listener != null)
-            listener.validation();
-        if ( msg != null && !msg.isEmpty()) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+                login(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
-            login(view.getContext());
-        }
     }
 
 

@@ -16,7 +16,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.model.addProduct.AddProduct;
 import hama.alsaygh.kw.vendor.model.category.CategoriesResponse;
 import hama.alsaygh.kw.vendor.model.category.Category;
@@ -710,19 +713,23 @@ public class AddEditProductViewModel extends ViewModel {
 
     public void onAddProductClick(View v) {
 
-        if (fragment != null) {
-            if (((AddEditProductStep2Fragment) fragment).isValid()) {
-                addProduct.setMedia(((AddEditProductStep2Fragment) fragment).getImages());
-                addProduct.setOptions(((AddEditProductStep2Fragment) fragment).getOptions());
-                addProductVisibility.set(View.GONE);
-                pbAddProductVisibility.set(View.VISIBLE);
+        if (MainApplication.isConnected) {
+            if (fragment != null) {
+                if (((AddEditProductStep2Fragment) fragment).isValid()) {
+                    addProduct.setMedia(((AddEditProductStep2Fragment) fragment).getImages());
+                    addProduct.setOptions(((AddEditProductStep2Fragment) fragment).getOptions());
+                    addProductVisibility.set(View.GONE);
+                    pbAddProductVisibility.set(View.VISIBLE);
 
-                if (type == Add)
-                    productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
-                else if (type == Edit)
-                    productRepo.updateProduct(v.getContext(), addProduct, addProductMutableLiveData);
+                    if (type == Add)
+                        productRepo.addProduct(v.getContext(), addProduct, addProductMutableLiveData);
+                    else if (type == Edit)
+                        productRepo.updateProduct(v.getContext(), addProduct, addProductMutableLiveData);
+                }
             }
-        }
+        } else
+            Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
 
     }
 

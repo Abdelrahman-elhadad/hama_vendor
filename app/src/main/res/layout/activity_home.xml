@@ -72,6 +72,7 @@
             android:id="@+id/liner1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/buttom_nav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

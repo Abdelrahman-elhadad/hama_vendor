@@ -7,7 +7,10 @@ import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.utils.SharedPreferenceConstant;
 import hama.alsaygh.kw.vendor.utils.Utils;
 import hama.alsaygh.kw.vendor.view.appointment.AppointmentBookingActivity;
@@ -41,8 +44,12 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onMySalesClick(View view) {
-        Intent intent = new Intent(view.getContext(), MySalesActivity.class);
-        view.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(view.getContext(), MySalesActivity.class);
+            view.getContext().startActivity(intent);
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public void onOrderTrackingClick(View view) {
@@ -50,8 +57,12 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onOrderRateClick(View view) {
-        Intent intent = new Intent(view.getContext(), StoreRateActivity.class);
-        view.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(view.getContext(), StoreRateActivity.class);
+            view.getContext().startActivity(intent);
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public void onGeneralSettingsClick(View view) {
@@ -73,8 +84,12 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onTermsClick(View view) {
-        Intent intent = new Intent(view.getContext(), TermsActivity.class);
-        view.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(view.getContext(), TermsActivity.class);
+            view.getContext().startActivity(intent);
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public void onContactHamaClick(View view) {
@@ -83,14 +98,20 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onRecommendationHamaClick(View view) {
+
         Intent intent = new Intent(view.getContext(), RecommendationActivity.class);
         view.getContext().startActivity(intent);
+
 
     }
 
     public void onAppointmentHamaClick(View view) {
-        Intent intent = new Intent(view.getContext(), AppointmentBookingActivity.class);
-        view.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(view.getContext(), AppointmentBookingActivity.class);
+            view.getContext().startActivity(intent);
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public void onLogoutClick(View view) {
@@ -99,8 +120,12 @@ public class MoreViewModel extends ViewModel {
     }
 
     public void onEditProfileClick(View view) {
-        Intent intent = new Intent(view.getContext(), ProfileActivity.class);
-        view.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(view.getContext(), ProfileActivity.class);
+            view.getContext().startActivity(intent);
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
 }

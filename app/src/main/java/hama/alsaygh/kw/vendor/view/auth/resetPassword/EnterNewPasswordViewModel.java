@@ -10,6 +10,10 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.repo.AuthRepo;
@@ -72,21 +76,24 @@ public class EnterNewPasswordViewModel extends ViewModel {
 
     public void onRegisterClick(View view) {
         Intent intent = new Intent(view.getContext(), RegisterActivity.class);
-      //  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         view.getContext().startActivity(intent);
 
     }
 
     public void onResetPasswordClick(View view) {
+        if (MainApplication.isConnected) {
+            if (listener != null)
+                listener.validation();
+            if ((password != null && !password.isEmpty()) && (confirmPassword != null && !confirmPassword.isEmpty()) && (password.equals(confirmPassword))) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
 
-        if (listener != null)
-            listener.validation();
-        if ((password != null && !password.isEmpty()) && (confirmPassword != null && !confirmPassword.isEmpty()) && (password.equals(confirmPassword))) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+                login(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
-            login(view.getContext());
-        }
     }
 
     public TextWatcher passwordTextWatcher() {

@@ -1,10 +1,13 @@
 package hama.alsaygh.kw.vendor.view.offers.activeOffer;
 
 import android.content.Context;
+import android.view.View;
 
+import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.model.searchLog.ProductsSearchResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
@@ -22,7 +25,7 @@ public class ActiveOffersViewModel extends ViewModel {
 
     private String sort_key = "", type_of_price = "", range_price_from = "", range_price_to = "";
     private int category_level_1 = -1, category_level_2 = -1, category_level_3 = -1;
-
+    private String search = "";
 
     public ActiveOffersViewModel() {
         productRepo = new ProductRepo();
@@ -43,6 +46,7 @@ public class ActiveOffersViewModel extends ViewModel {
     }
 
     public void getProducts(Context context, int page) {
+        search = "";
         productRepo.getProducts(context, page, sort_key, category_level_1, category_level_2, category_level_3, type_of_price, range_price_from, range_price_to, 1, languageResponseMutableLiveData);
     }
 
@@ -104,10 +108,41 @@ public class ActiveOffersViewModel extends ViewModel {
     }
 
     public void getSearchLogProductActive(Context context, String search) {
+        this.search = search;
         profileRepo.getSearchLogsProduct(context, search, 1, productsSearchResponseMutableLiveData);
     }
 
-    public void getSearchLogProductNotActive(Context context, String search) {
-        profileRepo.getSearchLogsProduct(context, search, 0, productsSearchResponseMutableLiveData);
+
+    private final ObservableInt isConnected = new ObservableInt();
+    private final ObservableInt isNotConnectedView = new ObservableInt();
+
+    public void setInternetConnection() {
+        isConnected.set(View.VISIBLE);
+        isNotConnectedView.set(View.GONE);
+    }
+
+    public void setNoInternetConnection() {
+        isConnected.set(View.GONE);
+        isNotConnectedView.set(View.VISIBLE);
+    }
+
+    public ObservableInt getIsConnected() {
+        return isConnected;
+    }
+
+    public ObservableInt getIsNotConnectedView() {
+        return isNotConnectedView;
+    }
+
+    public void onTryAgainClick(View view) {
+        if (MainApplication.isConnected) {
+            setInternetConnection();
+            if (search == null || search.isEmpty())
+                getProducts(view.getContext(), 1);
+            else
+                getSearchLogProductActive(view.getContext(), search);
+        } else {
+            setNoInternetConnection();
+        }
     }
 }

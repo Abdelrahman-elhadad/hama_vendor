@@ -107,16 +107,20 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         binding.swRefresh.setColorSchemeColors(ContextCompat.getColor(requireContext(), R.color.textviewhome), ContextCompat.getColor(requireContext(), R.color.color_navigation));
 
         binding.swRefresh.setOnRefreshListener(() -> {
+            isLast = false;
+            page = 1;
             if (MainApplication.isConnected) {
 
                 isLoading = true;
-                isLast = false;
-                page = 1;
+
                 model.getProducts(requireContext(), page);
+                model.setInternetConnection();
 
-
-            } else
+            } else {
+                isLoading = false;
                 binding.swRefresh.setRefreshing(false);
+                model.setNoInternetConnection();
+            }
         });
 
         binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -131,10 +135,18 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
                     if (getActivity() != null) {
 
                         if (!isLoading && !isLast) {
-                            binding.pbLoading.setVisibility(View.VISIBLE);
-                            isLoading = true;
-                            ++page;
-                            model.getProducts(requireContext(), page);
+                            if (MainApplication.isConnected) {
+                                binding.pbLoading.setVisibility(View.VISIBLE);
+                                isLoading = true;
+                                ++page;
+                                model.getProducts(requireContext(), page);
+                                model.setInternetConnection();
+                            } else {
+                                model.setNoInternetConnection();
+                                page = 1;
+                                isLoading = false;
+                                isLast = false;
+                            }
                         }
                     }
                 }
@@ -146,21 +158,25 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         });
 
 
-        isLoading = true;
-        isLast = false;
-        page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(requireContext(), page);
+        getProducts();
 
         binding.linerFilter.setOnClickListener(v -> {
-            FilterByDialog.newInstance(model.getType_of_price(), model.getCategory_level_1(), model.getCategory_level_2(),
-                            model.getCategory_level_3(), model.getRange_price_from(), model.getRange_price_to(), ProductsFragment.this)
-                    .show(fragmentManager, "filter");
+            if (MainApplication.isConnected) {
+                FilterByDialog.newInstance(model.getType_of_price(), model.getCategory_level_1(), model.getCategory_level_2(),
+                                model.getCategory_level_3(), model.getRange_price_from(), model.getRange_price_to(), ProductsFragment.this)
+                        .show(fragmentManager, "filter");
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
         });
 
         binding.linerSort.setOnClickListener(v -> {
-            SortByDialog.newInstance(model.getSort_key(), ProductsFragment.this)
-                    .show(fragmentManager, "sort");
+            if (MainApplication.isConnected) {
+                SortByDialog.newInstance(model.getSort_key(), ProductsFragment.this)
+                        .show(fragmentManager, "sort");
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
         });
 
     }
@@ -172,10 +188,13 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
 
     @Override
     public void onEditClick(Object object, int position) {
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(requireContext(), AddEditProductActivity.class);
+            intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
+            startActivity(intent);
+        } else
+            Snackbar.make(binding.rvProducts, requireContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(requireContext(), AddEditProductActivity.class);
-        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
-        startActivity(intent);
 
     }
 
@@ -204,22 +223,29 @@ public class ProductsFragment extends BaseFragment implements OnGeneralClickList
         model.setRange_price_to(range_price_to);
 
 
-        isLoading = true;
+        getProducts();
+    }
+
+    public void getProducts() {
         isLast = false;
         page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(requireContext(), page);
+        if (MainApplication.isConnected) {
+            isLoading = true;
+            skeleton.showSkeleton();
+            model.getProducts(requireContext(), page);
+
+            model.setInternetConnection();
+        } else {
+            isLoading = false;
+            model.setNoInternetConnection();
+        }
     }
 
     @Override
     public void onSortClickClick(String sortBy) {
 
         model.setSort_key(sortBy);
-        isLoading = true;
-        isLast = false;
-        page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(requireContext(), page);
+        getProducts();
     }
 
     @Override

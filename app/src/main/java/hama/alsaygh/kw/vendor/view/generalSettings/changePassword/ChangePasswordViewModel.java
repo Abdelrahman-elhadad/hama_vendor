@@ -9,6 +9,10 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.user.UserResponse;
 import hama.alsaygh.kw.vendor.repo.ProfileRepo;
@@ -18,7 +22,7 @@ public class ChangePasswordViewModel extends ViewModel {
     private final String TAG = "LoginActivityViewModel";
 
     private final ProfileRepo authRepo;
-    private String password="", confirmPassword="",oldPassword="";
+    private String password = "", confirmPassword = "", oldPassword = "";
 
     private final ObservableInt loginVisibility = new ObservableInt();
     private final ObservableInt pbLoginVisibility = new ObservableInt();
@@ -60,20 +64,24 @@ public class ChangePasswordViewModel extends ViewModel {
     }
 
     public void login(Context context) {
-        authRepo.updatePassword(context, oldPassword,password, loginResponseMutableLiveData);
+        authRepo.updatePassword(context, oldPassword, password, loginResponseMutableLiveData);
     }
 
 
     public void onResetPasswordClick(View view) {
 
-        if (listener != null)
-            listener.validation();
-        if ((oldPassword != null && !oldPassword.isEmpty()) && (password != null && !password.isEmpty()) && (confirmPassword != null && !confirmPassword.isEmpty()) && (password.equals(confirmPassword))) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+        if (MainApplication.isConnected) {
+            if (listener != null)
+                listener.validation();
+            if ((oldPassword != null && !oldPassword.isEmpty()) && (password != null && !password.isEmpty()) && (confirmPassword != null && !confirmPassword.isEmpty()) && (password.equals(confirmPassword))) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
 
-            login(view.getContext());
-        }
+                login(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public TextWatcher oldPasswordTextWatcher() {

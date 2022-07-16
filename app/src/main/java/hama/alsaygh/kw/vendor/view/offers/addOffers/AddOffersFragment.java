@@ -45,6 +45,20 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
         return new AddOffersFragment();
     }
 
+    public void getProducts() {
+        isLast = false;
+        page = 1;
+        if (MainApplication.isConnected) {
+            isLoading = true;
+            skeleton.showSkeleton();
+            model.getProducts(requireContext(), page);
+            model.setInternetConnection();
+        } else {
+            isLoading = false;
+            model.setNoInternetConnection();
+
+        }
+    }
 
     @Nullable
     @Override
@@ -115,9 +129,11 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
                 model.getProducts(requireContext(), page);
                 binding.svOffer.setQuery("", true);
                 search = "";
-
-            } else
+                model.setInternetConnection();
+            } else {
                 binding.swRefresh.setRefreshing(false);
+                model.setNoInternetConnection();
+            }
         });
 
         binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -131,12 +147,17 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
                     if (diff == 0) {
                         if (getActivity() != null) {
 
-                            if (!isLoading && !isLast) {
-                                binding.pbLoading.setVisibility(View.VISIBLE);
-                                isLoading = true;
-                                ++page;
-                                model.getProducts(requireContext(), page);
+                            if (MainApplication.isConnected) {
+                                model.setInternetConnection();
+                                if (!isLoading && !isLast) {
+                                    binding.pbLoading.setVisibility(View.VISIBLE);
+                                    isLoading = true;
+                                    ++page;
+                                    model.getProducts(requireContext(), page);
+                                }
                             }
+                        } else {
+                            model.setNoInternetConnection();
                         }
                     }
                 }
@@ -147,26 +168,19 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
             }
         });
 
-        isLoading = true;
-        isLast = false;
-        page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(requireContext(), page);
-
+        getProducts();
         binding.button3.setOnClickListener(v -> {
-            AddEditOfferProductDialog.newInstance(model.getProduct(), this).
-                    show(fragmentManager, "add_offers");
+            if (MainApplication.isConnected) {
+                AddEditOfferProductDialog.newInstance(model.getProduct(), this).
+                        show(fragmentManager, "add_offers");
+            } else
+                Snackbar.make(v, requireContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
         });
 
         binding.svOffer.setOnCloseListener(() -> {
             search = "";
             binding.svOffer.setQuery("", true);
-            isLoading = true;
-            isLast = false;
-            page = 1;
-            skeleton.showSkeleton();
-            model.getProducts(requireContext(), page);
-
+            getProducts();
             return false;
         });
 
@@ -174,8 +188,13 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
             @Override
             public boolean onQueryTextSubmit(String query) {
                 search = query;
-                skeleton.showSkeleton();
-                model.getSearchLogProductNotActive(requireContext(), search);
+                if (MainApplication.isConnected) {
+                    skeleton.showSkeleton();
+                    model.getSearchLogProductNotActive(requireContext(), search);
+                    model.setInternetConnection();
+                } else {
+                    model.setNoInternetConnection();
+                }
                 return false;
             }
 
@@ -184,11 +203,7 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
 
                 if (newText == null || newText.isEmpty()) {
                     search = "";
-                    isLoading = true;
-                    isLast = false;
-                    page = 1;
-                    skeleton.showSkeleton();
-                    model.getProducts(requireContext(), page);
+                    getProducts();
 
                 }
                 return false;
@@ -221,11 +236,7 @@ public class AddOffersFragment extends BaseFragment implements OnGeneralClickLis
             model.setSelectedProduct((Product) object);
             binding.button3.setVisibility(View.VISIBLE);
         } else if (object instanceof AddProduct) {
-            isLoading = true;
-            isLast = false;
-            page = 1;
-            skeleton.showSkeleton();
-            model.getProducts(requireContext(), page);
+            getProducts();
             model.setSelectedProduct(null);
             binding.button3.setVisibility(View.GONE);
 

@@ -33,8 +33,7 @@
                 android:layout_height="100dp"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/add"
-                app:imageProductUrl="@{model.image}"
-                app:srcCompat="@drawable/ssss" />
+                app:imageProductUrl="@{model.image}" />
         </LinearLayout>
 
 

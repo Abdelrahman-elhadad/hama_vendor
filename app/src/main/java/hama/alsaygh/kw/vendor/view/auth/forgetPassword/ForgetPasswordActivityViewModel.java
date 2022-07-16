@@ -10,6 +10,10 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.general.GeneralResponse;
 import hama.alsaygh.kw.vendor.repo.AuthRepo;
@@ -68,14 +72,18 @@ public class ForgetPasswordActivityViewModel extends ViewModel {
 
     public void onResetClick(View view) {
 
-        if (listener != null)
-            listener.validation();
-        if (userName != null && !userName.isEmpty()) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+        if (MainApplication.isConnected) {
+            if (listener != null)
+                listener.validation();
+            if (userName != null && !userName.isEmpty()) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
 
-            login(view.getContext());
-        }
+                login(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public TextWatcher userNameTextWatcher() {

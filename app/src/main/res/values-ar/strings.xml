@@ -377,5 +377,6 @@
     <string name="search_products">البحث عن منتاجات</string>
     <string name="Packaging_Stores2">المضاف مؤخرا</string>
     <string name="Categories">الفئات</string>
-    <string name="select_image">Select Image</string>
+    <string name="select_image">اختار صورة</string>
+    <string name="try_again">حاول مجددا</string>
 </resources>

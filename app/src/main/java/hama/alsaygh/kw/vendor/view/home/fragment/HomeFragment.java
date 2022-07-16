@@ -14,6 +14,7 @@ import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.FragmentHomeBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.utils.Utils;
@@ -88,8 +89,7 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
-        skeleton.showSkeleton();
-        model.getHome(requireContext());
+
 
 
         binding.tvSeeAllBeastProduct.setOnClickListener(v -> ((HomeActivity) requireActivity()).openProducts());
@@ -108,7 +108,14 @@ public class HomeFragment extends BaseFragment {
                 binding.llPendingOrder.setVisibility(View.GONE);
             }
         });
-        model.getOrders(requireContext());
+        if (MainApplication.isConnected) {
+            skeleton.showSkeleton();
+            model.getHome(requireContext());
+            model.getOrders(requireContext());
+            model.setInternetConnection();
+        } else {
+            model.setNoInternetConnection();
+        }
         binding.llPendingOrder.setOnClickListener(v -> ((HomeActivity) requireActivity()).openOrders());
     }
 

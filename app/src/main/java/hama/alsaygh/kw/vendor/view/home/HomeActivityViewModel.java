@@ -16,8 +16,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.view.home.fragment.HomeFragment;
 import hama.alsaygh.kw.vendor.view.marketPrice.MarketPriceActivity;
 import hama.alsaygh.kw.vendor.view.more.MoreFragment;
@@ -194,7 +196,10 @@ public class HomeActivityViewModel extends ViewModel {
     }
 
     public void onNotificationClick(View view) {
-        view.getContext().startActivity(new Intent(view.getContext(), NotificationsActivity.class));
+        if (MainApplication.isConnected)
+            view.getContext().startActivity(new Intent(view.getContext(), NotificationsActivity.class));
+        else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
     }
 
     public void onMarketPriceClick(View view) {

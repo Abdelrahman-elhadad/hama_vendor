@@ -13,6 +13,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.model.order.Order;
 import hama.alsaygh.kw.vendor.model.order.OrderResponse;
 import hama.alsaygh.kw.vendor.repo.OrderRepo;
@@ -42,11 +43,21 @@ public class OrderDetailsViewModel extends ViewModel {
     protected ObservableInt pbAddProductVisibility = new ObservableInt();
 
     private final Context context;
+    private int type = -1;
+    private int id = -1;
 
     public OrderDetailsViewModel(Context context) {
         productRepo = new OrderRepo();
         this.context = context;
 
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public void setStoreModel(Order storeModel) {
@@ -73,6 +84,7 @@ public class OrderDetailsViewModel extends ViewModel {
 
     public void getOrders(Context context, int id, int type) {
         String status = "";
+        this.type = type;
         switch (type) {
             case PENDING:
                 status = "pending";
@@ -249,4 +261,36 @@ public class OrderDetailsViewModel extends ViewModel {
             price = context.getString(R.string.accept_order).replace("xx", storeModel.getTotal());
         return price;
     }
+
+
+    private final ObservableInt isConnected = new ObservableInt();
+    private final ObservableInt isNotConnectedView = new ObservableInt();
+
+    public void setInternetConnection() {
+        isConnected.set(View.VISIBLE);
+        isNotConnectedView.set(View.GONE);
+    }
+
+    public void setNoInternetConnection() {
+        isConnected.set(View.GONE);
+        isNotConnectedView.set(View.VISIBLE);
+    }
+
+    public ObservableInt getIsConnected() {
+        return isConnected;
+    }
+
+    public ObservableInt getIsNotConnectedView() {
+        return isNotConnectedView;
+    }
+
+    public void onTryAgainClick(View view) {
+        if (MainApplication.isConnected) {
+            setInternetConnection();
+            getOrders(view.getContext(), id, type);
+        } else {
+            setNoInternetConnection();
+        }
+    }
+
 }

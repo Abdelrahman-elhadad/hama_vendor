@@ -11,8 +11,11 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.repo.AuthRepo;
@@ -98,14 +101,20 @@ public class RegisterActivityViewModel extends ViewModel {
 
     public void onRegisterClick(View view) {
 
-        if (listener != null)
-            listener.validation();
-        if (isValid()) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+        if (MainApplication.isConnected) {
 
-            register(view.getContext());
-        }
+
+            if (listener != null)
+                listener.validation();
+            if (isValid()) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
+
+                register(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     public boolean isValid() {

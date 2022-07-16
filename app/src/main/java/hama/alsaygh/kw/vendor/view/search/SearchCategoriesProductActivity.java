@@ -110,8 +110,11 @@ public class SearchCategoriesProductActivity extends BaseActivity implements OnG
                 page = 1;
                 model.getProducts(this, page);
 
-            } else
+            } else {
                 binding.swRefresh.setRefreshing(false);
+                Snackbar.make(binding.swRefresh, binding.imgBack.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
+            }
         });
 
         binding.nsMain.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -124,10 +127,15 @@ public class SearchCategoriesProductActivity extends BaseActivity implements OnG
 
                 if (diff == 0) {
                     if (!isLoading && !isLast) {
-                        binding.pbLoading.setVisibility(View.VISIBLE);
-                        isLoading = true;
-                        ++page;
-                        model.getProducts(SearchCategoriesProductActivity.this, page);
+
+                        if (MainApplication.isConnected) {
+                            binding.pbLoading.setVisibility(View.VISIBLE);
+                            isLoading = true;
+                            ++page;
+                            model.getProducts(SearchCategoriesProductActivity.this, page);
+                        } else
+                            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
                     }
 
                 }
@@ -135,11 +143,15 @@ public class SearchCategoriesProductActivity extends BaseActivity implements OnG
         });
 
 
-        isLoading = true;
-        isLast = false;
-        page = 1;
-        skeleton.showSkeleton();
-        model.getProducts(this, page);
+        if (MainApplication.isConnected) {
+            isLoading = true;
+            isLast = false;
+            page = 1;
+            skeleton.showSkeleton();
+            model.getProducts(this, page);
+        } else
+            Snackbar.make(binding.imageView39, binding.imgBack.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
 
 //        binding.linerFilter.setOnClickListener(v -> {
 //            FilterByDialog.newInstance(model.getType_of_price(), model.getCategory_level_1(), model.getCategory_level_2(),
@@ -162,9 +174,13 @@ public class SearchCategoriesProductActivity extends BaseActivity implements OnG
     @Override
     public void onEditClick(Object object, int position) {
 
-        Intent intent = new Intent(this, AddEditProductActivity.class);
-        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
-        startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(this, AddEditProductActivity.class);
+            intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
+            startActivity(intent);
+        } else
+            Snackbar.make(binding.imageView39, binding.imgBack.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
 
     }
 

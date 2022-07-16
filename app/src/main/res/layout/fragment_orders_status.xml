@@ -12,18 +12,26 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_orders"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="6dp"
-            tools:listitem="@layout/item_rv_orders"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{model.isConnected}">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_orders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="6dp"
+                tools:listitem="@layout/item_rv_orders"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+            <LinearLayout
             android:id="@+id/ll_no_orders"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -39,13 +47,62 @@
                 android:contentDescription="@string/app_name"
                 app:srcCompat="@drawable/ic_promotional" />
 
+                <TextView
+                    android:id="@+id/no_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairoblack"
+                    android:text="@string/no_order"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="@{model.isNotConnectedView}">
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/or"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_no_wifi" />
+
             <TextView
-                android:id="@+id/no_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cairoblack"
-                android:text="@string/no_order"
-                android:textSize="25sp" />
+                android:fontFamily="@font/cairobold"
+                android:text="@string/no_internet_connection"
+                android:textAllCaps="true"
+                android:layout_margin="16dp"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_try_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:background="@drawable/back_ground_shadow"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:onClick="@{model::onTryAgainClick}"
+                android:text="@string/try_again"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="visible" />
 
         </LinearLayout>
     </FrameLayout>

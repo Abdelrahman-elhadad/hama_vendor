@@ -4,9 +4,11 @@ import android.content.Context;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
+import android.view.View;
 
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.databinding.ObservableInt;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.model.home.HomeData;
 import hama.alsaygh.kw.vendor.model.home.HomeResponse;
 import hama.alsaygh.kw.vendor.model.mySales.MyMarkerView;
@@ -48,13 +51,14 @@ public class HomeFragmentViewModel extends ViewModel {
     private MutableLiveData<HomeResponse> loginResponseMutableLiveData;
     private MutableLiveData<OrdersResponse> languageResponseMutableLiveData;
 
-
     private final Context context;
 
     public HomeFragmentViewModel(Context context, FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
         this.context = context;
         authRepo = new ProfileRepo();
+        isConnected.set(View.VISIBLE);
+        isNotConnectedView.set(View.GONE);
 
     }
 
@@ -72,6 +76,7 @@ public class HomeFragmentViewModel extends ViewModel {
     }
 
     public void getHome(Context context) {
+
         authRepo.getHome(context, loginResponseMutableLiveData);
 
     }
@@ -393,5 +398,37 @@ public class HomeFragmentViewModel extends ViewModel {
     public void getOrders(Context context) {
         new OrderRepo().getOrders(context, "pending", languageResponseMutableLiveData);
     }
+
+    private final ObservableInt isConnected = new ObservableInt();
+    private final ObservableInt isNotConnectedView = new ObservableInt();
+
+    public void setInternetConnection() {
+        isConnected.set(View.VISIBLE);
+        isNotConnectedView.set(View.GONE);
+    }
+
+    public void setNoInternetConnection() {
+        isConnected.set(View.GONE);
+        isNotConnectedView.set(View.VISIBLE);
+    }
+
+    public ObservableInt getIsConnected() {
+        return isConnected;
+    }
+
+    public ObservableInt getIsNotConnectedView() {
+        return isNotConnectedView;
+    }
+
+    public void onTryAgainClick(View view) {
+        if (MainApplication.isConnected) {
+            setInternetConnection();
+            getHome(view.getContext());
+            getOrders(view.getContext());
+        } else {
+            setNoInternetConnection();
+        }
+    }
+
 
 }

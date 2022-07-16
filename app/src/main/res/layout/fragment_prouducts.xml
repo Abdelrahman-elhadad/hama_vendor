@@ -14,12 +14,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/sw_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="@{model.isConnected}">
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/ns_main"
@@ -170,5 +172,53 @@
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="@{model.isNotConnectedView}">
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/or"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_no_wifi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cairobold"
+                android:text="@string/no_internet_connection"
+                android:textAllCaps="true"
+                android:layout_margin="16dp"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_try_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:background="@drawable/back_ground_shadow"
+                android:fontFamily="@font/cairobold"
+                android:gravity="center"
+                android:onClick="@{model::onTryAgainClick}"
+                android:text="@string/try_again"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+        </LinearLayout>
     </LinearLayout>
 </layout>

@@ -16,6 +16,7 @@
         android:id="@+id/ns_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:fillViewport="true">
 
         <LinearLayout
@@ -24,435 +25,490 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/ll_pending_order"
                 android:layout_width="match_parent"
-                android:layout_height="87dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_liner_home"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="@{model.isConnected}">
 
                 <LinearLayout
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:id="@+id/ll_pending_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="87dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_liner_home"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/order"
-                        app:srcCompat="@drawable/ic_group_3869" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#D2DDFE" />
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/order"
+                            app:srcCompat="@drawable/ic_group_3869" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#D2DDFE" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_order_new_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cairobold"
+                            android:text="@string/order"
+                            android:textColor="@color/textviewhome"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cairoregular"
+                            android:text="@string/hghghg"
+                            android:textColor="@color/ghhg"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_mysales"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:visibility="visible">
 
                     <TextView
-                        android:id="@+id/tv_order_new_count"
+                        android:id="@+id/tv_sales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/cairobold"
-                        android:text="@string/order"
-                        android:textColor="@color/textviewhome"
+                        android:text="@string/bvbvb"
+                        android:textColor="@color/blackcolor1"
+                        android:textSize="19sp" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_sales"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="5dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_mysales"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/Best_Seller_Day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/cairobold"
+                        android:text="@string/best"
+                        android:textColor="@color/blackcolor1"
+                        android:textSize="19sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart_best_day_sales"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="5dp" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_mysales"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tv_overview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/tv_week"
+                        android:layout_alignBottom="@+id/tv_week"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_toStartOf="@+id/tv_week"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="@string/Overview"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/blackcolor1"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/tv_week"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/back_spinner"
+                        android:fontFamily="@font/cairoregular"
+                        android:gravity="center"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:text="@string/last_week"
+                        android:textColor="@color/text"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/tv_store_views"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/tv_overview"
+                        android:layout_alignStart="@+id/tv_overview"
+                        android:layout_marginTop="16dp"
+                        android:layout_toStartOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="500"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/filter_by"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:id="@+id/view_overview_center"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <TextView
+                        android:id="@+id/tv_store_views_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_store_views"
+                        android:layout_alignStart="@id/tv_overview"
+                        android:layout_marginTop="8dp"
+                        android:layout_toStartOf="@+id/view_overview_center"
                         android:fontFamily="@font/cairoregular"
-                        android:text="@string/hghghg"
-                        android:textColor="@color/ghhg"
-                        android:textSize="16sp" />
+                        android:text="@string/Store_Views"
+                        android:textColor="@color/color"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_age_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_store_views_title"
+                        android:layout_alignStart="@+id/tv_overview"
+                        android:layout_marginTop="16dp"
+                        android:layout_toStartOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="@string/Male"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/filter_by"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_age_group_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_age_group"
+                        android:layout_alignStart="@+id/tv_overview"
+                        android:layout_marginTop="8dp"
+                        android:layout_toStartOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairoregular"
+                        android:gravity="start|center"
+                        android:text="@string/Most"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_new_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_overview"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_toEndOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="15"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/filter_by"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_new_order_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_new_order"
+                        android:layout_alignStart="@+id/tv_new_order"
+                        android:layout_alignEnd="@+id/tv_new_order"
+                        android:layout_marginTop="8dp"
+                        android:layout_toEndOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairoregular"
+                        android:gravity="start|center"
+                        android:text="@string/New_Orders"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_acceptable_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_new_order_title"
+                        android:layout_alignStart="@+id/tv_new_order"
+                        android:layout_alignEnd="@+id/tv_new_order"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairobold"
+                        android:gravity="start|center"
+                        android:text="25 - 40"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/filter_by"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_acceptable_price_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_acceptable_price"
+                        android:layout_alignStart="@+id/tv_new_order"
+                        android:layout_alignEnd="@+id/tv_new_order"
+                        android:layout_marginTop="8dp"
+                        android:layout_toEndOf="@+id/view_overview_center"
+                        android:fontFamily="@font/cairoregular"
+                        android:gravity="start|center"
+                        android:text="@string/hkhkh"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_beast_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_mysales"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/best_stores11"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairobold"
+                            android:gravity="start|center"
+                            android:text="@string/stores"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/blackcolor1"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:id="@+id/tv_see_all_beast_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/cairobold"
+                            android:gravity="end"
+                            android:text="@string/SEE_ALL"
+                            android:textColor="@color/textviewhome"
+                            android:textSize="13sp"
+                            app:drawableEndCompat="@drawable/ic_seeall" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_beast_products"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_rv1_beast_product_home" />
+
+
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_mysales"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/tv_sales"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/cairobold"
-                    android:text="@string/bvbvb"
-                    android:textColor="@color/blackcolor1"
-                    android:textSize="19sp" />
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/chart_sales"
+                <LinearLayout
+                    android:id="@+id/ll_users"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="5dp" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_mysales"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/Best_Seller_Day"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/cairobold"
-                    android:text="@string/best"
-                    android:textColor="@color/blackcolor1"
-                    android:textSize="19sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/back_mysales"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
 
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/chart_best_day_sales"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="5dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cairobold"
+                            android:gravity="start|center"
+                            android:text="@string/user_recommendations"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/blackcolor1"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:id="@+id/tv_see_all_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/cairobold"
+                            android:gravity="end"
+                            android:text="@string/SEE_ALL"
+                            android:textColor="@color/textviewhome"
+                            android:textSize="13sp"
+                            android:visibility="gone"
+                            app:drawableEndCompat="@drawable/ic_seeall" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_rv_user_home" />
 
 
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_mysales"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                android:visibility="visible">
-
-                <TextView
-                    android:id="@+id/tv_overview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/tv_week"
-                    android:layout_alignBottom="@+id/tv_week"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_toStartOf="@+id/tv_week"
-                    android:fontFamily="@font/cairobold"
-                    android:gravity="start|center"
-                    android:text="@string/Overview"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/blackcolor1"
-                    android:textSize="19sp" />
-
-                <TextView
-                    android:id="@+id/tv_week"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/back_spinner"
-                    android:fontFamily="@font/cairoregular"
-                    android:gravity="center"
-                    android:paddingStart="24dp"
-                    android:paddingEnd="24dp"
-                    android:text="@string/last_week"
-                    android:textColor="@color/text"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_store_views"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_overview"
-                    android:layout_alignStart="@+id/tv_overview"
-                    android:layout_marginTop="16dp"
-                    android:layout_toStartOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairobold"
-                    android:gravity="start|center"
-                    android:text="500"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/filter_by"
-                    android:textSize="14sp" />
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/view_overview_center"
-                    android:layout_width="1dp"
-                    android:layout_height="1dp"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp" />
-
-                <TextView
-                    android:id="@+id/tv_store_views_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_store_views"
-                    android:layout_alignStart="@id/tv_overview"
-                    android:layout_marginTop="8dp"
-                    android:layout_toStartOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairoregular"
-                    android:text="@string/Store_Views"
-                    android:textColor="@color/color"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:id="@+id/tv_age_group"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_store_views_title"
-                    android:layout_alignStart="@+id/tv_overview"
-                    android:layout_marginTop="16dp"
-                    android:layout_toStartOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairobold"
-                    android:gravity="start|center"
-                    android:text="@string/Male"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/filter_by"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_age_group_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_age_group"
-                    android:layout_alignStart="@+id/tv_overview"
-                    android:layout_marginTop="8dp"
-                    android:layout_toStartOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairoregular"
-                    android:gravity="start|center"
-                    android:text="@string/Most"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_new_order"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_overview"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_toEndOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairobold"
-                    android:gravity="start|center"
-                    android:text="15"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/filter_by"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_new_order_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_new_order"
-                    android:layout_alignStart="@+id/tv_new_order"
-                    android:layout_alignEnd="@+id/tv_new_order"
-                    android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairoregular"
-                    android:gravity="start|center"
-                    android:text="@string/New_Orders"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color"
-                    android:textSize="14sp" />
-
-
-                <TextView
-                    android:id="@+id/tv_acceptable_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_new_order_title"
-                    android:layout_alignStart="@+id/tv_new_order"
-                    android:layout_alignEnd="@+id/tv_new_order"
-                    android:layout_marginTop="16dp"
-                    android:layout_toEndOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairobold"
-                    android:gravity="start|center"
-                    android:text="25 - 40"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/filter_by"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_acceptable_price_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_acceptable_price"
-                    android:layout_alignStart="@+id/tv_new_order"
-                    android:layout_alignEnd="@+id/tv_new_order"
-                    android:layout_marginTop="8dp"
-                    android:layout_toEndOf="@+id/view_overview_center"
-                    android:fontFamily="@font/cairoregular"
-                    android:gravity="start|center"
-                    android:text="@string/hkhkh"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color"
-                    android:textSize="14sp" />
-            </RelativeLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp" />
+            </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_beast_product"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_mysales"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp">
+                android:gravity="center"
+                android:visibility="@{model.isNotConnectedView}">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/or"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_no_wifi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cairobold"
+                    android:text="@string/no_internet_connection"
+                    android:textAllCaps="true"
+                    android:layout_margin="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_try_again"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:background="@drawable/back_ground_shadow"
+                    android:fontFamily="@font/cairobold"
                     android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/best_stores11"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/cairobold"
-                        android:gravity="start|center"
-                        android:text="@string/stores"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/blackcolor1"
-                        android:textSize="19sp" />
-
-                    <TextView
-                        android:id="@+id/tv_see_all_beast_product"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/cairobold"
-                        android:gravity="end"
-                        android:text="@string/SEE_ALL"
-                        android:textColor="@color/textviewhome"
-                        android:textSize="13sp"
-                        app:drawableEndCompat="@drawable/ic_seeall" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_beast_products"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/item_rv1_beast_product_home" />
-
+                    android:onClick="@{model::onTryAgainClick}"
+                    android:text="@string/try_again"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
 
             </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/ll_users"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/back_mysales"
-                android:orientation="vertical"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/cairobold"
-                        android:gravity="start|center"
-                        android:text="@string/user_recommendations"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/blackcolor1"
-                        android:textSize="19sp" />
-
-                    <TextView
-                        android:id="@+id/tv_see_all_user"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/cairobold"
-                        android:gravity="end"
-                        android:text="@string/SEE_ALL"
-                        android:textColor="@color/textviewhome"
-                        android:textSize="13sp"
-                        android:visibility="gone"
-                        app:drawableEndCompat="@drawable/ic_seeall" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/item_rv_user_home" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="110dp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

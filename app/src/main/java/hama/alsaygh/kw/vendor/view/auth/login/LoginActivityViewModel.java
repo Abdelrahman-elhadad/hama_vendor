@@ -11,8 +11,11 @@ import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.listener.LoginListener;
 import hama.alsaygh.kw.vendor.model.user.LoginResponse;
 import hama.alsaygh.kw.vendor.repo.AuthRepo;
@@ -79,15 +82,18 @@ public class LoginActivityViewModel extends ViewModel {
     }
 
     public void onLoginClick(View view) {
+        if (MainApplication.isConnected) {
+            if (listener != null)
+                listener.validation();
+            if (userName != null && !userName.isEmpty() && password != null && !password.isEmpty()) {
+                setLoginVisibility(View.GONE);
+                setPbLoginVisibility(View.VISIBLE);
 
-        if (listener != null)
-            listener.validation();
-        if (userName != null && !userName.isEmpty() && password != null && !password.isEmpty()) {
-            setLoginVisibility(View.GONE);
-            setPbLoginVisibility(View.VISIBLE);
+                login(view.getContext());
+            }
+        } else
+            Snackbar.make(view, view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
-            login(view.getContext());
-        }
     }
 
     public void onForgetPasswordClick(View view) {
@@ -135,8 +141,9 @@ public class LoginActivityViewModel extends ViewModel {
 
     public void signUpNow(View view) {
         Intent i = new Intent(view.getContext(), RegisterActivity.class);
-        view.getContext(). startActivity(i);
+        view.getContext().startActivity(i);
     }
+
     public ObservableInt getLoginVisibility() {
         return loginVisibility;
     }

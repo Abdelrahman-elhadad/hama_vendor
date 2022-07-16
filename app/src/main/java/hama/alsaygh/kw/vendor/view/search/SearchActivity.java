@@ -11,6 +11,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.ActivitySearchBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.dialog.filterBy.FilterBySearchDialog;
@@ -34,9 +36,13 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
         binding.setModel(model);
         binding.imgBack.setOnClickListener(v -> finish());
         binding.tvClearLog.setOnClickListener(v -> {
-            AdapterSearchLog adapterSearchLog = new AdapterSearchLog(this, new ArrayList<>());
-            binding.rvSearchLog.setAdapter(adapterSearchLog);
-            model.deleteSearchLog(this);
+            if (MainApplication.isConnected) {
+                AdapterSearchLog adapterSearchLog = new AdapterSearchLog(this, new ArrayList<>());
+                binding.rvSearchLog.setAdapter(adapterSearchLog);
+                model.deleteSearchLog(this);
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
 
         });
         binding.editText3.setOnCloseListener(() -> {
@@ -105,7 +111,11 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
     @Override
     protected void onResume() {
         super.onResume();
-        model.getSearchLog(this);
+        if (MainApplication.isConnected)
+            model.getSearchLog(this);
+        else
+            Snackbar.make(binding.view, binding.view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -134,13 +144,21 @@ public class SearchActivity extends BaseActivity implements OnGeneralClickListen
 
     private void openProduct(String s) {
 
-        Intent intent = new Intent(this, SearchResultProductActivity.class);
-        intent.putExtra(AppConstants.SEARCH, s);
-        startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(this, SearchResultProductActivity.class);
+            intent.putExtra(AppConstants.SEARCH, s);
+            startActivity(intent);
+        } else
+            Snackbar.make(binding.view, binding.view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     private void openCategories(String s) {
-        FilterBySearchDialog.newInstance(s).show(getSupportFragmentManager(), "search_cat");
+        if (MainApplication.isConnected)
+            FilterBySearchDialog.newInstance(s).show(getSupportFragmentManager(), "search_cat");
+        else
+            Snackbar.make(binding.view, binding.view.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
 

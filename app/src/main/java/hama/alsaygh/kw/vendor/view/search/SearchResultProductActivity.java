@@ -11,6 +11,7 @@ import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.ActivitySearchResultProductBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
@@ -48,10 +49,13 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
         skeleton = SkeletonLayoutUtils.applySkeleton(binding.recycleSearchForStores, R.layout.item_rv_my_prouduct, 3);
         Utils.getInstance().setSkeletonMaskAndShimmer(this, skeleton);
 
-        if (search != null && !search.isEmpty()) {
-            skeleton.showSkeleton();
-            model.getSearchLogProduct(this, search);
-        }
+        if (MainApplication.isConnected) {
+            if (search != null && !search.isEmpty()) {
+                skeleton.showSkeleton();
+                model.getSearchLogProduct(this, search);
+            }
+        } else
+            Snackbar.make(binding.editSerchForStores, binding.recycleSearchForStores.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
 
         binding.editSerchForStores.setOnCloseListener(() -> {
@@ -65,8 +69,12 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
             @Override
             public boolean onQueryTextSubmit(String query) {
                 search = query;
-                skeleton.showSkeleton();
-                model.getSearchLogProduct(SearchResultProductActivity.this, search);
+                if (MainApplication.isConnected) {
+                    skeleton.showSkeleton();
+                    model.getSearchLogProduct(SearchResultProductActivity.this, search);
+                } else
+                    Snackbar.make(binding.editSerchForStores, getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
                 return false;
             }
 
@@ -108,9 +116,13 @@ public class SearchResultProductActivity extends BaseActivity implements OnGener
 
     @Override
     public void onEditClick(Object object, int position) {
-        Intent intent = new Intent(this, AddEditProductActivity.class);
-        intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
-        startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(this, AddEditProductActivity.class);
+            intent.putExtra(AppConstants.PRODUCT, RequestWrapper.getInstance().getGson().toJson((Product) object));
+            startActivity(intent);
+        } else
+            Snackbar.make(binding.editSerchForStores, getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
     }
 
     @Override

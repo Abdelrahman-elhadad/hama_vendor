@@ -4,9 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import androidx.databinding.ObservableInt;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
+import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.model.product.ProductsResponse;
 import hama.alsaygh.kw.vendor.repo.ProductRepo;
 import hama.alsaygh.kw.vendor.view.products.addProduct.AddEditProductActivity;
@@ -40,8 +45,12 @@ public class ProductsViewModel extends ViewModel {
 
 
     public void onAddProductClick(View v) {
-        Intent intent = new Intent(v.getContext(), AddEditProductActivity.class);
-        v.getContext().startActivity(intent);
+        if (MainApplication.isConnected) {
+            Intent intent = new Intent(v.getContext(), AddEditProductActivity.class);
+            v.getContext().startActivity(intent);
+        } else {
+            Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -100,4 +109,36 @@ public class ProductsViewModel extends ViewModel {
     public void setCategory_level_3(int category_level_3) {
         this.category_level_3 = category_level_3;
     }
+
+
+    private final ObservableInt isConnected = new ObservableInt();
+    private final ObservableInt isNotConnectedView = new ObservableInt();
+
+    public void setInternetConnection() {
+        isConnected.set(View.VISIBLE);
+        isNotConnectedView.set(View.GONE);
+    }
+
+    public void setNoInternetConnection() {
+        isConnected.set(View.GONE);
+        isNotConnectedView.set(View.VISIBLE);
+    }
+
+    public ObservableInt getIsConnected() {
+        return isConnected;
+    }
+
+    public ObservableInt getIsNotConnectedView() {
+        return isNotConnectedView;
+    }
+
+    public void onTryAgainClick(View view) {
+        if (MainApplication.isConnected) {
+            setInternetConnection();
+            getProducts(view.getContext(), 1);
+        } else {
+            setNoInternetConnection();
+        }
+    }
+
 }

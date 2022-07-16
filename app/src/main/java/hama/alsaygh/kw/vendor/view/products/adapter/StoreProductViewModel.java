@@ -13,9 +13,12 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.Locale;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.dialog.DeleteProductDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
 import hama.alsaygh.kw.vendor.model.product.Product;
@@ -113,7 +116,11 @@ public class StoreProductViewModel extends ViewModel {
         });
 
         tvDelete.setOnClickListener(v12 -> {
-            DeleteProductDialog.newInstance(storeModel.getId(), onGeneralClickListener).show(fragmentManager, "Delete");
+            if (MainApplication.isConnected) {
+                DeleteProductDialog.newInstance(storeModel.getId(), onGeneralClickListener).show(fragmentManager, "Delete");
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
             popupWindow.dismiss();
         });
 

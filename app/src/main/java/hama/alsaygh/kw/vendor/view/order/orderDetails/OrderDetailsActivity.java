@@ -14,6 +14,7 @@ import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.ActivityOrderDetailsBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.dialog.order.AcceptOrderDialog;
@@ -39,6 +40,7 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
         binding = ActivityOrderDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         model = new OrderDetailsViewModel(this);
+
         binding.setModel(model);
         skeleton = SkeletonLayoutUtils.createSkeleton(binding.nsvMain);
         Utils.getInstance().setSkeletonMaskAndShimmer(this, skeleton);
@@ -47,6 +49,8 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
             id = getIntent().getIntExtra(AppConstants.ORDER_ID, -1);
             status = getIntent().getIntExtra(AppConstants.ORDER_STATUS, -1);
         }
+        model.setType(status);
+        model.setId(id);
         model.getObserver().observe(this, orderResponse -> {
 
             skeleton.showOriginal();
@@ -130,36 +134,56 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
         });
 
 
-        binding.butAccept.setOnClickListener(v ->
+        binding.butAccept.setOnClickListener(v -> {
+
+            if (MainApplication.isConnected) {
                 AcceptOrderDialog.newInstance(model.storeModel.getId(), null)
-                        .show(getSupportFragmentManager(), "accept")
-        );
+                        .show(getSupportFragmentManager(), "accept");
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
 
-        binding.butDiscard.setOnClickListener(v ->
-                DiscardOrderDialog.newInstance(model.storeModel.getId(), this)
-                        .show(getSupportFragmentManager(), "discard")
-        );
-
-        binding.btnPdf.setOnClickListener(v -> {
-            DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_pdf_link()));
-            request.setTitle(getString(R.string.download_pdf))
-                    .setDescription(getString(R.string.download_file))
-                    .setDestinationInExternalFilesDir(this,
-                            Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            downloadManager.enqueue(request);
         });
 
-        binding.btnImage.setOnClickListener(v -> {
-            DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_image_link()));
-            request.setTitle(getString(R.string.download_image))
-                    .setDescription(getString(R.string.download_file))
-                    .setDestinationInExternalFilesDir(this,
-                            Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            downloadManager.enqueue(request);
+        binding.butDiscard.setOnClickListener(v -> {
+            if (MainApplication.isConnected) {
+                DiscardOrderDialog.newInstance(model.storeModel.getId(), this)
+                        .show(getSupportFragmentManager(), "discard");
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
+        });
+
+        binding.btnPdf.setOnClickListener(v ->
+
+        {
+            if (MainApplication.isConnected) {
+                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_pdf_link()));
+                request.setTitle(getString(R.string.download_pdf))
+                        .setDescription(getString(R.string.download_file))
+                        .setDestinationInExternalFilesDir(this,
+                                Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
+                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                downloadManager.enqueue(request);
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
+        });
+
+        binding.btnImage.setOnClickListener(v ->
+        {
+            if (MainApplication.isConnected) {
+                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(model.storeModel.getVoucher_image_link()));
+                request.setTitle(getString(R.string.download_image))
+                        .setDescription(getString(R.string.download_file))
+                        .setDestinationInExternalFilesDir(this,
+                                Environment.DIRECTORY_DOWNLOADS, "hama_order_" + System.currentTimeMillis())
+                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                downloadManager.enqueue(request);
+            } else
+                Snackbar.make(v, v.getContext().getString(R.string.no_internet_connection), Snackbar.LENGTH_SHORT).show();
+
         });
     }
 
@@ -175,18 +199,28 @@ public class OrderDetailsActivity extends BaseActivity implements OnGeneralClick
 
     @Override
     public void onDeleteClick(Object object, int position) {
-        skeleton.showSkeleton();
-        binding.llNext.setVisibility(View.GONE);
-        status = CANCELED;
-        model.getOrders(this, id, status);
+        if (MainApplication.isConnected) {
+            skeleton.showSkeleton();
+            binding.llNext.setVisibility(View.GONE);
+            status = CANCELED;
+            model.getOrders(this, id, status);
+            model.setInternetConnection();
+        } else
+            model.setNoInternetConnection();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        skeleton.showSkeleton();
-        binding.llNext.setVisibility(View.GONE);
-        model.getOrders(this, id, status);
+        if (MainApplication.isConnected) {
+            skeleton.showSkeleton();
+            binding.llNext.setVisibility(View.GONE);
+            model.getOrders(this, id, status);
+            model.setInternetConnection();
+        } else {
+            model.setNoInternetConnection();
+        }
     }
 
     @Override

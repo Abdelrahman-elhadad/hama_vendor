@@ -15,6 +15,7 @@ import com.faltenreich.skeletonlayout.SkeletonLayoutUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import hama.alsaygh.kw.vendor.R;
+import hama.alsaygh.kw.vendor.app.MainApplication;
 import hama.alsaygh.kw.vendor.databinding.FragmentOrdersStatusBinding;
 import hama.alsaygh.kw.vendor.dialog.LoginDialog;
 import hama.alsaygh.kw.vendor.listener.OnGeneralClickListener;
@@ -56,6 +57,7 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
         super.onViewCreated(view, savedInstanceState);
         fragmentManager = getChildFragmentManager();
         model = new OrdersViewModel();
+        model.setType(type);
         binding.setModel(model);
         skeleton = SkeletonLayoutUtils.applySkeleton(binding.rvOrders, R.layout.item_rv_orders, 2);
         Utils.getInstance().setSkeletonMaskAndShimmer(requireContext(), skeleton);
@@ -84,8 +86,13 @@ public class OrdersStatusFragment extends BaseFragment implements OnGeneralClick
             }
         });
 
-        skeleton.showSkeleton();
-        model.getOrders(requireContext(), type);
+        if (MainApplication.isConnected) {
+            skeleton.showSkeleton();
+            model.getOrders(requireContext(), type);
+            model.setInternetConnection();
+        } else {
+            model.setNoInternetConnection();
+        }
     }
 
     @Override

@@ -13,7 +13,8 @@
         android:id="@+id/parent_my_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_orders"
